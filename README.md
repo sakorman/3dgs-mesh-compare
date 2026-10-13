@@ -1,8 +1,14 @@
 # 重建对照台 · 3DGS × Mesh
 
+[在线演示](https://sakorman.github.io/3dgs-mesh-compare/) · [性能与画质实验](https://sakorman.github.io/3dgs-mesh-compare/benchmark.html)
+
 基于同一组照片，比较 **3D Gaussian Splatting** 与 **立体匹配 + Poisson Mesh** 的重建效果、渲染性能和模型体积。默认场景来自 [sakorman/web-scan](https://github.com/sakorman/web-scan) 的 ETH3D 管道房照片，可切换办公室。
 
 仓库包含两组照片、SH3 高斯模型与纹理 GLB，可直接启动查看。性能与画质指标在浏览器中计算。
+
+[![管道房：左侧 3DGS，右侧纹理 Mesh，同一标定视角](docs/images/pipes-comparison.jpg)](https://sakorman.github.io/3dgs-mesh-compare/)
+
+**管道房，同一拍摄视角。** 左侧为 30 万个高斯的 SH3 渲染，右侧为约 6.7 万三角形的纹理 Mesh。可对照管线轮廓、墙面连续性和门边的缺失区域。点击图片进入在线页面，使用「对照原照片」查看参考照片。
 
 ## 运行
 
@@ -36,6 +42,22 @@ npm test        # 数值、相机和模型解压测试
 - **导出 JSON**：保存原始性能样本、逐视角画质、相机、分辨率、浏览器和模型来源。
 
 切换场景/分辨率会清空报告；切换拍摄视角会清空该视角的性能成绩。测试时冻结控制，进入后台、窗口变化、上下文丢失或点击取消会作废测试。
+
+## 场景与网格
+
+### 办公室
+
+![办公室：桌椅、显示器和墙面的 3DGS 与 Mesh 对比](docs/images/office-comparison.jpg)
+
+办公室包含 26 张照片，使用其中 22 张训练、4 张留出评测。图中两侧使用同一个留出视角：3DGS 保留了较连续的外观，当前 Mesh 基线在墙面与细小结构处存在空洞和变形。切换其他照片或自由查看，可以检查不同位置的重建情况。
+
+### Mesh 线框
+
+![管道房 Mesh 线框：右侧显示三角形分布，左侧保留 3DGS 渲染](docs/images/mesh-wireframe.jpg)
+
+点击「Mesh 线框」显示三角形边。管线附近的网格较密，部分平面由较大的三角形连接；这个视图用于检查几何结构，线框状态不参与性能与画质评测。
+
+以上图片均截自项目页面，使用默认模型与标定相机。照片及衍生画面遵循 ETH3D 的 CC BY-NC-SA 4.0 许可。
 
 ## 数据与重建
 
@@ -91,7 +113,9 @@ python3.12 -m venv .venv
 
 ## GitHub Pages
 
-构建使用相对路径，支持仓库子路径。Settings → Pages → Source 选择 GitHub Actions，再运行 **Deploy comparison to GitHub Pages** 工作流。普通推送运行 CI，不自动变更线上部署。
+已发布：[https://sakorman.github.io/3dgs-mesh-compare/](https://sakorman.github.io/3dgs-mesh-compare/)。
+
+更新线上页面时，在 Actions 中手动运行 **Deploy comparison to GitHub Pages** 工作流。普通推送运行 CI。构建使用相对路径，支持仓库子路径；Fork 部署需先在 Settings → Pages 中将 Source 设为 GitHub Actions。
 
 ## 目录
 
@@ -102,6 +126,7 @@ public/scenes/         两组照片、模型和来源清单
 public/licenses/      运行时第三方许可与数据说明
 tests/                数学与数据完整性检查
 docs/                 界面结构与测试记录
+docs/images/          页面截图
 .github/workflows/    CI 与手动 Pages 发布
 ```
 
