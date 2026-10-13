@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.venv/
+.qa/
+test-results/
+playwright-report/
+__pycache__/
+.DS_Store
