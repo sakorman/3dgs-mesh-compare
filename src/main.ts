@@ -17,6 +17,7 @@ const labMarkup = `  <section class="measurements" aria-label="性能与效果�
     <p class="measurement-note" id="measurement-note">性能测试固定当前拍摄视角，按 AB / BA / AB / BA 顺序采样，每组 160 帧。漫游与线框用于观察，评测时恢复标准状态。</p>
   </section>
   <details class="method"><summary>数据、重建方法与结果边界 <span>展开说明</span></summary><div class="method-grid"><div><h3>共用照片与相机</h3><p>默认场景来自你的 web-scan：ETH3D 管道房与办公室。3DGS 与 Mesh 使用相同训练照片；照片条中的蓝点标识留出照片。所有照片参与过上游 COLMAP 位姿求解，因此这不是完全独立的端到端测试。</p></div><div><h3>两条独立重建路径</h3><p>3DGS 使用已有 Brush 10,000 步训练结果，保留 SH3。Mesh 从训练照片进行极线校正、SGBM 立体匹配、左右一致性检查、点云融合与 Poisson 表面重建，再按可见性选择训练照片纹理。它是轻量 CPU 基线，可能出现空洞与接缝，不代表调优后的 OpenMVS 等完整流水线。</p></div><div><h3>时间与性能如何理解</h3><p id="build-times"></p><p>历史 GPU 训练与本次 CPU Mesh 构建不在同一受控条件下，不能据此推导重建速度倍数。浏览器测试使用固定相机和相同分辨率，不包含模型下载、解析与动态排序开销。</p></div><div><h3>数据与代码许可</h3><p>照片及衍生模型：Schöps 等，ETH3D / CVPR 2017，CC BY-NC-SA 4.0，限非商业用途。项目代码使用 MIT。</p><p><a href="https://www.eth3d.net/datasets" target="_blank" rel="noreferrer">ETH3D 数据集 ↗</a>　<a href="https://github.com/sakorman/web-scan" target="_blank" rel="noreferrer">web-scan 来源 ↗</a></p></div></div></details>
+  <dialog id="report-dialog"><div class="report-heading"><h2>JSON 评测报告</h2><button id="close-report">关闭</button></div><p>完整报告包含原始样本、相机与逐视角画质，可下载或选择全文复制。</p><textarea id="report-json" readonly aria-label="完整 JSON 报告"></textarea><div class="report-actions"><button id="select-report">选择全文</button><a id="download-report" class="download-report">下载 JSON 文件</a></div></dialog>
 `;
 const icon =
   '<svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="m16 3 12 7v13l-12 7-12-7V10Z" stroke="currentColor" stroke-width="1.7"/><path d="m4 10 12 7 12-7M16 17v13M16 3v14" stroke="currentColor" stroke-width="1.7"/><circle cx="16" cy="17" r="3.5" fill="currentColor"/></svg>';
@@ -394,15 +395,25 @@ if (isBenchmark)
       quality: qualityReport ?? null,
       limitations: data.limitations,
     };
-    const blob = new Blob([JSON.stringify(report, null, 2)], {
-      type: "application/json",
+    const json = JSON.stringify(report, null, 2);
+    const dialog = $<HTMLDialogElement>("report-dialog");
+    const textarea = $<HTMLTextAreaElement>("report-json");
+    textarea.value = json;
+    const url = URL.createObjectURL(
+      new Blob([json], { type: "application/json" }),
+    );
+    const link = $<HTMLAnchorElement>("download-report");
+    link.href = url;
+    link.download = `${sceneId}-comparison-${Date.now()}.json`;
+    button("close-report").onclick = () => dialog.close();
+    button("select-report").onclick = () => {
+      textarea.focus();
+      textarea.select();
+    };
+    dialog.addEventListener("close", () => URL.revokeObjectURL(url), {
+      once: true,
     });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `${sceneId}-comparison-${Date.now()}.json`;
-    a.click();
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    dialog.showModal();
   };
 window.addEventListener("resize", () => {
   if (controller) controller.abort();
