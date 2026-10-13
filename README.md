@@ -10,6 +10,20 @@
 
 **管道房，同一拍摄视角。** 左侧为 30 万个高斯的 SH3 渲染，右侧为约 6.7 万三角形的纹理 Mesh。可对照管线轮廓、墙面连续性和门边的缺失区域。点击图片进入在线页面，使用「对照原照片」查看参考照片。
 
+## 重建耗时
+
+| 场景 | 3DGS 训练与模型导出（GPU） | Mesh 重建与 GLB 导出（CPU） |
+| --- | ---: | ---: |
+| 管道房（pipes） | 503.24 秒（约 8 分 23 秒） | 2.72 秒 |
+| 办公室（office） | 577.83 秒（约 9 分 38 秒） | 4.87 秒 |
+
+两组均复用已有 COLMAP 位姿，表中不含首次 SfM、网页加载与浏览器渲染耗时。
+
+- **3DGS**：web-scan 历史记录，Brush 0.3.0，10,000 步，分辨率上限 1024。
+- **Mesh**：本项目 CPU 构建记录，4 线程，分辨率上限 1024；包含立体匹配、点云融合、Poisson 重建、贴图和 GLB 导出。
+
+两种耗时来自不同运行条件，不作为同条件的速度倍数比较。原始记录：[管道房](public/scenes/pipes/scene.json)、[办公室](public/scenes/office/scene.json)（`gaussian.seconds` / `mesh.seconds`）。
+
 ## 运行
 
 需要 Node.js 20.19+、npm，以及支持 WebGL2 和 DecompressionStream 的现代浏览器。
@@ -96,7 +110,7 @@ PSNR 使用全图 RGB MSE；SSIM 使用每通道 RGB、11×11 Gaussian 窗口（
 
 ### 重建时间与体积
 
-3DGS 时间来自 web-scan 历史 GPU 训练记录；Mesh 时间来自当前 CPU 构建，均单独标识，不推导速度倍数。模型大小是 gzip PLY 与含纹理 GLB 的文件字节数，不是 GPU 显存占用。高斯解压后字节数也记录在 manifest。
+具体数值见[重建耗时](#重建耗时)。3DGS 时间来自 web-scan 历史 GPU 训练记录；Mesh 时间来自当前 CPU 构建，均单独标识，不推导速度倍数。模型大小是 gzip PLY 与含纹理 GLB 的文件字节数，不是 GPU 显存占用。高斯解压后字节数也记录在 manifest。
 
 ## 复现 Mesh
 
