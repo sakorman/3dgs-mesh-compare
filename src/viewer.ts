@@ -4,6 +4,7 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { SparkRenderer, SplatMesh, SplatFileType } from "@sparkjsdev/spark";
 import { applyView } from "./camera";
 import { decodePly } from "./model-bytes";
+import { RenderScheduler } from "./render-scheduler";
 import type { Backend, SceneData, View } from "./types";
 export const nextFrame = () =>
   new Promise<number>((resolve) => requestAnimationFrame(resolve));
@@ -19,12 +20,24 @@ export class CompareViewer {
   view?: View;
   width = 768;
   height = 504;
-  playing = true;
+  private previewEnabled = true;
+  private preview?: RenderScheduler;
+  get playing() {
+    return this.previewEnabled;
+  }
+  set playing(enabled: boolean) {
+    this.previewEnabled = enabled;
+    this.updatePreviewState();
+  }
+  private updatePreviewState = () => {
+    this.preview?.setEnabled(
+      this.previewEnabled && !document.hidden && !this.lost && !this.disposed,
+    );
+  };
   disposed = false;
   lost = false;
   onError = (s: string) => {};
   onProgress = (s: string) => {};
-  private frame = 0;
   private loadVersion = 0;
   constructor(left: HTMLElement, right: HTMLElement) {
     const make = (parent: HTMLElement, label: string) => {
@@ -55,17 +68,15 @@ export class CompareViewer {
       renderer: this.renderers.gaussian,
       enableLod: false,
       sortRadial: false,
+      onDirty: () => this.preview?.invalidate(),
     });
     this.scenes.gaussian.add(this.spark);
-    const loop = () => {
-      if (this.disposed) return;
-      this.frame = requestAnimationFrame(loop);
-      if (this.playing && !this.lost) {
-        this.render("gaussian");
-        this.render("mesh");
-      }
-    };
-    loop();
+    this.preview = new RenderScheduler(() => {
+      this.render("gaussian");
+      this.render("mesh");
+    });
+    document.addEventListener("visibilitychange", this.updatePreviewState);
+    this.updatePreviewState();
   }
   async load(id: string) {
     const version = ++this.loadVersion;
@@ -124,6 +135,7 @@ export class CompareViewer {
     this.scenes.mesh.add(this.mesh);
     this.onProgress("正在准备首帧与高斯排序…");
     await this.settle();
+    this.preview?.invalidate();
     this.playing = true;
     return data;
   }
@@ -150,6 +162,7 @@ export class CompareViewer {
       this.disposeMesh(this.mesh);
       this.mesh = undefined;
     }
+    this.preview?.invalidate();
   }
   setSize(width: number) {
     this.width = width;
@@ -160,6 +173,7 @@ export class CompareViewer {
       r.setSize(this.width, this.height, false);
       r.domElement.parentElement!.style.aspectRatio = `${this.width}/${this.height}`;
     }
+    this.preview?.invalidate();
   }
   setView(view: View) {
     this.view = view;
@@ -167,6 +181,7 @@ export class CompareViewer {
     this.controls = [];
     applyView(this.camera, view);
     this.setSize(this.width);
+    this.preview?.invalidate();
   }
   orbit(enabled: boolean) {
     if (!enabled) {
@@ -184,6 +199,9 @@ export class CompareViewer {
       control.enableDamping = false;
       control.minDistance = 0.02;
       control.maxDistance = 10;
+      control.addEventListener("change", () => {
+        this.preview?.invalidate();
+      });
       control.update();
       return control;
     });
@@ -197,6 +215,7 @@ export class CompareViewer {
         );
       }
     });
+    this.preview?.invalidate();
   }
   render(kind: Backend) {
     this.renderers[kind].render(this.scenes[kind], this.camera);
@@ -239,7 +258,8 @@ export class CompareViewer {
   dispose() {
     this.disposed = true;
     this.loadVersion++;
-    cancelAnimationFrame(this.frame);
+    this.preview?.dispose();
+    document.removeEventListener("visibilitychange", this.updatePreviewState);
     this.clear();
     this.controls.forEach((c) => c.dispose());
     this.spark.dispose();
