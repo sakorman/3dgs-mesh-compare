@@ -1,6 +1,6 @@
 # 重建对照台 · 3DGS × Mesh
 
-[在线演示](https://sakorman.github.io/3dgs-mesh-compare/) · [性能与画质实验](https://sakorman.github.io/3dgs-mesh-compare/benchmark.html)
+[在线演示](https://sakorman.github.io/3dgs-mesh-compare/) · [性能与画质实验](https://sakorman.github.io/3dgs-mesh-compare/benchmark.html) · [更新日志](CHANGELOG.md) · [开发计划](docs/ROADMAP.md)
 
 基于同一组照片，比较 **3D Gaussian Splatting** 与 **立体匹配 + Poisson Mesh** 的重建效果、渲染性能和模型体积。默认场景来自 [sakorman/web-scan](https://github.com/sakorman/web-scan) 的 ETH3D 管道房照片，可切换办公室。
 
