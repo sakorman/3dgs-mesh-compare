@@ -2,6 +2,11 @@
 
 ## 2026-10-24
 
+- 修复快速切换场景时旧的 scene.json、PLY 和 GLB 下载继续占用网络的问题：新请求会中止旧请求，旧进度不会覆盖当前场景，只有最新请求可以解锁界面。
+- 浏览器回归按 pipes → office → pipes 连续切换，最终状态正确回到管道房，控制台无错误，记录见[快速切换检查](docs/benchmarks/load-race-2026-10-24.json)。本轮没有测量实际节省的网络字节。
+- 19 项测试、类型检查和生产构建通过；新增逻辑不改变模型、相机或画质路径。
+- 参考 [Spark #476](https://github.com/sparkjsdev/spark/pull/476) 的异步销毁问题，以及 [Three.js GLTFLoader](https://threejs.org/docs/pages/GLTFLoader.html) 的 ArrayBuffer 解析接口。
+
 - Spark 依赖从 2.3.1 升级到 2.4.0，保留当前按需渲染和位图回收逻辑。
 - 升级后 `npm test` 19 项、TypeScript 检查和生产构建通过；浏览器完成管道房加载、自由查看、重置和 Mesh 线框回归，控制台无错误。
 - 本轮只验证兼容性，没有宣称新的 FPS 或画质收益；2.4.0 的分页 LoD、新格式和压缩能力保留为后续独立实验。

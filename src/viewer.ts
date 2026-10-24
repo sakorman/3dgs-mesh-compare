@@ -40,6 +40,7 @@ export class CompareViewer {
   onError = (s: string) => {};
   onProgress = (s: string) => {};
   private loadVersion = 0;
+  private loadAbort?: AbortController;
   constructor(left: HTMLElement, right: HTMLElement) {
     const make = (parent: HTMLElement, label: string) => {
       const r = new THREE.WebGLRenderer({
@@ -80,22 +81,28 @@ export class CompareViewer {
     this.updatePreviewState();
   }
   async load(id: string) {
+    this.loadAbort?.abort();
+    const abort = new AbortController();
+    this.loadAbort = abort;
     const version = ++this.loadVersion;
     this.playing = false;
     this.clear();
     const base = `${import.meta.env.BASE_URL}scenes/${id}/`;
-    const response = await fetch(base + "scene.json");
+    const response = await fetch(base + "scene.json", { signal: abort.signal });
     if (!response.ok) throw new Error("无法读取场景信息");
     const data: SceneData = await response.json();
     this.data = data;
     this.setView(data.views.find((v) => v.heldOut) ?? data.views[0]);
     const results = await Promise.allSettled([
       (async () => {
-        this.onProgress("正在加载完整高斯模型…");
-        const res = await fetch(base + data.gaussian.url);
+        const progress = (message: string) => {
+          if (version === this.loadVersion) this.onProgress(message);
+        };
+        progress("正在加载完整高斯模型…");
+        const res = await fetch(base + data.gaussian.url, { signal: abort.signal });
         if (!res.ok || !res.body) throw new Error("高斯模型下载失败");
         const bytes = await decodePly(await res.arrayBuffer());
-        this.onProgress("正在解析高斯模型与纹理…");
+        progress("正在解析高斯模型与纹理…");
         const g = new SplatMesh({
           fileBytes: bytes,
           fileType: SplatFileType.PLY,
@@ -113,31 +120,38 @@ export class CompareViewer {
         g.updateGenerator();
         return g;
       })(),
-      new GLTFLoader().loadAsync(base + data.mesh.url).then((g) => g.scene),
+      fetch(base + data.mesh.url, { signal: abort.signal })
+        .then((res) => {
+          if (!res.ok) throw new Error("Mesh 模型下载失败");
+          return res.arrayBuffer();
+        })
+        .then((bytes) => new GLTFLoader().parseAsync(bytes, base))
+        .then((g) => g.scene),
     ]);
-    if (
-      version !== this.loadVersion ||
-      this.disposed ||
-      results.some((r) => r.status === "rejected")
-    ) {
+    if (version !== this.loadVersion || this.disposed) {
       results.forEach((r) => {
         if (r.status === "fulfilled") {
           if (r.value instanceof SplatMesh) r.value.dispose();
           else disposeMeshResources(r.value);
         }
       });
-      const failed = results.find((r) => r.status === "rejected");
-      if (failed?.status === "rejected") throw failed.reason;
       return;
     }
+    const failed = results.find((r) => r.status === "rejected");
+    if (failed?.status === "rejected") throw failed.reason;
     this.gaussian = (results[0] as PromiseFulfilledResult<SplatMesh>).value;
     this.mesh = (results[1] as PromiseFulfilledResult<THREE.Group>).value;
     this.scenes.gaussian.add(this.gaussian);
     this.scenes.mesh.add(this.mesh);
     this.onProgress("正在准备首帧与高斯排序…");
     await this.settle();
+    if (version !== this.loadVersion || this.disposed) {
+      this.clear();
+      return;
+    }
     this.preview?.invalidate();
     this.playing = true;
+    if (this.loadAbort === abort) this.loadAbort = undefined;
     return data;
   }
   clear() {
@@ -246,6 +260,8 @@ export class CompareViewer {
   }
   dispose() {
     this.disposed = true;
+    this.loadAbort?.abort();
+    this.loadAbort = undefined;
     this.loadVersion++;
     this.preview?.dispose();
     document.removeEventListener("visibilitychange", this.updatePreviewState);
