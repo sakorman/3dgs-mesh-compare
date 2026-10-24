@@ -1,5 +1,12 @@
 # 更新日志
 
+## 2026-10-24
+
+- 修复场景切换与销毁时纹理位图未关闭的问题，统一回收材质贴图，并对共享几何、材质、纹理和位图去重。
+- 浏览器对照：旧版退出管道房、办公室后分别仍有 12、22 张位图未关闭；修复后均为 0，当前场景纹理正常，往返切换的 3DGS 与 Mesh 像素哈希与基线一致。见[原始记录](docs/benchmarks/mesh-resources-2026-10-24.json)。
+- 新增 5 项资源回收测试与可重复运行的浏览器检查页；19 项测试和生产构建通过。
+- 参考：[Three.js 资源释放](https://threejs.org/manual/pages/how-to-dispose-of-objects.html)、[GLTFLoader 位图说明](https://threejs.org/docs/pages/GLTFLoader.html)。
+
 ## 2026-10-23
 
 - 预览渲染改为按需触发：静态页面不再持续提交双画布帧，Spark 排序完成、相机变化、窗口尺寸变化和 Mesh 线框变化会合并为下一帧。

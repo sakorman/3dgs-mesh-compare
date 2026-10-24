@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+  <meta charset="utf-8" /><title>Mesh bitmap release check</title
+  ><style>
+    body {
+      font: 14px system-ui;
+      background: #edf1f5;
+      margin: 20px;
+    }
+    #views {
+      display: flex;
+      gap: 8px;
+    }
+    #views > div {
+      width: 48%;
+      background: black;
+    }
+    canvas {
+      width: 100%;
+      display: block;
+    }
+    pre {
+      white-space: pre-wrap;
+    }
+    button {
+      padding: 8px;
+      margin: 10px 0;
+    }
+  </style>
+  <h1>Mesh bitmap release check</h1>
+  <div id="views">
+    <div id="left"></div>
+    <div id="right"></div>
+  </div>
+  <button id="run" disabled>Run scene lifecycle</button>
+  <pre id="result">Loading…</pre>
+  <script type="module" src="./mesh-resources.ts"></script>
+</html>
