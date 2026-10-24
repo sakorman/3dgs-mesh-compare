@@ -4,10 +4,7 @@
   "renderer": "Three.js 0.180.0 / Spark 2.3.1",
   "baseline": {
     "variant": "baseline",
-    "viewport": [
-      768,
-      505
-    ],
+    "viewport": [768, 505],
     "rows": [
       {
         "nextScene": "office",
@@ -44,10 +41,7 @@
   },
   "candidate": {
     "variant": "candidate",
-    "viewport": [
-      768,
-      505
-    ],
+    "viewport": [768, 505],
     "rows": [
       {
         "nextScene": "office",
@@ -82,5 +76,6 @@
     "pixelsMatch": true,
     "errors": []
   },
-  "note": "Decoded RGBA byte values are estimates from image dimensions, not measured process RSS or GPU memory."
+  "note": "Decoded RGBA byte values are estimates from image dimensions, not measured process RSS or GPU memory.",
+  "candidateRenderer": "Three.js 0.180.0 / Spark 2.4.0"
 }
