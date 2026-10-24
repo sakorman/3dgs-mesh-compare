@@ -50,6 +50,7 @@ const mib = (n: number) => (n / 1024 / 1024).toFixed(2);
 let viewer: CompareViewer;
 let data: SceneData;
 let sceneId = "pipes";
+let loadRequest = 0;
 let viewIndex = 0;
 let ready = false;
 let controller: AbortController | undefined;
@@ -146,6 +147,7 @@ function selectView(index: number) {
   }
 }
 async function loadScene(id: string) {
+  const request = ++loadRequest;
   sceneId = id;
   ready = false;
   lock(true);
@@ -203,12 +205,13 @@ async function loadScene(id: string) {
     setWire(false);
     status("加载完成，可切换照片或自由查看。");
   } catch (e) {
+    if (request !== loadRequest) return;
     ready = false;
     viewer.playing = false;
     status(`加载失败：${message(e)}。请重试。`, true);
     button("retry").hidden = false;
   } finally {
-    lock(false);
+    if (request === loadRequest) lock(false);
   }
 }
 function message(e: unknown) {

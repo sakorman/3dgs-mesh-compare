@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-24",
+  "baseCommit": "6f66c60",
+  "browser": "Chrome 153 / WebGL2",
+  "actions": ["loaded pipes", "clicked office", "immediately clicked pipes"],
+  "finalScene": "pipes",
+  "finalStatus": "加载完成，可切换照片或自由查看。",
+  "errors": [],
+  "note": "旧加载的 scene.json、PLY 和 GLB fetch 使用 AbortController；当前请求的进度消息和 UI 解锁由请求序号保护。未记录网络字节节省量。"
+}
