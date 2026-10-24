@@ -1,12 +1,12 @@
 # 3DGS 研究索引
 
-查阅日期：2026-10-24。以下是持续跟踪与实验候选；除当前依赖外，尚未在本项目验证收益。
+查阅日期：2026-10-25。以下是持续跟踪与实验候选；除当前依赖外，尚未在本项目验证收益。
 
 ## 实现
 
 | 项目                                                   | 关注点                                            | 当前状态                                                                                                                 |
 | ------------------------------------------------------ | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| [Spark](https://github.com/sparkjsdev/spark)           | 浏览器渲染、排序、LoD、资源生命周期与压缩格式支持 | 已升级至 2.4.0；按需渲染、销毁后异步任务和 LoD 资源修复已通过当前项目回归；当前网页依赖 2.4.0；分页/LoD 和新格式另行验证 |
+| [Spark](https://github.com/sparkjsdev/spark)           | 浏览器渲染、排序、LoD、资源生命周期与压缩格式支持 | 当前使用 2.4.0，基础加载与查看已检查；应用层加载取消与回滚有专项测试，分页/LoD 和新格式仍待验证 |
 | [Brush](https://github.com/ArthurBrussee/brush)        | 跨平台重建、训练与模型导出                        | 默认模型来自 0.3.0；新版本和参数另建实验                                                                                 |
 | [gsplat](https://github.com/nerfstudio-project/gsplat) | 光栅化、训练与内存管理实现                        | 参考；先核对后端和设备条件                                                                                               |
 | [COSA-GS](https://github.com/pengpeng-yu/COSA-GS)      | 压缩模型与跨平台解码一致性                        | 待评估；检查实现、许可和浏览器解码成本                                                                                   |
@@ -31,9 +31,9 @@ Three.js 的 `Texture.dispose()` 释放 GPU 纹理，但不会替应用关闭 `I
 
 参考：[Three.js 资源释放](https://threejs.org/manual/pages/how-to-dispose-of-objects.html)、[GLTFLoader](https://threejs.org/docs/pages/GLTFLoader.html)。
 
-### 待验证：Spark 销毁后的异步任务
+### 加载取消与销毁边界
 
-Spark 2.4.0 的 [#476](https://github.com/sparkjsdev/spark/pull/476) 处理渲染器销毁后仍在运行的排序与 LoD 任务拒绝；该补丁不改变调用方持有的 `SplatMesh.initialized` Promise。当前依赖已升级至 2.4.0；主页面切换和销毁回归未见异常，取消加载与排序中销毁仍需独立覆盖。不能把版本升级当成所有异步生命周期问题都已解决。
+Spark 2.4.0 的 [#476](https://github.com/sparkjsdev/spark/pull/476) 处理渲染器销毁后仍在运行的排序与 LoD 任务拒绝；该补丁不改变调用方持有的 `SplatMesh.initialized` Promise。当前依赖使用 2.4.0。应用层增加每次加载独立的资源所有权与取消检查，覆盖旧元数据晚返回、旧首帧晚完成、单模型失败及销毁后的回调。不可中断的解析与初始化仍可能继续计算，但其结果到达后会被释放，不能再安装到当前场景。分页/LoD 路径不在这些验证范围内。详见[加载生命周期检查](LOAD-LIFECYCLE.md)。
 
 重新查阅的 [COSA-GS](https://arxiv.org/abs/2609.30245) 涉及率失真训练与跨平台解码，继续保留为独立压缩实验候选；文件压缩率和解码资源回收分别测量。
 

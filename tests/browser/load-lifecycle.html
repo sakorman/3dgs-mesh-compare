@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+  <meta charset="utf-8" /><title>Scene load lifecycle</title>
+  <style>
+    body {
+      font: 14px system-ui;
+      margin: 20px;
+      background: #edf1f5;
+    }
+    #views {
+      display: flex;
+      gap: 8px;
+    }
+    #views > div {
+      width: 48%;
+      background: black;
+    }
+    canvas {
+      width: 100%;
+      display: block;
+    }
+    pre {
+      white-space: pre-wrap;
+    }
+    button {
+      padding: 8px;
+    }
+  </style>
+  <h1>Scene load lifecycle</h1>
+  <div id="views">
+    <div id="left"></div>
+    <div id="right"></div>
+  </div>
+  <button id="run">Run overlapping loads</button>
+  <pre id="result">Ready</pre>
+  <script type="module" src="./load-lifecycle.ts"></script>
+</html>

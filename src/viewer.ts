@@ -6,6 +6,7 @@ import { applyView } from "./camera";
 import { decodePly } from "./model-bytes";
 import { RenderScheduler } from "./render-scheduler";
 import { disposeMeshResources } from "./mesh-resources";
+import { LoadScope } from "./load-scope";
 import type { Backend, SceneData, View } from "./types";
 export const nextFrame = () =>
   new Promise<number>((resolve) => requestAnimationFrame(resolve));
@@ -39,8 +40,7 @@ export class CompareViewer {
   lost = false;
   onError = (s: string) => {};
   onProgress = (s: string) => {};
-  private loadVersion = 0;
-  private loadAbort?: AbortController;
+  private currentLoad?: LoadScope;
   constructor(left: HTMLElement, right: HTMLElement) {
     const make = (parent: HTMLElement, label: string) => {
       const r = new THREE.WebGLRenderer({
@@ -58,6 +58,7 @@ export class CompareViewer {
         e.preventDefault();
         this.lost = true;
         this.playing = false;
+        this.currentLoad?.cancel();
         this.onError("显卡上下文丢失，请刷新页面重新加载。");
       });
       return r;
@@ -81,90 +82,104 @@ export class CompareViewer {
     this.updatePreviewState();
   }
   async load(id: string) {
-    this.loadAbort?.abort();
-    const abort = new AbortController();
-    this.loadAbort = abort;
-    const version = ++this.loadVersion;
+    if (this.disposed || this.lost) return;
     this.playing = false;
     this.clear();
+    const load = new LoadScope();
+    this.currentLoad = load;
     const base = `${import.meta.env.BASE_URL}scenes/${id}/`;
-    const response = await fetch(base + "scene.json", { signal: abort.signal });
-    if (!response.ok) throw new Error("无法读取场景信息");
-    const data: SceneData = await response.json();
-    this.data = data;
-    this.setView(data.views.find((v) => v.heldOut) ?? data.views[0]);
-    const results = await Promise.allSettled([
-      (async () => {
-        const progress = (message: string) => {
-          if (version === this.loadVersion) this.onProgress(message);
-        };
-        progress("正在加载完整高斯模型…");
-        const res = await fetch(base + data.gaussian.url, { signal: abort.signal });
-        if (!res.ok || !res.body) throw new Error("高斯模型下载失败");
-        const bytes = await decodePly(await res.arrayBuffer());
-        progress("正在解析高斯模型与纹理…");
-        const g = new SplatMesh({
-          fileBytes: bytes,
-          fileType: SplatFileType.PLY,
-          enableLod: false,
-          lod: false,
-          extSplats: true,
-        });
-        try {
-          await g.initialized;
-        } catch (e) {
-          g.dispose();
-          throw e;
-        }
-        g.maxSh = 3;
-        g.updateGenerator();
-        return g;
-      })(),
-      fetch(base + data.mesh.url, { signal: abort.signal })
-        .then((res) => {
-          if (!res.ok) throw new Error("Mesh 模型下载失败");
-          return res.arrayBuffer();
-        })
-        .then((bytes) => new GLTFLoader().parseAsync(bytes, base))
-        .then((g) => g.scene),
-    ]);
-    if (version !== this.loadVersion || this.disposed) {
-      results.forEach((r) => {
-        if (r.status === "fulfilled") {
-          if (r.value instanceof SplatMesh) r.value.dispose();
-          else disposeMeshResources(r.value);
-        }
+    const progress = (message: string) => {
+      load.check();
+      this.onProgress(message);
+      load.check();
+    };
+    try {
+      const response = await fetch(base + "scene.json", {
+        signal: load.signal,
       });
-      return;
+      if (!response.ok) throw new Error("无法读取场景信息");
+      const data: SceneData = await response.json();
+      load.check();
+      this.data = data;
+      this.setView(data.views.find((v) => v.heldOut) ?? data.views[0]);
+
+      const [gaussian, mesh] = await Promise.all([
+        (async () => {
+          progress("正在加载完整高斯模型…");
+          const res = await fetch(base + data.gaussian.url, {
+            signal: load.signal,
+          });
+          if (!res.ok) throw new Error("高斯模型下载失败");
+          const raw = await res.arrayBuffer();
+          load.check();
+          const bytes = await decodePly(raw);
+          progress("正在解析高斯模型与纹理…");
+          const g = new SplatMesh({
+            fileBytes: bytes,
+            fileType: SplatFileType.PLY,
+            enableLod: false,
+            lod: false,
+            extSplats: true,
+          });
+          try {
+            await g.initialized;
+          } catch (error) {
+            g.dispose();
+            throw error;
+          }
+          load.own(g, (resource) => {
+            this.scenes.gaussian.remove(resource);
+            if (this.gaussian === resource) this.gaussian = undefined;
+            resource.dispose();
+          });
+          g.maxSh = 3;
+          g.updateGenerator();
+          return g;
+        })(),
+        (async () => {
+          const res = await fetch(base + data.mesh.url, {
+            signal: load.signal,
+          });
+          if (!res.ok) throw new Error("Mesh 模型下载失败");
+          const bytes = await res.arrayBuffer();
+          load.check();
+          const gltf = await new GLTFLoader().parseAsync(bytes, base);
+          return load.own(gltf.scene, (resource) => {
+            this.scenes.mesh.remove(resource);
+            if (this.mesh === resource) this.mesh = undefined;
+            disposeMeshResources(resource);
+          });
+        })(),
+      ]);
+      load.check();
+      this.gaussian = gaussian;
+      this.mesh = mesh;
+      this.scenes.gaussian.add(gaussian);
+      this.scenes.mesh.add(mesh);
+      progress("正在准备首帧与高斯排序…");
+      await this.settle(load.signal);
+      load.check();
+      this.playing = true;
+      return data;
+    } catch (error) {
+      const obsolete =
+        load.signal.aborted || load !== this.currentLoad || this.disposed;
+      // Dispose only this load's resources, never a newer scene's objects.
+      load.cancel();
+      if (this.currentLoad === load) {
+        this.currentLoad = undefined;
+        this.data = undefined;
+        this.view = undefined;
+      }
+      if (!obsolete) throw error;
     }
-    const failed = results.find((r) => r.status === "rejected");
-    if (failed?.status === "rejected") throw failed.reason;
-    this.gaussian = (results[0] as PromiseFulfilledResult<SplatMesh>).value;
-    this.mesh = (results[1] as PromiseFulfilledResult<THREE.Group>).value;
-    this.scenes.gaussian.add(this.gaussian);
-    this.scenes.mesh.add(this.mesh);
-    this.onProgress("正在准备首帧与高斯排序…");
-    await this.settle();
-    if (version !== this.loadVersion || this.disposed) {
-      this.clear();
-      return;
-    }
-    this.preview?.invalidate();
-    this.playing = true;
-    if (this.loadAbort === abort) this.loadAbort = undefined;
-    return data;
   }
   clear() {
-    if (this.gaussian) {
-      this.scenes.gaussian.remove(this.gaussian);
-      this.gaussian.dispose();
-      this.gaussian = undefined;
-    }
-    if (this.mesh) {
-      this.scenes.mesh.remove(this.mesh);
-      disposeMeshResources(this.mesh);
-      this.mesh = undefined;
-    }
+    const load = this.currentLoad;
+    this.currentLoad = undefined;
+    load?.cancel();
+    this.data = undefined;
+    this.view = undefined;
     this.preview?.invalidate();
   }
   setSize(width: number) {
@@ -223,7 +238,15 @@ export class CompareViewer {
   render(kind: Backend) {
     this.renderers[kind].render(this.scenes[kind], this.camera);
   }
-  async settle() {
+  async settle(signal?: AbortSignal) {
+    const load = this.currentLoad;
+    const check = () => {
+      signal?.throwIfAborted();
+      if (this.disposed || this.lost || load !== this.currentLoad) {
+        throw new DOMException("场景已取消或不可用", "AbortError");
+      }
+    };
+    check();
     // Keep submitting frames while Spark's asynchronous readback/sort completes.
     // Awaiting update() before the first frame can stall a hidden/offscreen context.
     this.render("gaussian");
@@ -233,6 +256,7 @@ export class CompareViewer {
       if (performance.now() - start > 15000)
         throw new Error("高斯排序未就绪，请重试");
       await nextFrame();
+      check();
       this.render("gaussian");
       quiet = this.spark.sorting || this.spark.sortDirty ? 0 : quiet + 1;
     }
@@ -259,10 +283,9 @@ export class CompareViewer {
     return ctx.getImageData(0, 0, this.width, this.height).data;
   }
   dispose() {
+    if (this.disposed) return;
     this.disposed = true;
-    this.loadAbort?.abort();
-    this.loadAbort = undefined;
-    this.loadVersion++;
+    this.playing = false;
     this.preview?.dispose();
     document.removeEventListener("visibilitychange", this.updatePreviewState);
     this.clear();
