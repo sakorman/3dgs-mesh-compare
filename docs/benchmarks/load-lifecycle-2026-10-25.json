@@ -1,0 +1,70 @@
+{
+  "date": "2026-10-25",
+  "baselineCommit": "6f6d8f4c66f0cc193a576ed0371c7054a2d36e1b",
+  "renderer": "Three.js 0.180.0 / Spark 2.4.0",
+  "method": "Deterministic Promise barriers with real scene metadata, Gaussian PLY and GLB assets; injected Gaussian failure after GLB parse.",
+  "baseline": {
+    "variant": "baseline",
+    "records": [
+      {
+        "name": "late metadata",
+        "passed": false,
+        "activeScene": "pipes",
+        "modelsPresent": true
+      },
+      {
+        "name": "late first-frame completion",
+        "passed": false,
+        "activeScene": "office",
+        "modelsPresent": false
+      },
+      {
+        "name": "one model fails after the other parsed",
+        "passed": false,
+        "failed": "rejected",
+        "loadedBitmaps": 12,
+        "remainingOpen": 12,
+        "retryScene": "office"
+      },
+      {
+        "name": "disposed during metadata",
+        "passed": false,
+        "lateCameraChanges": 1,
+        "hasMetadataAfterDispose": true
+      }
+    ],
+    "errors": []
+  },
+  "candidate": {
+    "variant": "candidate",
+    "records": [
+      {
+        "name": "late metadata",
+        "passed": true,
+        "activeScene": "office",
+        "modelsPresent": true
+      },
+      {
+        "name": "late first-frame completion",
+        "passed": true,
+        "activeScene": "office",
+        "modelsPresent": true
+      },
+      {
+        "name": "one model fails after the other parsed",
+        "passed": true,
+        "failed": "rejected",
+        "loadedBitmaps": 12,
+        "remainingOpen": 0,
+        "retryScene": "office"
+      },
+      {
+        "name": "disposed during metadata",
+        "passed": true,
+        "lateCameraChanges": 0,
+        "hasMetadataAfterDispose": false
+      }
+    ],
+    "errors": []
+  }
+}

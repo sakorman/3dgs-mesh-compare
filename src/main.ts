@@ -160,7 +160,7 @@ async function loadScene(id: string) {
   });
   try {
     const loaded = await viewer.load(id);
-    if (!loaded) return;
+    if (!loaded || request !== loadRequest) return;
     data = loaded;
     ready = true;
     orbit = false;
