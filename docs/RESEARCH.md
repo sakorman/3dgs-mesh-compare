@@ -1,6 +1,6 @@
 # 3DGS 研究索引
 
-查阅日期：2026-10-23。以下是持续跟踪与实验候选；除当前依赖外，尚未在本项目验证收益。
+查阅日期：2026-10-24。以下是持续跟踪与实验候选；除当前依赖外，尚未在本项目验证收益。
 
 ## 实现
 
@@ -23,7 +23,19 @@
 
 ## 近期结论
 
-Spark 2.4.0（2026-10-19）新增按需渲染说明，建议通过 `onDirty` 合并异步排序、LoD 和流式加载的重绘请求，避免静态场景用定时器轮询。当前项目采用同样的失效通知机制，但仍固定使用完整 PLY 和关闭 LoD；版本升级与 LoD 模型另行验证。
+Spark 官方按需渲染说明，建议通过 `onDirty` 合并异步排序、LoD 和流式加载的重绘请求，避免静态场景用定时器轮询。当前项目采用同样的失效通知机制，但仍固定使用完整 PLY 和关闭 LoD；版本升级与 LoD 模型另行验证。
+
+### 已采用：关闭 GLTF 解码位图
+
+Three.js 的 `Texture.dispose()` 释放 GPU 纹理，但不会替应用关闭 `ImageBitmap`。GLTFLoader 会优先使用 ImageBitmapLoader，且同一场景可能共享材质和图像源。当前独立加载的 GLB 按场景持有资源；切换或销毁时去重释放 GPU 对象，并关闭对应位图。两组默认场景已复现并验证修复，记录见[资源回收对照](benchmarks/mesh-resources-2026-10-24.json)。
+
+参考：[Three.js 资源释放](https://threejs.org/manual/pages/how-to-dispose-of-objects.html)、[GLTFLoader](https://threejs.org/docs/pages/GLTFLoader.html)。
+
+### 待验证：Spark 销毁后的异步任务
+
+Spark 2.4.0 的 [#476](https://github.com/sparkjsdev/spark/pull/476) 处理渲染器销毁后仍在运行的排序与 LoD 任务拒绝；该补丁不改变调用方持有的 `SplatMesh.initialized` Promise。依赖版本保持 2.3.1，后续需单独验证取消加载、排序中销毁与版本升级，不能把这次 Mesh 位图回收当成该问题已解决。
+
+重新查阅的 [COSA-GS](https://arxiv.org/abs/2609.30245) 涉及率失真训练与跨平台解码，继续保留为独立压缩实验候选；文件压缩率和解码资源回收分别测量。
 
 ## 后续研究记录
 

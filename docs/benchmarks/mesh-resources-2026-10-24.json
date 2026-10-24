@@ -1,0 +1,86 @@
+{
+  "date": "2026-10-24",
+  "baselineCommit": "98d62a4c4963d4a559cda82e87905653f72ba45e",
+  "renderer": "Three.js 0.180.0 / Spark 2.3.1",
+  "baseline": {
+    "variant": "baseline",
+    "viewport": [
+      768,
+      505
+    ],
+    "rows": [
+      {
+        "nextScene": "office",
+        "oldBitmaps": 12,
+        "decodedRgbaMiBEstimate": 31.546875,
+        "remainingOpen": 12,
+        "newBitmaps": 22,
+        "activeBitmapsValid": true
+      },
+      {
+        "nextScene": "pipes",
+        "oldBitmaps": 22,
+        "decodedRgbaMiBEstimate": 57.3203125,
+        "remainingOpen": 22,
+        "newBitmaps": 12,
+        "activeBitmapsValid": true
+      },
+      {
+        "action": "dispose",
+        "oldBitmaps": 12,
+        "remainingOpen": 12
+      }
+    ],
+    "first": {
+      "gaussian": "0f305ca84a241c1aa1ade39bbee6339b08dbed769a49d08149b3d661c954f18f",
+      "mesh": "c3c2144e2ef68b0306e923997f7336302afc5ff7097be8b9a2926b6c5b78cdb9"
+    },
+    "reloaded": {
+      "gaussian": "0f305ca84a241c1aa1ade39bbee6339b08dbed769a49d08149b3d661c954f18f",
+      "mesh": "c3c2144e2ef68b0306e923997f7336302afc5ff7097be8b9a2926b6c5b78cdb9"
+    },
+    "pixelsMatch": true,
+    "errors": []
+  },
+  "candidate": {
+    "variant": "candidate",
+    "viewport": [
+      768,
+      505
+    ],
+    "rows": [
+      {
+        "nextScene": "office",
+        "oldBitmaps": 12,
+        "decodedRgbaMiBEstimate": 31.546875,
+        "remainingOpen": 0,
+        "newBitmaps": 22,
+        "activeBitmapsValid": true
+      },
+      {
+        "nextScene": "pipes",
+        "oldBitmaps": 22,
+        "decodedRgbaMiBEstimate": 57.3203125,
+        "remainingOpen": 0,
+        "newBitmaps": 12,
+        "activeBitmapsValid": true
+      },
+      {
+        "action": "dispose",
+        "oldBitmaps": 12,
+        "remainingOpen": 0
+      }
+    ],
+    "first": {
+      "gaussian": "0f305ca84a241c1aa1ade39bbee6339b08dbed769a49d08149b3d661c954f18f",
+      "mesh": "c3c2144e2ef68b0306e923997f7336302afc5ff7097be8b9a2926b6c5b78cdb9"
+    },
+    "reloaded": {
+      "gaussian": "0f305ca84a241c1aa1ade39bbee6339b08dbed769a49d08149b3d661c954f18f",
+      "mesh": "c3c2144e2ef68b0306e923997f7336302afc5ff7097be8b9a2926b6c5b78cdb9"
+    },
+    "pixelsMatch": true,
+    "errors": []
+  },
+  "note": "Decoded RGBA byte values are estimates from image dimensions, not measured process RSS or GPU memory."
+}

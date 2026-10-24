@@ -5,6 +5,7 @@ import { SparkRenderer, SplatMesh, SplatFileType } from "@sparkjsdev/spark";
 import { applyView } from "./camera";
 import { decodePly } from "./model-bytes";
 import { RenderScheduler } from "./render-scheduler";
+import { disposeMeshResources } from "./mesh-resources";
 import type { Backend, SceneData, View } from "./types";
 export const nextFrame = () =>
   new Promise<number>((resolve) => requestAnimationFrame(resolve));
@@ -122,7 +123,7 @@ export class CompareViewer {
       results.forEach((r) => {
         if (r.status === "fulfilled") {
           if (r.value instanceof SplatMesh) r.value.dispose();
-          else this.disposeMesh(r.value);
+          else disposeMeshResources(r.value);
         }
       });
       const failed = results.find((r) => r.status === "rejected");
@@ -139,18 +140,6 @@ export class CompareViewer {
     this.playing = true;
     return data;
   }
-  private disposeMesh(mesh: THREE.Group) {
-    mesh.traverse((o) => {
-      if (o instanceof THREE.Mesh) {
-        o.geometry.dispose();
-        const materials = Array.isArray(o.material) ? o.material : [o.material];
-        materials.forEach((m) => {
-          (m as THREE.MeshBasicMaterial).map?.dispose();
-          m.dispose();
-        });
-      }
-    });
-  }
   clear() {
     if (this.gaussian) {
       this.scenes.gaussian.remove(this.gaussian);
@@ -159,7 +148,7 @@ export class CompareViewer {
     }
     if (this.mesh) {
       this.scenes.mesh.remove(this.mesh);
-      this.disposeMesh(this.mesh);
+      disposeMeshResources(this.mesh);
       this.mesh = undefined;
     }
     this.preview?.invalidate();
