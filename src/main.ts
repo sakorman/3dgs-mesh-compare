@@ -2,6 +2,7 @@ import "./style.css";
 import { CompareViewer, nextFrame } from "./viewer";
 import { benchmark } from "./benchmark";
 import { quality } from "./metrics";
+import { bindPageLifecycle } from "./page-lifecycle";
 import type { Backend, Quality, SceneData } from "./types";
 const isBenchmark = document.documentElement.dataset.mode === "benchmark";
 const labMarkup = `  <section class="measurements" aria-label="性能与效果评测">
@@ -433,10 +434,22 @@ try {
     lock(false);
     status(s, true);
   };
+  bindPageLifecycle({
+    interrupt: () => controller?.abort(),
+    canRestore: () =>
+      ready &&
+      !viewer.disposed &&
+      !viewer.lost &&
+      Object.values(viewer.renderers).every(
+        (renderer) => !renderer.getContext().isContextLost(),
+      ),
+    restore: () => viewer.refreshPreview(),
+    dispose: () => viewer.dispose(),
+    reload: () => window.location.reload(),
+  });
   await loadScene("pipes");
 } catch (e) {
   status("无法启动 WebGL2：" + message(e), true);
   button("retry").hidden = true;
   lock(true);
 }
-window.addEventListener("pagehide", () => viewer?.dispose(), { once: true });

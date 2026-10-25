@@ -1,0 +1,157 @@
+{
+  "date": "2026-10-25",
+  "baselineCommit": "9e4bd00694efa79a7745c807dbfc33fec1aab481",
+  "method": "Static production-style fixture, no Vite HMR. Synthetic page transition events are distinguished by native:false.",
+  "cachedEvents": {
+    "baseline": {
+      "variant": "baseline",
+      "instance": "e298e795-a9ee-4669-a77c-dd4c06ccb2d5",
+      "loads": 1,
+      "disposals": 1,
+      "disposed": true,
+      "hasModels": false,
+      "events": [
+        {
+          "type": "pageshow",
+          "persisted": false,
+          "native": true
+        },
+        {
+          "type": "pagehide",
+          "persisted": true,
+          "native": false
+        },
+        {
+          "type": "pageshow",
+          "persisted": true,
+          "native": false
+        },
+        {
+          "type": "pagehide",
+          "persisted": true,
+          "native": false
+        },
+        {
+          "type": "pageshow",
+          "persisted": true,
+          "native": false
+        }
+      ],
+      "errors": [],
+      "case": "synthetic-cached-return",
+      "restored": false,
+      "modelsReused": false,
+      "extraLoads": 0
+    },
+    "candidate": {
+      "variant": "candidate",
+      "instance": "146f42b4-5756-4499-b714-551911d7437f",
+      "loads": 1,
+      "disposals": 0,
+      "disposed": false,
+      "hasModels": true,
+      "events": [
+        {
+          "type": "pageshow",
+          "persisted": false,
+          "native": true
+        },
+        {
+          "type": "pagehide",
+          "persisted": true,
+          "native": false
+        },
+        {
+          "type": "pageshow",
+          "persisted": true,
+          "native": false
+        },
+        {
+          "type": "pagehide",
+          "persisted": true,
+          "native": false
+        },
+        {
+          "type": "pageshow",
+          "persisted": true,
+          "native": false
+        }
+      ],
+      "errors": [],
+      "case": "synthetic-cached-return",
+      "restored": true,
+      "modelsReused": true,
+      "extraLoads": 0
+    }
+  },
+  "earlyUnload": {
+    "baseline": {
+      "variant": "baseline",
+      "instance": "e0e9b8bc-7786-4556-b08e-21ea0d1d2eba",
+      "loads": 1,
+      "disposals": 0,
+      "disposed": false,
+      "hasModels": true,
+      "events": [
+        {
+          "type": "pageshow",
+          "persisted": false,
+          "native": true
+        },
+        {
+          "type": "pagehide",
+          "persisted": false,
+          "native": false
+        }
+      ],
+      "errors": [],
+      "case": "early-unload",
+      "passed": false,
+      "disposedBeforeResponse": false
+    },
+    "candidate": {
+      "variant": "candidate",
+      "instance": "82585120-aa7e-4b8c-9220-648c2cf9c111",
+      "loads": 1,
+      "disposals": 1,
+      "disposed": true,
+      "hasModels": false,
+      "events": [
+        {
+          "type": "pageshow",
+          "persisted": false,
+          "native": true
+        },
+        {
+          "type": "pagehide",
+          "persisted": false,
+          "native": false
+        }
+      ],
+      "errors": [],
+      "case": "early-unload",
+      "passed": true,
+      "disposedBeforeResponse": true
+    }
+  },
+  "nativeNavigation": {
+    "variant": "candidate",
+    "instance": "146f42b4-5756-4499-b714-551911d7437f",
+    "loads": 0,
+    "disposals": 0,
+    "hasModels": false,
+    "events": [
+      {
+        "type": "pageshow",
+        "persisted": false,
+        "native": true
+      }
+    ],
+    "errors": [],
+    "previousNativeHide": "{\"instance\":\"5f77eab4-40b9-459c-9beb-a433e696772d\",\"persisted\":false}"
+  },
+  "limitations": [
+    "Native back navigation in this browser returned persisted:false; actual bfcache hits and navigation speedups were not measured.",
+    "Unavailable-viewer reload fallback is covered by unit tests; native WebGL context-loss recovery is not claimed."
+  ]
+}

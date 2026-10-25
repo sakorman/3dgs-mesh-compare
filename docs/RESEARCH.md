@@ -53,6 +53,12 @@ Spark [#463](https://github.com/sparkjsdev/spark/pull/463)（2026-10-16 合并�
 
 [SplatStream](https://arxiv.org/abs/2607.25971)（2026-07-28，v2 更新于 07-29）研究动态 GS 的质量/分辨率分层、重要性分包和自适应传输。分包思路值得研究，但其动态编码与传输系统不能直接等同于本项目的静态 PLY 流式解压；暂列研究候选，不记录为已实现收益。
 
+### 已采用：区分页面缓存与永久离页
+
+浏览器的 `pagehide.persisted=true` 表示文档计划进入 bfcache，不能直接按永久销毁处理。当前页面保留已就绪且上下文有效的查看器，返回时重新请求绘制；普通离页则中止评测并释放资源，监听在首次异步加载前安装。未就绪或失效的缓存视图恢复时重载。
+
+[Google 的 bfcache 指南](https://web.dev/articles/bfcache)（页面更新于 2026-10-16）和 [MDN pagehide](https://developer.mozilla.org/en-US/docs/Web/API/Window/pagehide_event) 用于确定事件语义；[Spark 按需渲染](https://sparkjs.dev/docs/on-demand-rendering/) 用于恢复时的重绘请求。合成事件回归已通过；静态构建的实际导航得到 `persisted=false`，尚不能给出真实缓存命中下的性能结论。详见[页面生命周期记录](PAGE-LIFECYCLE.md)。
+
 ## 后续研究记录
 
 记录新增来源时注明论文日期或仓库 commit/tag，以及与当前瓶颈的关系。进入实现前，补充最小实验、对照设置和可验证指标；完成后链接对应 CHANGELOG 或实验报告，标明采用或暂缓的理由。

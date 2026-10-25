@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN" data-mode="viewer">
+  <meta charset="utf-8" /><meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  /><title>Page lifecycle regression</title>
+  <div id="app"></div>
+  <aside
+    style="
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 8px;
+      background: white;
+      max-height: 170px;
+      overflow: auto;
+      border-top: 1px solid #bbb;
+    "
+  >
+    <a href="./history-away.html">Leave for history check</a
+    ><button id="qa-run" disabled>Simulate cached return</button>
+    <pre id="qa-state" style="white-space: pre-wrap">Loading…</pre>
+  </aside>
+  <script type="module" src="./page-lifecycle.ts"></script>
+</html>
