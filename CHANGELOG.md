@@ -2,6 +2,12 @@
 
 ## 2026-10-25
 
+- 区分页面缓存与真正离页：缓存事件保留已就绪的查看器，返回时恢复按需绘制；未就绪或上下文失效时重载。清理监听提前到首次模型加载之前。
+- 两次合成缓存往返中，旧版会销毁模型，新版复用原模型且额外加载次数为 0；合成早期离页也能在元数据返回前清理查看器。见[原始记录](docs/benchmarks/page-lifecycle-2026-10-25.json)。
+- 新增 6 项页面生命周期测试，39 项测试和构建通过。当前浏览器的真实后退未命中 bfcache，不报告原生缓存命中率或导航加速。
+- 参考：[浏览器前进/后退缓存](https://web.dev/articles/bfcache)、[pagehide 事件](https://developer.mozilla.org/en-US/docs/Web/API/Window/pagehide_event)、[Spark 按需渲染](https://sparkjs.dev/docs/on-demand-rendering/)。
+
+
 - Gaussian gzip PLY 改为响应流直接解压，省去完整压缩包的中间 ArrayBuffer/Blob；仍在解压完成后初始化 Spark。
 - 读取和解压接入加载取消信号，中断时停止数据源并释放读取锁，统一浏览器的取消错误。
 - 管道房与办公室在 HTTP 自动解压、原始 gzip 两条路径下，输出哈希均与旧版一致；33 项测试通过，包含完整模型逐字节对照。见[浏览器记录](docs/benchmarks/model-stream-2026-10-25.json)和[复现说明](docs/MODEL-STREAM.md)。未测量内存峰值、首帧耗时或 FPS 增益。

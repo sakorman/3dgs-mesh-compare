@@ -29,9 +29,9 @@ export class CompareViewer {
   }
   set playing(enabled: boolean) {
     this.previewEnabled = enabled;
-    this.updatePreviewState();
+    this.refreshPreview();
   }
-  private updatePreviewState = () => {
+  refreshPreview = () => {
     this.preview?.setEnabled(
       this.previewEnabled && !document.hidden && !this.lost && !this.disposed,
     );
@@ -78,8 +78,8 @@ export class CompareViewer {
       this.render("gaussian");
       this.render("mesh");
     });
-    document.addEventListener("visibilitychange", this.updatePreviewState);
-    this.updatePreviewState();
+    document.addEventListener("visibilitychange", this.refreshPreview);
+    this.refreshPreview();
   }
   async load(id: string) {
     if (this.disposed || this.lost) return;
@@ -285,7 +285,7 @@ export class CompareViewer {
     this.disposed = true;
     this.playing = false;
     this.preview?.dispose();
-    document.removeEventListener("visibilitychange", this.updatePreviewState);
+    document.removeEventListener("visibilitychange", this.refreshPreview);
     this.clear();
     this.controls.forEach((c) => c.dispose());
     this.spark.dispose();
