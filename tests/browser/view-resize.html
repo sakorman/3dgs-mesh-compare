@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+  <meta charset="utf-8" />
+  <title>View resize check</title>
+  <style>
+    body {
+      margin: 20px;
+      font: 14px system-ui;
+      background: #edf1f5;
+    }
+    #views {
+      display: flex;
+      gap: 8px;
+    }
+    #views > div {
+      width: 48%;
+    }
+    canvas {
+      display: block;
+      width: 100%;
+    }
+    button {
+      padding: 8px;
+      margin: 8px 0;
+    }
+    pre {
+      white-space: pre-wrap;
+    }
+  </style>
+  <h1>View resize check</h1>
+  <button id="run">Run view and resolution checks</button>
+  <button id="orbit" disabled>Toggle orbit</button>
+  <button id="reset" disabled>Reset photo</button>
+  <p id="status">Ready</p>
+  <div id="views">
+    <div id="left"></div>
+    <div id="right"></div>
+  </div>
+  <details>
+    <summary>Raw results</summary>
+    <pre id="result"></pre>
+  </details>
+  <script type="module" src="./view-resize.ts"></script>
+</html>

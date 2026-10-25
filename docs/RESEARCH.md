@@ -1,6 +1,6 @@
 # 3DGS 研究索引
 
-查阅日期：2026-10-25。以下是持续跟踪与实验候选；除当前依赖外，尚未在本项目验证收益。
+查阅日期：2026-10-26。以下区分已验证的应用改进与尚未验证收益的研究候选。
 
 ## 实现
 
@@ -96,6 +96,18 @@ Spark [#463](https://github.com/sparkjsdev/spark/pull/463)（2026-10-16 合并�
 [公开仓库 24e78b5](https://github.com/fraunhoferhhi/KISS-GS/tree/24e78b5c29f32a70a7802cc5dd0ada15e70bb6b0)只有项目页 README，链接至 [ffsplat](https://github.com/w-m/ffsplat/tree/3fb6444c5faed6de9aa55fa2313df6c2a4104193)（当前 main 提交 2025-07-10，Apache-2.0，快速启动要求 CUDA 12.x）。该旧版框架不能直接视为论文完整实现，其许可也不能自动套用于独立脚本。本项目暂未复制代码、转换模型或运行训练。
 
 浏览器图像解码思路可用于未来 WebGL2/WebGPU 上传路径，但 SOG-XT 不等同于 Spark 已支持的 SOGS，仍需属性、SH 布局和量化兼容验证；Metal 训练支持也未验证。下一步条件是取得可核实许可的实现与格式版本，再测相同模型的压缩体积、解码时间、CPU 内存峰值和全部留出画质，不使用论文压缩倍数作为本项目成绩。
+
+### 已采用：画布尺寸检查与相机重绘分开
+
+Three.js r180 的 [setSize 实现](https://github.com/mrdoob/three.js/blob/r180/src/renderers/WebGLRenderer.js)每次都会给 canvas 宽高赋值。[Spark 当前 2.4.0 实现](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/SparkRenderer.ts)（2026-10-20，MIT）从渲染器读取 drawing buffer 尺寸；[按需渲染说明](https://sparkjs.dev/docs/on-demand-rendering/)要求相机改变和异步结果到达后继续绘制。应用现在只去掉相同尺寸的重复设置，保留这些失效通知。实测照片切换每侧 2 次降为 0 次，画质不变，详见[对照记录](VIEW-RESIZE.md)；未把调用数下降等同于 GPU 加速。
+
+### 暂缓：随机光栅化与时序神经降噪
+
+[Ultra-fast Neural Inference for Stochastic Gaussian Splatting Denoising](https://arxiv.org/html/2609.25604v1)（v1，2026-09-22，arXiv 非独占永久发布许可）通过随机采样去掉排序/混合，再用历史重投影、双路 EMA 和神经置信度降噪；论文在随机 2DGS 上验证，并明确仍与有序混合存在 PSNR 差距。
+
+第 5.1 节实现使用 PyTorch、SlangPy 与 NVRHI/Vulkan，在 RTX 3090 上测量；不能据此推断 WebGL2、WebGPU 或 Metal 的收益。正文称补充材料提供代码，但当前 arXiv 页面没有可核实版本和许可的作者仓库入口，本项目尚未移植。其逐高斯额外参数和多帧历史也超出当前标准 SH3 PLY 路径。
+
+对后续实验的约束是：相机/分辨率变化后的历史有效性和静止画面的收敛帧数必须单独检查。当前按需渲染会在没有新结果时停帧，若换成随机渲染，不能只比较单帧吞吐而忽略噪声、收敛和持续绘制开销。先保持现有有序渲染，优先完成加载与移动相机分段测量。
 
 ## 后续研究记录
 

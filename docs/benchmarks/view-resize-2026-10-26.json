@@ -1,0 +1,876 @@
+{
+  "recordedAt": "2026-10-25T23:22:38.936301+00:00",
+  "baselineCommit": "b7b71bd5fedabc323d402b52a1484e79b7d07b2c",
+  "dependencies": {
+    "spark": "2.4.0",
+    "three": "0.180.0"
+  },
+  "settings": {
+    "dpr": 1,
+    "sh": 3,
+    "lod": false,
+    "preserveDrawingBuffer": true,
+    "antialias": false
+  },
+  "protocol": "Serial baseline and candidate. For each scene, setSize to the existing size, apply each held-out view then orbit(false) like the photo selector, settle, capture fresh RGBA and quality. Finally check widths 512/1024/768. Count only the two view renderers setSize calls.",
+  "baseline": {
+    "variant": "baseline",
+    "scenes": [
+      {
+        "scene": "pipes",
+        "loadResizeCalls": {
+          "gaussian": 1,
+          "mesh": 1
+        },
+        "sameSizeCalls": {
+          "gaussian": 1,
+          "mesh": 1
+        },
+        "sameSizeRetainsPixels": true,
+        "before": {
+          "gaussian": "0f305ca84a241c1aa1ade39bbee6339b08dbed769a49d08149b3d661c954f18f",
+          "mesh": "c3c2144e2ef68b0306e923997f7336302afc5ff7097be8b9a2926b6c5b78cdb9"
+        },
+        "after": {
+          "gaussian": "0f305ca84a241c1aa1ade39bbee6339b08dbed769a49d08149b3d661c954f18f",
+          "mesh": "c3c2144e2ef68b0306e923997f7336302afc5ff7097be8b9a2926b6c5b78cdb9"
+        },
+        "views": [
+          {
+            "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+            "resizeCalls": {
+              "gaussian": 2,
+              "mesh": 2
+            },
+            "images": [
+              {
+                "backend": "gaussian",
+                "size": [
+                  768,
+                  505
+                ],
+                "hash": "0f305ca84a241c1aa1ade39bbee6339b08dbed769a49d08149b3d661c954f18f",
+                "quality": {
+                  "psnr": 18.31313348259634,
+                  "ssim": 0.780374994567275,
+                  "mae": 24.67360079757976
+                }
+              },
+              {
+                "backend": "mesh",
+                "size": [
+                  768,
+                  505
+                ],
+                "hash": "c3c2144e2ef68b0306e923997f7336302afc5ff7097be8b9a2926b6c5b78cdb9",
+                "quality": {
+                  "psnr": 16.203956014134363,
+                  "ssim": 0.6405673672234332,
+                  "mae": 24.89255277090209
+                }
+              }
+            ]
+          },
+          {
+            "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+            "resizeCalls": {
+              "gaussian": 2,
+              "mesh": 2
+            },
+            "images": [
+              {
+                "backend": "gaussian",
+                "size": [
+                  768,
+                  505
+                ],
+                "hash": "6c1f7aa75c7edc4ac18a6ca454dafbfb80aca3d5578b2db7f7de46cddf4d04dd",
+                "quality": {
+                  "psnr": 13.592464237187045,
+                  "ssim": 0.6764314636571729,
+                  "mae": 44.88018598734873
+                }
+              },
+              {
+                "backend": "mesh",
+                "size": [
+                  768,
+                  505
+                ],
+                "hash": "5cac2f041f2016ab5a86f7db66c4fe0180218f345175fabec76dac67c397008a",
+                "quality": {
+                  "psnr": 10.703182508757498,
+                  "ssim": 0.44565281751496727,
+                  "mae": 55.57786286441144
+                }
+              }
+            ]
+          }
+        ],
+        "resolutions": [
+          {
+            "width": 512,
+            "resizeCalls": {
+              "gaussian": 1,
+              "mesh": 1
+            },
+            "images": [
+              {
+                "backend": "gaussian",
+                "size": [
+                  512,
+                  337
+                ],
+                "hash": "b2e5178114788cbce39d313519889b8b14008741c50a8ddc6889c398067f2ff6"
+              },
+              {
+                "backend": "mesh",
+                "size": [
+                  512,
+                  337
+                ],
+                "hash": "c33aac16c60dcbac608de3f8b8956e0d2010b7e13bd08328e36bc4912227641b"
+              }
+            ]
+          },
+          {
+            "width": 1024,
+            "resizeCalls": {
+              "gaussian": 1,
+              "mesh": 1
+            },
+            "images": [
+              {
+                "backend": "gaussian",
+                "size": [
+                  1024,
+                  673
+                ],
+                "hash": "ac308163147019cbb4514f1b3ea12e39d741c41d72e238faabfe2aa7c2d046a1"
+              },
+              {
+                "backend": "mesh",
+                "size": [
+                  1024,
+                  673
+                ],
+                "hash": "f6aa22fea3bf587a24459dc75d14feff7678e737541b4272c26cb4109f0803b4"
+              }
+            ]
+          },
+          {
+            "width": 768,
+            "resizeCalls": {
+              "gaussian": 1,
+              "mesh": 1
+            },
+            "images": [
+              {
+                "backend": "gaussian",
+                "size": [
+                  768,
+                  505
+                ],
+                "hash": "6c1f7aa75c7edc4ac18a6ca454dafbfb80aca3d5578b2db7f7de46cddf4d04dd"
+              },
+              {
+                "backend": "mesh",
+                "size": [
+                  768,
+                  505
+                ],
+                "hash": "5cac2f041f2016ab5a86f7db66c4fe0180218f345175fabec76dac67c397008a"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "scene": "office",
+        "loadResizeCalls": {
+          "gaussian": 1,
+          "mesh": 1
+        },
+        "sameSizeCalls": {
+          "gaussian": 1,
+          "mesh": 1
+        },
+        "sameSizeRetainsPixels": true,
+        "before": {
+          "gaussian": "6875ac913715332653822efdda735aeab63a49b0e49b8fcb3bd88c4127acffc6",
+          "mesh": "ac95a13722ceebb9e56bfeb53a925f674a5145242504fb1929e44f4b8b66a4e7"
+        },
+        "after": {
+          "gaussian": "6875ac913715332653822efdda735aeab63a49b0e49b8fcb3bd88c4127acffc6",
+          "mesh": "ac95a13722ceebb9e56bfeb53a925f674a5145242504fb1929e44f4b8b66a4e7"
+        },
+        "views": [
+          {
+            "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+            "resizeCalls": {
+              "gaussian": 2,
+              "mesh": 2
+            },
+            "images": [
+              {
+                "backend": "gaussian",
+                "size": [
+                  768,
+                  500
+                ],
+                "hash": "6875ac913715332653822efdda735aeab63a49b0e49b8fcb3bd88c4127acffc6",
+                "quality": {
+                  "psnr": 20.089310688605707,
+                  "ssim": 0.8535349038079945,
+                  "mae": 19.55424826388889
+                }
+              },
+              {
+                "backend": "mesh",
+                "size": [
+                  768,
+                  500
+                ],
+                "hash": "ac95a13722ceebb9e56bfeb53a925f674a5145242504fb1929e44f4b8b66a4e7",
+                "quality": {
+                  "psnr": 12.908715161761181,
+                  "ssim": 0.5523269728757447,
+                  "mae": 43.283671875
+                }
+              }
+            ]
+          },
+          {
+            "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+            "resizeCalls": {
+              "gaussian": 2,
+              "mesh": 2
+            },
+            "images": [
+              {
+                "backend": "gaussian",
+                "size": [
+                  768,
+                  500
+                ],
+                "hash": "8642f967128ffe894a7d0b5964c1ccc115c31736739d059963216a743d9da92f",
+                "quality": {
+                  "psnr": 18.47944716023357,
+                  "ssim": 0.9017578188158342,
+                  "mae": 24.98429079861111
+                }
+              },
+              {
+                "backend": "mesh",
+                "size": [
+                  768,
+                  500
+                ],
+                "hash": "3af78ee4ba301c23d5ffaf227f2873c64eecec70b5db10e7dbd2fec1ca1573ad",
+                "quality": {
+                  "psnr": 13.659212822977622,
+                  "ssim": 0.7938037629857664,
+                  "mae": 35.42440972222222
+                }
+              }
+            ]
+          },
+          {
+            "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+            "resizeCalls": {
+              "gaussian": 2,
+              "mesh": 2
+            },
+            "images": [
+              {
+                "backend": "gaussian",
+                "size": [
+                  768,
+                  500
+                ],
+                "hash": "59b4b4f74bd20fc97e879344edab98c89cb5fa4a7f49c9477eaf0c2a59421c4e",
+                "quality": {
+                  "psnr": 15.099375023029197,
+                  "ssim": 0.7609674235983739,
+                  "mae": 37.13877951388889
+                }
+              },
+              {
+                "backend": "mesh",
+                "size": [
+                  768,
+                  500
+                ],
+                "hash": "e1732f8812ec8de3b4c1560717cf85c1068d7c34ae8f48a7beb9df0354e8112b",
+                "quality": {
+                  "psnr": 13.199993005936507,
+                  "ssim": 0.514409906920705,
+                  "mae": 41.8853125
+                }
+              }
+            ]
+          },
+          {
+            "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+            "resizeCalls": {
+              "gaussian": 2,
+              "mesh": 2
+            },
+            "images": [
+              {
+                "backend": "gaussian",
+                "size": [
+                  768,
+                  500
+                ],
+                "hash": "d437edbcc24020ce51471419b8e77fd12f7ea4606d9b455af5155c284ab2fb96",
+                "quality": {
+                  "psnr": 21.321730442436927,
+                  "ssim": 0.8348906614360371,
+                  "mae": 16.4986796875
+                }
+              },
+              {
+                "backend": "mesh",
+                "size": [
+                  768,
+                  500
+                ],
+                "hash": "b9b1b565d36a0fa5cca1da62c0a7d0a39726d4431a64239ecae7548eb7e3ea97",
+                "quality": {
+                  "psnr": 13.618649893923978,
+                  "ssim": 0.5806073766403183,
+                  "mae": 34.43380555555556
+                }
+              }
+            ]
+          }
+        ],
+        "resolutions": [
+          {
+            "width": 512,
+            "resizeCalls": {
+              "gaussian": 1,
+              "mesh": 1
+            },
+            "images": [
+              {
+                "backend": "gaussian",
+                "size": [
+                  512,
+                  334
+                ],
+                "hash": "eec2cffda30fa4620476937d569cc837cb4f99ab34dcb4866a3fa6ddb952bea8"
+              },
+              {
+                "backend": "mesh",
+                "size": [
+                  512,
+                  334
+                ],
+                "hash": "416a2d2ceb43735347b020efee5c4eab2e08c102d4661d31ca0fa76ee2c0248e"
+              }
+            ]
+          },
+          {
+            "width": 1024,
+            "resizeCalls": {
+              "gaussian": 1,
+              "mesh": 1
+            },
+            "images": [
+              {
+                "backend": "gaussian",
+                "size": [
+                  1024,
+                  667
+                ],
+                "hash": "5fee524db897f6019c81b14b03358bc137200a0f41526224c7163a48672b5b7d"
+              },
+              {
+                "backend": "mesh",
+                "size": [
+                  1024,
+                  667
+                ],
+                "hash": "5fd46decb1fbe00901c4a6e3726cce87bd0eb45b6d12a79429d237583fdec68d"
+              }
+            ]
+          },
+          {
+            "width": 768,
+            "resizeCalls": {
+              "gaussian": 1,
+              "mesh": 1
+            },
+            "images": [
+              {
+                "backend": "gaussian",
+                "size": [
+                  768,
+                  500
+                ],
+                "hash": "d437edbcc24020ce51471419b8e77fd12f7ea4606d9b455af5155c284ab2fb96"
+              },
+              {
+                "backend": "mesh",
+                "size": [
+                  768,
+                  500
+                ],
+                "hash": "b9b1b565d36a0fa5cca1da62c0a7d0a39726d4431a64239ecae7548eb7e3ea97"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "errors": [],
+    "environment": {
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36",
+      "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)"
+    },
+    "passed": false
+  },
+  "candidate": {
+    "variant": "candidate",
+    "scenes": [
+      {
+        "scene": "pipes",
+        "loadResizeCalls": {
+          "gaussian": 1,
+          "mesh": 1
+        },
+        "sameSizeCalls": {
+          "gaussian": 0,
+          "mesh": 0
+        },
+        "sameSizeRetainsPixels": true,
+        "before": {
+          "gaussian": "0f305ca84a241c1aa1ade39bbee6339b08dbed769a49d08149b3d661c954f18f",
+          "mesh": "c3c2144e2ef68b0306e923997f7336302afc5ff7097be8b9a2926b6c5b78cdb9"
+        },
+        "after": {
+          "gaussian": "0f305ca84a241c1aa1ade39bbee6339b08dbed769a49d08149b3d661c954f18f",
+          "mesh": "c3c2144e2ef68b0306e923997f7336302afc5ff7097be8b9a2926b6c5b78cdb9"
+        },
+        "views": [
+          {
+            "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+            "resizeCalls": {
+              "gaussian": 0,
+              "mesh": 0
+            },
+            "images": [
+              {
+                "backend": "gaussian",
+                "size": [
+                  768,
+                  505
+                ],
+                "hash": "0f305ca84a241c1aa1ade39bbee6339b08dbed769a49d08149b3d661c954f18f",
+                "quality": {
+                  "psnr": 18.31313348259634,
+                  "ssim": 0.780374994567275,
+                  "mae": 24.67360079757976
+                }
+              },
+              {
+                "backend": "mesh",
+                "size": [
+                  768,
+                  505
+                ],
+                "hash": "c3c2144e2ef68b0306e923997f7336302afc5ff7097be8b9a2926b6c5b78cdb9",
+                "quality": {
+                  "psnr": 16.203956014134363,
+                  "ssim": 0.6405673672234332,
+                  "mae": 24.89255277090209
+                }
+              }
+            ]
+          },
+          {
+            "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+            "resizeCalls": {
+              "gaussian": 0,
+              "mesh": 0
+            },
+            "images": [
+              {
+                "backend": "gaussian",
+                "size": [
+                  768,
+                  505
+                ],
+                "hash": "6c1f7aa75c7edc4ac18a6ca454dafbfb80aca3d5578b2db7f7de46cddf4d04dd",
+                "quality": {
+                  "psnr": 13.592464237187045,
+                  "ssim": 0.6764314636571729,
+                  "mae": 44.88018598734873
+                }
+              },
+              {
+                "backend": "mesh",
+                "size": [
+                  768,
+                  505
+                ],
+                "hash": "5cac2f041f2016ab5a86f7db66c4fe0180218f345175fabec76dac67c397008a",
+                "quality": {
+                  "psnr": 10.703182508757498,
+                  "ssim": 0.44565281751496727,
+                  "mae": 55.57786286441144
+                }
+              }
+            ]
+          }
+        ],
+        "resolutions": [
+          {
+            "width": 512,
+            "resizeCalls": {
+              "gaussian": 1,
+              "mesh": 1
+            },
+            "images": [
+              {
+                "backend": "gaussian",
+                "size": [
+                  512,
+                  337
+                ],
+                "hash": "b2e5178114788cbce39d313519889b8b14008741c50a8ddc6889c398067f2ff6"
+              },
+              {
+                "backend": "mesh",
+                "size": [
+                  512,
+                  337
+                ],
+                "hash": "c33aac16c60dcbac608de3f8b8956e0d2010b7e13bd08328e36bc4912227641b"
+              }
+            ]
+          },
+          {
+            "width": 1024,
+            "resizeCalls": {
+              "gaussian": 1,
+              "mesh": 1
+            },
+            "images": [
+              {
+                "backend": "gaussian",
+                "size": [
+                  1024,
+                  673
+                ],
+                "hash": "ac308163147019cbb4514f1b3ea12e39d741c41d72e238faabfe2aa7c2d046a1"
+              },
+              {
+                "backend": "mesh",
+                "size": [
+                  1024,
+                  673
+                ],
+                "hash": "f6aa22fea3bf587a24459dc75d14feff7678e737541b4272c26cb4109f0803b4"
+              }
+            ]
+          },
+          {
+            "width": 768,
+            "resizeCalls": {
+              "gaussian": 1,
+              "mesh": 1
+            },
+            "images": [
+              {
+                "backend": "gaussian",
+                "size": [
+                  768,
+                  505
+                ],
+                "hash": "6c1f7aa75c7edc4ac18a6ca454dafbfb80aca3d5578b2db7f7de46cddf4d04dd"
+              },
+              {
+                "backend": "mesh",
+                "size": [
+                  768,
+                  505
+                ],
+                "hash": "5cac2f041f2016ab5a86f7db66c4fe0180218f345175fabec76dac67c397008a"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "scene": "office",
+        "loadResizeCalls": {
+          "gaussian": 1,
+          "mesh": 1
+        },
+        "sameSizeCalls": {
+          "gaussian": 0,
+          "mesh": 0
+        },
+        "sameSizeRetainsPixels": true,
+        "before": {
+          "gaussian": "6875ac913715332653822efdda735aeab63a49b0e49b8fcb3bd88c4127acffc6",
+          "mesh": "ac95a13722ceebb9e56bfeb53a925f674a5145242504fb1929e44f4b8b66a4e7"
+        },
+        "after": {
+          "gaussian": "6875ac913715332653822efdda735aeab63a49b0e49b8fcb3bd88c4127acffc6",
+          "mesh": "ac95a13722ceebb9e56bfeb53a925f674a5145242504fb1929e44f4b8b66a4e7"
+        },
+        "views": [
+          {
+            "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+            "resizeCalls": {
+              "gaussian": 0,
+              "mesh": 0
+            },
+            "images": [
+              {
+                "backend": "gaussian",
+                "size": [
+                  768,
+                  500
+                ],
+                "hash": "6875ac913715332653822efdda735aeab63a49b0e49b8fcb3bd88c4127acffc6",
+                "quality": {
+                  "psnr": 20.089310688605707,
+                  "ssim": 0.8535349038079945,
+                  "mae": 19.55424826388889
+                }
+              },
+              {
+                "backend": "mesh",
+                "size": [
+                  768,
+                  500
+                ],
+                "hash": "ac95a13722ceebb9e56bfeb53a925f674a5145242504fb1929e44f4b8b66a4e7",
+                "quality": {
+                  "psnr": 12.908715161761181,
+                  "ssim": 0.5523269728757447,
+                  "mae": 43.283671875
+                }
+              }
+            ]
+          },
+          {
+            "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+            "resizeCalls": {
+              "gaussian": 0,
+              "mesh": 0
+            },
+            "images": [
+              {
+                "backend": "gaussian",
+                "size": [
+                  768,
+                  500
+                ],
+                "hash": "8642f967128ffe894a7d0b5964c1ccc115c31736739d059963216a743d9da92f",
+                "quality": {
+                  "psnr": 18.47944716023357,
+                  "ssim": 0.9017578188158342,
+                  "mae": 24.98429079861111
+                }
+              },
+              {
+                "backend": "mesh",
+                "size": [
+                  768,
+                  500
+                ],
+                "hash": "3af78ee4ba301c23d5ffaf227f2873c64eecec70b5db10e7dbd2fec1ca1573ad",
+                "quality": {
+                  "psnr": 13.659212822977622,
+                  "ssim": 0.7938037629857664,
+                  "mae": 35.42440972222222
+                }
+              }
+            ]
+          },
+          {
+            "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+            "resizeCalls": {
+              "gaussian": 0,
+              "mesh": 0
+            },
+            "images": [
+              {
+                "backend": "gaussian",
+                "size": [
+                  768,
+                  500
+                ],
+                "hash": "59b4b4f74bd20fc97e879344edab98c89cb5fa4a7f49c9477eaf0c2a59421c4e",
+                "quality": {
+                  "psnr": 15.099375023029197,
+                  "ssim": 0.7609674235983739,
+                  "mae": 37.13877951388889
+                }
+              },
+              {
+                "backend": "mesh",
+                "size": [
+                  768,
+                  500
+                ],
+                "hash": "e1732f8812ec8de3b4c1560717cf85c1068d7c34ae8f48a7beb9df0354e8112b",
+                "quality": {
+                  "psnr": 13.199993005936507,
+                  "ssim": 0.514409906920705,
+                  "mae": 41.8853125
+                }
+              }
+            ]
+          },
+          {
+            "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+            "resizeCalls": {
+              "gaussian": 0,
+              "mesh": 0
+            },
+            "images": [
+              {
+                "backend": "gaussian",
+                "size": [
+                  768,
+                  500
+                ],
+                "hash": "d437edbcc24020ce51471419b8e77fd12f7ea4606d9b455af5155c284ab2fb96",
+                "quality": {
+                  "psnr": 21.321730442436927,
+                  "ssim": 0.8348906614360371,
+                  "mae": 16.4986796875
+                }
+              },
+              {
+                "backend": "mesh",
+                "size": [
+                  768,
+                  500
+                ],
+                "hash": "b9b1b565d36a0fa5cca1da62c0a7d0a39726d4431a64239ecae7548eb7e3ea97",
+                "quality": {
+                  "psnr": 13.618649893923978,
+                  "ssim": 0.5806073766403183,
+                  "mae": 34.43380555555556
+                }
+              }
+            ]
+          }
+        ],
+        "resolutions": [
+          {
+            "width": 512,
+            "resizeCalls": {
+              "gaussian": 1,
+              "mesh": 1
+            },
+            "images": [
+              {
+                "backend": "gaussian",
+                "size": [
+                  512,
+                  334
+                ],
+                "hash": "eec2cffda30fa4620476937d569cc837cb4f99ab34dcb4866a3fa6ddb952bea8"
+              },
+              {
+                "backend": "mesh",
+                "size": [
+                  512,
+                  334
+                ],
+                "hash": "416a2d2ceb43735347b020efee5c4eab2e08c102d4661d31ca0fa76ee2c0248e"
+              }
+            ]
+          },
+          {
+            "width": 1024,
+            "resizeCalls": {
+              "gaussian": 1,
+              "mesh": 1
+            },
+            "images": [
+              {
+                "backend": "gaussian",
+                "size": [
+                  1024,
+                  667
+                ],
+                "hash": "5fee524db897f6019c81b14b03358bc137200a0f41526224c7163a48672b5b7d"
+              },
+              {
+                "backend": "mesh",
+                "size": [
+                  1024,
+                  667
+                ],
+                "hash": "5fd46decb1fbe00901c4a6e3726cce87bd0eb45b6d12a79429d237583fdec68d"
+              }
+            ]
+          },
+          {
+            "width": 768,
+            "resizeCalls": {
+              "gaussian": 1,
+              "mesh": 1
+            },
+            "images": [
+              {
+                "backend": "gaussian",
+                "size": [
+                  768,
+                  500
+                ],
+                "hash": "d437edbcc24020ce51471419b8e77fd12f7ea4606d9b455af5155c284ab2fb96"
+              },
+              {
+                "backend": "mesh",
+                "size": [
+                  768,
+                  500
+                ],
+                "hash": "b9b1b565d36a0fa5cca1da62c0a7d0a39726d4431a64239ecae7548eb7e3ea97"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "errors": [],
+    "environment": {
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36",
+      "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)"
+    },
+    "passed": true
+  },
+  "comparison": {
+    "heldOutBackendPairs": 12,
+    "heldOutHashesAndQualityExactlyEqual": true,
+    "resolutionBackendPairs": 12,
+    "resolutionHashesExactlyEqual": true
+  },
+  "manualChecks": {
+    "officeSamePhotoScreenshots": "baseline/candidate JPEGs attached to VIEW-RESIZE.md",
+    "officeOrbitAppearance": "both respond to a horizontal drag with matching visible appearance",
+    "candidatePhotoReset": true,
+    "consoleErrorsOrWarnings": []
+  },
+  "limitations": [
+    "No CPU/GPU timings, frame-rate, memory-reallocation or power measurement. Counts are renderer API calls.",
+    "Same-size assignments retained pixels in this Chromium baseline too; no observed blank-frame/flicker fix is claimed.",
+    "No change to default resolution, Gaussian count, SH, sorting or model data. No cross-browser generalization."
+  ],
+  "validation": {
+    "testsPassed": 42,
+    "typecheck": "passed",
+    "productionBuild": "passed"
+  }
+}
