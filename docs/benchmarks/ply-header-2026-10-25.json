@@ -1,0 +1,101 @@
+{
+  "recordedAt": "2026-10-25T19:20:53.916619+00:00",
+  "baselineCommit": "1e51e8d38c62e987d182669fc3e25e8b7bdd9031",
+  "protocol": {
+    "fixture": "tests/browser/ply-header.html",
+    "decodedInputBytes": 1048576,
+    "input": "xorshift32 seed 42, first six bytes replaced by <html>",
+    "chunkBytes": 1024,
+    "delivery": "one chunk per pull, then setTimeout(0) yields to simulate asynchronous arrival",
+    "gzipEncoder": "browser CompressionStream(gzip)",
+    "usesWebGL": false
+  },
+  "limitations": [
+    "Supplied source bytes in a paced synthetic stream, not actual network transfer savings or memory peak.",
+    "Decoder and browser read-ahead can consume already buffered compressed input before header validation; no guarantee that only four bytes or one chunk are fetched.",
+    "An initial unpaced in-memory gzip check did not invoke upstream cancellation before EOF. Unit regression instead gates the unread tail to verify rejection does not require full body arrival.",
+    "No GPU benchmark, visual-quality, cold/hot-load or first-frame timing was run; another reconstruction task was active."
+  ],
+  "baseline": {
+    "variant": "baseline",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36",
+    "rows": [
+      {
+        "gzip": false,
+        "inputBytes": 1048576,
+        "suppliedBytes": 1048576,
+        "cancelled": false,
+        "closed": true,
+        "lockReleased": true,
+        "error": "Error: 高斯模型文件格式无效",
+        "passed": false
+      },
+      {
+        "gzip": true,
+        "inputBytes": 1048919,
+        "suppliedBytes": 1048919,
+        "cancelled": false,
+        "closed": true,
+        "lockReleased": true,
+        "error": "Error: 高斯模型文件格式无效",
+        "passed": false
+      }
+    ],
+    "valid": [
+      {
+        "gzip": false,
+        "bytesMatch": true
+      },
+      {
+        "gzip": true,
+        "bytesMatch": true
+      }
+    ],
+    "errors": [],
+    "passed": false
+  },
+  "candidate": {
+    "variant": "candidate",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36",
+    "rows": [
+      {
+        "gzip": false,
+        "inputBytes": 1048576,
+        "suppliedBytes": 1024,
+        "cancelled": true,
+        "closed": false,
+        "lockReleased": true,
+        "error": "Error: 高斯模型文件格式无效",
+        "passed": true
+      },
+      {
+        "gzip": true,
+        "inputBytes": 1048919,
+        "suppliedBytes": 1024,
+        "cancelled": true,
+        "closed": false,
+        "lockReleased": true,
+        "error": "Error: 高斯模型文件格式无效",
+        "passed": true
+      }
+    ],
+    "valid": [
+      {
+        "gzip": false,
+        "bytesMatch": true
+      },
+      {
+        "gzip": true,
+        "bytesMatch": true
+      }
+    ],
+    "errors": [],
+    "passed": true
+  },
+  "validation": {
+    "testsPassed": 42,
+    "typecheck": "passed",
+    "productionBuild": "passed",
+    "fullPipesAndOfficeBytesEqualZlibReference": true
+  }
+}

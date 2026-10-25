@@ -83,6 +83,20 @@ Spark [#463](https://github.com/sparkjsdev/spark/pull/463)（2026-10-16 合并�
 
 对本项目的直接约束是：取消路径只报告避免的无效绘制/读回次数；后续加载实验单列下载、解码、初始化与首帧，不用稳态 FPS 代替交互等待时间。
 
+### 已采用：解码流中的文件头校验
+
+重新核对 [Spark 2.4.0 的 SplatLoader](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/SplatLoader.ts)后，保留应用先解压、再显式按 PLY 初始化的路径；gzip 魔数只能确认容器，不能确认解码内容。当前在解码流中提前检查 PLY 签名，避免错误响应必须读到末尾才失败。分块源对照与预读限制见[记录](PLY-HEADER.md)，未新增正常加载耗时或内存峰值结论。
+
+### 压缩候选：KISS-GS / SOG-XT
+
+[论文 v1](https://arxiv.org/abs/2608.26948)发表于 2026-08-27、收录 ECCV 2026，arXiv 使用非独占永久发布许可。研究把高斯精简、图像编码和可选微调分开，SOG-XT 将属性和 SH 码本存为图像；后续若验证，须先固定高斯数量与 SH3，仅评估编码，再单列剪枝与微调的画质代价。
+
+[作者主页](https://fraunhoferhhi.github.io/KISS-GS/)仍标注完整代码待发布，但提供[独立 NumPy 解码器](https://fraunhoferhhi.github.io/KISS-GS/decode_sogxt.py)；已阅读附录 6.9 和脚本，依赖 NumPy、Pillow、PyYAML，解码本身无需 CUDA。下载响应的修改时间为 2026-09-03，SHA-256 为 `05ddc2cb9a243ffc5a231cee987cd0aa4e0d28230a8d537c0cd8dab051876573`，脚本未附明确代码许可。
+
+[公开仓库 24e78b5](https://github.com/fraunhoferhhi/KISS-GS/tree/24e78b5c29f32a70a7802cc5dd0ada15e70bb6b0)只有项目页 README，链接至 [ffsplat](https://github.com/w-m/ffsplat/tree/3fb6444c5faed6de9aa55fa2313df6c2a4104193)（当前 main 提交 2025-07-10，Apache-2.0，快速启动要求 CUDA 12.x）。该旧版框架不能直接视为论文完整实现，其许可也不能自动套用于独立脚本。本项目暂未复制代码、转换模型或运行训练。
+
+浏览器图像解码思路可用于未来 WebGL2/WebGPU 上传路径，但 SOG-XT 不等同于 Spark 已支持的 SOGS，仍需属性、SH 布局和量化兼容验证；Metal 训练支持也未验证。下一步条件是取得可核实许可的实现与格式版本，再测相同模型的压缩体积、解码时间、CPU 内存峰值和全部留出画质，不使用论文压缩倍数作为本项目成绩。
+
 ## 后续研究记录
 
 记录新增来源时注明论文日期或仓库 commit/tag，以及与当前瓶颈的关系。进入实现前，补充最小实验、对照设置和可验证指标；完成后链接对应 CHANGELOG 或实验报告，标明采用或暂缓的理由。

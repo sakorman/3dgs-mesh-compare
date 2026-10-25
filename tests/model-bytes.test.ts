@@ -40,6 +40,66 @@ const fixture = new TextEncoder().encode(
   "ply\nformat binary_little_endian 1.0\nend_header\n123456789",
 );
 
+for (const gzip of [false, true])
+  test(
+    `invalid ${gzip ? "gzip" : "plain"} header rejects before consuming the remaining body`,
+    { timeout: 3000 },
+    async () => {
+      const invalid = new Uint8Array(1024 * 1024);
+      let seed = 42;
+      for (let i = 0; i < invalid.length; i++) {
+        seed ^= seed << 13;
+        seed ^= seed >>> 17;
+        seed ^= seed << 5;
+        invalid[i] = seed & 255;
+      }
+      invalid.set(new TextEncoder().encode("<html>"));
+      const bytes = gzip ? gzipSync(invalid) : invalid;
+      let offset = 0;
+      let cancelled = false;
+      const response = new Response(
+        new ReadableStream<Uint8Array>({
+          pull(controller) {
+            // The rest of the response has not arrived; rejection must not need EOF.
+            if (offset >= 4096) return new Promise<void>(() => {});
+            if (offset === bytes.length) {
+              controller.close();
+              return;
+            }
+            const end = Math.min(offset + 1024, bytes.length);
+            controller.enqueue(bytes.subarray(offset, end));
+            offset = end;
+          },
+          cancel() {
+            cancelled = true;
+          },
+        }),
+      );
+      await assert.rejects(readPlyResponse(response), /无效/);
+      assert.equal(cancelled, true, "must cancel the remaining upstream body");
+      assert.ok(
+        offset < bytes.length / 4,
+        `unexpected read-ahead: ${offset}/${bytes.length}`,
+      );
+      assert.equal(response.body!.locked, false);
+      assert.deepEqual(
+        new Uint8Array(await decodePly(fixture.buffer)),
+        fixture,
+      );
+    },
+  );
+
+test("short or mismatched PLY signatures reject across byte boundaries", async () => {
+  for (const text of ["p", "pl", "ply", "plx\n", "ply\r\n"]) {
+    const raw = new TextEncoder().encode(text);
+    for (const bytes of [raw, gzipSync(raw)]) {
+      const response = chunked(bytes, 1);
+      await assert.rejects(readPlyResponse(response), /无效/);
+      assert.equal(response.body!.locked, false);
+    }
+  }
+});
+
 test("gzip and PLY headers split into single-byte chunks decode exactly", async () => {
   for (const bytes of [fixture, gzipSync(fixture)]) {
     assert.deepEqual(
