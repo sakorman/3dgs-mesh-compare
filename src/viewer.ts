@@ -186,7 +186,13 @@ export class CompareViewer {
       (width * (this.view?.height ?? 1051)) / (this.view?.width ?? 1600),
     );
     for (const r of Object.values(this.renderers)) {
-      r.setSize(this.width, this.height, false);
+      // Both renderers use DPR=1; camera changes still invalidate the preview below.
+      if (
+        r.domElement.width !== this.width ||
+        r.domElement.height !== this.height
+      ) {
+        r.setSize(this.width, this.height, false);
+      }
       r.domElement.parentElement!.style.aspectRatio = `${this.width}/${this.height}`;
     }
     this.preview?.invalidate();
