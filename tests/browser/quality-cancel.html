@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-CN" data-mode="benchmark">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quality cancellation check</title>
+  <div id="app"></div>
+  <aside
+    style="
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #fff;
+      padding: 12px;
+      z-index: 10;
+      max-height: 30vh;
+      overflow: auto;
+      border-top: 1px solid #888;
+    "
+  >
+    <button id="qa-run" disabled>Run delayed reference check</button>
+    <pre id="qa-result">Loading…</pre>
+  </aside>
+  <script type="module" src="./quality-cancel.ts"></script>
+</html>

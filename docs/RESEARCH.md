@@ -71,6 +71,18 @@ Spark [#463](https://github.com/sparkjsdev/spark/pull/463)（2026-10-16 合并�
 
 可行动假设是先在现有 GLSL 光栅化中评估等阈值的不透明度边界，而非更换整个后端。已核对 [Spark 2.4.0 顶点着色器](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/shaders/splatVertex.glsl)：普通高斯仍以 `maxStdDev` 定义覆盖范围，另做低 alpha 剔除。其默认 `minAlpha=0.5/255`，普通衰减为 `exp(-0.5*r²)`，与 WebSplatter 的坐标和阈值不同，不能直接复制半径公式。候选需限定普通高斯与默认 falloff，保留抗锯齿后的 alpha、现有最大半径及精度边界，并对全部留出视角和移动路径核对像素差异。尚未实现或测得收益。
 
+### 已修复：评测的迟到参考图像
+
+应用在参考照片解码期间可能被取消或销毁。Spark 的内部释放处理不覆盖该 Promise；现在在图像返回后检查评测信号，且不再恢复已销毁的查看器。实际模型的闸门测试复现旧版多余绘制和相机操作，修复后均为 0，详见[取消检查](QUALITY-CANCELLATION.md)。
+
+同时核对了仍标为 open 的 [Spark #408](https://github.com/sparkjsdev/spark/issues/408)：几何释放修复 [#410](https://github.com/sparkjsdev/spark/pull/410)已于 2026-09-21 合并，当前 [2.4.0 源码](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/SparkRenderer.ts)的 `dispose()` 已释放 geometry 和 material，故不再额外补写同一清理逻辑。该判断来自当前实现，未声称所有内存泄漏均已消除。
+
+### 测量参考：重建系统的任务边界
+
+[Gaussian Splatting for Real-Time Scene Reconstruction: Methods, Systems, and Trade-offs](https://arxiv.org/abs/2610.17513)（v1，2026-10-13，论文 CC BY 4.0）在第 4.2–4.3 节区分已有模型渲染、场景生成、更新与训练成本，并要求一致的输入、设备和计时范围。它是综述；正文未发现配套评测仓库入口，本次没有移植代码或验证其跨方法结果。该测量口径适用于当前 WebGL2，以及后续 WebGPU/Metal/CUDA 实验；具体后端收益仍须独立测量。
+
+对本项目的直接约束是：取消路径只报告避免的无效绘制/读回次数；后续加载实验单列下载、解码、初始化与首帧，不用稳态 FPS 代替交互等待时间。
+
 ## 后续研究记录
 
 记录新增来源时注明论文日期或仓库 commit/tag，以及与当前瓶颈的关系。进入实现前，补充最小实验、对照设置和可验证指标；完成后链接对应 CHANGELOG 或实验报告，标明采用或暂缓的理由。
