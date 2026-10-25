@@ -7,6 +7,11 @@ export async function readPlyResponse(
 ): Promise<ArrayBuffer> {
   if (!response.body) throw new Error("高斯模型文件格式无效");
   const reader = response.body.getReader();
+  let headerError: Error | undefined;
+  const rejectHeader = () => {
+    headerError = new Error("高斯模型文件格式无效");
+    throw headerError;
+  };
   let inputController: ReadableStreamDefaultController<Uint8Array> | undefined;
   const abort = () => {
     inputController?.error(signal!.reason);
@@ -54,21 +59,31 @@ export async function readPlyResponse(
       magic[0] === 0x1f && magic[1] === 0x8b
         ? input.pipeThrough(new DecompressionStream("gzip"), { signal })
         : input;
-    const decoded = await new Response(body).arrayBuffer();
+    const signature = [0x70, 0x6c, 0x79, 0x0a];
+    let checked = 0;
+    const validated = body.pipeThrough(
+      new TransformStream<Uint8Array, Uint8Array>({
+        transform(chunk, controller) {
+          // Reject wrong responses before buffering the rest of the decoded model.
+          for (let i = 0; i < chunk.length && checked < signature.length; i++) {
+            if (chunk[i] !== signature[checked++]) rejectHeader();
+          }
+          controller.enqueue(chunk);
+        },
+        flush() {
+          if (checked < signature.length) rejectHeader();
+        },
+      }),
+      { signal },
+    );
+    const decoded = await new Response(validated).arrayBuffer();
     signal?.throwIfAborted();
-    if (
-      new TextDecoder().decode(
-        new Uint8Array(decoded, 0, Math.min(4, decoded.byteLength)),
-      ) !== "ply\n"
-    ) {
-      throw new Error("高斯模型文件格式无效");
-    }
     return decoded;
   } catch (error) {
-    // Some browsers report an interrupted Response body as a generic TypeError.
-    // Preserve the caller's cancellation reason across stream implementations.
+    // Some browsers turn stream errors into a generic Response TypeError.
+    // Preserve cancellation and header validation reasons for the caller.
     signal?.throwIfAborted();
-    throw error;
+    throw headerError ?? error;
   } finally {
     signal?.removeEventListener("abort", abort);
     // On malformed data or a downstream error, stop the original body as well.

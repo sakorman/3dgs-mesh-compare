@@ -2,6 +2,11 @@
 
 ## 2026-10-25
 
+- 将 PLY 文件头校验前移到解码流，错误响应无需等到末尾才失败，同时停止剩余读取并保留准确的格式错误提示。
+- 浏览器异步分块夹具中，原始/gzip 错误响应的源供给量从约 1 MiB 降至 1 KiB；这是模拟源计数，预读和缓存可能改变结果，不作为实际网络或内存节省承诺。见[验证记录](docs/PLY-HEADER.md)。
+- 新增 3 项回归测试，42 项测试、类型检查和构建通过；pipes/office 完整模型输出逐字节不变。本次仅验证 CPU 加载路径，未运行 GPU 性能对照。
+- 参考 [Spark 文件类型识别](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/SplatLoader.ts)；补充 [KISS-GS 论文](https://arxiv.org/abs/2608.26948)及[作者解码器](https://fraunhoferhhi.github.io/KISS-GS/decode_sogxt.py)研究，记录格式与许可待核实条件，尚未替换默认模型。
+
 - 修复参考照片解码期间取消评测后仍执行 3DGS 绘制、读回和画质计算的问题；排序等待同步接入取消信号，已释放的查看器不再恢复相机或重新开启预览。
 - 延迟返回检查中，取消后的像素读取由 1 次降至 0 次；离页销毁后的绘制、相机修改均由 1 次降至 0 次。见[回归说明](docs/QUALITY-CANCELLATION.md)与[原始记录](docs/benchmarks/quality-cancel-2026-10-25.json)。参考照片解码本身仍不可中断。
 - 两场景全部 6 个留出视角正常评测与 JSON 导出通过，逐视角 PSNR/SSIM/MAE 与原记录差异小于 1e-12；39 项测试、类型检查与构建通过，不新增 FPS 提升结论。
