@@ -233,8 +233,9 @@ function begin() {
 function finish() {
   controller = undefined;
   button("cancel").hidden = true;
-  lock(false);
-  viewer.playing = !viewer.lost;
+  const usable = !viewer.lost && !viewer.disposed;
+  lock(!usable);
+  viewer.playing = usable;
 }
 if (isBenchmark) {
   button("bench").onclick = async () => {
@@ -273,6 +274,7 @@ if (isBenchmark) {
     for (const side of ["gs", "mesh"]) $(`${side}-quality`).textContent = "—";
     $("quality-details").hidden = true;
     const original = viewIndex;
+    const signal = controller!.signal;
     const rows: {
       index: number;
       name: string;
@@ -281,7 +283,8 @@ if (isBenchmark) {
     }[] = [];
     try {
       const check = () => {
-        if (controller!.signal.aborted) throw new Error("评测已取消");
+        if (signal.aborted) throw new Error("评测已取消");
+        if (viewer.disposed) throw new Error("查看器已释放，评测已作废");
         if (document.hidden || viewer.lost)
           throw new Error("页面进入后台或显卡上下文丢失，评测已作废");
       };
@@ -292,9 +295,10 @@ if (isBenchmark) {
         check();
         status(`留出画质 ${n + 1}/${views.length} · 照片 ${i + 1}`);
         viewer.setView(v);
-        await viewer.settle();
+        await viewer.settle(signal);
         check();
         const target = await viewer.reference(v);
+        check();
         const gaussian = quality(
           viewer.pixels("gaussian"),
           target,
@@ -338,8 +342,10 @@ if (isBenchmark) {
       $("quality-details").hidden = true;
       status(message(e), true);
     } finally {
-      viewer.setView(data.views[original]);
-      await viewer.settle().catch(() => {});
+      if (!viewer.disposed && !viewer.lost) {
+        viewer.setView(data.views[original]);
+        await viewer.settle().catch(() => {});
+      }
       finish();
     }
   };

@@ -1,0 +1,237 @@
+{
+  "recordedAt": "2026-10-25T15:23:13.275500+00:00",
+  "baselineCommit": "59fb8bf6e9e1a883fa6b275c21364bb0b95fc942",
+  "dependencies": {
+    "spark": "2.4.0",
+    "three": "0.180.0"
+  },
+  "protocol": "Real pipes scene and reference decode; gate the reference Promise before it returns to the application, trigger cancel or synthetic permanent pagehide, then release. Count subsequent pixel reads, renders and setView calls. No timing-based race assumptions.",
+  "baseline": [
+    {
+      "variant": "baseline",
+      "scenario": "cancel",
+      "passed": false,
+      "pixelsAfterInterrupt": 1,
+      "viewChangesAfterDispose": 0,
+      "rendersAfterDispose": 0,
+      "disposedBeforeResume": false,
+      "playing": true,
+      "controlsUnlocked": true,
+      "reportAbsent": true,
+      "status": "评测已取消",
+      "errors": []
+    },
+    {
+      "variant": "baseline",
+      "scenario": "dispose",
+      "passed": false,
+      "pixelsAfterInterrupt": 1,
+      "viewChangesAfterDispose": 1,
+      "rendersAfterDispose": 1,
+      "disposedBeforeResume": true,
+      "playing": true,
+      "controlsUnlocked": true,
+      "reportAbsent": true,
+      "status": "评测已取消",
+      "errors": []
+    }
+  ],
+  "candidate": [
+    {
+      "variant": "candidate",
+      "scenario": "cancel",
+      "passed": true,
+      "pixelsAfterInterrupt": 0,
+      "viewChangesAfterDispose": 0,
+      "rendersAfterDispose": 0,
+      "disposedBeforeResume": false,
+      "playing": true,
+      "controlsUnlocked": true,
+      "reportAbsent": true,
+      "status": "评测已取消",
+      "errors": []
+    },
+    {
+      "variant": "candidate",
+      "scenario": "dispose",
+      "passed": true,
+      "pixelsAfterInterrupt": 0,
+      "viewChangesAfterDispose": 0,
+      "rendersAfterDispose": 0,
+      "disposedBeforeResume": true,
+      "playing": false,
+      "controlsUnlocked": false,
+      "reportAbsent": true,
+      "status": "评测已取消",
+      "errors": []
+    }
+  ],
+  "normalEvaluation": [
+    {
+      "scene": "pipes",
+      "environment": {
+        "devicePixelRatio": 2,
+        "drawingPixelRatio": 1,
+        "hardwareConcurrency": 10,
+        "screenRefreshRate": "unknown",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+      },
+      "quality": {
+        "averages": {
+          "gaussian": {
+            "mae": 34.776893392464245,
+            "psnr": 15.952798859891692,
+            "ssim": 0.728403229112224
+          },
+          "mesh": {
+            "mae": 40.235207817656764,
+            "psnr": 13.453569261445931,
+            "ssim": 0.5431100923692003
+          }
+        },
+        "resolution": [
+          768,
+          505
+        ],
+        "views": [
+          {
+            "gaussian": {
+              "mae": 24.67360079757976,
+              "psnr": 18.31313348259634,
+              "ssim": 0.780374994567275
+            },
+            "index": 0,
+            "mesh": {
+              "mae": 24.89255277090209,
+              "psnr": 16.203956014134363,
+              "ssim": 0.6405673672234332
+            },
+            "name": "0000-2bd85cc2e3134090b614199e2671400c.jpg"
+          },
+          {
+            "gaussian": {
+              "mae": 44.88018598734873,
+              "psnr": 13.592464237187045,
+              "ssim": 0.6764314636571729
+            },
+            "index": 8,
+            "mesh": {
+              "mae": 55.57786286441144,
+              "psnr": 10.703182508757498,
+              "ssim": 0.44565281751496727
+            },
+            "name": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "scene": "office",
+      "environment": {
+        "devicePixelRatio": 2,
+        "drawingPixelRatio": 1,
+        "hardwareConcurrency": 10,
+        "screenRefreshRate": "unknown",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+      },
+      "quality": {
+        "averages": {
+          "gaussian": {
+            "mae": 24.543999565972225,
+            "psnr": 18.74746582857635,
+            "ssim": 0.8377877019145599
+          },
+          "mesh": {
+            "mae": 38.75679991319444,
+            "psnr": 13.346642721149822,
+            "ssim": 0.6102870048556336
+          }
+        },
+        "resolution": [
+          768,
+          500
+        ],
+        "views": [
+          {
+            "gaussian": {
+              "mae": 19.55424826388889,
+              "psnr": 20.089310688605707,
+              "ssim": 0.8535349038079945
+            },
+            "index": 0,
+            "mesh": {
+              "mae": 43.283671875,
+              "psnr": 12.90871516176118,
+              "ssim": 0.5523269728757447
+            },
+            "name": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg"
+          },
+          {
+            "gaussian": {
+              "mae": 24.98429079861111,
+              "psnr": 18.47944716023357,
+              "ssim": 0.9017578188158342
+            },
+            "index": 8,
+            "mesh": {
+              "mae": 35.42440972222222,
+              "psnr": 13.659212822977622,
+              "ssim": 0.7938037629857664
+            },
+            "name": "0008-1c6da61406eb4744893572435799058c.jpg"
+          },
+          {
+            "gaussian": {
+              "mae": 37.13877951388889,
+              "psnr": 15.099375023029197,
+              "ssim": 0.7609674235983739
+            },
+            "index": 16,
+            "mesh": {
+              "mae": 41.8853125,
+              "psnr": 13.199993005936507,
+              "ssim": 0.514409906920705
+            },
+            "name": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg"
+          },
+          {
+            "gaussian": {
+              "mae": 16.4986796875,
+              "psnr": 21.321730442436927,
+              "ssim": 0.8348906614360371
+            },
+            "index": 24,
+            "mesh": {
+              "mae": 34.43380555555556,
+              "psnr": 13.618649893923978,
+              "ssim": 0.5806073766403183
+            },
+            "name": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg"
+          }
+        ]
+      }
+    }
+  ],
+  "qualityComparison": {
+    "reference": "drawing-buffer-2026-10-25.json, preserved pass 1",
+    "comparedViewsPerBackend": 6,
+    "backendViewPairs": 12,
+    "maximumAbsoluteDifference": {
+      "psnr": 1.7763568394002505e-15,
+      "ssim": 0.0,
+      "mae": 0.0
+    },
+    "tolerance": 1e-12,
+    "passed": true
+  },
+  "limitations": [
+    "Reference Image.decode() and download are not interrupted; cancellation suppresses work after the awaited result returns.",
+    "Permanent pagehide is synthetic. No native history cache, FPS, GPU time, decode latency or memory-peak claim."
+  ],
+  "validation": {
+    "testsPassed": 39,
+    "typecheck": "passed",
+    "productionBuild": "passed",
+    "browserConsoleErrorsOrWarnings": []
+  }
+}
