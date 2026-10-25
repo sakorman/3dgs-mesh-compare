@@ -59,6 +59,18 @@ Spark [#463](https://github.com/sparkjsdev/spark/pull/463)（2026-10-16 合并�
 
 [Google 的 bfcache 指南](https://web.dev/articles/bfcache)（页面更新于 2026-10-16）和 [MDN pagehide](https://developer.mozilla.org/en-US/docs/Web/API/Window/pagehide_event) 用于确定事件语义；[Spark 按需渲染](https://sparkjs.dev/docs/on-demand-rendering/) 用于恢复时的重绘请求。合成事件回归已通过；静态构建的实际导航得到 `persisted=false`，尚不能给出真实缓存命中下的性能结论。详见[页面生命周期记录](PAGE-LIFECYCLE.md)。
 
+### 暂缓：同时关闭两侧绘图缓冲保留
+
+在 Spark 2.4.0 / Three.js 0.180.0、Apple M5 / Chromium 153 上完成 ABBA 对照。全部留出像素一致，但办公室 3DGS 的 GPU 时间没有稳定收益，Mesh 时间增加，故保留默认值。仅调整高斯上下文可另建实验。详见[耗时、画质与原始样本](DRAWING-BUFFER.md)，此次 GPU 查询不覆盖完整浏览器合成成本。
+
+### 待验证：WebSplatter 的不透明度边界
+
+[WebSplatter 论文 v1](https://arxiv.org/html/2602.03207v1)发表于 2026-02-03；[作者主页](https://websplatter.github.io/)列为 ACM Multimedia 2026，标题与 v1 有调整。查阅[公开实现 16bb06e](https://github.com/websplatter/WebSplatter/tree/16bb06e86b8fb12193d4bb4cd2b0b3d4f3ab62be)（2026-08-29）及 [1.0.0 发行](https://github.com/websplatter/WebSplatter/releases/tag/1.0.0)（2026-08-10，未附发行说明），代码为 MIT。论文与新版主页的设备集合、速度数字不同，均不作为本项目结果。
+
+其 [WGSL 绘制实现](https://github.com/websplatter/WebSplatter/blob/16bb06e86b8fb12193d4bb4cd2b0b3d4f3ab62be/src/shaders/gaussian_render_conic.wgsl)按峰值不透明度收紧 quad，减少最终低于 alpha 阈值的片元；排序则采用分阶段 WebGPU compute，避免跨工作组自旋等待。后者需要 WebGPU，不能直接接入当前 WebGL2 Spark；Apple 设备还需浏览器支持 WebGPU/Metal 后端，不依赖 CUDA，当前未运行该实现。
+
+可行动假设是先在现有 GLSL 光栅化中评估等阈值的不透明度边界，而非更换整个后端。已核对 [Spark 2.4.0 顶点着色器](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/shaders/splatVertex.glsl)：普通高斯仍以 `maxStdDev` 定义覆盖范围，另做低 alpha 剔除。其默认 `minAlpha=0.5/255`，普通衰减为 `exp(-0.5*r²)`，与 WebSplatter 的坐标和阈值不同，不能直接复制半径公式。候选需限定普通高斯与默认 falloff，保留抗锯齿后的 alpha、现有最大半径及精度边界，并对全部留出视角和移动路径核对像素差异。尚未实现或测得收益。
+
 ## 后续研究记录
 
 记录新增来源时注明论文日期或仓库 commit/tag，以及与当前瓶颈的关系。进入实现前，补充最小实验、对照设置和可验证指标；完成后链接对应 CHANGELOG 或实验报告，标明采用或暂缓的理由。
