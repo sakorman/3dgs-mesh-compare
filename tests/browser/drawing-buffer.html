@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+  <meta charset="utf-8" />
+  <title>Drawing buffer comparison</title>
+  <style>
+    body {
+      font: 14px system-ui;
+      margin: 20px;
+      background: #edf1f5;
+    }
+    #views,
+    #captures {
+      display: flex;
+      gap: 8px;
+    }
+    #views > div,
+    #captures > img {
+      width: 48%;
+    }
+    canvas {
+      display: block;
+      width: 100%;
+    }
+    button {
+      padding: 8px;
+      margin: 8px 0;
+    }
+    pre {
+      white-space: pre-wrap;
+    }
+  </style>
+  <h1>Drawing buffer comparison</h1>
+  <p id="status">
+    Ready. Runs serially: preserved / discarded / discarded / preserved.
+  </p>
+  <button id="run">Run comparison</button>
+  <button id="orbit" disabled>Toggle orbit</button>
+  <button id="reset" disabled>Reset photo</button>
+  <div id="views">
+    <div id="left"></div>
+    <div id="right"></div>
+  </div>
+  <p>Fresh capture of the final view (for idle display comparison)</p>
+  <div id="captures"></div>
+  <pre id="summary"></pre>
+  <details>
+    <summary>Raw samples</summary>
+    <pre id="result"></pre>
+  </details>
+  <script type="module" src="./drawing-buffer.ts"></script>
+</html>
