@@ -41,6 +41,18 @@ Spark 2.4.0 的 [#476](https://github.com/sparkjsdev/spark/pull/476) 处理渲�
 
 gsplat 最近的 [image cache 提交](https://github.com/nerfstudio-project/gsplat/commit/512d366b67073d77ca099ede742683c165dfc23b) 报告在 8 张 B200 上将 steady step 从 13.88ms 降至 9.78ms（1.42×），代价是每 rank 约 502MiB 主机缓存和 1.44s 预加载。当前项目只在浏览器查看预训练模型，没有训练数据加载路径，因此不直接移植；后续 Brush 训练实验应单独核对主机内存和端到端时间。
 
+### 已采用：gzip PLY 流式读取
+
+现有 PLY 不改格式，使用浏览器响应流直接解压，并把加载取消信号传入读取与解压阶段。HTTP 已自动解压的响应按原始 PLY 读取。验证范围是完整字节一致性和中断行为，未将其称为 LoD 或渐进渲染；详见[读取验证](MODEL-STREAM.md)。
+
+### 待验证：分块格式与渐进传输
+
+Spark [#463](https://github.com/sparkjsdev/spark/pull/463)（2026-10-16 合并）将分页内容获取抽象成 FetchSource，适合后续探索分块读取。当前完整 PLY 不是分页资源，不能直接以该接口替换并宣称首帧收益。
+
+[SPZ 官方实现](https://github.com/nianticlabs/spz)采用 MIT 许可；查阅版本 [affd0ec](https://github.com/nianticlabs/spz/commit/affd0ecea7fbb4c265ee119475af7ee5b2997482)（2026-08-05）的说明包含 SPZ v4 的 ZSTD 压缩及属性量化。转换会涉及精度与坐标约定，需要独立测试 SH3、解码耗时和留出画质，当前尚未转换默认模型。
+
+[SplatStream](https://arxiv.org/abs/2607.25971)（2026-07-28，v2 更新于 07-29）研究动态 GS 的质量/分辨率分层、重要性分包和自适应传输。分包思路值得研究，但其动态编码与传输系统不能直接等同于本项目的静态 PLY 流式解压；暂列研究候选，不记录为已实现收益。
+
 ## 后续研究记录
 
 记录新增来源时注明论文日期或仓库 commit/tag，以及与当前瓶颈的关系。进入实现前，补充最小实验、对照设置和可验证指标；完成后链接对应 CHANGELOG 或实验报告，标明采用或暂缓的理由。

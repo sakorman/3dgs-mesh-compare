@@ -3,7 +3,7 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { SparkRenderer, SplatMesh, SplatFileType } from "@sparkjsdev/spark";
 import { applyView } from "./camera";
-import { decodePly } from "./model-bytes";
+import { readPlyResponse } from "./model-bytes";
 import { RenderScheduler } from "./render-scheduler";
 import { disposeMeshResources } from "./mesh-resources";
 import { LoadScope } from "./load-scope";
@@ -110,9 +110,7 @@ export class CompareViewer {
             signal: load.signal,
           });
           if (!res.ok) throw new Error("高斯模型下载失败");
-          const raw = await res.arrayBuffer();
-          load.check();
-          const bytes = await decodePly(raw);
+          const bytes = await readPlyResponse(res, load.signal);
           progress("正在解析高斯模型与纹理…");
           const g = new SplatMesh({
             fileBytes: bytes,

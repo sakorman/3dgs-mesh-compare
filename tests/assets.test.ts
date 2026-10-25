@@ -1,10 +1,12 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { readFileSync, createReadStream } from "node:fs";
+import { Readable } from "node:stream";
+import { readPlyResponse } from "../src/model-bytes";
 import { createHash } from "node:crypto";
 import { gunzipSync } from "node:zlib";
 for (const scene of ["pipes", "office"])
-  test(`${scene}: hashes, holdout isolation, GLB indices and PLY counts`, () => {
+  test(`${scene}: hashes, holdout isolation, GLB indices and streamed PLY bytes`, async () => {
     const base = new URL(`../public/scenes/${scene}/`, import.meta.url);
     const data = JSON.parse(readFileSync(new URL("scene.json", base), "utf8"));
     const train = new Set(
@@ -28,6 +30,18 @@ for (const scene of ["pipes", "office"])
     }
     const ply = gunzipSync(readFileSync(new URL(data.gaussian.url, base)));
     assert.equal(ply.length, data.gaussian.decodedBytes);
+    const source = Readable.toWeb(
+      createReadStream(new URL(data.gaussian.url, base), {
+        highWaterMark: 16384,
+      }),
+    );
+    const streamed = await readPlyResponse(
+      new Response(source as ReadableStream<Uint8Array>),
+    );
+    assert.ok(
+      Buffer.from(streamed).equals(ply),
+      "streamed decoder must preserve every PLY byte",
+    );
     assert.ok(
       ply
         .subarray(0, 3000)

@@ -1,0 +1,92 @@
+{
+  "date": "2026-10-25",
+  "baselineCommit": "84a29036e4bc195531acc029c37b7573d1cb4552",
+  "method": "CPU-only browser decode. Same real files via Vite HTTP Content-Encoding and raw gzip .bin aliases. SHA-256 independently checked with Python gzip.",
+  "baseline": {
+    "variant": "baseline",
+    "records": [
+      {
+        "scene": "pipes",
+        "transport": "http-decoded",
+        "encodedBytes": 64843796,
+        "decodedBytes": 70801551,
+        "sizeMatches": true,
+        "sha256": "b716afb08b23e18feed481eb8307238da7ba0788aea705601c7c66e022a51caf"
+      },
+      {
+        "scene": "pipes",
+        "transport": "raw-gzip",
+        "encodedBytes": 64843796,
+        "decodedBytes": 70801551,
+        "sizeMatches": true,
+        "sha256": "b716afb08b23e18feed481eb8307238da7ba0788aea705601c7c66e022a51caf"
+      },
+      {
+        "scene": "office",
+        "transport": "http-decoded",
+        "encodedBytes": 49050760,
+        "decodedBytes": 54618559,
+        "sizeMatches": true,
+        "sha256": "0af14259673b165001a9e84f27b6e19a55e924e0432e491e9701229f1c24e276"
+      },
+      {
+        "scene": "office",
+        "transport": "raw-gzip",
+        "encodedBytes": 49050760,
+        "decodedBytes": 54618559,
+        "sizeMatches": true,
+        "sha256": "0af14259673b165001a9e84f27b6e19a55e924e0432e491e9701229f1c24e276"
+      }
+    ],
+    "cancellation": null,
+    "errors": []
+  },
+  "candidate": {
+    "variant": "candidate",
+    "records": [
+      {
+        "scene": "pipes",
+        "transport": "http-decoded",
+        "encodedBytes": 64843796,
+        "decodedBytes": 70801551,
+        "sizeMatches": true,
+        "sha256": "b716afb08b23e18feed481eb8307238da7ba0788aea705601c7c66e022a51caf"
+      },
+      {
+        "scene": "pipes",
+        "transport": "raw-gzip",
+        "encodedBytes": 64843796,
+        "decodedBytes": 70801551,
+        "sizeMatches": true,
+        "sha256": "b716afb08b23e18feed481eb8307238da7ba0788aea705601c7c66e022a51caf"
+      },
+      {
+        "scene": "office",
+        "transport": "http-decoded",
+        "encodedBytes": 49050760,
+        "decodedBytes": 54618559,
+        "sizeMatches": true,
+        "sha256": "0af14259673b165001a9e84f27b6e19a55e924e0432e491e9701229f1c24e276"
+      },
+      {
+        "scene": "office",
+        "transport": "raw-gzip",
+        "encodedBytes": 49050760,
+        "decodedBytes": 54618559,
+        "sizeMatches": true,
+        "sha256": "0af14259673b165001a9e84f27b6e19a55e924e0432e491e9701229f1c24e276"
+      }
+    ],
+    "cancellation": {
+      "error": "AbortError",
+      "sourceCancelled": true,
+      "readerUnlocked": true,
+      "pulls": 2
+    },
+    "errors": []
+  },
+  "limitations": [
+    "No browser peak-memory, loading-time or GPU performance measurement.",
+    "Spark still receives one complete decoded PLY ArrayBuffer."
+  ]
+}
