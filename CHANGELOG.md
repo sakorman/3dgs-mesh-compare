@@ -2,6 +2,12 @@
 
 ## 2026-10-25
 
+- Gaussian gzip PLY 改为响应流直接解压，省去完整压缩包的中间 ArrayBuffer/Blob；仍在解压完成后初始化 Spark。
+- 读取和解压接入加载取消信号，中断时停止数据源并释放读取锁，统一浏览器的取消错误。
+- 管道房与办公室在 HTTP 自动解压、原始 gzip 两条路径下，输出哈希均与旧版一致；33 项测试通过，包含完整模型逐字节对照。见[浏览器记录](docs/benchmarks/model-stream-2026-10-25.json)和[复现说明](docs/MODEL-STREAM.md)。未测量内存峰值、首帧耗时或 FPS 增益。
+- 参考：[Compression Streams](https://developer.mozilla.org/en-US/docs/Web/API/DecompressionStream)、[Spark FetchSource](https://github.com/sparkjsdev/spark/pull/463)；新增 [SPZ](https://github.com/nianticlabs/spz) 与 [SplatStream](https://arxiv.org/abs/2607.25971) 研究候选，尚未转换默认模型或引入分页渲染。
+
+
 - 修复旧加载晚完成时覆盖相机或清空新场景的问题；每次加载独立持有资源，失败、取消和销毁只回收对应对象。
 - 一个模型失败时立即中止同次下载并回收另一个已成功解析的模型；取消后才返回的解析结果也会释放。故障注入中未关闭位图从 12 张降为 0，随后重试成功。
 - 新增 5 项单元测试和 4 项确定性浏览器检查，旧版本四项均复现问题，修复后全部通过；24 项测试与构建通过。见[对照记录](docs/benchmarks/load-lifecycle-2026-10-25.json)及[复现方法](docs/LOAD-LIFECYCLE.md)。
