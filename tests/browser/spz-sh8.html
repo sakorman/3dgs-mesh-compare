@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh-CN">
+  <meta charset="utf-8" /><title>SPZ SH8 精度对照</title>
+  <style>
+    body { font: 14px system-ui; margin: 20px; color: #223; }
+    #views, .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    figure { margin: 0; }
+    canvas, img { display: block; width: 100%; }
+    pre { white-space: pre-wrap; }
+    button, select { padding: 8px; margin: 4px; }
+    .pair { margin: 16px 0; }
+  </style>
+  <h1>SPZ3：SH 5/4 位与 8 位精度对照</h1>
+  <p>同一原始模型、相机与完整 SH3；关闭 LoD，768 长边，串行检查画质。</p>
+  <button id="run">运行文件画质对照</button>
+  <select id="scene"><option value="pipes">管道房</option><option value="office">办公室</option></select>
+  <select id="format"><option value="ply">原始 PLY</option><option value="spz">SPZ 5/4 位 SH</option><option value="sh8">SPZ 8 位 SH</option></select>
+  <button id="show" disabled>查看模型</button><button id="orbit" disabled>自由查看</button><button id="reset" disabled>复位</button>
+  <p id="status">Ready</p>
+  <div id="views"><div id="left"></div><div id="right"></div></div>
+  <div id="gallery"></div><pre id="result"></pre>
+  <script type="module" src="./spz-sh8.ts"></script>
+</html>
