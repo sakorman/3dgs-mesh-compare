@@ -1,5 +1,12 @@
 # 更新日志
 
+## 2026-10-27
+
+- 分离 SPZ3 的 SH 与其他属性误差：恢复原始 SH 后，pipes / office 留出平均 PSNR 回升 0.522 / 0.462dB，但仍低于原始模型 0.170 / 0.296dB；优先验证更高精度 SH，默认模型不替换。
+- 完成 40 次画面对照，20 组复制控制逐像素一致，点序符合定点量化误差范围；新增[原始数据、截图与复现页](docs/SPZ-ATTRIBUTES.md)。混合属性尚无对应压缩文件，不沿用完整 SPZ 的体积或耗时收益。
+- 更正 SPZ 抗锯齿标志说明：flags=1 来自编码器固定值，不代表原始元数据已保留；区分半精度中间表示和 SPZ 位宽的误差来源。44 项测试、类型检查及构建通过。
+- 参考 [SH 颜色压缩论文](https://arxiv.org/abs/2609.15735)、[Spark 属性实现](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/rust/spark-lib/src/gsplat.rs)和[共享指数修复](https://github.com/sparkjsdev/spark/pull/465)；后者已包含于当前版本，不重复修改。
+
 ## 2026-10-26
 
 - 完成独立 SPZ3 格式对照，保留高斯数量与 SH3：两场景文件比 gzip PLY 减少 88.86% / 89.55%；16 次串行加载、全部留出视角和偏转画面记录见[报告与截图](docs/SPZ-FORMAT.md)。
