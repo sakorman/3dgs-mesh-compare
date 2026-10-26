@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-CN">
+  <meta charset="utf-8" /><title>SPZ 格式对照</title>
+  <style>
+    body {
+      font: 14px system-ui;
+      margin: 20px;
+      color: #223;
+    }
+    #views,
+    .pair {
+      display: flex;
+      gap: 12px;
+    }
+    #views > div,
+    .pair > figure {
+      width: 48%;
+      margin: 0;
+    }
+    canvas,
+    img {
+      display: block;
+      width: 100%;
+    }
+    pre {
+      white-space: pre-wrap;
+    }
+    textarea {
+      display: none;
+    }
+    button,
+    select {
+      padding: 8px;
+      margin: 4px;
+    }
+    .pair {
+      margin: 16px 0;
+    }
+    h2 {
+      margin-bottom: 0;
+    }
+  </style>
+  <h1>SPZ3 / gzip PLY 格式对照</h1>
+  <p>
+    完整 SH3，同相机、768 长边；模型预读至内存后串行加载。结果不代表网络冷加载。
+  </p>
+  <button id="prepare">准备独立 SPZ3 模型</button
+  ><button id="run" disabled>运行 ABBA 对照</button>
+  <select id="scene">
+    <option value="pipes">管道房</option>
+    <option value="office">办公室</option>
+  </select>
+  <select id="format">
+    <option value="ply">gzip PLY</option>
+    <option value="spz">SPZ3</option>
+  </select>
+  <button id="show" disabled>查看模型</button
+  ><button id="orbit" disabled>自由查看</button
+  ><button id="reset" disabled>复位</button>
+  <p id="status">Ready</p>
+  <div id="views">
+    <div id="left"></div>
+    <div id="right"></div>
+  </div>
+  <div id="gallery"></div>
+  <pre id="result"></pre>
+  <textarea id="assets"></textarea>
+  <script type="module" src="./spz-format.ts"></script>
+</html>

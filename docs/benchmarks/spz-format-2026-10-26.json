@@ -1,0 +1,1265 @@
+{
+  "createdAt": "2026-10-26T14:37:30.333Z",
+  "baselineCommit": "db828fa",
+  "spark": "2.4.0",
+  "inputs": "prefetched in-memory model bytes, 64KiB chunks",
+  "order": "ABBAABBA per scene; one warmup per format; quality afterwards",
+  "resolution": 768,
+  "lod": false,
+  "maxSh": 3,
+  "backgrounded": false,
+  "environment": {
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+    "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)"
+  },
+  "assets": [
+    {
+      "scene": "pipes",
+      "gzipBytes": 64843796,
+      "decodedPlyBytes": 70801551,
+      "spzBytes": 7224942,
+      "spzVersion": 3,
+      "count": 300000,
+      "shDegree": 3,
+      "fractionalBits": 12,
+      "conversionMs": 514.4000000953674,
+      "gzipSha256": "55b311c225e5ac53a2e2c3d6e2fa2cafd228dd16c7d5d6ac56daaf9efbf76734",
+      "plySha256": "b716afb08b23e18feed481eb8307238da7ba0788aea705601c7c66e022a51caf",
+      "spzSha256": "27a86e61a18f20976492c836cb611c81d45ecfb16d115990cabb224d4b99628e",
+      "manifestSha256": "00035e1c79a4738fb42ec06b6ee4b57df7d80af07edfba3e9680a2d80edc8b7d"
+    },
+    {
+      "scene": "office",
+      "gzipBytes": 49050760,
+      "decodedPlyBytes": 54618559,
+      "spzBytes": 5125559,
+      "spzVersion": 3,
+      "count": 231428,
+      "shDegree": 3,
+      "fractionalBits": 12,
+      "conversionMs": 320.69999980926514,
+      "gzipSha256": "0786facf28ff0c2d6f47e3e9f7c392823a7eb3d892cf2e41b52d1964067e6b89",
+      "plySha256": "0af14259673b165001a9e84f27b6e19a55e924e0432e491e9701229f1c24e276",
+      "spzSha256": "3105e094a92842f31f5b49517e297cd52a635597474ae7af668700a77bd5694b",
+      "manifestSha256": "95956bf7b20c8214164f0a12bcf868cc2e822cd3d40b7f2646a4a0b8e4129367"
+    }
+  ],
+  "rows": [
+    {
+      "scene": "pipes",
+      "format": "ply",
+      "sequence": 1,
+      "trace": {
+        "schemaVersion": 1,
+        "scene": "pipes",
+        "createdAt": "2026-10-26T14:37:19.400Z",
+        "totalMs": 425.09999990463257,
+        "spans": [
+          {
+            "stage": "metadata",
+            "startMs": 0.6999998092651367,
+            "endMs": 1.0999999046325684,
+            "durationMs": 0.40000009536743164
+          },
+          {
+            "stage": "meshRead",
+            "startMs": 1.1999998092651367,
+            "endMs": 178.69999980926514,
+            "durationMs": 177.5
+          },
+          {
+            "stage": "gaussianReadDecode",
+            "startMs": 1.1999998092651367,
+            "endMs": 183.7999997138977,
+            "durationMs": 182.59999990463257
+          },
+          {
+            "stage": "meshParse",
+            "startMs": 178.69999980926514,
+            "endMs": 197.59999990463257,
+            "durationMs": 18.90000009536743
+          },
+          {
+            "stage": "gaussianInitialize",
+            "startMs": 183.7999997138977,
+            "endMs": 311.3999996185303,
+            "durationMs": 127.59999990463257
+          },
+          {
+            "stage": "settle",
+            "startMs": 311.3999996185303,
+            "endMs": 425.09999990463257,
+            "durationMs": 113.7000002861023
+          }
+        ],
+        "resolution": [
+          768,
+          505
+        ],
+        "camera": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+        "visibility": "foreground",
+        "cache": "uncontrolled",
+        "scope": "scene-load-to-settled-submission",
+        "execution": "parallel-model-loading"
+      }
+    },
+    {
+      "scene": "pipes",
+      "format": "spz",
+      "sequence": 2,
+      "trace": {
+        "schemaVersion": 1,
+        "scene": "pipes-spz",
+        "createdAt": "2026-10-26T14:37:19.825Z",
+        "totalMs": 242.90000009536743,
+        "spans": [
+          {
+            "stage": "metadata",
+            "startMs": 0.8000001907348633,
+            "endMs": 1.1999998092651367,
+            "durationMs": 0.39999961853027344
+          },
+          {
+            "stage": "meshRead",
+            "startMs": 1.3000001907348633,
+            "endMs": 3,
+            "durationMs": 1.6999998092651367
+          },
+          {
+            "stage": "gaussianReadDecode",
+            "startMs": 1.3000001907348633,
+            "endMs": 6.199999809265137,
+            "durationMs": 4.899999618530273
+          },
+          {
+            "stage": "meshParse",
+            "startMs": 3.0999999046325684,
+            "endMs": 14.300000190734863,
+            "durationMs": 11.200000286102295
+          },
+          {
+            "stage": "gaussianInitialize",
+            "startMs": 6.199999809265137,
+            "endMs": 139.59999990463257,
+            "durationMs": 133.40000009536743
+          },
+          {
+            "stage": "settle",
+            "startMs": 139.69999980926514,
+            "endMs": 242.90000009536743,
+            "durationMs": 103.2000002861023
+          }
+        ],
+        "resolution": [
+          768,
+          505
+        ],
+        "camera": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+        "visibility": "foreground",
+        "cache": "uncontrolled",
+        "scope": "scene-load-to-settled-submission",
+        "execution": "parallel-model-loading"
+      }
+    },
+    {
+      "scene": "pipes",
+      "format": "spz",
+      "sequence": 3,
+      "trace": {
+        "schemaVersion": 1,
+        "scene": "pipes-spz",
+        "createdAt": "2026-10-26T14:37:20.068Z",
+        "totalMs": 237.30000019073486,
+        "spans": [
+          {
+            "stage": "metadata",
+            "startMs": 0.6999998092651367,
+            "endMs": 1.0999999046325684,
+            "durationMs": 0.40000009536743164
+          },
+          {
+            "stage": "meshRead",
+            "startMs": 1.0999999046325684,
+            "endMs": 2.8000001907348633,
+            "durationMs": 1.700000286102295
+          },
+          {
+            "stage": "gaussianReadDecode",
+            "startMs": 1.0999999046325684,
+            "endMs": 6,
+            "durationMs": 4.900000095367432
+          },
+          {
+            "stage": "meshParse",
+            "startMs": 2.8000001907348633,
+            "endMs": 13,
+            "durationMs": 10.199999809265137
+          },
+          {
+            "stage": "gaussianInitialize",
+            "startMs": 6,
+            "endMs": 138.5,
+            "durationMs": 132.5
+          },
+          {
+            "stage": "settle",
+            "startMs": 138.5,
+            "endMs": 237.30000019073486,
+            "durationMs": 98.80000019073486
+          }
+        ],
+        "resolution": [
+          768,
+          505
+        ],
+        "camera": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+        "visibility": "foreground",
+        "cache": "uncontrolled",
+        "scope": "scene-load-to-settled-submission",
+        "execution": "parallel-model-loading"
+      }
+    },
+    {
+      "scene": "pipes",
+      "format": "ply",
+      "sequence": 4,
+      "trace": {
+        "schemaVersion": 1,
+        "scene": "pipes",
+        "createdAt": "2026-10-26T14:37:20.305Z",
+        "totalMs": 410.7999997138977,
+        "spans": [
+          {
+            "stage": "metadata",
+            "startMs": 0.7999997138977051,
+            "endMs": 1.0999999046325684,
+            "durationMs": 0.3000001907348633
+          },
+          {
+            "stage": "meshRead",
+            "startMs": 1.1999998092651367,
+            "endMs": 177.69999980926514,
+            "durationMs": 176.5
+          },
+          {
+            "stage": "gaussianReadDecode",
+            "startMs": 1.1999998092651367,
+            "endMs": 182.39999961853027,
+            "durationMs": 181.19999980926514
+          },
+          {
+            "stage": "meshParse",
+            "startMs": 177.69999980926514,
+            "endMs": 196,
+            "durationMs": 18.300000190734863
+          },
+          {
+            "stage": "gaussianInitialize",
+            "startMs": 182.39999961853027,
+            "endMs": 306.8999996185303,
+            "durationMs": 124.5
+          },
+          {
+            "stage": "settle",
+            "startMs": 306.8999996185303,
+            "endMs": 410.7999997138977,
+            "durationMs": 103.90000009536743
+          }
+        ],
+        "resolution": [
+          768,
+          505
+        ],
+        "camera": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+        "visibility": "foreground",
+        "cache": "uncontrolled",
+        "scope": "scene-load-to-settled-submission",
+        "execution": "parallel-model-loading"
+      }
+    },
+    {
+      "scene": "pipes",
+      "format": "ply",
+      "sequence": 5,
+      "trace": {
+        "schemaVersion": 1,
+        "scene": "pipes",
+        "createdAt": "2026-10-26T14:37:20.716Z",
+        "totalMs": 424.5,
+        "spans": [
+          {
+            "stage": "metadata",
+            "startMs": 0.7000002861022949,
+            "endMs": 1.1000003814697266,
+            "durationMs": 0.40000009536743164
+          },
+          {
+            "stage": "meshRead",
+            "startMs": 1.200000286102295,
+            "endMs": 178.5,
+            "durationMs": 177.2999997138977
+          },
+          {
+            "stage": "gaussianReadDecode",
+            "startMs": 1.200000286102295,
+            "endMs": 183.2000002861023,
+            "durationMs": 182
+          },
+          {
+            "stage": "meshParse",
+            "startMs": 178.5,
+            "endMs": 197.60000038146973,
+            "durationMs": 19.100000381469727
+          },
+          {
+            "stage": "gaussianInitialize",
+            "startMs": 183.2000002861023,
+            "endMs": 312.7000002861023,
+            "durationMs": 129.5
+          },
+          {
+            "stage": "settle",
+            "startMs": 312.7000002861023,
+            "endMs": 424.5,
+            "durationMs": 111.7999997138977
+          }
+        ],
+        "resolution": [
+          768,
+          505
+        ],
+        "camera": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+        "visibility": "foreground",
+        "cache": "uncontrolled",
+        "scope": "scene-load-to-settled-submission",
+        "execution": "parallel-model-loading"
+      }
+    },
+    {
+      "scene": "pipes",
+      "format": "spz",
+      "sequence": 6,
+      "trace": {
+        "schemaVersion": 1,
+        "scene": "pipes-spz",
+        "createdAt": "2026-10-26T14:37:21.140Z",
+        "totalMs": 248.7000002861023,
+        "spans": [
+          {
+            "stage": "metadata",
+            "startMs": 0.7000002861022949,
+            "endMs": 1.1000003814697266,
+            "durationMs": 0.40000009536743164
+          },
+          {
+            "stage": "meshRead",
+            "startMs": 1.1000003814697266,
+            "endMs": 2.700000286102295,
+            "durationMs": 1.5999999046325684
+          },
+          {
+            "stage": "gaussianReadDecode",
+            "startMs": 1.1000003814697266,
+            "endMs": 5.900000095367432,
+            "durationMs": 4.799999713897705
+          },
+          {
+            "stage": "meshParse",
+            "startMs": 2.700000286102295,
+            "endMs": 13.300000190734863,
+            "durationMs": 10.599999904632568
+          },
+          {
+            "stage": "gaussianInitialize",
+            "startMs": 5.900000095367432,
+            "endMs": 139.90000009536743,
+            "durationMs": 134
+          },
+          {
+            "stage": "settle",
+            "startMs": 139.90000009536743,
+            "endMs": 248.7000002861023,
+            "durationMs": 108.80000019073486
+          }
+        ],
+        "resolution": [
+          768,
+          505
+        ],
+        "camera": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+        "visibility": "foreground",
+        "cache": "uncontrolled",
+        "scope": "scene-load-to-settled-submission",
+        "execution": "parallel-model-loading"
+      }
+    },
+    {
+      "scene": "pipes",
+      "format": "spz",
+      "sequence": 7,
+      "trace": {
+        "schemaVersion": 1,
+        "scene": "pipes-spz",
+        "createdAt": "2026-10-26T14:37:21.389Z",
+        "totalMs": 246.19999980926514,
+        "spans": [
+          {
+            "stage": "metadata",
+            "startMs": 0.6999998092651367,
+            "endMs": 1,
+            "durationMs": 0.3000001907348633
+          },
+          {
+            "stage": "meshRead",
+            "startMs": 1.0999999046325684,
+            "endMs": 2.9000000953674316,
+            "durationMs": 1.8000001907348633
+          },
+          {
+            "stage": "gaussianReadDecode",
+            "startMs": 1.0999999046325684,
+            "endMs": 6.099999904632568,
+            "durationMs": 5
+          },
+          {
+            "stage": "meshParse",
+            "startMs": 2.9000000953674316,
+            "endMs": 13,
+            "durationMs": 10.099999904632568
+          },
+          {
+            "stage": "gaussianInitialize",
+            "startMs": 6.099999904632568,
+            "endMs": 138.69999980926514,
+            "durationMs": 132.59999990463257
+          },
+          {
+            "stage": "settle",
+            "startMs": 138.69999980926514,
+            "endMs": 246.09999990463257,
+            "durationMs": 107.40000009536743
+          }
+        ],
+        "resolution": [
+          768,
+          505
+        ],
+        "camera": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+        "visibility": "foreground",
+        "cache": "uncontrolled",
+        "scope": "scene-load-to-settled-submission",
+        "execution": "parallel-model-loading"
+      }
+    },
+    {
+      "scene": "pipes",
+      "format": "ply",
+      "sequence": 8,
+      "trace": {
+        "schemaVersion": 1,
+        "scene": "pipes",
+        "createdAt": "2026-10-26T14:37:21.636Z",
+        "totalMs": 408.40000009536743,
+        "spans": [
+          {
+            "stage": "metadata",
+            "startMs": 0.7000002861022949,
+            "endMs": 1,
+            "durationMs": 0.2999997138977051
+          },
+          {
+            "stage": "meshRead",
+            "startMs": 1,
+            "endMs": 177.90000009536743,
+            "durationMs": 176.90000009536743
+          },
+          {
+            "stage": "gaussianReadDecode",
+            "startMs": 1,
+            "endMs": 182.40000009536743,
+            "durationMs": 181.40000009536743
+          },
+          {
+            "stage": "meshParse",
+            "startMs": 177.90000009536743,
+            "endMs": 195.90000009536743,
+            "durationMs": 18
+          },
+          {
+            "stage": "gaussianInitialize",
+            "startMs": 182.40000009536743,
+            "endMs": 307.6000003814697,
+            "durationMs": 125.2000002861023
+          },
+          {
+            "stage": "settle",
+            "startMs": 307.6000003814697,
+            "endMs": 408.40000009536743,
+            "durationMs": 100.7999997138977
+          }
+        ],
+        "resolution": [
+          768,
+          505
+        ],
+        "camera": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+        "visibility": "foreground",
+        "cache": "uncontrolled",
+        "scope": "scene-load-to-settled-submission",
+        "execution": "parallel-model-loading"
+      }
+    },
+    {
+      "scene": "office",
+      "format": "ply",
+      "sequence": 1,
+      "trace": {
+        "schemaVersion": 1,
+        "scene": "office",
+        "createdAt": "2026-10-26T14:37:24.527Z",
+        "totalMs": 385.59999990463257,
+        "spans": [
+          {
+            "stage": "metadata",
+            "startMs": 1.5,
+            "endMs": 1.8999996185302734,
+            "durationMs": 0.39999961853027344
+          },
+          {
+            "stage": "meshRead",
+            "startMs": 1.8999996185302734,
+            "endMs": 136.59999990463257,
+            "durationMs": 134.7000002861023
+          },
+          {
+            "stage": "gaussianReadDecode",
+            "startMs": 1.8999996185302734,
+            "endMs": 145.2999997138977,
+            "durationMs": 143.40000009536743
+          },
+          {
+            "stage": "meshParse",
+            "startMs": 136.59999990463257,
+            "endMs": 162.5,
+            "durationMs": 25.90000009536743
+          },
+          {
+            "stage": "gaussianInitialize",
+            "startMs": 145.2999997138977,
+            "endMs": 246.69999980926514,
+            "durationMs": 101.40000009536743
+          },
+          {
+            "stage": "settle",
+            "startMs": 246.7999997138977,
+            "endMs": 385.59999990463257,
+            "durationMs": 138.80000019073486
+          }
+        ],
+        "resolution": [
+          768,
+          500
+        ],
+        "camera": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+        "visibility": "foreground",
+        "cache": "uncontrolled",
+        "scope": "scene-load-to-settled-submission",
+        "execution": "parallel-model-loading"
+      }
+    },
+    {
+      "scene": "office",
+      "format": "spz",
+      "sequence": 2,
+      "trace": {
+        "schemaVersion": 1,
+        "scene": "office-spz",
+        "createdAt": "2026-10-26T14:37:24.912Z",
+        "totalMs": 237.09999990463257,
+        "spans": [
+          {
+            "stage": "metadata",
+            "startMs": 1.5,
+            "endMs": 1.9000000953674316,
+            "durationMs": 0.40000009536743164
+          },
+          {
+            "stage": "gaussianReadDecode",
+            "startMs": 1.9000000953674316,
+            "endMs": 4.299999713897705,
+            "durationMs": 2.3999996185302734
+          },
+          {
+            "stage": "meshRead",
+            "startMs": 2,
+            "endMs": 4.900000095367432,
+            "durationMs": 2.9000000953674316
+          },
+          {
+            "stage": "gaussianInitialize",
+            "startMs": 4.299999713897705,
+            "endMs": 108.69999980926514,
+            "durationMs": 104.40000009536743
+          },
+          {
+            "stage": "meshParse",
+            "startMs": 4.900000095367432,
+            "endMs": 22.799999713897705,
+            "durationMs": 17.899999618530273
+          },
+          {
+            "stage": "settle",
+            "startMs": 108.69999980926514,
+            "endMs": 237.09999990463257,
+            "durationMs": 128.40000009536743
+          }
+        ],
+        "resolution": [
+          768,
+          500
+        ],
+        "camera": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+        "visibility": "foreground",
+        "cache": "uncontrolled",
+        "scope": "scene-load-to-settled-submission",
+        "execution": "parallel-model-loading"
+      }
+    },
+    {
+      "scene": "office",
+      "format": "spz",
+      "sequence": 3,
+      "trace": {
+        "schemaVersion": 1,
+        "scene": "office-spz",
+        "createdAt": "2026-10-26T14:37:25.149Z",
+        "totalMs": 234.40000009536743,
+        "spans": [
+          {
+            "stage": "metadata",
+            "startMs": 1.5,
+            "endMs": 1.9000000953674316,
+            "durationMs": 0.40000009536743164
+          },
+          {
+            "stage": "gaussianReadDecode",
+            "startMs": 1.9000000953674316,
+            "endMs": 3.9000000953674316,
+            "durationMs": 2
+          },
+          {
+            "stage": "meshRead",
+            "startMs": 1.9000000953674316,
+            "endMs": 4.400000095367432,
+            "durationMs": 2.5
+          },
+          {
+            "stage": "gaussianInitialize",
+            "startMs": 3.9000000953674316,
+            "endMs": 117,
+            "durationMs": 113.09999990463257
+          },
+          {
+            "stage": "meshParse",
+            "startMs": 4.400000095367432,
+            "endMs": 21.5,
+            "durationMs": 17.09999990463257
+          },
+          {
+            "stage": "settle",
+            "startMs": 117,
+            "endMs": 234.40000009536743,
+            "durationMs": 117.40000009536743
+          }
+        ],
+        "resolution": [
+          768,
+          500
+        ],
+        "camera": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+        "visibility": "foreground",
+        "cache": "uncontrolled",
+        "scope": "scene-load-to-settled-submission",
+        "execution": "parallel-model-loading"
+      }
+    },
+    {
+      "scene": "office",
+      "format": "ply",
+      "sequence": 4,
+      "trace": {
+        "schemaVersion": 1,
+        "scene": "office",
+        "createdAt": "2026-10-26T14:37:25.384Z",
+        "totalMs": 400.19999980926514,
+        "spans": [
+          {
+            "stage": "metadata",
+            "startMs": 1.4000000953674316,
+            "endMs": 1.6999998092651367,
+            "durationMs": 0.2999997138977051
+          },
+          {
+            "stage": "meshRead",
+            "startMs": 1.8000001907348633,
+            "endMs": 138.40000009536743,
+            "durationMs": 136.59999990463257
+          },
+          {
+            "stage": "gaussianReadDecode",
+            "startMs": 1.8000001907348633,
+            "endMs": 146.80000019073486,
+            "durationMs": 145
+          },
+          {
+            "stage": "meshParse",
+            "startMs": 138.40000009536743,
+            "endMs": 166.30000019073486,
+            "durationMs": 27.90000009536743
+          },
+          {
+            "stage": "gaussianInitialize",
+            "startMs": 146.80000019073486,
+            "endMs": 253.19999980926514,
+            "durationMs": 106.39999961853027
+          },
+          {
+            "stage": "settle",
+            "startMs": 253.19999980926514,
+            "endMs": 400.19999980926514,
+            "durationMs": 147
+          }
+        ],
+        "resolution": [
+          768,
+          500
+        ],
+        "camera": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+        "visibility": "foreground",
+        "cache": "uncontrolled",
+        "scope": "scene-load-to-settled-submission",
+        "execution": "parallel-model-loading"
+      }
+    },
+    {
+      "scene": "office",
+      "format": "ply",
+      "sequence": 5,
+      "trace": {
+        "schemaVersion": 1,
+        "scene": "office",
+        "createdAt": "2026-10-26T14:37:25.784Z",
+        "totalMs": 371.3999996185303,
+        "spans": [
+          {
+            "stage": "metadata",
+            "startMs": 1.5,
+            "endMs": 1.799999713897705,
+            "durationMs": 0.2999997138977051
+          },
+          {
+            "stage": "meshRead",
+            "startMs": 1.799999713897705,
+            "endMs": 137.69999980926514,
+            "durationMs": 135.90000009536743
+          },
+          {
+            "stage": "gaussianReadDecode",
+            "startMs": 1.799999713897705,
+            "endMs": 145.69999980926514,
+            "durationMs": 143.90000009536743
+          },
+          {
+            "stage": "meshParse",
+            "startMs": 137.69999980926514,
+            "endMs": 163.09999990463257,
+            "durationMs": 25.40000009536743
+          },
+          {
+            "stage": "gaussianInitialize",
+            "startMs": 145.69999980926514,
+            "endMs": 247.39999961853027,
+            "durationMs": 101.69999980926514
+          },
+          {
+            "stage": "settle",
+            "startMs": 247.39999961853027,
+            "endMs": 371.3999996185303,
+            "durationMs": 124
+          }
+        ],
+        "resolution": [
+          768,
+          500
+        ],
+        "camera": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+        "visibility": "foreground",
+        "cache": "uncontrolled",
+        "scope": "scene-load-to-settled-submission",
+        "execution": "parallel-model-loading"
+      }
+    },
+    {
+      "scene": "office",
+      "format": "spz",
+      "sequence": 6,
+      "trace": {
+        "schemaVersion": 1,
+        "scene": "office-spz",
+        "createdAt": "2026-10-26T14:37:26.156Z",
+        "totalMs": 231,
+        "spans": [
+          {
+            "stage": "metadata",
+            "startMs": 1.5,
+            "endMs": 1.8999996185302734,
+            "durationMs": 0.39999961853027344
+          },
+          {
+            "stage": "gaussianReadDecode",
+            "startMs": 1.8999996185302734,
+            "endMs": 4.099999904632568,
+            "durationMs": 2.200000286102295
+          },
+          {
+            "stage": "meshRead",
+            "startMs": 1.8999996185302734,
+            "endMs": 4.699999809265137,
+            "durationMs": 2.8000001907348633
+          },
+          {
+            "stage": "gaussianInitialize",
+            "startMs": 4.099999904632568,
+            "endMs": 111.89999961853027,
+            "durationMs": 107.7999997138977
+          },
+          {
+            "stage": "meshParse",
+            "startMs": 4.699999809265137,
+            "endMs": 22.399999618530273,
+            "durationMs": 17.699999809265137
+          },
+          {
+            "stage": "settle",
+            "startMs": 111.89999961853027,
+            "endMs": 231,
+            "durationMs": 119.10000038146973
+          }
+        ],
+        "resolution": [
+          768,
+          500
+        ],
+        "camera": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+        "visibility": "foreground",
+        "cache": "uncontrolled",
+        "scope": "scene-load-to-settled-submission",
+        "execution": "parallel-model-loading"
+      }
+    },
+    {
+      "scene": "office",
+      "format": "spz",
+      "sequence": 7,
+      "trace": {
+        "schemaVersion": 1,
+        "scene": "office-spz",
+        "createdAt": "2026-10-26T14:37:26.387Z",
+        "totalMs": 227.40000009536743,
+        "spans": [
+          {
+            "stage": "metadata",
+            "startMs": 1.4000000953674316,
+            "endMs": 1.9000000953674316,
+            "durationMs": 0.5
+          },
+          {
+            "stage": "gaussianReadDecode",
+            "startMs": 1.9000000953674316,
+            "endMs": 3.9000000953674316,
+            "durationMs": 2
+          },
+          {
+            "stage": "meshRead",
+            "startMs": 1.9000000953674316,
+            "endMs": 4.5,
+            "durationMs": 2.5999999046325684
+          },
+          {
+            "stage": "gaussianInitialize",
+            "startMs": 3.9000000953674316,
+            "endMs": 113.5,
+            "durationMs": 109.59999990463257
+          },
+          {
+            "stage": "meshParse",
+            "startMs": 4.5,
+            "endMs": 20.5,
+            "durationMs": 16
+          },
+          {
+            "stage": "settle",
+            "startMs": 113.5,
+            "endMs": 227.40000009536743,
+            "durationMs": 113.90000009536743
+          }
+        ],
+        "resolution": [
+          768,
+          500
+        ],
+        "camera": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+        "visibility": "foreground",
+        "cache": "uncontrolled",
+        "scope": "scene-load-to-settled-submission",
+        "execution": "parallel-model-loading"
+      }
+    },
+    {
+      "scene": "office",
+      "format": "ply",
+      "sequence": 8,
+      "trace": {
+        "schemaVersion": 1,
+        "scene": "office",
+        "createdAt": "2026-10-26T14:37:26.614Z",
+        "totalMs": 399,
+        "spans": [
+          {
+            "stage": "metadata",
+            "startMs": 1.4000000953674316,
+            "endMs": 1.8000001907348633,
+            "durationMs": 0.40000009536743164
+          },
+          {
+            "stage": "meshRead",
+            "startMs": 1.9000000953674316,
+            "endMs": 142.09999990463257,
+            "durationMs": 140.19999980926514
+          },
+          {
+            "stage": "gaussianReadDecode",
+            "startMs": 1.9000000953674316,
+            "endMs": 150.30000019073486,
+            "durationMs": 148.40000009536743
+          },
+          {
+            "stage": "meshParse",
+            "startMs": 142.09999990463257,
+            "endMs": 170.19999980926514,
+            "durationMs": 28.09999990463257
+          },
+          {
+            "stage": "gaussianInitialize",
+            "startMs": 150.30000019073486,
+            "endMs": 256.69999980926514,
+            "durationMs": 106.39999961853027
+          },
+          {
+            "stage": "settle",
+            "startMs": 256.69999980926514,
+            "endMs": 399,
+            "durationMs": 142.30000019073486
+          }
+        ],
+        "resolution": [
+          768,
+          500
+        ],
+        "camera": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+        "visibility": "foreground",
+        "cache": "uncontrolled",
+        "scope": "scene-load-to-settled-submission",
+        "execution": "parallel-model-loading"
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "scene": "pipes",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": 0,
+      "size": [
+        768,
+        505
+      ],
+      "baseline": {
+        "hash": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36",
+        "quality": {
+          "psnr": 18.7454079234687,
+          "ssim": 0.7833699625373709,
+          "mae": 23.128159378437843
+        }
+      },
+      "candidate": {
+        "hash": "3911450c757ef4e266e5cf73728aebfc2d44d3846d65919dbc20277c50e7c48d",
+        "quality": {
+          "psnr": 17.741053283929457,
+          "ssim": 0.7735551754223664,
+          "mae": 26.557219471947196
+        }
+      },
+      "betweenRenders": {
+        "psnr": 32.00644976634215,
+        "ssim": 0.9697782310994225,
+        "mae": 5.115339658965897
+      }
+    },
+    {
+      "scene": "pipes",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": -0.08,
+      "size": [
+        768,
+        505
+      ],
+      "baseline": {
+        "hash": "77a3202754413348a4176ac57760d7c93611807159622ebee7c746dbd1732db8",
+        "quality": null
+      },
+      "candidate": {
+        "hash": "2f5c784feea3e5e06b45ef5be3ba449c2b96ba8449b2dbd571b74deb60353813",
+        "quality": null
+      },
+      "betweenRenders": {
+        "psnr": 31.777028935895192,
+        "ssim": 0.9695024265402961,
+        "mae": 5.267090380913091
+      }
+    },
+    {
+      "scene": "pipes",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": 0.08,
+      "size": [
+        768,
+        505
+      ],
+      "baseline": {
+        "hash": "a3a8db66317ad19b5b4907123ae9484054c1409e764244c3d667245743ca417b",
+        "quality": null
+      },
+      "candidate": {
+        "hash": "1c7a2ba8e8d8af0ed88de5c10df5a67dd3c6ce2fc44130c196bcf8430009221d",
+        "quality": null
+      },
+      "betweenRenders": {
+        "psnr": 32.39647167305223,
+        "ssim": 0.9703317897625384,
+        "mae": 4.941488758250825
+      }
+    },
+    {
+      "scene": "pipes",
+      "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+      "yaw": 0,
+      "size": [
+        768,
+        505
+      ],
+      "baseline": {
+        "hash": "c91b07263481e55ea3f9585a7deadf35d29fea9f3ac96c938275124b58935754",
+        "quality": {
+          "psnr": 13.792416915886214,
+          "ssim": 0.6784728649187745,
+          "mae": 43.79629228547855
+        }
+      },
+      "candidate": {
+        "hash": "fbb4c12c950c74fdd98a9b448692d367c5e41a809b86f8c380f5ac8a3c902b68",
+        "quality": {
+          "psnr": 13.412800202723892,
+          "ssim": 0.6729294148265443,
+          "mae": 45.567727241474145
+        }
+      },
+      "betweenRenders": {
+        "psnr": 34.21809632327512,
+        "ssim": 0.9729972002190783,
+        "mae": 3.85931999449945
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": 0,
+      "size": [
+        768,
+        500
+      ],
+      "baseline": {
+        "hash": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3",
+        "quality": {
+          "psnr": 20.14224972070788,
+          "ssim": 0.854074841185931,
+          "mae": 19.42663628472222
+        }
+      },
+      "candidate": {
+        "hash": "755a70344edbc870ffbca44ff7a6b58089e9601c0f44779d7b95d7f48f09d984",
+        "quality": {
+          "psnr": 19.819086636567654,
+          "ssim": 0.8485155427281028,
+          "mae": 19.994228298611112
+        }
+      },
+      "betweenRenders": {
+        "psnr": 33.04789036231013,
+        "ssim": 0.9711913642460083,
+        "mae": 4.517545138888889
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": -0.08,
+      "size": [
+        768,
+        500
+      ],
+      "baseline": {
+        "hash": "eab164fb1727e3bf574e8592a82c3a962a5a3489b238754647b73bb181343ecd",
+        "quality": null
+      },
+      "candidate": {
+        "hash": "8be1a58e13eecc5100032f762f7cf8048fa519e301804574cb75602021f3eaa4",
+        "quality": null
+      },
+      "betweenRenders": {
+        "psnr": 32.08632717564827,
+        "ssim": 0.97048463741625,
+        "mae": 5.049219618055556
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": 0.08,
+      "size": [
+        768,
+        500
+      ],
+      "baseline": {
+        "hash": "1c239cdf35aa90175f6becce1942c77222168482943bebf28b522b7a3d8d3c59",
+        "quality": null
+      },
+      "candidate": {
+        "hash": "fd415ef307f71692caedbe022e1ea944f188c95a4de009c471696505b4f08db2",
+        "quality": null
+      },
+      "betweenRenders": {
+        "psnr": 33.93259103142973,
+        "ssim": 0.9715873139885112,
+        "mae": 4.097542534722222
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+      "yaw": 0,
+      "size": [
+        768,
+        500
+      ],
+      "baseline": {
+        "hash": "8ba6cc5b7af30145763983b06ad0aa80dc911255e25b5d537c68653c14d8c0df",
+        "quality": {
+          "psnr": 18.609404955593412,
+          "ssim": 0.9030411354183728,
+          "mae": 24.478438368055556
+        }
+      },
+      "candidate": {
+        "hash": "28613fb56c1f6fa88a4e831d4b5dfa9ec8ceb95e91bc75d1fcab228544f50518",
+        "quality": {
+          "psnr": 17.791341244074623,
+          "ssim": 0.8908556679976157,
+          "mae": 27.268204861111112
+        }
+      },
+      "betweenRenders": {
+        "psnr": 32.46876891661185,
+        "ssim": 0.9710528364392549,
+        "mae": 5.187144965277778
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+      "yaw": 0,
+      "size": [
+        768,
+        500
+      ],
+      "baseline": {
+        "hash": "a16ea0b0e57a2be26e2c85b2315a1c0f2ae3d221328451d5e87449829991213f",
+        "quality": {
+          "psnr": 15.281057627991563,
+          "ssim": 0.7627602027580822,
+          "mae": 36.04847569444444
+        }
+      },
+      "candidate": {
+        "hash": "7eefd916bfec2fbdee02886485acdd34662e9314cf6b821cdefb70092acb15ee",
+        "quality": {
+          "psnr": 14.550484676921627,
+          "ssim": 0.750263818312533,
+          "mae": 39.534587673611114
+        }
+      },
+      "betweenRenders": {
+        "psnr": 33.04905767147244,
+        "ssim": 0.9731962701173833,
+        "mae": 4.444868923611111
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+      "yaw": 0,
+      "size": [
+        768,
+        500
+      ],
+      "baseline": {
+        "hash": "7b0bf43e8967c537e2677326b567e2bea9f08162a374fab50489b48e049ed06d",
+        "quality": {
+          "psnr": 21.781069172415165,
+          "ssim": 0.8361942484912689,
+          "mae": 15.425102430555556
+        }
+      },
+      "candidate": {
+        "hash": "19c3ae636e5a66746d71ce42e853f51f78379cf58ed1caa1a8581b71ef1fdb76",
+        "quality": {
+          "psnr": 20.621960838207233,
+          "ssim": 0.8273527080949458,
+          "mae": 18.310375
+        }
+      },
+      "betweenRenders": {
+        "psnr": 31.363768622671003,
+        "ssim": 0.9702959805212447,
+        "mae": 5.627550347222222
+      }
+    }
+  ],
+  "errors": [],
+  "review": {
+    "defaultAssetsChanged": false,
+    "adopted": false,
+    "reason": "All six held-out views lose PSNR and SSIM; keep default PLY assets.",
+    "manualChecks": [
+      "pipes and office: baseline/candidate orbit drag and photo reset",
+      "same-view gallery; both formats retain scene orientation"
+    ],
+    "consoleErrorsAfterManualChecks": [],
+    "candidateFiles": "Local ignored .qa/{scene}-candidate.spz; regenerate from the fixture",
+    "generatedViewerSha256": "ab13cb0f87d1ac29a62c902b98a29e27368a1efa439f43fe9c98146438db762c",
+    "screenshotRecheck": {
+      "sameCandidateHashes": true,
+      "sameTenPixelPairs": true,
+      "performanceRepeated": false
+    }
+  }
+}

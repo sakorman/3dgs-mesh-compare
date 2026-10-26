@@ -135,6 +135,20 @@ Spark 2.4.0（最新发行 2026-10-20，MIT）的 [SplatMesh.initialized 实现]
 
 当前论文页面未提供可核实版本和代码许可的作者仓库，定向检索也未找到对应实现；没有移植或复现论文数字。其训练和学习式编码并非当前浏览器 PLY 读取流程，WebGL2/WebGPU/Metal 及 CUDA 的可复现实现条件仍未确认，暂不进入默认资产转换。后续若取得实现，应固定照片与相机，分别列出量化/剪枝画质代价、解码、上传和首帧成本。
 
+### 暂缓：默认 SPZ3 属性量化
+
+当前 Spark 2.4.0（2026-10-20，MIT）的 [SPZ API](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/spz.ts)只写 SPZ2/3；[SPZ4 读取补丁](https://github.com/sparkjsdev/spark/pull/484)于 10-15 合并。Niantic 的 [v3.0.0 库发行](https://github.com/nianticlabs/spz/releases/tag/v3.0.0)（05-05）包含 SPZ4 文件格式；库标签和文件版本不可混淆。参考库当前提交仍为 [affd0ec](https://github.com/nianticlabs/spz/tree/affd0ecea7fbb4c265ee119475af7ee5b2997482)（08-05，MIT）。
+
+已用 Spark 浏览器转换器独立生成两场景 SPZ3，保持点数与 SH3；但[编码器](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/rust/spark-lib/src/spz.rs)量化位置、颜色、不透明度、尺度、旋转与 SH，SH1 用 5bit、SH2/3 用 4bit。16 次内存输入加载和全部六个留出视角验证显示：文件减少约 89%，加载等待下降，但平均 PSNR 分别降低 0.692/0.758dB。默认模型不替换，完整[参数、耗时及截图](SPZ-FORMAT.md)保留。
+
+本次只验证 WebGL2 + CPU/WASM 解码、ANGLE Metal 绘制，不依赖 CUDA，也没有改成 GPU 驻留压缩或 WebGPU。后续先分离各属性量化误差，或用参考 SPZ4 编码器调整精度，再测目标网络端到端等待；不能把多流容器支持解释成当前浏览器已并行解码，或将文件缩小等同显存节省。
+
+### 候选：GPU 纹理编码与传输压缩分开
+
+[Compression of 3D Gaussian Splatting Data Using GPU-friendly Graphics Texture Coding](https://arxiv.org/html/2607.14513v1)（v1，2026-07-16，CC BY 4.0）研究按颜色分组后的 BC1/BC7 SH 编码和随机访问。第 V-A 节使用 AMD Compressonator 编解码 SH；其余属性保持浮点，论文图像 PSNR 对照原始渲染，并非留出照片分数。
+
+论文及定向检索未找到可核实版本、许可证的作者完整仓库，尚未移植；第三方编码工具也不能代替论文完整实现。可行动假设是单独比较传输容器和渲染驻留表示，检查上传后是否仍展开，分别测 CPU 解码、GPU 内存与画质。WebGL2/WebGPU 的纹理格式能力以及 Metal/CUDA 后端条件需独立验证，不能从论文画质表推断当前 Spark 的运行性能。
+
 ## 后续研究记录
 
 记录新增来源时注明论文日期或仓库 commit/tag，以及与当前瓶颈的关系。进入实现前，补充最小实验、对照设置和可验证指标；完成后链接对应 CHANGELOG 或实验报告，标明采用或暂缓的理由。
