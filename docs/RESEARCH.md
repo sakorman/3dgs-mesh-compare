@@ -161,6 +161,20 @@ Spark 2.4.0（最新发行 2026-10-20，MIT）的 [SplatMesh.initialized 实现]
 
 可行动方向是先在本项目的固定画面上检验 SH 精度，避免仅用系数均方误差决定压缩参数。若后续估计变换，限定训练相机拟合，留出视角不参与调参；作者报告的收益不作为本项目结果。
 
+### 已验证、暂不采用：SPZ3 的 8 位 SH 文件
+
+[实际文件对照](SPZ-SH8.md)仅替换 SH 字节，原 5/4 位量化控制全部复现，非 SH 字节完全不变。两场景平均 PSNR 相对原 SPZ 回升 0.520 / 0.461dB，候选为 11.96 / 8.51MiB；但六个留出视角仍低于原始 PLY，默认不替换。8 位候选已接近恢复原始 SH 的组合，下一步优先拆分其他属性，暂不继续搜索 SH 位宽。
+
+本次仍按 [Spark 2.4.0 / ffe210d](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/rust/spark-lib/src/spz.rs)（2026-10-20，MIT）核对编码；[Niantic 主分支 affd0ec](https://github.com/nianticlabs/spz/tree/affd0ecea7fbb4c265ee119475af7ee5b2997482)仍为 2026-08-05、MIT。文件缩小约 81% 不代表新的加载、首帧、显存或 GPU 性能收益；本次只验证 Spark 解码、WebGL2 / ANGLE Metal 绘制，没有验证其他解码器、WebGPU 或 CUDA。
+
+### 暂缓：CCT-GS 的学习式 SH 压缩
+
+[CCT-GS: Codec-Compatible Learned Compression for 3D Gaussian Splatting](https://arxiv.org/abs/2610.26920)的 v1 提交于 2026-10-17，页面注明收录 IEEE VCIP 2026，论文为 arXiv 非独占永久发布许可。[原文](https://arxiv.org/html/2610.26920v1)将 45 个 SH-AC 通道编码为 15 通道潜变量，再用 HEVC 编码属性图；LoRA 适配还需传输场景相关权重。实验使用 RTX 4090、HM18.0 与 DeepCABAC，不能据此推断浏览器的解码或上传收益。
+
+论文摘要链接公开实现，但截至 2026-10-27，[作者仓库 73c4f3e](https://github.com/yfffffy/CCT-GS/tree/73c4f3e917a7ea0938180935bd7b62cdcbebb0fe)（提交 2026-10-16）只有 README，明确表示代码和预训练模型待发布，未附代码许可证。未复制实现、训练或复现论文跑分；WebGL2/WebGPU/Metal 适配没有证据，CUDA 可复现实验也需等待代码与依赖。
+
+后续进入实验的条件是取得有许可的编码器、解码器和权重，再将共享解码模型、LoRA、属性图的总传输量与解码成本一起测量。若需要场景适配，只使用训练视角；当前先完成非学习式属性误差定位，避免仅凭单个压缩文件大小判断可部署性。
+
 ## 后续研究记录
 
 记录新增来源时注明论文日期或仓库 commit/tag，以及与当前瓶颈的关系。进入实现前，补充最小实验、对照设置和可验证指标；完成后链接对应 CHANGELOG 或实验报告，标明采用或暂缓的理由。
