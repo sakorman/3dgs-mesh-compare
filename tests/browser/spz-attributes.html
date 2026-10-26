@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-CN">
+  <meta charset="utf-8" /><title>SPZ 属性误差对照</title>
+  <style>
+    body { font: 14px system-ui; margin: 20px; color: #223; }
+    #views, .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    figure { margin: 0; }
+    canvas, img { display: block; width: 100%; }
+    pre { white-space: pre-wrap; }
+    button { padding: 8px; margin: 4px; }
+    .grid { margin: 16px 0; }
+  </style>
+  <h1>SPZ3：SH 与其他属性误差分离</h1>
+  <p>完整 SH3，关闭 LoD，768 长边；只测画质，不采集加载或帧时间。</p>
+  <button id="run">运行属性对照</button>
+  <p id="status">Ready</p>
+  <div id="views"><div id="left"></div><div id="right"></div></div>
+  <div id="gallery"></div>
+  <pre id="result"></pre>
+  <script type="module" src="./spz-attributes.ts"></script>
+</html>

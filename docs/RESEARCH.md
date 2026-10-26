@@ -1,6 +1,6 @@
 # 3DGS 研究索引
 
-查阅日期：2026-10-26。以下区分已验证的应用改进与尚未验证收益的研究候选。
+查阅日期：2026-10-27。以下区分已验证的应用改进与尚未验证收益的研究候选。
 
 ## 实现
 
@@ -148,6 +148,18 @@ Spark 2.4.0（最新发行 2026-10-20，MIT）的 [SplatMesh.initialized 实现]
 [Compression of 3D Gaussian Splatting Data Using GPU-friendly Graphics Texture Coding](https://arxiv.org/html/2607.14513v1)（v1，2026-07-16，CC BY 4.0）研究按颜色分组后的 BC1/BC7 SH 编码和随机访问。第 V-A 节使用 AMD Compressonator 编解码 SH；其余属性保持浮点，论文图像 PSNR 对照原始渲染，并非留出照片分数。
 
 论文及定向检索未找到可核实版本、许可证的作者完整仓库，尚未移植；第三方编码工具也不能代替论文完整实现。可行动假设是单独比较传输容器和渲染驻留表示，检查上传后是否仍展开，分别测 CPU 解码、GPU 内存与画质。WebGL2/WebGPU 的纹理格式能力以及 Metal/CUDA 后端条件需独立验证，不能从论文画质表推断当前 Spark 的运行性能。
+
+### 已验证：SPZ3 的 SH 属性误差
+
+[属性对照](SPZ-ATTRIBUTES.md)保持高斯数、相机、完整 SH3 和 768 长边不变，以原始/压缩的其他属性与 SH 做四组组合。恢复原始 SH 后 pipes / office 的平均 PSNR 相对完整 SPZ 回升 0.522 / 0.462dB，仍低于原始 PLY；20 组复制控制逐像素一致。优先验证高精度 SH 的实际文件体积与画质，不将内存混合属性当作已实现压缩收益。
+
+核对 Spark 主分支仍为 [ffe210d](https://github.com/sparkjsdev/spark/commit/ffe210dc0a45d0515a06c9235878108112827d61)（2026-10-20，2.4.0）。[SH 共享指数修复 #465](https://github.com/sparkjsdev/spark/pull/465)已于 10-02 合并，当前版本已包含。另确认 [GsplatArray](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/rust/spark-lib/src/gsplat.rs)采用半精度中间属性，并固定返回抗锯齿标志 true；[SPZ 解码](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/rust/spark-lib/src/spz.rs)未将 bit 0 应用成渲染选项。因此属性对照覆盖整条转换路径，不能将损失全部归到 SPZ 单一量化步骤。代码 MIT，实际验证 WebGL2 / ANGLE Metal；没有 CUDA 或 WebGPU 实验。
+
+### 待验证：以图像失真约束 SH 压缩
+
+[Transforming Harmonic Coefficients for 3D Splat Compression](https://arxiv.org/abs/2609.15735)（Tam Thuc Do、Philip A. Chou、Gene Cheung；v1，2026-09-14；论文 CC BY-NC-ND 4.0）从图像空间误差出发讨论 SH 正交化与 KLT。[正文第 4.1 节](https://arxiv.org/html/2609.15735v1#S4.SS1)实验基于稀疏体素、RAHT、量化和 ANS，不能直接视作 Spark 高斯实现。正文未提供匹配实现链接，本次检索也未找到可核实的作者公开代码及代码许可；WebGL2/WebGPU/Metal/CUDA 支持均未验证。
+
+可行动方向是先在本项目的固定画面上检验 SH 精度，避免仅用系数均方误差决定压缩参数。若后续估计变换，限定训练相机拟合，留出视角不参与调参；作者报告的收益不作为本项目结果。
 
 ## 后续研究记录
 

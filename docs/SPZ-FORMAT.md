@@ -8,7 +8,7 @@
 
 - 基线：`db828fa` 的加载流程，gzip PLY → 浏览器解压 → Spark PLY 初始化。
 - 候选：Spark 2.4.0 的 `transcodeSpz` 从原始 PLY 转为 **SPZ 格式版本 3**，`maxSh=3`、`fractionalBits=12`、`opacityThreshold=0`，不裁剪、剪枝或变换坐标；随后交给 Spark SPZ 初始化。
-- pipes 300,000、office 231,428 个高斯。候选 gzip 内的 SPZ 头再次确认数量、SH3、位置小数位；本地独立解压核验相同，保留原有抗锯齿标志。
+- pipes 300,000、office 231,428 个高斯。候选 gzip 内的 SPZ 头再次确认数量、SH3、位置小数位；本地独立解压核验相同。头部 flags=1 来自 Spark `GsplatArray.flag_antialias()` 的固定返回值，不能作为原模型抗锯齿元数据被保留的证据；当前 SPZ 解码初始化未将 bit 0 转成渲染选项。
 - Spark 的[写入实现](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/rust/spark-lib/src/spz.rs)使用位置定点量化、不透明度/颜色/对数尺度量化、SPZ3 旋转编码以及 SH1 5bit、SH2/3 4bit 量化。**保留 SH3 不等于保留原始浮点精度**。
 - Spark 2.4.0 已有 [SPZ4 读取支持](https://github.com/sparkjsdev/spark/pull/484)，当前公开 `SpzWriteVersion` 仍只有 2/3。本实验没有使用 SPZ4/ZSTD，不能套用 SPZ4 的宣传数字。
 
@@ -68,7 +68,7 @@ npm run dev
 
 页面显示完整 JSON 和同视角图片。只重新检查截图时可使用 `?qualityOnly=1`，不会重复性能采样。候选字节保留在该页 `#assets` 表单字段（场景名到 Base64 的 JSON），用于本地归档；本次已独立保存在忽略的 `.qa/pipes-candidate.spz`、`.qa/office-candidate.spz`，文件哈希见报告。模型未提交到默认资产或在线站点。
 
-范围限制：没有验证候选取消/失败回滚、手机设备、独立 SPZ 解码器互操作或更长漫游路径；也未分离位置、颜色、尺度、旋转与 SH 的单项误差。若继续，先验证可配置量化参数或 SPZ4 参考编码器，再以相同质量约束比较实际网络加载。
+范围限制：没有验证候选取消/失败回滚、手机设备、独立 SPZ 解码器互操作或更长漫游路径。2026-10-27 的[属性对照](SPZ-ATTRIBUTES.md)已分离 SH 与其余属性组合，位置、颜色、尺度、旋转及不透明度还没有逐项分离。下一步先验证更高精度 SH 或 SPZ4 参考编码器，再以相同质量约束比较实际网络加载。
 
 ## 参考
 
