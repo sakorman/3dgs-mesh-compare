@@ -7,6 +7,7 @@ import { readPlyResponse } from "./model-bytes";
 import { RenderScheduler } from "./render-scheduler";
 import { disposeMeshResources } from "./mesh-resources";
 import { LoadScope } from "./load-scope";
+import { LoadClock, type LoadTimings } from "./load-timing";
 import type { Backend, SceneData, View } from "./types";
 export const nextFrame = () =>
   new Promise<number>((resolve) => requestAnimationFrame(resolve));
@@ -19,6 +20,7 @@ export class CompareViewer {
   mesh?: THREE.Group;
   controls: OrbitControls[] = [];
   data?: SceneData;
+  loadTimings?: LoadTimings;
   view?: View;
   width = 768;
   height = 504;
@@ -59,6 +61,7 @@ export class CompareViewer {
         this.lost = true;
         this.playing = false;
         this.currentLoad?.cancel();
+        this.loadTimings = undefined;
         this.onError("显卡上下文丢失，请刷新页面重新加载。");
       });
       return r;
@@ -83,10 +86,19 @@ export class CompareViewer {
   }
   async load(id: string) {
     if (this.disposed || this.lost) return;
+    const clock = new LoadClock();
+    const createdAt = new Date().toISOString();
+    let backgrounded = document.hidden;
+    const visibility = () => {
+      backgrounded ||= document.hidden;
+    };
     this.playing = false;
     this.clear();
     const load = new LoadScope();
     this.currentLoad = load;
+    document.addEventListener("visibilitychange", visibility, {
+      signal: load.signal,
+    });
     const base = `${import.meta.env.BASE_URL}scenes/${id}/`;
     const progress = (message: string) => {
       load.check();
@@ -94,24 +106,29 @@ export class CompareViewer {
       load.check();
     };
     try {
+      const metadataDone = clock.start("metadata");
       const response = await fetch(base + "scene.json", {
         signal: load.signal,
       });
       if (!response.ok) throw new Error("无法读取场景信息");
       const data: SceneData = await response.json();
       load.check();
+      metadataDone();
       this.data = data;
       this.setView(data.views.find((v) => v.heldOut) ?? data.views[0]);
 
       const [gaussian, mesh] = await Promise.all([
         (async () => {
           progress("正在加载完整高斯模型…");
+          const readDone = clock.start("gaussianReadDecode");
           const res = await fetch(base + data.gaussian.url, {
             signal: load.signal,
           });
           if (!res.ok) throw new Error("高斯模型下载失败");
           const bytes = await readPlyResponse(res, load.signal);
+          readDone();
           progress("正在解析高斯模型与纹理…");
+          const initializeDone = clock.start("gaussianInitialize");
           const g = new SplatMesh({
             fileBytes: bytes,
             fileType: SplatFileType.PLY,
@@ -132,16 +149,21 @@ export class CompareViewer {
           });
           g.maxSh = 3;
           g.updateGenerator();
+          initializeDone();
           return g;
         })(),
         (async () => {
+          const readDone = clock.start("meshRead");
           const res = await fetch(base + data.mesh.url, {
             signal: load.signal,
           });
           if (!res.ok) throw new Error("Mesh 模型下载失败");
           const bytes = await res.arrayBuffer();
           load.check();
+          readDone();
+          const parseDone = clock.start("meshParse");
           const gltf = await new GLTFLoader().parseAsync(bytes, base);
+          parseDone();
           return load.own(gltf.scene, (resource) => {
             this.scenes.mesh.remove(resource);
             if (this.mesh === resource) this.mesh = undefined;
@@ -155,8 +177,22 @@ export class CompareViewer {
       this.scenes.gaussian.add(gaussian);
       this.scenes.mesh.add(mesh);
       progress("正在准备首帧与高斯排序…");
+      const settleDone = clock.start("settle");
       await this.settle(load.signal);
       load.check();
+      settleDone();
+      this.loadTimings = {
+        schemaVersion: 1,
+        scene: id,
+        createdAt,
+        ...clock.finish(),
+        resolution: [this.width, this.height],
+        camera: this.view!.image_name,
+        visibility: backgrounded ? "backgrounded" : "foreground",
+        cache: "uncontrolled",
+        scope: "scene-load-to-settled-submission",
+        execution: "parallel-model-loading",
+      };
       this.playing = true;
       return data;
     } catch (error) {
@@ -170,6 +206,8 @@ export class CompareViewer {
         this.view = undefined;
       }
       if (!obsolete) throw error;
+    } finally {
+      document.removeEventListener("visibilitychange", visibility);
     }
   }
   clear() {
@@ -177,6 +215,7 @@ export class CompareViewer {
     this.currentLoad = undefined;
     load?.cancel();
     this.data = undefined;
+    this.loadTimings = undefined;
     this.view = undefined;
     this.preview?.invalidate();
   }

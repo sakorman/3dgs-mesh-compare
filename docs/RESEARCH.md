@@ -109,6 +109,20 @@ Three.js r180 的 [setSize 实现](https://github.com/mrdoob/three.js/blob/r180/
 
 对后续实验的约束是：相机/分辨率变化后的历史有效性和静止画面的收敛帧数必须单独检查。当前按需渲染会在没有新结果时停帧，若换成随机渲染，不能只比较单帧吞吐而忽略噪声、收敛和持续绘制开销。先保持现有有序渲染，优先完成加载与移动相机分段测量。
 
+### 已采用：将模型初始化与首帧准备分开计时
+
+Spark 2.4.0（最新发行 2026-10-20，MIT）的 [SplatMesh.initialized 实现](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/SplatMesh.ts)覆盖模型解析与生成器初始化；首帧绘制和异步排序仍由渲染路径驱动。应用现在独立记录这两个阶段，以及并行模型读取、GLB 解析和总等待，失败或过期请求不发布记录。详见[计时边界与本地样本](LOAD-TIMING.md)。
+
+重新核对 [#321](https://github.com/sparkjsdev/spark/issues/321)（2026-04-24 创建，当前 open）及 [FetchSource #463](https://github.com/sparkjsdev/spark/pull/463)（2026-10-16 合并）：脚本/Worker 的初始化与分块模型读取是不同层次的等待，现有 load() 记录不覆盖脚本下载，也不能代表分页初始视图。后续网络实验须另列导航起点和缓存控制。
+
+### 待验证：LMG 的分层就绪边界
+
+[LMG: Efficient Streaming of Layered Mesh–Gaussian 3D Scenes](https://doi.org/10.1145/3793853.3795764)发表于 MMSys 2026（Crossref 出版日期 2026-04-04、在线 04-06）；[作者主页](https://aiins-nthu.github.io/LMG/)说明先交付可交互 Mesh 基础层，再按可见性加载 Gaussian 增强层。其模型是联合训练的混合表示，与本项目两个独立重建结果不同。
+
+已阅读[公开实现 2ab8767](https://github.com/SYJINTW/layered-mesh-gaussian/tree/2ab8767a3db44c2e7adfd63cb983ee652d2cbf90)（2026-04-11）中的安装说明、Mesh-Gaussian renderer 和许可。实现依赖 CUDA（安装说明测试 11.7）、PyTorch、自定义高斯光栅化及 Mesh 深度/颜色合成；使用限制于非商业研究/评估的 Gaussian-Splatting 许可，并非 MIT。未复制实现或训练模型；当前 WebGL2 路径不能直接调用，WebGPU/Metal 适配未验证。
+
+可行动结论是后续分页或低精度预览实验必须分别报告“基础视图可交互”和“完整目标画质就绪”，并固定画质预算。现在只测完整模型就绪，不能从论文分层传输结果推导当前 PLY 的收益；更不能把它作为传统 Mesh 与 3DGS 的独立公平对照。
+
 ## 后续研究记录
 
 记录新增来源时注明论文日期或仓库 commit/tag，以及与当前瓶颈的关系。进入实现前，补充最小实验、对照设置和可验证指标；完成后链接对应 CHANGELOG 或实验报告，标明采用或暂缓的理由。

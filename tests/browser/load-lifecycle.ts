@@ -108,6 +108,7 @@ button.onclick = async () => {
           gaussian: viewer.gaussian,
           mesh: viewer.mesh,
           view: viewer.view,
+          timings: viewer.loadTimings,
         };
         resume.release();
         await stale;
@@ -115,7 +116,10 @@ button.onclick = async () => {
           viewer.data?.id === "office" &&
           viewer.view === current.view &&
           viewer.gaussian === current.gaussian &&
-          viewer.mesh === current.mesh;
+          viewer.mesh === current.mesh &&
+          (baseline ||
+            (viewer.loadTimings === current.timings &&
+              viewer.loadTimings?.scene === "office"));
         return {
           passed,
           activeScene: viewer.data?.id,
@@ -143,7 +147,11 @@ button.onclick = async () => {
       await ready.promise;
       try {
         await viewer.load("office");
-        const current = { gaussian: viewer.gaussian, mesh: viewer.mesh };
+        const current = {
+          gaussian: viewer.gaussian,
+          mesh: viewer.mesh,
+          timings: viewer.loadTimings,
+        };
         resume.release();
         await stale;
         const passed =
@@ -151,7 +159,10 @@ button.onclick = async () => {
           !!viewer.gaussian &&
           !!viewer.mesh &&
           viewer.gaussian === current.gaussian &&
-          viewer.mesh === current.mesh;
+          viewer.mesh === current.mesh &&
+          (baseline ||
+            (viewer.loadTimings === current.timings &&
+              viewer.loadTimings?.scene === "office"));
         return {
           passed,
           activeScene: viewer.data?.id,
@@ -179,6 +190,7 @@ button.onclick = async () => {
         return originalFetch(input, init);
       };
       const failed = await observed(viewer.load("pipes"));
+      const failedTraceAbsent = !viewer.loadTimings;
       await parsed.promise;
       await Promise.resolve();
       const images = bitmapList(captured!);
@@ -193,7 +205,9 @@ button.onclick = async () => {
           failed.status === "rejected" &&
           images.length > 0 &&
           open === 0 &&
+          failedTraceAbsent &&
           viewer.data?.id === "office",
+        failedTraceAbsent,
         failed: failed.status,
         loadedBitmaps: images.length,
         remainingOpen: open,
@@ -216,7 +230,8 @@ button.onclick = async () => {
       resume.release();
       await stale;
       return {
-        passed: lateCameraChanges === 0 && !viewer.data,
+        passed: lateCameraChanges === 0 && !viewer.data && !viewer.loadTimings,
+        disposedTraceAbsent: !viewer.loadTimings,
         lateCameraChanges,
         hasMetadataAfterDispose: !!viewer.data,
       };

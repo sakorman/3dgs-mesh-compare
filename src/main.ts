@@ -17,6 +17,15 @@ const labMarkup = `  <section class="measurements" aria-label="性能与效果�
     <div id="quality-details" hidden></div>
     <p class="measurement-note" id="measurement-note">性能测试固定当前拍摄视角，按 AB / BA / AB / BA 顺序采样，每组 160 帧。漫游与线框用于观察，评测时恢复标准状态。</p>
   </section>
+  <details class="method" id="load-details" hidden><summary>本次场景加载 <span id="load-total"></span></summary>
+    <p id="load-context"></p>
+    <div class="table-wrap"><table><thead><tr><th scope="col">阶段</th><th scope="col">3DGS</th><th scope="col">Mesh</th><th scope="col">测量范围</th></tr></thead><tbody>
+      <tr><th scope="row">读取与解压</th><td id="load-gs-read">—</td><td id="load-mesh-read">—</td><td>请求到完整模型字节；3DGS 包含 gzip 解压</td></tr>
+      <tr><th scope="row">解析与初始化</th><td id="load-gs-init">—</td><td id="load-mesh-init">—</td><td>高斯解析与初始化 / GLB 及纹理解码</td></tr>
+    </tbody></table></div>
+    <p id="load-shared"></p>
+    <p>两种模型并行加载，阶段耗时不能相加；读取与解压重叠，不单列纯下载或纯解压时间。缓存状态未受控，结果不标为冷加载或热加载。就绪时间截止首帧排序稳定并提交绘制，不含网页脚本下载和屏幕呈现等待。</p>
+  </details>
   <details class="method"><summary>数据与评测方法 <span>展开说明</span></summary><div class="method-grid"><div><h3>共用照片与相机</h3><p>默认场景为 web-scan 使用的 ETH3D 管道房与办公室。3DGS 与 Mesh 使用相同训练照片；照片条中的蓝点标识留出照片。所有照片参与过上游 COLMAP 位姿求解，因此这不是完全独立的端到端测试。</p></div><div><h3>重建流程</h3><p>3DGS 使用已有 Brush 10,000 步训练结果，保留 SH3。Mesh 从训练照片进行极线校正、SGBM 立体匹配、左右一致性检查、点云融合与 Poisson 表面重建，再按可见性选择训练照片纹理。它是轻量 CPU 基线，可能出现空洞与接缝，不代表调优后的 OpenMVS 等完整流水线。</p></div><div><h3>计时范围</h3><p id="build-times"></p><p>历史 GPU 训练与本次 CPU Mesh 构建不在同一受控条件下，不能据此推导重建速度倍数。浏览器测试使用固定相机和相同分辨率，不包含模型下载、解析与动态排序开销。</p></div><div><h3>数据与代码许可</h3><p>照片及衍生模型：Schöps 等，ETH3D / CVPR 2017，CC BY-NC-SA 4.0，限非商业用途。项目代码使用 MIT。</p><p><a href="https://www.eth3d.net/datasets" target="_blank" rel="noreferrer">ETH3D 数据集 ↗</a>　<a href="https://github.com/sakorman/web-scan" target="_blank" rel="noreferrer">web-scan 来源 ↗</a></p></div></div></details>
   <dialog id="report-dialog"><div class="report-heading"><h2>JSON 评测报告</h2><button id="close-report">关闭</button></div><p>完整报告包含原始样本、相机与逐视角画质，可下载或选择全文复制。</p><textarea id="report-json" readonly aria-label="完整 JSON 报告"></textarea><div class="report-actions"><button id="select-report">选择全文</button><a id="download-report" class="download-report">下载 JSON 文件</a></div></dialog>
 `;
@@ -89,7 +98,8 @@ function lock(value: boolean) {
     .querySelectorAll<HTMLButtonElement>("[data-photo]")
     .forEach((b) => (b.disabled = value || !ready));
   if (isBenchmark)
-    button("export").disabled = value || (!perf && !qualityReport);
+    button("export").disabled =
+      value || !ready || (!perf && !qualityReport && !viewer.loadTimings);
 }
 function clearResults() {
   if (!isBenchmark) return;
@@ -99,7 +109,25 @@ function clearResults() {
     for (const key of ["cpu", "gpu", "fps", "quality"])
       $(`${side}-${key}`).textContent = "—";
   $("quality-details").hidden = true;
-  button("export").disabled = true;
+  button("export").disabled = !ready || !viewer.loadTimings;
+}
+function showLoadTimings() {
+  if (!isBenchmark) return;
+  const timing = viewer.loadTimings;
+  $("load-details").hidden = !timing;
+  if (!timing) return;
+  const ms = (value: number) => `${value.toFixed(1)} ms`;
+  const phase = (stage: string) =>
+    ms(timing.spans.find((s) => s.stage === stage)!.durationMs);
+  $("load-total").textContent = `双模型就绪 ${ms(timing.totalMs)}`;
+  $("load-context").textContent =
+    `${data.title} · 加载时画幅 ${timing.resolution.join(" × ")} · ${timing.visibility === "foreground" ? "加载期间文档可见" : "曾进入后台，耗时包含暂停等待"}`;
+  $("load-gs-read").textContent = phase("gaussianReadDecode");
+  $("load-mesh-read").textContent = phase("meshRead");
+  $("load-gs-init").textContent = phase("gaussianInitialize");
+  $("load-mesh-init").textContent = phase("meshParse");
+  $("load-shared").textContent =
+    `共用阶段：场景信息 ${phase("metadata")}；首帧准备与排序等待 ${phase("settle")}。`;
 }
 function showReference(value: boolean) {
   reference = value;
@@ -144,7 +172,7 @@ function selectView(index: number) {
     for (const side of ["gs", "mesh"])
       for (const key of ["cpu", "gpu", "fps"])
         $(`${side}-${key}`).textContent = "—";
-    button("export").disabled = !qualityReport;
+    button("export").disabled = !qualityReport && !viewer.loadTimings;
   }
 }
 async function loadScene(id: string) {
@@ -153,6 +181,7 @@ async function loadScene(id: string) {
   ready = false;
   lock(true);
   clearResults();
+  if (isBenchmark) $("load-details").hidden = true;
   button("retry").hidden = true;
   status("正在加载照片与真实三维模型…");
   document.querySelectorAll<HTMLButtonElement>("[data-scene]").forEach((b) => {
@@ -164,6 +193,7 @@ async function loadScene(id: string) {
     if (!loaded || request !== loadRequest) return;
     data = loaded;
     ready = true;
+    showLoadTimings();
     orbit = false;
     wire = false;
     reference = false;
@@ -402,6 +432,7 @@ if (isBenchmark)
         drawingPixelRatio: 1,
       },
       performance: perf ?? null,
+      loading: viewer.loadTimings ?? null,
       quality: qualityReport ?? null,
       limitations: data.limitations,
     };
@@ -437,6 +468,7 @@ try {
   viewer.onError = (s) => {
     controller?.abort();
     ready = false;
+    showLoadTimings();
     lock(false);
     status(s, true);
   };
