@@ -79,9 +79,22 @@ run.onclick = async () => {
     release();
     await finished;
     const controlsUnlocked = !button.disabled;
+    let partialQualityExported = false;
+    let loadingExported = false;
+    const exportButton = document.querySelector<HTMLButtonElement>("#export")!;
+    if (!exportButton.disabled) {
+      exportButton.click();
+      const exported = JSON.parse(
+        document.querySelector<HTMLTextAreaElement>("#report-json")!.value,
+      );
+      partialQualityExported = exported.quality !== null;
+      loadingExported = !!exported.loading;
+      document.querySelector<HTMLButtonElement>("#close-report")!.click();
+    }
     const reportAbsent =
       document.querySelector("#gs-quality")!.textContent === "—" &&
-      document.querySelector<HTMLButtonElement>("#export")!.disabled;
+      document.querySelector<HTMLElement>("#quality-details")!.hidden &&
+      !partialQualityExported;
     output.textContent = JSON.stringify(
       {
         variant: baseline ? "baseline" : "candidate",
@@ -102,6 +115,7 @@ run.onclick = async () => {
         playing: viewer.playing,
         controlsUnlocked,
         reportAbsent,
+        loadingExported,
         status: document.querySelector("#status")!.textContent,
         errors,
       },

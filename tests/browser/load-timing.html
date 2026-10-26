@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+  <meta charset="utf-8" /><title>Scene loading trace check</title>
+  <style>
+    body {
+      font: 14px system-ui;
+      margin: 20px;
+    }
+    #views {
+      display: flex;
+      gap: 8px;
+    }
+    #views > div {
+      width: 48%;
+    }
+    canvas {
+      display: block;
+      width: 100%;
+    }
+    pre {
+      white-space: pre-wrap;
+    }
+  </style>
+  <h1>Scene loading trace check</h1>
+  <button id="run">Run sequential loads</button>
+  <p id="status">Ready</p>
+  <div id="views">
+    <div id="left"></div>
+    <div id="right"></div>
+  </div>
+  <pre id="result"></pre>
+  <script type="module" src="./load-timing.ts"></script>
+</html>
