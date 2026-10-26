@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-CN">
+  <meta charset="utf-8" /><title>Decoded buffer experiment</title>
+  <style>
+    body {
+      font: 14px system-ui;
+      margin: 20px;
+    }
+    pre {
+      white-space: pre-wrap;
+    }
+  </style>
+  <h1>Decoded buffer experiment</h1>
+  <p>
+    Serial CPU decoding. Input bytes prepared before timing; no WebGL context.
+  </p>
+  <button id="run">Run buffer comparison</button>
+  <p id="status">Ready</p>
+  <pre id="summary"></pre>
+  <details>
+    <summary>Raw results</summary>
+    <pre id="result"></pre>
+  </details>
+  <script type="module" src="./read-buffer.ts"></script>
+</html>

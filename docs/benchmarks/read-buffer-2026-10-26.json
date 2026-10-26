@@ -1,0 +1,475 @@
+{
+  "recordedAt": "2026-10-26T07:20:33.696582+00:00",
+  "sourceCommit": "fc35fbd256ebcbb64d807ccc131038cc4f70e253",
+  "moduleSha256": {
+    "read-buffer-baseline.ts": "5e7f50b06bec8766307590a66107a044cdb11811168e8e0966a496b1d340ed08",
+    "read-buffer-candidate.ts": "db48d07508d40dfe9620ff8e3c8b75bfea74c82454280d2aa5d195783b36247d"
+  },
+  "protocol": {
+    "fixture": "tests/browser/read-buffer.html",
+    "order": [
+      "baseline",
+      "candidate",
+      "candidate",
+      "baseline",
+      "baseline",
+      "candidate",
+      "candidate",
+      "baseline"
+    ],
+    "warmupPerVariantPerInput": 1,
+    "chunkBytes": 65536,
+    "input": "Prepared in-memory gzip or already decompressed PLY; no network timing",
+    "timed": "Reader call through complete ArrayBuffer, before SHA256",
+    "garbageCollection": "not forced",
+    "usesWebGL": false
+  },
+  "assets": {
+    "pipes": {
+      "encodedSha256": "55b311c225e5ac53a2e2c3d6e2fa2cafd228dd16c7d5d6ac56daaf9efbf76734",
+      "decodedSha256": "b716afb08b23e18feed481eb8307238da7ba0788aea705601c7c66e022a51caf",
+      "decodedBytes": 70801551
+    },
+    "office": {
+      "encodedSha256": "0786facf28ff0c2d6f47e3e9f7c392823a7eb3d892cf2e41b52d1964067e6b89",
+      "decodedSha256": "0af14259673b165001a9e84f27b6e19a55e924e0432e491e9701229f1c24e276",
+      "decodedBytes": 54618559
+    }
+  },
+  "summary": [
+    {
+      "scene": "pipes",
+      "encoding": "plain",
+      "variant": "baseline",
+      "medianMs": 11.450000047683716,
+      "minMs": 11.099999904632568,
+      "maxMs": 11.800000190734863,
+      "samples": 4
+    },
+    {
+      "scene": "pipes",
+      "encoding": "plain",
+      "variant": "candidate",
+      "medianMs": 9.399999856948853,
+      "minMs": 8.5,
+      "maxMs": 11.199999809265137,
+      "samples": 4
+    },
+    {
+      "scene": "pipes",
+      "encoding": "gzip",
+      "variant": "baseline",
+      "medianMs": 176.60000014305115,
+      "minMs": 175.59999990463257,
+      "maxMs": 178.09999990463257,
+      "samples": 4
+    },
+    {
+      "scene": "pipes",
+      "encoding": "gzip",
+      "variant": "candidate",
+      "medianMs": 175.29999995231628,
+      "minMs": 173.80000019073486,
+      "maxMs": 177.09999990463257,
+      "samples": 4
+    },
+    {
+      "scene": "office",
+      "encoding": "plain",
+      "variant": "baseline",
+      "medianMs": 8.950000047683716,
+      "minMs": 8.5,
+      "maxMs": 9.799999713897705,
+      "samples": 4
+    },
+    {
+      "scene": "office",
+      "encoding": "plain",
+      "variant": "candidate",
+      "medianMs": 7.0,
+      "minMs": 5.699999809265137,
+      "maxMs": 8.800000190734863,
+      "samples": 4
+    },
+    {
+      "scene": "office",
+      "encoding": "gzip",
+      "variant": "baseline",
+      "medianMs": 135.59999990463257,
+      "minMs": 134,
+      "maxMs": 137.10000038146973,
+      "samples": 4
+    },
+    {
+      "scene": "office",
+      "encoding": "gzip",
+      "variant": "candidate",
+      "medianMs": 133.79999995231628,
+      "minMs": 131.09999990463257,
+      "maxMs": 137.7999997138977,
+      "samples": 4
+    }
+  ],
+  "rows": [
+    {
+      "scene": "pipes",
+      "encoding": "plain",
+      "variant": "baseline",
+      "pass": 1,
+      "elapsedMs": 11.099999904632568,
+      "inputBytes": 70801551,
+      "decodedBytes": 70801551,
+      "sha256": "b716afb08b23e18feed481eb8307238da7ba0788aea705601c7c66e022a51caf",
+      "bytesMatch": true
+    },
+    {
+      "scene": "pipes",
+      "encoding": "plain",
+      "variant": "candidate",
+      "pass": 2,
+      "elapsedMs": 8.5,
+      "inputBytes": 70801551,
+      "decodedBytes": 70801551,
+      "sha256": "b716afb08b23e18feed481eb8307238da7ba0788aea705601c7c66e022a51caf",
+      "bytesMatch": true
+    },
+    {
+      "scene": "pipes",
+      "encoding": "plain",
+      "variant": "candidate",
+      "pass": 3,
+      "elapsedMs": 10.099999904632568,
+      "inputBytes": 70801551,
+      "decodedBytes": 70801551,
+      "sha256": "b716afb08b23e18feed481eb8307238da7ba0788aea705601c7c66e022a51caf",
+      "bytesMatch": true
+    },
+    {
+      "scene": "pipes",
+      "encoding": "plain",
+      "variant": "baseline",
+      "pass": 4,
+      "elapsedMs": 11.400000095367432,
+      "inputBytes": 70801551,
+      "decodedBytes": 70801551,
+      "sha256": "b716afb08b23e18feed481eb8307238da7ba0788aea705601c7c66e022a51caf",
+      "bytesMatch": true
+    },
+    {
+      "scene": "pipes",
+      "encoding": "plain",
+      "variant": "baseline",
+      "pass": 5,
+      "elapsedMs": 11.5,
+      "inputBytes": 70801551,
+      "decodedBytes": 70801551,
+      "sha256": "b716afb08b23e18feed481eb8307238da7ba0788aea705601c7c66e022a51caf",
+      "bytesMatch": true
+    },
+    {
+      "scene": "pipes",
+      "encoding": "plain",
+      "variant": "candidate",
+      "pass": 6,
+      "elapsedMs": 8.699999809265137,
+      "inputBytes": 70801551,
+      "decodedBytes": 70801551,
+      "sha256": "b716afb08b23e18feed481eb8307238da7ba0788aea705601c7c66e022a51caf",
+      "bytesMatch": true
+    },
+    {
+      "scene": "pipes",
+      "encoding": "plain",
+      "variant": "candidate",
+      "pass": 7,
+      "elapsedMs": 11.199999809265137,
+      "inputBytes": 70801551,
+      "decodedBytes": 70801551,
+      "sha256": "b716afb08b23e18feed481eb8307238da7ba0788aea705601c7c66e022a51caf",
+      "bytesMatch": true
+    },
+    {
+      "scene": "pipes",
+      "encoding": "plain",
+      "variant": "baseline",
+      "pass": 8,
+      "elapsedMs": 11.800000190734863,
+      "inputBytes": 70801551,
+      "decodedBytes": 70801551,
+      "sha256": "b716afb08b23e18feed481eb8307238da7ba0788aea705601c7c66e022a51caf",
+      "bytesMatch": true
+    },
+    {
+      "scene": "pipes",
+      "encoding": "gzip",
+      "variant": "baseline",
+      "pass": 1,
+      "elapsedMs": 178.09999990463257,
+      "inputBytes": 64843796,
+      "decodedBytes": 70801551,
+      "sha256": "b716afb08b23e18feed481eb8307238da7ba0788aea705601c7c66e022a51caf",
+      "bytesMatch": true
+    },
+    {
+      "scene": "pipes",
+      "encoding": "gzip",
+      "variant": "candidate",
+      "pass": 2,
+      "elapsedMs": 175.5,
+      "inputBytes": 64843796,
+      "decodedBytes": 70801551,
+      "sha256": "b716afb08b23e18feed481eb8307238da7ba0788aea705601c7c66e022a51caf",
+      "bytesMatch": true
+    },
+    {
+      "scene": "pipes",
+      "encoding": "gzip",
+      "variant": "candidate",
+      "pass": 3,
+      "elapsedMs": 177.09999990463257,
+      "inputBytes": 64843796,
+      "decodedBytes": 70801551,
+      "sha256": "b716afb08b23e18feed481eb8307238da7ba0788aea705601c7c66e022a51caf",
+      "bytesMatch": true
+    },
+    {
+      "scene": "pipes",
+      "encoding": "gzip",
+      "variant": "baseline",
+      "pass": 4,
+      "elapsedMs": 176,
+      "inputBytes": 64843796,
+      "decodedBytes": 70801551,
+      "sha256": "b716afb08b23e18feed481eb8307238da7ba0788aea705601c7c66e022a51caf",
+      "bytesMatch": true
+    },
+    {
+      "scene": "pipes",
+      "encoding": "gzip",
+      "variant": "baseline",
+      "pass": 5,
+      "elapsedMs": 175.59999990463257,
+      "inputBytes": 64843796,
+      "decodedBytes": 70801551,
+      "sha256": "b716afb08b23e18feed481eb8307238da7ba0788aea705601c7c66e022a51caf",
+      "bytesMatch": true
+    },
+    {
+      "scene": "pipes",
+      "encoding": "gzip",
+      "variant": "candidate",
+      "pass": 6,
+      "elapsedMs": 173.80000019073486,
+      "inputBytes": 64843796,
+      "decodedBytes": 70801551,
+      "sha256": "b716afb08b23e18feed481eb8307238da7ba0788aea705601c7c66e022a51caf",
+      "bytesMatch": true
+    },
+    {
+      "scene": "pipes",
+      "encoding": "gzip",
+      "variant": "candidate",
+      "pass": 7,
+      "elapsedMs": 175.09999990463257,
+      "inputBytes": 64843796,
+      "decodedBytes": 70801551,
+      "sha256": "b716afb08b23e18feed481eb8307238da7ba0788aea705601c7c66e022a51caf",
+      "bytesMatch": true
+    },
+    {
+      "scene": "pipes",
+      "encoding": "gzip",
+      "variant": "baseline",
+      "pass": 8,
+      "elapsedMs": 177.2000002861023,
+      "inputBytes": 64843796,
+      "decodedBytes": 70801551,
+      "sha256": "b716afb08b23e18feed481eb8307238da7ba0788aea705601c7c66e022a51caf",
+      "bytesMatch": true
+    },
+    {
+      "scene": "office",
+      "encoding": "plain",
+      "variant": "baseline",
+      "pass": 1,
+      "elapsedMs": 9.799999713897705,
+      "inputBytes": 54618559,
+      "decodedBytes": 54618559,
+      "sha256": "0af14259673b165001a9e84f27b6e19a55e924e0432e491e9701229f1c24e276",
+      "bytesMatch": true
+    },
+    {
+      "scene": "office",
+      "encoding": "plain",
+      "variant": "candidate",
+      "pass": 2,
+      "elapsedMs": 5.699999809265137,
+      "inputBytes": 54618559,
+      "decodedBytes": 54618559,
+      "sha256": "0af14259673b165001a9e84f27b6e19a55e924e0432e491e9701229f1c24e276",
+      "bytesMatch": true
+    },
+    {
+      "scene": "office",
+      "encoding": "plain",
+      "variant": "candidate",
+      "pass": 3,
+      "elapsedMs": 8.800000190734863,
+      "inputBytes": 54618559,
+      "decodedBytes": 54618559,
+      "sha256": "0af14259673b165001a9e84f27b6e19a55e924e0432e491e9701229f1c24e276",
+      "bytesMatch": true
+    },
+    {
+      "scene": "office",
+      "encoding": "plain",
+      "variant": "baseline",
+      "pass": 4,
+      "elapsedMs": 8.900000095367432,
+      "inputBytes": 54618559,
+      "decodedBytes": 54618559,
+      "sha256": "0af14259673b165001a9e84f27b6e19a55e924e0432e491e9701229f1c24e276",
+      "bytesMatch": true
+    },
+    {
+      "scene": "office",
+      "encoding": "plain",
+      "variant": "baseline",
+      "pass": 5,
+      "elapsedMs": 8.5,
+      "inputBytes": 54618559,
+      "decodedBytes": 54618559,
+      "sha256": "0af14259673b165001a9e84f27b6e19a55e924e0432e491e9701229f1c24e276",
+      "bytesMatch": true
+    },
+    {
+      "scene": "office",
+      "encoding": "plain",
+      "variant": "candidate",
+      "pass": 6,
+      "elapsedMs": 8,
+      "inputBytes": 54618559,
+      "decodedBytes": 54618559,
+      "sha256": "0af14259673b165001a9e84f27b6e19a55e924e0432e491e9701229f1c24e276",
+      "bytesMatch": true
+    },
+    {
+      "scene": "office",
+      "encoding": "plain",
+      "variant": "candidate",
+      "pass": 7,
+      "elapsedMs": 6,
+      "inputBytes": 54618559,
+      "decodedBytes": 54618559,
+      "sha256": "0af14259673b165001a9e84f27b6e19a55e924e0432e491e9701229f1c24e276",
+      "bytesMatch": true
+    },
+    {
+      "scene": "office",
+      "encoding": "plain",
+      "variant": "baseline",
+      "pass": 8,
+      "elapsedMs": 9,
+      "inputBytes": 54618559,
+      "decodedBytes": 54618559,
+      "sha256": "0af14259673b165001a9e84f27b6e19a55e924e0432e491e9701229f1c24e276",
+      "bytesMatch": true
+    },
+    {
+      "scene": "office",
+      "encoding": "gzip",
+      "variant": "baseline",
+      "pass": 1,
+      "elapsedMs": 137,
+      "inputBytes": 49050760,
+      "decodedBytes": 54618559,
+      "sha256": "0af14259673b165001a9e84f27b6e19a55e924e0432e491e9701229f1c24e276",
+      "bytesMatch": true
+    },
+    {
+      "scene": "office",
+      "encoding": "gzip",
+      "variant": "candidate",
+      "pass": 2,
+      "elapsedMs": 135.80000019073486,
+      "inputBytes": 49050760,
+      "decodedBytes": 54618559,
+      "sha256": "0af14259673b165001a9e84f27b6e19a55e924e0432e491e9701229f1c24e276",
+      "bytesMatch": true
+    },
+    {
+      "scene": "office",
+      "encoding": "gzip",
+      "variant": "candidate",
+      "pass": 3,
+      "elapsedMs": 131.09999990463257,
+      "inputBytes": 49050760,
+      "decodedBytes": 54618559,
+      "sha256": "0af14259673b165001a9e84f27b6e19a55e924e0432e491e9701229f1c24e276",
+      "bytesMatch": true
+    },
+    {
+      "scene": "office",
+      "encoding": "gzip",
+      "variant": "baseline",
+      "pass": 4,
+      "elapsedMs": 134,
+      "inputBytes": 49050760,
+      "decodedBytes": 54618559,
+      "sha256": "0af14259673b165001a9e84f27b6e19a55e924e0432e491e9701229f1c24e276",
+      "bytesMatch": true
+    },
+    {
+      "scene": "office",
+      "encoding": "gzip",
+      "variant": "baseline",
+      "pass": 5,
+      "elapsedMs": 137.10000038146973,
+      "inputBytes": 49050760,
+      "decodedBytes": 54618559,
+      "sha256": "0af14259673b165001a9e84f27b6e19a55e924e0432e491e9701229f1c24e276",
+      "bytesMatch": true
+    },
+    {
+      "scene": "office",
+      "encoding": "gzip",
+      "variant": "candidate",
+      "pass": 6,
+      "elapsedMs": 131.7999997138977,
+      "inputBytes": 49050760,
+      "decodedBytes": 54618559,
+      "sha256": "0af14259673b165001a9e84f27b6e19a55e924e0432e491e9701229f1c24e276",
+      "bytesMatch": true
+    },
+    {
+      "scene": "office",
+      "encoding": "gzip",
+      "variant": "candidate",
+      "pass": 7,
+      "elapsedMs": 137.7999997138977,
+      "inputBytes": 49050760,
+      "decodedBytes": 54618559,
+      "sha256": "0af14259673b165001a9e84f27b6e19a55e924e0432e491e9701229f1c24e276",
+      "bytesMatch": true
+    },
+    {
+      "scene": "office",
+      "encoding": "gzip",
+      "variant": "baseline",
+      "pass": 8,
+      "elapsedMs": 134.19999980926514,
+      "inputBytes": 49050760,
+      "decodedBytes": 54618559,
+      "sha256": "0af14259673b165001a9e84f27b6e19a55e924e0432e491e9701229f1c24e276",
+      "bytesMatch": true
+    }
+  ],
+  "errors": [],
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36",
+  "decision": "Keep existing Response collection; plain collection improves by about 2ms but gzip samples overlap and end-to-end benefit is unverified.",
+  "limitations": [
+    "Single device/browser; four measured samples per variant/input.",
+    "No network, controlled cold/warm cache, GPU, first-frame, memory-peak or training measurement.",
+    "Candidate failure/cancellation paths were not validated for production adoption."
+  ]
+}
