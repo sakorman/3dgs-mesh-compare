@@ -54,3 +54,5 @@ npm run dev
 下一步是把这个组件接入独立候选模型加载事务：同时管理 SPZ 和 AP16，取消时处理不可中断初始化的迟到结果，失败时回退至完整 PLY，确认缓存组合不会错配。仍需模型资源释放、真实 HTTP 编码/缓存、受控冷/热首帧和内存测量。浏览器 CPU 流的取消不代表 Spark Worker 初始化已经可取消。
 
 参考 [Spark 2.4.0 加载实现](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/SplatLoader.ts)与 [MoQSplat 论文](https://arxiv.org/abs/2609.18624)的接收状态边界；作者实现、许可证及平台条件见[研究索引](RESEARCH.md)。未移植 MoQ、采用渐进剪枝或套用论文性能数据。
+
+后续：[配对模型加载验证](PAIRED-MODEL.md)已完成独立接入、迟到清理与失败回退；上述 CPU 对照保留原始记录，真实 HTTP 缓存和端到端耗时仍待验证。

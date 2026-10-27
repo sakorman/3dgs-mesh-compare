@@ -1,0 +1,501 @@
+{
+  "createdAt": "2026-10-27T14:46:28.398Z",
+  "baselineCommit": "ca44e88",
+  "spark": "2.4.0",
+  "resolution": 768,
+  "maxSh": 3,
+  "lod": false,
+  "method": "Correctness only; real local files, pinned prior manifest. Delayed initialization delivery injected for cancellation. No latency/cache/memory benchmark.",
+  "environment": {
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+    "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)"
+  },
+  "cases": [
+    {
+      "scene": "pipes",
+      "variant": "candidate",
+      "format": "spz",
+      "reason": null
+    },
+    {
+      "scene": "pipes",
+      "variant": "fallback",
+      "format": "ply",
+      "reason": "Error: Model HTTP 404"
+    },
+    {
+      "scene": "pipes",
+      "name": "wrong-SPZ-digest",
+      "format": "ply",
+      "reason": "Error: Paired model digest mismatch"
+    },
+    {
+      "scene": "pipes",
+      "name": "cross-scene-sidecar",
+      "format": "ply",
+      "reason": "Error: Invalid alpha16 header"
+    },
+    {
+      "scene": "pipes",
+      "name": "late-initialize",
+      "disposed": 1,
+      "published": 0,
+      "visibleModels": 1
+    },
+    {
+      "scene": "office",
+      "variant": "candidate",
+      "format": "spz",
+      "reason": null
+    },
+    {
+      "scene": "office",
+      "variant": "fallback",
+      "format": "ply",
+      "reason": "Error: Model HTTP 404"
+    },
+    {
+      "scene": "office",
+      "name": "wrong-SPZ-digest",
+      "format": "ply",
+      "reason": "Error: Paired model digest mismatch"
+    },
+    {
+      "scene": "office",
+      "name": "cross-scene-sidecar",
+      "format": "ply",
+      "reason": "Error: Invalid alpha16 header"
+    },
+    {
+      "scene": "office",
+      "name": "late-initialize",
+      "disposed": 1,
+      "published": 0,
+      "visibleModels": 1
+    }
+  ],
+  "comparisons": [
+    {
+      "scene": "pipes",
+      "variant": "original",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": 0,
+      "hash": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 18.7454079234687,
+        "ssim": 0.7833699625373709,
+        "mae": 23.128159378437843
+      }
+    },
+    {
+      "scene": "pipes",
+      "variant": "original",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": -0.08,
+      "hash": "77a3202754413348a4176ac57760d7c93611807159622ebee7c746dbd1732db8",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "pipes",
+      "variant": "original",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": 0.08,
+      "hash": "a3a8db66317ad19b5b4907123ae9484054c1409e764244c3d667245743ca417b",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "pipes",
+      "variant": "original",
+      "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+      "yaw": 0,
+      "hash": "c91b07263481e55ea3f9585a7deadf35d29fea9f3ac96c938275124b58935754",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 13.792416915886214,
+        "ssim": 0.6784728649187745,
+        "mae": 43.79629228547855
+      }
+    },
+    {
+      "scene": "pipes",
+      "variant": "candidate",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": 0,
+      "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 18.737894565676786,
+        "ssim": 0.7846525063941424,
+        "mae": 23.12381824119912
+      }
+    },
+    {
+      "scene": "pipes",
+      "variant": "candidate",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": -0.08,
+      "hash": "27c033857c6e5c988d9dff5026de99c326a3dfee995bef663c7d2452462f4d9e",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "pipes",
+      "variant": "candidate",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": 0.08,
+      "hash": "0cc73a81c589f1fdb7e8df11828d3217eaaaa03d4450392112f3e209f474be32",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "pipes",
+      "variant": "candidate",
+      "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+      "yaw": 0,
+      "hash": "b64e381af290a4e4a4b4492326c3eef3c858d0fa8771ea4a5712f8e17c6a8f86",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 13.798768312454413,
+        "ssim": 0.6789761687357988,
+        "mae": 43.764249003025306
+      }
+    },
+    {
+      "scene": "pipes",
+      "variant": "fallback",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": 0,
+      "hash": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 18.7454079234687,
+        "ssim": 0.7833699625373709,
+        "mae": 23.128159378437843
+      }
+    },
+    {
+      "scene": "pipes",
+      "variant": "fallback",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": -0.08,
+      "hash": "77a3202754413348a4176ac57760d7c93611807159622ebee7c746dbd1732db8",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "pipes",
+      "variant": "fallback",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": 0.08,
+      "hash": "a3a8db66317ad19b5b4907123ae9484054c1409e764244c3d667245743ca417b",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "pipes",
+      "variant": "fallback",
+      "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+      "yaw": 0,
+      "hash": "c91b07263481e55ea3f9585a7deadf35d29fea9f3ac96c938275124b58935754",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 13.792416915886214,
+        "ssim": 0.6784728649187745,
+        "mae": 43.79629228547855
+      }
+    },
+    {
+      "scene": "office",
+      "variant": "original",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": 0,
+      "hash": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 20.14224972070788,
+        "ssim": 0.854074841185931,
+        "mae": 19.42663628472222
+      }
+    },
+    {
+      "scene": "office",
+      "variant": "original",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": -0.08,
+      "hash": "eab164fb1727e3bf574e8592a82c3a962a5a3489b238754647b73bb181343ecd",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "office",
+      "variant": "original",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": 0.08,
+      "hash": "1c239cdf35aa90175f6becce1942c77222168482943bebf28b522b7a3d8d3c59",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "office",
+      "variant": "original",
+      "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+      "yaw": 0,
+      "hash": "8ba6cc5b7af30145763983b06ad0aa80dc911255e25b5d537c68653c14d8c0df",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 18.609404955593412,
+        "ssim": 0.9030411354183728,
+        "mae": 24.478438368055556
+      }
+    },
+    {
+      "scene": "office",
+      "variant": "original",
+      "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+      "yaw": 0,
+      "hash": "a16ea0b0e57a2be26e2c85b2315a1c0f2ae3d221328451d5e87449829991213f",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 15.281057627991563,
+        "ssim": 0.7627602027580822,
+        "mae": 36.04847569444444
+      }
+    },
+    {
+      "scene": "office",
+      "variant": "original",
+      "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+      "yaw": 0,
+      "hash": "7b0bf43e8967c537e2677326b567e2bea9f08162a374fab50489b48e049ed06d",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 21.781069172415165,
+        "ssim": 0.8361942484912689,
+        "mae": 15.425102430555556
+      }
+    },
+    {
+      "scene": "office",
+      "variant": "candidate",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": 0,
+      "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 20.137085533417896,
+        "ssim": 0.8539976958728277,
+        "mae": 19.464994791666665
+      }
+    },
+    {
+      "scene": "office",
+      "variant": "candidate",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": -0.08,
+      "hash": "0ed08cb6838ef35ad8af114b626b17bea3c121abdf3b96c6ba71681530a7bddb",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "office",
+      "variant": "candidate",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": 0.08,
+      "hash": "4b9de22ffea3b49f8e7048f5d8cfdaed9edb0ad6eba753cb4e66b8863b9011ff",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "office",
+      "variant": "candidate",
+      "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+      "yaw": 0,
+      "hash": "72e55dde0896b725aaacf7bea3dd29a4ca91119bc5d5b18baec3b69ec1677363",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 18.64524345192146,
+        "ssim": 0.9035747408221647,
+        "mae": 24.389116319444444
+      }
+    },
+    {
+      "scene": "office",
+      "variant": "candidate",
+      "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+      "yaw": 0,
+      "hash": "c98e4b3f25af58e5672a1f45277c8eaceebab7cab615ba4d58b418cbd3a7ff6e",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 15.288965780455477,
+        "ssim": 0.7635176639882258,
+        "mae": 36.01607118055556
+      }
+    },
+    {
+      "scene": "office",
+      "variant": "candidate",
+      "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+      "yaw": 0,
+      "hash": "37b646ef7fde599a1c1ae5beec9ac1c23924b787b21f2e776d60410415ebd7d5",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 21.778485699657587,
+        "ssim": 0.8363930078671684,
+        "mae": 15.439427083333333
+      }
+    },
+    {
+      "scene": "office",
+      "variant": "fallback",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": 0,
+      "hash": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 20.14224972070788,
+        "ssim": 0.854074841185931,
+        "mae": 19.42663628472222
+      }
+    },
+    {
+      "scene": "office",
+      "variant": "fallback",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": -0.08,
+      "hash": "eab164fb1727e3bf574e8592a82c3a962a5a3489b238754647b73bb181343ecd",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "office",
+      "variant": "fallback",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": 0.08,
+      "hash": "1c239cdf35aa90175f6becce1942c77222168482943bebf28b522b7a3d8d3c59",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "office",
+      "variant": "fallback",
+      "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+      "yaw": 0,
+      "hash": "8ba6cc5b7af30145763983b06ad0aa80dc911255e25b5d537c68653c14d8c0df",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 18.609404955593412,
+        "ssim": 0.9030411354183728,
+        "mae": 24.478438368055556
+      }
+    },
+    {
+      "scene": "office",
+      "variant": "fallback",
+      "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+      "yaw": 0,
+      "hash": "a16ea0b0e57a2be26e2c85b2315a1c0f2ae3d221328451d5e87449829991213f",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 15.281057627991563,
+        "ssim": 0.7627602027580822,
+        "mae": 36.04847569444444
+      }
+    },
+    {
+      "scene": "office",
+      "variant": "fallback",
+      "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+      "yaw": 0,
+      "hash": "7b0bf43e8967c537e2677326b567e2bea9f08162a374fab50489b48e049ed06d",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 21.781069172415165,
+        "ssim": 0.8361942484912689,
+        "mae": 15.425102430555556
+      }
+    }
+  ],
+  "resources": [
+    {
+      "format": "spz",
+      "disposed": 1,
+      "published": 1
+    },
+    {
+      "format": "ply",
+      "disposed": 1,
+      "published": 1
+    },
+    {
+      "format": "ply",
+      "disposed": 1,
+      "published": 1
+    },
+    {
+      "format": "ply",
+      "disposed": 1,
+      "published": 1
+    },
+    {
+      "format": "spz",
+      "disposed": 1,
+      "published": 0
+    },
+    {
+      "format": "spz",
+      "disposed": 1,
+      "published": 1
+    },
+    {
+      "format": "spz",
+      "disposed": 1,
+      "published": 1
+    },
+    {
+      "format": "ply",
+      "disposed": 1,
+      "published": 1
+    },
+    {
+      "format": "ply",
+      "disposed": 1,
+      "published": 1
+    },
+    {
+      "format": "ply",
+      "disposed": 1,
+      "published": 1
+    },
+    {
+      "format": "spz",
+      "disposed": 1,
+      "published": 0
+    },
+    {
+      "format": "spz",
+      "disposed": 1,
+      "published": 1
+    }
+  ],
+  "errors": [],
+  "manual": {
+    "scenes": [
+      "pipes",
+      "office"
+    ],
+    "variants": [
+      "candidate",
+      "fallback"
+    ],
+    "actions": [
+      "自由查看",
+      "drag left canvas (330,390) to (375,415)",
+      "复位"
+    ],
+    "result": "Each selection showed one Gaussian model; both variants retained existing off-camera blur. No additional visual defect observed; not an exhaustive camera-path evaluation.",
+    "consoleErrors": []
+  }
+}
