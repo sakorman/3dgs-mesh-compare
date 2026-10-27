@@ -57,3 +57,5 @@ npm run dev
 下一步先在可控 HTTP 服务上验证冷/热缓存、版本混配与连接中断，再串行测真实端到端首帧及峰值内存。摘要计算、完整 SPZ 缓冲、并存的旧/新模型和失败后 PLY 下载均有成本，不能沿用旧内存输入耗时推断此流程速度。AP16 的 8MiB 上限只限定其结果缓冲，不限制整个模型或浏览器内存。WebGPU、CUDA、移动端尚未验证。
 
 参考 [Spark 分页取消修复 #392](https://github.com/sparkjsdev/spark/pull/392)、[ProGS 论文](https://arxiv.org/abs/2603.09703)及[作者文件清单校验](https://github.com/ZhiyeTang/ProGS-Official/blob/f0e7b5d977fe38bde47eeb45a985c7b15940d0d9/progs/artifact.py)。只采用完整数据发布和文件身份验证这一设计思路，没有移植作者代码、渐进编码或论文跑分；许可和平台条件见[研究记录](RESEARCH.md)。
+
+后续：[真实 HTTP 缓存验证](HTTP-MODEL.md)补充了浏览器缓存命中、304、旧版内容和连接中断，端到端首帧与内存仍待测。

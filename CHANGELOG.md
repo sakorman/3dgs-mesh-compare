@@ -1,5 +1,12 @@
 # 更新日志
 
+## 2026-10-28
+
+- 完成候选模型的真实 HTTP 缓存验证，复现固定 URL 的旧 AP16 连续触发 PLY 回退；含内容摘要的新 URL 恢复候选加载，并可正常命中缓存。见[结果、截图与复现](docs/HTTP-MODEL.md)。
+- 两场景 20 项加载检查通过，覆盖缓存命中、304、连接中断及主动取消；36 个画面对照一致，18 个模型各释放一次。正文 0B 不等于免除解码，不新增首帧或内存提升结论。
+- 新增 3 项 HTTP 回归，75 项测试、类型检查及构建通过；默认页面与资源未变，下一步使用版本化资源测受控网络首帧。
+- 复核 [Spark Worker 读取](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/worker.ts)与 [Fetch 缓存规则](https://developer.mozilla.org/en-US/docs/Web/API/Request/cache)，补充 [SplatStream v2](https://arxiv.org/abs/2607.25971v2)；区分论文带宽估算与真实 HTTP 测量，未移植未核实许可的作者实现。
+
 ## 2026-10-27
 
 - 接通独立 SH8 + AP16 候选加载，校验配对及各文件摘要；取消后释放迟到模型，失败时回退原始 PLY，回退也失败则保留原画面。见[验证、截图与原始记录](docs/PAIRED-MODEL.md)。

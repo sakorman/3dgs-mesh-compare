@@ -237,3 +237,15 @@ Spark 2.4.0（最新发行 2026-10-20，MIT）的 [SplatMesh.initialized 实现]
 [作者公开实现 f0e7b5d](https://github.com/ZhiyeTang/ProGS-Official/tree/f0e7b5d977fe38bde47eeb45a985c7b15940d0d9)于 08-28 发布源码，截至 10-27 无 GitHub Release。[artifact.py](https://github.com/ZhiyeTang/ProGS-Official/blob/f0e7b5d977fe38bde47eeb45a985c7b15940d0d9/progs/artifact.py)检查格式版本、文件存在性、字节数和 SHA-256；[model_codec.py](https://github.com/ZhiyeTang/ProGS-Official/blob/f0e7b5d977fe38bde47eeb45a985c7b15940d0d9/progs/model_codec.py)在解码前校验所需前缀文件和模型配置。可行动启示是分别验证每个依赖文件的身份，不能只检查主文件或 URL；本项目已增加 AP16 自身摘要，尚未采用其渐进表示。
 
 作者环境为 Ubuntu / PyTorch 2.1.2 / CUDA 12.1 / RTX 4090，含本地 CUDA 扩展和神经解码组件，没有验证 WebGL2/WebGPU/Metal 路径。根 [LICENSE.md](https://github.com/ZhiyeTang/ProGS-Official/blob/f0e7b5d977fe38bde47eeb45a985c7b15940d0d9/LICENSE.md)为 Gaussian-Splatting 研究/非商业许可，子模块另有许可证，并非 MIT。未复制作者实现、安装编码器或复现论文性能；若未来评估渐进数据，应先核对依赖许可、完整前缀的总字节与解码成本。
+
+### 已验证：HTTP 缓存身份与文件摘要的不同作用
+
+[真实 HTTP 实验](HTTP-MODEL.md)确认，长期有效的固定 URL 可能持续返回旧 AP16；摘要校验能阻止错配显示，但重复加载仍回退。实验清单采用包含内容摘要的新 URL 后正常加载并缓存。两场景 304、断连与取消也通过，尚未验证 CDN 或首帧速度。后续应先发布版本资源再更新清单，摘要校验与版本 URL 同时保留。
+
+2026-10-28 核对 Spark 最新发行仍为 [2.4.0](https://github.com/sparkjsdev/spark/releases/tag/v2.4.0)（10-20），主分支 [ffe210d](https://github.com/sparkjsdev/spark/commit/ffe210dc0a45d0515a06c9235878108112827d61)，MIT。[worker.ts](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/worker.ts)和 [PagedSplatsFetcher.ts](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/PagedSplatsFetcher.ts)构造普通 Request，没有显式覆盖 cache 模式；后者另传 Range 与 AbortSignal。不能据此推断它已提供内容版本管理或把分页行为套到普通模型初始化。参考 [Fetch 缓存说明](https://developer.mozilla.org/en-US/docs/Web/API/Request/cache)，本地服务器记录 304，应用收到合并缓存后的 200；仅本机 WebGL2 / ANGLE Metal 实测，WebGPU、CUDA 和移动端未测。
+
+### 待验证：SplatStream 的依赖清单与网络评价边界
+
+[SplatStream](https://arxiv.org/abs/2607.25971v2) v1 为 2026-07-28，v2 为 07-29，页面注明 Asilomar 2026 接收；论文为 arXiv 非独占永久发布许可。[正文 II-F / II-G](https://arxiv.org/html/2607.25971v2)让清单记录分层字节数、预测元数据和依赖，解码按依赖关系进行。第 III 节与表 II 的所需带宽按四帧 GOP、30fps 和字节量计算，并非浏览器 HTTP 缓存或启动等待测量。
+
+本次原文与定向检索未找到可核实的作者实现仓库、发布版本及代码许可；正文也未明确可复现的 WebGL2/WebGPU/Metal/CUDA 软件配置。没有移植其动态预测、剪枝或引用论文性能作为本项目结果。可行动约束是将完整依赖数据量、实际 HTTP 请求/缓存、解码及首帧分开记录；当前静态双文件候选先完成后两项，不能把文件缩小或估算带宽直接换算成用户等待改善。
