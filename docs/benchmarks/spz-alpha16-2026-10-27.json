@@ -1,0 +1,592 @@
+{
+  "createdAt": "2026-10-27T06:42:50.828Z",
+  "baselineCommit": "c5dbc92",
+  "spark": "2.4.0",
+  "environment": {
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+    "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)"
+  },
+  "resolution": 768,
+  "maxSh": 3,
+  "lod": false,
+  "backgrounded": false,
+  "method": "Saved AP16 gzip + exact SH8 file. Warm renderer/runtime; preloaded memory bytes. Serial fresh model initialization, ABBA ABBA; includes PLY gzip or SPZ decode plus AP16 gzip/hash/patch and sort settlement. Excludes network, metadata/Mesh loading, cold startup, presentation and GPU query time. Quality outside timing, checked against previous direct PLY/restored-opacity diagnostic.",
+  "assets": [
+    {
+      "scene": "pipes",
+      "count": 300000,
+      "plyGzipBytes": 64843796,
+      "plyGzipSha256": "55b311c225e5ac53a2e2c3d6e2fa2cafd228dd16c7d5d6ac56daaf9efbf76734",
+      "plySha256": "b716afb08b23e18feed481eb8307238da7ba0788aea705601c7c66e022a51caf",
+      "spzBytes": 12545116,
+      "spzSha256": "4d86d47f541a66d4724525125e698b35706fdf4d42d844710664e96c9a14b87c",
+      "alphaRawBytes": 600048,
+      "alphaRawSha256": "92764f5dd6325fd9bc4ca6f96ed7d50fe31fc026e6ef11dd907ca8f455a129e8",
+      "alphaGzipBytes": 526239,
+      "alphaGzipSha256": "0728d33ba6872b94a5f8be9f4efbea4804a57ee072ff80bc518bc0a7341ded50",
+      "combinedBytes": 13071355
+    },
+    {
+      "scene": "office",
+      "count": 231428,
+      "plyGzipBytes": 49050760,
+      "plyGzipSha256": "0786facf28ff0c2d6f47e3e9f7c392823a7eb3d892cf2e41b52d1964067e6b89",
+      "plySha256": "0af14259673b165001a9e84f27b6e19a55e924e0432e491e9701229f1c24e276",
+      "spzBytes": 8927279,
+      "spzSha256": "e77b9eccc5dce1a72b48c96bddabbc0aa0dc6bbbb2d8520cbd1ca5166e02768d",
+      "alphaRawBytes": 462904,
+      "alphaRawSha256": "9c96203b9727bdb1ccb7ed705a0f84ee7a8691cdeabdfe32c3d5b06e2918b8e4",
+      "alphaGzipBytes": 407820,
+      "alphaGzipSha256": "0f3e396769d5da701fe5194fe028905d71f397bec30aa7e6efa35340aea66d79",
+      "combinedBytes": 9335099
+    }
+  ],
+  "samples": [
+    {
+      "scene": "pipes",
+      "variant": "original",
+      "index": 0,
+      "plyReadMs": 180,
+      "modelInitializeMs": 122.59999990463257,
+      "alphaTiming": null,
+      "postInitializeMs": 0,
+      "settleMs": 86.5,
+      "totalMs": 389.09999990463257
+    },
+    {
+      "scene": "pipes",
+      "variant": "alpha16",
+      "index": 1,
+      "plyReadMs": 0,
+      "modelInitializeMs": 162.59999990463257,
+      "alphaTiming": {
+        "alphaGzipMs": 1.5,
+        "modelHashMs": 4.400000095367432,
+        "validatePatchMs": 1.8000001907348633,
+        "alphaTotalMs": 7.700000286102295
+      },
+      "postInitializeMs": 7.800000190734863,
+      "settleMs": 67.19999980926514,
+      "totalMs": 237.59999990463257
+    },
+    {
+      "scene": "pipes",
+      "variant": "alpha16",
+      "index": 2,
+      "plyReadMs": 0,
+      "modelInitializeMs": 156.7999997138977,
+      "alphaTiming": {
+        "alphaGzipMs": 1.5,
+        "modelHashMs": 4.400000095367432,
+        "validatePatchMs": 1.200000286102295,
+        "alphaTotalMs": 7.100000381469727
+      },
+      "postInitializeMs": 7.100000381469727,
+      "settleMs": 67.19999980926514,
+      "totalMs": 231.09999990463257
+    },
+    {
+      "scene": "pipes",
+      "variant": "original",
+      "index": 3,
+      "plyReadMs": 177.7000002861023,
+      "modelInitializeMs": 123.40000009536743,
+      "alphaTiming": null,
+      "postInitializeMs": 0,
+      "settleMs": 65.39999961853027,
+      "totalMs": 366.5
+    },
+    {
+      "scene": "pipes",
+      "variant": "original",
+      "index": 4,
+      "plyReadMs": 176.7000002861023,
+      "modelInitializeMs": 121.69999980926514,
+      "alphaTiming": null,
+      "postInitializeMs": 0,
+      "settleMs": 68.30000019073486,
+      "totalMs": 366.7000002861023
+    },
+    {
+      "scene": "pipes",
+      "variant": "alpha16",
+      "index": 5,
+      "plyReadMs": 0,
+      "modelInitializeMs": 158.90000009536743,
+      "alphaTiming": {
+        "alphaGzipMs": 1.5,
+        "modelHashMs": 4.5,
+        "validatePatchMs": 2.5999999046325684,
+        "alphaTotalMs": 8.599999904632568
+      },
+      "postInitializeMs": 8.599999904632568,
+      "settleMs": 65.90000009536743,
+      "totalMs": 233.40000009536743
+    },
+    {
+      "scene": "pipes",
+      "variant": "alpha16",
+      "index": 6,
+      "plyReadMs": 0,
+      "modelInitializeMs": 153.69999980926514,
+      "alphaTiming": {
+        "alphaGzipMs": 1.5,
+        "modelHashMs": 4.700000286102295,
+        "validatePatchMs": 0.7999997138977051,
+        "alphaTotalMs": 7
+      },
+      "postInitializeMs": 7,
+      "settleMs": 72.40000009536743,
+      "totalMs": 233.09999990463257
+    },
+    {
+      "scene": "pipes",
+      "variant": "original",
+      "index": 7,
+      "plyReadMs": 176.80000019073486,
+      "modelInitializeMs": 122.69999980926514,
+      "alphaTiming": null,
+      "postInitializeMs": 0,
+      "settleMs": 67.09999990463257,
+      "totalMs": 366.59999990463257
+    },
+    {
+      "scene": "office",
+      "variant": "original",
+      "index": 0,
+      "plyReadMs": 137.10000038146973,
+      "modelInitializeMs": 94.09999990463257,
+      "alphaTiming": null,
+      "postInitializeMs": 0,
+      "settleMs": 62.09999990463257,
+      "totalMs": 293.30000019073486
+    },
+    {
+      "scene": "office",
+      "variant": "alpha16",
+      "index": 1,
+      "plyReadMs": 0,
+      "modelInitializeMs": 118.2999997138977,
+      "alphaTiming": {
+        "alphaGzipMs": 1.200000286102295,
+        "modelHashMs": 3.1999998092651367,
+        "validatePatchMs": 0.40000009536743164,
+        "alphaTotalMs": 4.800000190734863
+      },
+      "postInitializeMs": 4.800000190734863,
+      "settleMs": 61.69999980926514,
+      "totalMs": 184.7999997138977
+    },
+    {
+      "scene": "office",
+      "variant": "alpha16",
+      "index": 2,
+      "plyReadMs": 0,
+      "modelInitializeMs": 117.09999990463257,
+      "alphaTiming": {
+        "alphaGzipMs": 1.1999998092651367,
+        "modelHashMs": 3.200000286102295,
+        "validatePatchMs": 0.2999997138977051,
+        "alphaTotalMs": 4.699999809265137
+      },
+      "postInitializeMs": 4.699999809265137,
+      "settleMs": 61.200000286102295,
+      "totalMs": 183
+    },
+    {
+      "scene": "office",
+      "variant": "original",
+      "index": 3,
+      "plyReadMs": 134.19999980926514,
+      "modelInitializeMs": 97.2000002861023,
+      "alphaTiming": null,
+      "postInitializeMs": 0,
+      "settleMs": 68.39999961853027,
+      "totalMs": 299.7999997138977
+    },
+    {
+      "scene": "office",
+      "variant": "original",
+      "index": 4,
+      "plyReadMs": 136,
+      "modelInitializeMs": 98.39999961853027,
+      "alphaTiming": null,
+      "postInitializeMs": 0,
+      "settleMs": 57.30000019073486,
+      "totalMs": 291.69999980926514
+    },
+    {
+      "scene": "office",
+      "variant": "alpha16",
+      "index": 5,
+      "plyReadMs": 0,
+      "modelInitializeMs": 122,
+      "alphaTiming": {
+        "alphaGzipMs": 1.200000286102295,
+        "modelHashMs": 3.299999713897705,
+        "validatePatchMs": 0.40000009536743164,
+        "alphaTotalMs": 4.900000095367432
+      },
+      "postInitializeMs": 4.900000095367432,
+      "settleMs": 64.40000009536743,
+      "totalMs": 191.30000019073486
+    },
+    {
+      "scene": "office",
+      "variant": "alpha16",
+      "index": 6,
+      "plyReadMs": 0,
+      "modelInitializeMs": 117.5,
+      "alphaTiming": {
+        "alphaGzipMs": 1.1999998092651367,
+        "modelHashMs": 3.200000286102295,
+        "validatePatchMs": 0.40000009536743164,
+        "alphaTotalMs": 4.800000190734863
+      },
+      "postInitializeMs": 4.800000190734863,
+      "settleMs": 69.39999961853027,
+      "totalMs": 191.69999980926514
+    },
+    {
+      "scene": "office",
+      "variant": "original",
+      "index": 7,
+      "plyReadMs": 143.19999980926514,
+      "modelInitializeMs": 102.69999980926514,
+      "alphaTiming": null,
+      "postInitializeMs": 0,
+      "settleMs": 62.60000038146973,
+      "totalMs": 308.5
+    }
+  ],
+  "comparisons": [
+    {
+      "scene": "pipes",
+      "variant": "original",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": 0,
+      "size": [
+        768,
+        505
+      ],
+      "hash": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 18.7454079234687,
+        "ssim": 0.7833699625373709,
+        "mae": 23.128159378437843
+      }
+    },
+    {
+      "scene": "pipes",
+      "variant": "original",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": -0.08,
+      "size": [
+        768,
+        505
+      ],
+      "hash": "77a3202754413348a4176ac57760d7c93611807159622ebee7c746dbd1732db8",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "pipes",
+      "variant": "original",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": 0.08,
+      "size": [
+        768,
+        505
+      ],
+      "hash": "a3a8db66317ad19b5b4907123ae9484054c1409e764244c3d667245743ca417b",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "pipes",
+      "variant": "original",
+      "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+      "yaw": 0,
+      "size": [
+        768,
+        505
+      ],
+      "hash": "c91b07263481e55ea3f9585a7deadf35d29fea9f3ac96c938275124b58935754",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 13.792416915886214,
+        "ssim": 0.6784728649187745,
+        "mae": 43.79629228547855
+      }
+    },
+    {
+      "scene": "pipes",
+      "variant": "alpha16",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": 0,
+      "size": [
+        768,
+        505
+      ],
+      "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 18.737894565676786,
+        "ssim": 0.7846525063941424,
+        "mae": 23.12381824119912
+      }
+    },
+    {
+      "scene": "pipes",
+      "variant": "alpha16",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": -0.08,
+      "size": [
+        768,
+        505
+      ],
+      "hash": "27c033857c6e5c988d9dff5026de99c326a3dfee995bef663c7d2452462f4d9e",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "pipes",
+      "variant": "alpha16",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": 0.08,
+      "size": [
+        768,
+        505
+      ],
+      "hash": "0cc73a81c589f1fdb7e8df11828d3217eaaaa03d4450392112f3e209f474be32",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "pipes",
+      "variant": "alpha16",
+      "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+      "yaw": 0,
+      "size": [
+        768,
+        505
+      ],
+      "hash": "b64e381af290a4e4a4b4492326c3eef3c858d0fa8771ea4a5712f8e17c6a8f86",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 13.798768312454413,
+        "ssim": 0.6789761687357988,
+        "mae": 43.764249003025306
+      }
+    },
+    {
+      "scene": "office",
+      "variant": "original",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": 0,
+      "size": [
+        768,
+        500
+      ],
+      "hash": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 20.14224972070788,
+        "ssim": 0.854074841185931,
+        "mae": 19.42663628472222
+      }
+    },
+    {
+      "scene": "office",
+      "variant": "original",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": -0.08,
+      "size": [
+        768,
+        500
+      ],
+      "hash": "eab164fb1727e3bf574e8592a82c3a962a5a3489b238754647b73bb181343ecd",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "office",
+      "variant": "original",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": 0.08,
+      "size": [
+        768,
+        500
+      ],
+      "hash": "1c239cdf35aa90175f6becce1942c77222168482943bebf28b522b7a3d8d3c59",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "office",
+      "variant": "original",
+      "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+      "yaw": 0,
+      "size": [
+        768,
+        500
+      ],
+      "hash": "8ba6cc5b7af30145763983b06ad0aa80dc911255e25b5d537c68653c14d8c0df",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 18.609404955593412,
+        "ssim": 0.9030411354183728,
+        "mae": 24.478438368055556
+      }
+    },
+    {
+      "scene": "office",
+      "variant": "original",
+      "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+      "yaw": 0,
+      "size": [
+        768,
+        500
+      ],
+      "hash": "a16ea0b0e57a2be26e2c85b2315a1c0f2ae3d221328451d5e87449829991213f",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 15.281057627991563,
+        "ssim": 0.7627602027580822,
+        "mae": 36.04847569444444
+      }
+    },
+    {
+      "scene": "office",
+      "variant": "original",
+      "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+      "yaw": 0,
+      "size": [
+        768,
+        500
+      ],
+      "hash": "7b0bf43e8967c537e2677326b567e2bea9f08162a374fab50489b48e049ed06d",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 21.781069172415165,
+        "ssim": 0.8361942484912689,
+        "mae": 15.425102430555556
+      }
+    },
+    {
+      "scene": "office",
+      "variant": "alpha16",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": 0,
+      "size": [
+        768,
+        500
+      ],
+      "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 20.137085533417896,
+        "ssim": 0.8539976958728277,
+        "mae": 19.464994791666665
+      }
+    },
+    {
+      "scene": "office",
+      "variant": "alpha16",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": -0.08,
+      "size": [
+        768,
+        500
+      ],
+      "hash": "0ed08cb6838ef35ad8af114b626b17bea3c121abdf3b96c6ba71681530a7bddb",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "office",
+      "variant": "alpha16",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": 0.08,
+      "size": [
+        768,
+        500
+      ],
+      "hash": "4b9de22ffea3b49f8e7048f5d8cfdaed9edb0ad6eba753cb4e66b8863b9011ff",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "office",
+      "variant": "alpha16",
+      "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+      "yaw": 0,
+      "size": [
+        768,
+        500
+      ],
+      "hash": "72e55dde0896b725aaacf7bea3dd29a4ca91119bc5d5b18baec3b69ec1677363",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 18.64524345192146,
+        "ssim": 0.9035747408221647,
+        "mae": 24.389116319444444
+      }
+    },
+    {
+      "scene": "office",
+      "variant": "alpha16",
+      "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+      "yaw": 0,
+      "size": [
+        768,
+        500
+      ],
+      "hash": "c98e4b3f25af58e5672a1f45277c8eaceebab7cab615ba4d58b418cbd3a7ff6e",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 15.288965780455477,
+        "ssim": 0.7635176639882258,
+        "mae": 36.01607118055556
+      }
+    },
+    {
+      "scene": "office",
+      "variant": "alpha16",
+      "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+      "yaw": 0,
+      "size": [
+        768,
+        500
+      ],
+      "hash": "37b646ef7fde599a1c1ae5beec9ac1c23924b787b21f2e776d60410415ebd7d5",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 21.778485699657587,
+        "ssim": 0.8363930078671684,
+        "mae": 15.439427083333333
+      }
+    }
+  ],
+  "errors": [],
+  "review": {
+    "scenes": [
+      "pipes",
+      "office"
+    ],
+    "variants": [
+      "original",
+      "alpha16"
+    ],
+    "sameDrag": [
+      330,
+      390,
+      375,
+      415
+    ],
+    "reset": true,
+    "visibleModels": 1,
+    "notes": "Both scenes checked using the same orbit drag; existing off-camera blur remains in both formats. No additional visual defect observed. Six scored views and four yaw poses match the previous diagnostic exactly."
+  }
+}
