@@ -192,3 +192,18 @@ Spark 2.4.0（最新发行 2026-10-20，MIT）的 [SplatMesh.initialized 实现]
 记录新增来源时注明论文日期或仓库 commit/tag，以及与当前瓶颈的关系。进入实现前，补充最小实验、对照设置和可验证指标；完成后链接对应 CHANGELOG 或实验报告，标明采用或暂缓的理由。
 
 优先验证现有渲染器能够支持的局部改进。涉及新训练流程、格式或 GPU 后端的方案，先在独立实验中验证兼容性和收益。
+
+
+### 已验证、待接入：SH8 的高精度不透明度附加文件
+
+[AP16 文件实验](SPZ-ALPHA16.md)将原始 Spark 解码的 binary16 不透明度独立 gzip 存储，绑定准确的 SH8 文件 SHA-256 与点序。合计 12.47 / 8.90MiB，20 个画面完全复现此前诊断，附加处理 7.40 / 4.80ms；完整加载只测暖运行时、内存输入，未测冷/热网络和内存峰值。它是自定义附加格式，不能宣称为标准 SPZ3 或通用解码器能力。默认仍为 PLY，下一步验证候选加载的取消、回退、解压上限与缓存。
+
+核对 [Spark 2.4.0 主分支](https://github.com/sparkjsdev/spark/commit/ffe210dc0a45d0515a06c9235878108112827d61)仍为 2026-10-20 的 ffe210d，MIT；按 [ExtSplats 作者实现](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/ExtSplats.ts)在首次绘制前恢复低 16 位并触发纹理上传，其他属性不变。实际使用 WebGL2 / CPU-WASM / ANGLE Metal；没有 WebGPU、CUDA 或手机测试。
+
+### 候选：MesonGS++ 的总码流核算与分属性精度
+
+[MesonGS++](https://arxiv.org/abs/2604.26799v2)于 2026-04-29 提交 v1，05-07 更新 v2，论文 CC BY-NC-SA 4.0。[正文 III-D 至 III-G](https://arxiv.org/html/2604.26799v2)联合考虑属性精度、点保留量与存储预算；其体积核算包括几何、属性、码本和元数据。可行动启示是先验证属性敏感性，并统计全部实际文件，而非仅按位宽估算或只计主码流；不直接采用论文压缩率。
+
+截至 2026-10-27，[作者仓库最新提交 0004153](https://github.com/mmlab-sigs/mesongs_plus/commit/0004153458b73387e0044b6f553f62116117388d)为 05-07（增加结果表），没有 GitHub Release。[qbit_search_tool.py](https://github.com/mmlab-sigs/mesongs_plus/blob/0004153458b73387e0044b6f553f62116117388d/splatwizard/model_zoo/mesongs_plus/qbit_search_tool.py)实际生成属性流和元数据，再读取 ZIP 大小校正预算。根目录许可证为 MIT，仓库另含第三方组件的独立许可，不能据此概括全部依赖。
+
+作者安装路径使用 PyTorch 2.4.0 + CUDA 12.1、CUDA 扩展及外部 G-PCC `tmc3`；未见 WebGL2/WebGPU/Metal 的等价运行路径。当前机器未运行该编码器或搜索，不把其 CUDA 结果当作浏览器收益。若后续移植，先核对所有依赖许可、顺序一致性、解码器大小及总耗时，任何重要性估计或拟合仅使用训练视角。此时优先完成已有 AP16 候选的可靠加载。
