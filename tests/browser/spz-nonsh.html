@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="zh-CN">
+  <meta charset="utf-8" /><title>SPZ 非 SH 属性对照</title>
+  <style>
+    body { font: 14px system-ui; margin: 20px; color: #223; }
+    #views, .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    figure { margin: 0; }
+    canvas, img { display: block; width: 100%; }
+    pre { white-space: pre-wrap; }
+    button { padding: 8px; margin: 4px; }
+    .grid { margin: 16px 0; }
+  </style>
+  <h1>SPZ3 / SH8：位置、颜色、不透明度、尺度与旋转</h1>
+  <p>完整 SH3，关闭 LoD，768 长边；只测画质，不采集加载或帧时间。</p>
+  <button id="run">运行属性对照</button>
+  <label>场景 <select id="scene"><option value="pipes">管道房</option><option value="office">办公室</option></select></label>
+  <label>属性 <select id="variant"><option value="original">原始 PLY</option><option value="sh8">SH8</option><option value="position">恢复位置</option><option value="color">恢复颜色</option><option value="opacity">恢复不透明度</option><option value="scale">恢复尺度</option><option value="rotation">恢复旋转</option><option value="all">恢复全部非 SH 属性</option></select></label>
+  <button id="show">查看模型</button><button id="orbit" disabled>自由查看</button><button id="reset" disabled>复位</button>
+  <p id="status">Ready</p>
+  <div id="views"><div id="left"></div><div id="right"></div></div>
+  <div id="gallery"></div>
+  <pre id="result"></pre>
+  <script type="module" src="./spz-nonsh.ts"></script>
+</html>
