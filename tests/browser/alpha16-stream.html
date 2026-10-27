@@ -1,0 +1,6 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>AP16 加载可靠性</title>
+<style>body{margin:24px;font:15px system-ui;color:#223}button{padding:10px}table{border-collapse:collapse;margin:20px 0}td,th{padding:10px;border:1px solid #ccd;text-align:left}pre{white-space:pre-wrap}p{max-width:900px}</style>
+<h1>AP16：取消、解压边界与错误响应</h1><p>仅使用 CPU 响应流，不创建 WebGL。对照 0595353 的完整缓冲路径；模拟源计数不代表真实网络流量或峰值内存。</p>
+<button id="run">运行加载检查</button><p id="status">Ready</p>
+<table><thead><tr><th>检查</th><th>路径</th><th>源供给字节</th><th>目标改变</th><th>结果</th></tr></thead><tbody id="rows"></tbody></table>
+<pre id="result"></pre><script type="module" src="./alpha16-stream.ts"></script></html>

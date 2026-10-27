@@ -207,3 +207,18 @@ Spark 2.4.0（最新发行 2026-10-20，MIT）的 [SplatMesh.initialized 实现]
 截至 2026-10-27，[作者仓库最新提交 0004153](https://github.com/mmlab-sigs/mesongs_plus/commit/0004153458b73387e0044b6f553f62116117388d)为 05-07（增加结果表），没有 GitHub Release。[qbit_search_tool.py](https://github.com/mmlab-sigs/mesongs_plus/blob/0004153458b73387e0044b6f553f62116117388d/splatwizard/model_zoo/mesongs_plus/qbit_search_tool.py)实际生成属性流和元数据，再读取 ZIP 大小校正预算。根目录许可证为 MIT，仓库另含第三方组件的独立许可，不能据此概括全部依赖。
 
 作者安装路径使用 PyTorch 2.4.0 + CUDA 12.1、CUDA 扩展及外部 G-PCC `tmc3`；未见 WebGL2/WebGPU/Metal 的等价运行路径。当前机器未运行该编码器或搜索，不把其 CUDA 结果当作浏览器收益。若后续移植，先核对所有依赖许可、顺序一致性、解码器大小及总耗时，任何重要性估计或拟合仅使用训练视角。此时优先完成已有 AP16 候选的可靠加载。
+
+
+### 已验证、待接入：AP16 响应流取消与完成边界
+
+[CPU 读取验证](ALPHA16-STREAM.md)新增按已知点数限定长度的流式读取器，支持原始 gzip 与 HTTP 已展开的 AP16，完整校验和取消检查后才写回。旧路径取消后仍会写入的合成用例已复现，新路径保留目标数组；真实文件解码位一致。没有占用正在被其他训练任务使用的 GPU，也没有据此新增画质或性能数字。模型加载事务、回退和真实缓存仍待接入。
+
+截至 2026-10-27，Spark 最新仍为 [ffe210d / 2.4.0](https://github.com/sparkjsdev/spark/releases/tag/v2.4.0)（发布 10-20，MIT）。[SplatLoader](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/SplatLoader.ts)的流选项与 Worker `nextChunk` 路径没有向调用方提供 AbortSignal 参数；因此不能把自有响应流的取消视为已经终止 Spark 的模型初始化。后续应隔离请求所有权，并清理迟到结果；不修改或重复实现已有渲染器释放修复。
+
+### 候选：MoQSplat 的接收状态与完整数据发布
+
+[MoQSplat](https://arxiv.org/abs/2609.18624) v1 为 2026-09-16，页面注明 IEEE MMSP 2026，arXiv 标注 CC BY-SA 4.0。[正文 III 节](https://arxiv.org/html/2609.18624v1)区分缺失、下载中和缓存完成状态，接收中断后重新请求，使用已有层维持显示。对当前附加属性的启示是数据完成之前不发布，取消不修改现有模型；这是待接入事务的设计假设，不等于采用该论文的渐进表示。
+
+[作者仓库](https://github.com/emanuele-artioli/MoQSplat/tree/15e02a669456d767abf5d68f9fb1f909f260dde0)最新提交为 15e02a6（09-16），没有 GitHub Release。已阅读 [client.py](https://github.com/emanuele-artioli/MoQSplat/blob/15e02a669456d767abf5d68f9fb1f909f260dde0/src/moq3dgs/transport/client.py) 的接收与断开、[cache.py](https://github.com/emanuele-artioli/MoQSplat/blob/15e02a669456d767abf5d68f9fb1f909f260dde0/src/moq3dgs/render/cache.py) 的缓存边界；客户端读取完整消息再解码/写缓存，断开时取消接收任务。[包元数据](https://github.com/emanuele-artioli/MoQSplat/blob/15e02a669456d767abf5d68f9fb1f909f260dde0/pyproject.toml)声明 MIT，但仓库没有独立 LICENSE/COPYING 文件，未复制作者代码。
+
+作者路径为 Python/PyTorch/gsplat 与 CUDA、MoQ/QUIC 组件，论文使用 NVIDIA GV100；没有验证 WebGL2/WebGPU/Metal 等价实现。当前静态 Pages 没有引入中继或新服务；没有复现其网络跑分，后续需要将传输、缓存、解码和 GPU 上传的完成状态分别验证。
