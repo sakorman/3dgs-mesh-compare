@@ -1,0 +1,7 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>模型 HTTP 缓存与中断验证</title>
+<style>body{font:14px system-ui;margin:20px;color:#223}#views{display:grid;grid-template-columns:1fr 1fr;gap:12px}canvas,img{display:block;width:100%}button{padding:8px;margin:4px}pre{white-space:pre-wrap}table{border-collapse:collapse;width:100%}td,th{padding:9px;border-bottom:1px solid #ddd;text-align:left}#gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}figure{margin:0}</style>
+<h1>模型 HTTP 缓存与连接中断</h1><p>真实浏览器缓存 · 同源 HTTP · 固定 SH3 / LoD 关闭 / 长边 768。此页检查正确性和响应字节，不测首帧速度。</p>
+<button id="run">运行 HTTP 检查</button><p id="status">Ready</p>
+<table><thead><tr><th>场景</th><th>情况</th><th>结果</th><th>HTTP 状态</th><th>服务器提交正文</th></tr></thead><tbody id="rows"></tbody></table>
+<div id="views"><div id="left"></div><div id="right"></div></div><div id="gallery"></div><pre id="result"></pre>
+<script type="module" src="./http-model.ts"></script></html>
