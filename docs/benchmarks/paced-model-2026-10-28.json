@@ -1,0 +1,2649 @@
+{
+  "createdAt": "2026-10-27T22:50:28.274Z",
+  "run": "933084bf-10f1-4af6-8ccb-5c5d9e9e16a7",
+  "baselineCommit": "55905ad",
+  "spark": "2.4.0",
+  "resolution": 768,
+  "maxSh": 3,
+  "lod": false,
+  "environment": {
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+    "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+    "visibility": [
+      {
+        "ms": 6164.5,
+        "state": "visible"
+      }
+    ]
+  },
+  "method": "Serial ABBAABBA, four samples per format/cache/scene. Real HTTP body paced at 5 MiB/s, 64 KiB chunks, 40ms server hold per request (not RTT). Cold-key is an unused HTTP cache key, with warm renderer/WASM; warm-key reuses exact primed URL. New model every trial. Baseline model retained and displayed while loading, removed on publish. All formats use digest validation. Total ends after four quiet sort frames and mesh draw submission; not GPU time or screen presentation. Excludes page/mesh/runtime startup, baseline restoration, controls, captures and quality scoring. No memory, training, FPS or CDN measurement.",
+  "assets": [
+    {
+      "scene": "pipes",
+      "count": 300000,
+      "plyGzipBytes": 64843796,
+      "plyGzipSha256": "55b311c225e5ac53a2e2c3d6e2fa2cafd228dd16c7d5d6ac56daaf9efbf76734",
+      "plySha256": "b716afb08b23e18feed481eb8307238da7ba0788aea705601c7c66e022a51caf",
+      "spzBytes": 12545116,
+      "spzSha256": "4d86d47f541a66d4724525125e698b35706fdf4d42d844710664e96c9a14b87c",
+      "alphaRawBytes": 600048,
+      "alphaRawSha256": "92764f5dd6325fd9bc4ca6f96ed7d50fe31fc026e6ef11dd907ca8f455a129e8",
+      "alphaGzipBytes": 526239,
+      "alphaGzipSha256": "0728d33ba6872b94a5f8be9f4efbea4804a57ee072ff80bc518bc0a7341ded50",
+      "combinedBytes": 13071355
+    },
+    {
+      "scene": "office",
+      "count": 231428,
+      "plyGzipBytes": 49050760,
+      "plyGzipSha256": "0786facf28ff0c2d6f47e3e9f7c392823a7eb3d892cf2e41b52d1964067e6b89",
+      "plySha256": "0af14259673b165001a9e84f27b6e19a55e924e0432e491e9701229f1c24e276",
+      "spzBytes": 8927279,
+      "spzSha256": "e77b9eccc5dce1a72b48c96bddabbc0aa0dc6bbbb2d8520cbd1ca5166e02768d",
+      "alphaRawBytes": 462904,
+      "alphaRawSha256": "9c96203b9727bdb1ccb7ed705a0f84ee7a8691cdeabdfe32c3d5b06e2918b8e4",
+      "alphaGzipBytes": 407820,
+      "alphaGzipSha256": "0f3e396769d5da701fe5194fe028905d71f397bec30aa7e6efa35340aea66d79",
+      "combinedBytes": 9335099
+    }
+  ],
+  "warmups": [
+    {
+      "scene": "pipes",
+      "format": "ply",
+      "network": [
+        {
+          "run": "933084bf-10f1-4af6-8ccb-5c5d9e9e16a7",
+          "policy": "paced",
+          "scene": "pipes",
+          "kind": "ply",
+          "version": "b716afb08b23e18feed481eb8307238da7ba0788aea705601c7c66e022a51caf",
+          "ifNoneMatch": null,
+          "etag": "\"55b311c225e5ac53a2e2c3d6e2fa2cafd228dd16c7d5d6ac56daaf9efbf76734\"",
+          "status": 200,
+          "bodyBytesOffered": 64843796,
+          "finished": true,
+          "closed": true,
+          "sample": "warm",
+          "pacing": {
+            "bytesPerSecond": 5242880,
+            "delayMs": 40,
+            "chunkBytes": 65536,
+            "chunks": 990,
+            "bytesOffered": 64843796,
+            "idealMs": 12407.972564697266,
+            "firstChunkMs": 54.00254099999984,
+            "lastChunkMs": 12409.605,
+            "maxLateMs": 3.7309580000001006
+          }
+        }
+      ]
+    },
+    {
+      "scene": "pipes",
+      "format": "spz",
+      "network": [
+        {
+          "run": "933084bf-10f1-4af6-8ccb-5c5d9e9e16a7",
+          "policy": "paced",
+          "scene": "pipes",
+          "kind": "spz",
+          "version": "4d86d47f541a66d4724525125e698b35706fdf4d42d844710664e96c9a14b87c",
+          "ifNoneMatch": null,
+          "etag": "\"4d86d47f541a66d4724525125e698b35706fdf4d42d844710664e96c9a14b87c\"",
+          "status": 200,
+          "bodyBytesOffered": 12545116,
+          "finished": true,
+          "closed": true,
+          "sample": "warm",
+          "pacing": {
+            "bytesPerSecond": 5242880,
+            "delayMs": 40,
+            "chunkBytes": 65536,
+            "chunks": 192,
+            "bytesOffered": 12545116,
+            "idealMs": 2432.790985107422,
+            "firstChunkMs": 53.49012500000026,
+            "lastChunkMs": 2435.3028749999976,
+            "maxLateMs": 3.262624999999389
+          }
+        },
+        {
+          "run": "933084bf-10f1-4af6-8ccb-5c5d9e9e16a7",
+          "policy": "paced",
+          "scene": "pipes",
+          "kind": "alpha",
+          "version": "92764f5dd6325fd9bc4ca6f96ed7d50fe31fc026e6ef11dd907ca8f455a129e8",
+          "ifNoneMatch": null,
+          "etag": "\"0728d33ba6872b94a5f8be9f4efbea4804a57ee072ff80bc518bc0a7341ded50\"",
+          "status": 200,
+          "bodyBytesOffered": 526239,
+          "finished": true,
+          "closed": true,
+          "sample": "warm",
+          "pacing": {
+            "bytesPerSecond": 5242880,
+            "delayMs": 40,
+            "chunkBytes": 65536,
+            "chunks": 9,
+            "bytesOffered": 526239,
+            "idealMs": 140.37212371826172,
+            "firstChunkMs": 54.35054200000013,
+            "lastChunkMs": 141.76145800000086,
+            "maxLateMs": 2.874832999998034
+          }
+        }
+      ]
+    },
+    {
+      "scene": "office",
+      "format": "ply",
+      "network": [
+        {
+          "run": "933084bf-10f1-4af6-8ccb-5c5d9e9e16a7",
+          "policy": "paced",
+          "scene": "office",
+          "kind": "ply",
+          "version": "0af14259673b165001a9e84f27b6e19a55e924e0432e491e9701229f1c24e276",
+          "ifNoneMatch": null,
+          "etag": "\"0786facf28ff0c2d6f47e3e9f7c392823a7eb3d892cf2e41b52d1964067e6b89\"",
+          "status": 200,
+          "bodyBytesOffered": 49050760,
+          "finished": true,
+          "closed": true,
+          "sample": "warm",
+          "pacing": {
+            "bytesPerSecond": 5242880,
+            "delayMs": 40,
+            "chunkBytes": 65536,
+            "chunks": 749,
+            "bytesOffered": 49050760,
+            "idealMs": 9395.690002441406,
+            "firstChunkMs": 53.037415999991936,
+            "lastChunkMs": 9395.834374999991,
+            "maxLateMs": 3.2687909999949625
+          }
+        }
+      ]
+    },
+    {
+      "scene": "office",
+      "format": "spz",
+      "network": [
+        {
+          "run": "933084bf-10f1-4af6-8ccb-5c5d9e9e16a7",
+          "policy": "paced",
+          "scene": "office",
+          "kind": "spz",
+          "version": "e77b9eccc5dce1a72b48c96bddabbc0aa0dc6bbbb2d8520cbd1ca5166e02768d",
+          "ifNoneMatch": null,
+          "etag": "\"e77b9eccc5dce1a72b48c96bddabbc0aa0dc6bbbb2d8520cbd1ca5166e02768d\"",
+          "status": 200,
+          "bodyBytesOffered": 8927279,
+          "finished": true,
+          "closed": true,
+          "sample": "warm",
+          "pacing": {
+            "bytesPerSecond": 5242880,
+            "delayMs": 40,
+            "chunkBytes": 65536,
+            "chunks": 137,
+            "bytesOffered": 8927279,
+            "idealMs": 1742.7433395385742,
+            "firstChunkMs": 55.03995799999393,
+            "lastChunkMs": 1742.7495409999974,
+            "maxLateMs": 3.260999999998603
+          }
+        },
+        {
+          "run": "933084bf-10f1-4af6-8ccb-5c5d9e9e16a7",
+          "policy": "paced",
+          "scene": "office",
+          "kind": "alpha",
+          "version": "9c96203b9727bdb1ccb7ed705a0f84ee7a8691cdeabdfe32c3d5b06e2918b8e4",
+          "ifNoneMatch": null,
+          "etag": "\"0f3e396769d5da701fe5194fe028905d71f397bec30aa7e6efa35340aea66d79\"",
+          "status": 200,
+          "bodyBytesOffered": 407820,
+          "finished": true,
+          "closed": true,
+          "sample": "warm",
+          "pacing": {
+            "bytesPerSecond": 5242880,
+            "delayMs": 40,
+            "chunkBytes": 65536,
+            "chunks": 7,
+            "bytesOffered": 407820,
+            "idealMs": 117.78549194335938,
+            "firstChunkMs": 53.438374999997905,
+            "lastChunkMs": 118.98258399999759,
+            "maxLateMs": 2.842291999986628
+          }
+        }
+      ]
+    }
+  ],
+  "samples": [
+    {
+      "scene": "pipes",
+      "cache": "cold-key",
+      "index": 0,
+      "format": "ply",
+      "loadMs": 12607.099999904633,
+      "settleMs": 74.90000009536743,
+      "totalMs": 12682,
+      "phases": [
+        {
+          "name": "ply-read",
+          "ms": 12448.099999904633
+        },
+        {
+          "name": "ply-hash",
+          "ms": 41.80000019073486
+        },
+        {
+          "name": "ply-initialize",
+          "ms": 117.09999990463257
+        },
+        {
+          "name": "ply-prepare-publish",
+          "ms": 0
+        }
+      ],
+      "otherLoadMs": 0.09999990463256836,
+      "network": [
+        {
+          "run": "933084bf-10f1-4af6-8ccb-5c5d9e9e16a7",
+          "policy": "paced",
+          "scene": "pipes",
+          "kind": "ply",
+          "version": "b716afb08b23e18feed481eb8307238da7ba0788aea705601c7c66e022a51caf",
+          "ifNoneMatch": null,
+          "etag": "\"55b311c225e5ac53a2e2c3d6e2fa2cafd228dd16c7d5d6ac56daaf9efbf76734\"",
+          "status": 200,
+          "bodyBytesOffered": 64843796,
+          "finished": true,
+          "closed": true,
+          "sample": "cold-0",
+          "pacing": {
+            "bytesPerSecond": 5242880,
+            "delayMs": 40,
+            "chunkBytes": 65536,
+            "chunks": 990,
+            "bytesOffered": 64843796,
+            "idealMs": 12407.972564697266,
+            "firstChunkMs": 55.05945799999972,
+            "lastChunkMs": 12409.042958000002,
+            "maxLateMs": 3.2233329999980924
+          }
+        }
+      ],
+      "bodyBytesOffered": 64843796
+    },
+    {
+      "scene": "pipes",
+      "cache": "cold-key",
+      "index": 1,
+      "format": "spz",
+      "loadMs": 2785.9000000953674,
+      "settleMs": 79.59999990463257,
+      "totalMs": 2865.5,
+      "phases": [
+        {
+          "name": "spz-read",
+          "ms": 2444.699999809265
+        },
+        {
+          "name": "spz-hash",
+          "ms": 9.300000190734863
+        },
+        {
+          "name": "alpha-read-validate",
+          "ms": 149.2999997138977
+        },
+        {
+          "name": "alpha-hash",
+          "ms": 0.6000003814697266
+        },
+        {
+          "name": "spz-initialize",
+          "ms": 180.89999961853027
+        },
+        {
+          "name": "spz-prepare-publish",
+          "ms": 0.9000000953674316
+        }
+      ],
+      "otherLoadMs": 0.20000028610229492,
+      "network": [
+        {
+          "run": "933084bf-10f1-4af6-8ccb-5c5d9e9e16a7",
+          "policy": "paced",
+          "scene": "pipes",
+          "kind": "spz",
+          "version": "4d86d47f541a66d4724525125e698b35706fdf4d42d844710664e96c9a14b87c",
+          "ifNoneMatch": null,
+          "etag": "\"4d86d47f541a66d4724525125e698b35706fdf4d42d844710664e96c9a14b87c\"",
+          "status": 200,
+          "bodyBytesOffered": 12545116,
+          "finished": true,
+          "closed": true,
+          "sample": "cold-1",
+          "pacing": {
+            "bytesPerSecond": 5242880,
+            "delayMs": 40,
+            "chunkBytes": 65536,
+            "chunks": 192,
+            "bytesOffered": 12545116,
+            "idealMs": 2432.790985107422,
+            "firstChunkMs": 55.06199999999808,
+            "lastChunkMs": 2435.1304999999993,
+            "maxLateMs": 3.1193329999950947
+          }
+        },
+        {
+          "run": "933084bf-10f1-4af6-8ccb-5c5d9e9e16a7",
+          "policy": "paced",
+          "scene": "pipes",
+          "kind": "alpha",
+          "version": "92764f5dd6325fd9bc4ca6f96ed7d50fe31fc026e6ef11dd907ca8f455a129e8",
+          "ifNoneMatch": null,
+          "etag": "\"0728d33ba6872b94a5f8be9f4efbea4804a57ee072ff80bc518bc0a7341ded50\"",
+          "status": 200,
+          "bodyBytesOffered": 526239,
+          "finished": true,
+          "closed": true,
+          "sample": "cold-1",
+          "pacing": {
+            "bytesPerSecond": 5242880,
+            "delayMs": 40,
+            "chunkBytes": 65536,
+            "chunks": 9,
+            "bytesOffered": 526239,
+            "idealMs": 140.37212371826172,
+            "firstChunkMs": 53.13041599999997,
+            "lastChunkMs": 142.28695799999696,
+            "maxLateMs": 2.8661659999997937
+          }
+        }
+      ],
+      "bodyBytesOffered": 13071355
+    },
+    {
+      "scene": "pipes",
+      "cache": "cold-key",
+      "index": 2,
+      "format": "spz",
+      "loadMs": 2780.300000190735,
+      "settleMs": 93.5,
+      "totalMs": 2873.800000190735,
+      "phases": [
+        {
+          "name": "spz-read",
+          "ms": 2442.7000002861023
+        },
+        {
+          "name": "spz-hash",
+          "ms": 10.199999809265137
+        },
+        {
+          "name": "alpha-read-validate",
+          "ms": 147
+        },
+        {
+          "name": "alpha-hash",
+          "ms": 0.7000002861022949
+        },
+        {
+          "name": "spz-initialize",
+          "ms": 178.90000009536743
+        },
+        {
+          "name": "spz-prepare-publish",
+          "ms": 0.6999998092651367
+        }
+      ],
+      "otherLoadMs": 0.09999990463256836,
+      "network": [
+        {
+          "run": "933084bf-10f1-4af6-8ccb-5c5d9e9e16a7",
+          "policy": "paced",
+          "scene": "pipes",
+          "kind": "spz",
+          "version": "4d86d47f541a66d4724525125e698b35706fdf4d42d844710664e96c9a14b87c",
+          "ifNoneMatch": null,
+          "etag": "\"4d86d47f541a66d4724525125e698b35706fdf4d42d844710664e96c9a14b87c\"",
+          "status": 200,
+          "bodyBytesOffered": 12545116,
+          "finished": true,
+          "closed": true,
+          "sample": "cold-2",
+          "pacing": {
+            "bytesPerSecond": 5242880,
+            "delayMs": 40,
+            "chunkBytes": 65536,
+            "chunks": 192,
+            "bytesOffered": 12545116,
+            "idealMs": 2432.790985107422,
+            "firstChunkMs": 55.0637080000015,
+            "lastChunkMs": 2433.141125000002,
+            "maxLateMs": 3.097042000001238
+          }
+        },
+        {
+          "run": "933084bf-10f1-4af6-8ccb-5c5d9e9e16a7",
+          "policy": "paced",
+          "scene": "pipes",
+          "kind": "alpha",
+          "version": "92764f5dd6325fd9bc4ca6f96ed7d50fe31fc026e6ef11dd907ca8f455a129e8",
+          "ifNoneMatch": null,
+          "etag": "\"0728d33ba6872b94a5f8be9f4efbea4804a57ee072ff80bc518bc0a7341ded50\"",
+          "status": 200,
+          "bodyBytesOffered": 526239,
+          "finished": true,
+          "closed": true,
+          "sample": "cold-2",
+          "pacing": {
+            "bytesPerSecond": 5242880,
+            "delayMs": 40,
+            "chunkBytes": 65536,
+            "chunks": 9,
+            "bytesOffered": 526239,
+            "idealMs": 140.37212371826172,
+            "firstChunkMs": 55.139666999995825,
+            "lastChunkMs": 142.31116699999984,
+            "maxLateMs": 2.639666999995825
+          }
+        }
+      ],
+      "bodyBytesOffered": 13071355
+    },
+    {
+      "scene": "pipes",
+      "cache": "cold-key",
+      "index": 3,
+      "format": "ply",
+      "loadMs": 12608.900000095367,
+      "settleMs": 73.59999990463257,
+      "totalMs": 12682.5,
+      "phases": [
+        {
+          "name": "ply-read",
+          "ms": 12447.60000038147
+        },
+        {
+          "name": "ply-hash",
+          "ms": 44.19999980926514
+        },
+        {
+          "name": "ply-initialize",
+          "ms": 117.09999990463257
+        },
+        {
+          "name": "ply-prepare-publish",
+          "ms": 0
+        }
+      ],
+      "otherLoadMs": 0,
+      "network": [
+        {
+          "run": "933084bf-10f1-4af6-8ccb-5c5d9e9e16a7",
+          "policy": "paced",
+          "scene": "pipes",
+          "kind": "ply",
+          "version": "b716afb08b23e18feed481eb8307238da7ba0788aea705601c7c66e022a51caf",
+          "ifNoneMatch": null,
+          "etag": "\"55b311c225e5ac53a2e2c3d6e2fa2cafd228dd16c7d5d6ac56daaf9efbf76734\"",
+          "status": 200,
+          "bodyBytesOffered": 64843796,
+          "finished": true,
+          "closed": true,
+          "sample": "cold-3",
+          "pacing": {
+            "bytesPerSecond": 5242880,
+            "delayMs": 40,
+            "chunkBytes": 65536,
+            "chunks": 990,
+            "bytesOffered": 64843796,
+            "idealMs": 12407.972564697266,
+            "firstChunkMs": 55.06641700000182,
+            "lastChunkMs": 12409.023957999998,
+            "maxLateMs": 3.3135419999962323
+          }
+        }
+      ],
+      "bodyBytesOffered": 64843796
+    },
+    {
+      "scene": "pipes",
+      "cache": "cold-key",
+      "index": 4,
+      "format": "ply",
+      "loadMs": 12607.599999904633,
+      "settleMs": 82.7000002861023,
+      "totalMs": 12690.300000190735,
+      "phases": [
+        {
+          "name": "ply-read",
+          "ms": 12450.300000190735
+        },
+        {
+          "name": "ply-hash",
+          "ms": 41.90000009536743
+        },
+        {
+          "name": "ply-initialize",
+          "ms": 115.2999997138977
+        },
+        {
+          "name": "ply-prepare-publish",
+          "ms": 0.09999990463256836
+        }
+      ],
+      "otherLoadMs": 0,
+      "network": [
+        {
+          "run": "933084bf-10f1-4af6-8ccb-5c5d9e9e16a7",
+          "policy": "paced",
+          "scene": "pipes",
+          "kind": "ply",
+          "version": "b716afb08b23e18feed481eb8307238da7ba0788aea705601c7c66e022a51caf",
+          "ifNoneMatch": null,
+          "etag": "\"55b311c225e5ac53a2e2c3d6e2fa2cafd228dd16c7d5d6ac56daaf9efbf76734\"",
+          "status": 200,
+          "bodyBytesOffered": 64843796,
+          "finished": true,
+          "closed": true,
+          "sample": "cold-4",
+          "pacing": {
+            "bytesPerSecond": 5242880,
+            "delayMs": 40,
+            "chunkBytes": 65536,
+            "chunks": 990,
+            "bytesOffered": 64843796,
+            "idealMs": 12407.972564697266,
+            "firstChunkMs": 54.140041999999085,
+            "lastChunkMs": 12410.546959,
+            "maxLateMs": 3.2014170000038575
+          }
+        }
+      ],
+      "bodyBytesOffered": 64843796
+    },
+    {
+      "scene": "pipes",
+      "cache": "cold-key",
+      "index": 5,
+      "format": "spz",
+      "loadMs": 2783.3999996185303,
+      "settleMs": 83,
+      "totalMs": 2866.3999996185303,
+      "phases": [
+        {
+          "name": "spz-read",
+          "ms": 2444.3999996185303
+        },
+        {
+          "name": "spz-hash",
+          "ms": 9.800000190734863
+        },
+        {
+          "name": "alpha-read-validate",
+          "ms": 148.09999990463257
+        },
+        {
+          "name": "alpha-hash",
+          "ms": 0.7000002861022949
+        },
+        {
+          "name": "spz-initialize",
+          "ms": 179.5
+        },
+        {
+          "name": "spz-prepare-publish",
+          "ms": 0.8999996185302734
+        }
+      ],
+      "otherLoadMs": 0,
+      "network": [
+        {
+          "run": "933084bf-10f1-4af6-8ccb-5c5d9e9e16a7",
+          "policy": "paced",
+          "scene": "pipes",
+          "kind": "spz",
+          "version": "4d86d47f541a66d4724525125e698b35706fdf4d42d844710664e96c9a14b87c",
+          "ifNoneMatch": null,
+          "etag": "\"4d86d47f541a66d4724525125e698b35706fdf4d42d844710664e96c9a14b87c\"",
+          "status": 200,
+          "bodyBytesOffered": 12545116,
+          "finished": true,
+          "closed": true,
+          "sample": "cold-5",
+          "pacing": {
+            "bytesPerSecond": 5242880,
+            "delayMs": 40,
+            "chunkBytes": 65536,
+            "chunks": 192,
+            "bytesOffered": 12545116,
+            "idealMs": 2432.790985107422,
+            "firstChunkMs": 53.63300000000163,
+            "lastChunkMs": 2434.3539170000004,
+            "maxLateMs": 3.144625000000815
+          }
+        },
+        {
+          "run": "933084bf-10f1-4af6-8ccb-5c5d9e9e16a7",
+          "policy": "paced",
+          "scene": "pipes",
+          "kind": "alpha",
+          "version": "92764f5dd6325fd9bc4ca6f96ed7d50fe31fc026e6ef11dd907ca8f455a129e8",
+          "ifNoneMatch": null,
+          "etag": "\"0728d33ba6872b94a5f8be9f4efbea4804a57ee072ff80bc518bc0a7341ded50\"",
+          "status": 200,
+          "bodyBytesOffered": 526239,
+          "finished": true,
+          "closed": true,
+          "sample": "cold-5",
+          "pacing": {
+            "bytesPerSecond": 5242880,
+            "delayMs": 40,
+            "chunkBytes": 65536,
+            "chunks": 9,
+            "bytesOffered": 526239,
+            "idealMs": 140.37212371826172,
+            "firstChunkMs": 55.15175000000454,
+            "lastChunkMs": 142.54416700000002,
+            "maxLateMs": 3.0002499999973224
+          }
+        }
+      ],
+      "bodyBytesOffered": 13071355
+    },
+    {
+      "scene": "pipes",
+      "cache": "cold-key",
+      "index": 6,
+      "format": "spz",
+      "loadMs": 2780.6000003814697,
+      "settleMs": 93,
+      "totalMs": 2873.6000003814697,
+      "phases": [
+        {
+          "name": "spz-read",
+          "ms": 2444.2000002861023
+        },
+        {
+          "name": "spz-hash",
+          "ms": 8.900000095367432
+        },
+        {
+          "name": "alpha-read-validate",
+          "ms": 147.89999961853027
+        },
+        {
+          "name": "alpha-hash",
+          "ms": 0.7000002861022949
+        },
+        {
+          "name": "spz-initialize",
+          "ms": 178.5
+        },
+        {
+          "name": "spz-prepare-publish",
+          "ms": 0.40000009536743164
+        }
+      ],
+      "otherLoadMs": 0,
+      "network": [
+        {
+          "run": "933084bf-10f1-4af6-8ccb-5c5d9e9e16a7",
+          "policy": "paced",
+          "scene": "pipes",
+          "kind": "spz",
+          "version": "4d86d47f541a66d4724525125e698b35706fdf4d42d844710664e96c9a14b87c",
+          "ifNoneMatch": null,
+          "etag": "\"4d86d47f541a66d4724525125e698b35706fdf4d42d844710664e96c9a14b87c\"",
+          "status": 200,
+          "bodyBytesOffered": 12545116,
+          "finished": true,
+          "closed": true,
+          "sample": "cold-6",
+          "pacing": {
+            "bytesPerSecond": 5242880,
+            "delayMs": 40,
+            "chunkBytes": 65536,
+            "chunks": 192,
+            "bytesOffered": 12545116,
+            "idealMs": 2432.790985107422,
+            "firstChunkMs": 55.06679099999019,
+            "lastChunkMs": 2434.2760829999897,
+            "maxLateMs": 3.140665999992052
+          }
+        },
+        {
+          "run": "933084bf-10f1-4af6-8ccb-5c5d9e9e16a7",
+          "policy": "paced",
+          "scene": "pipes",
+          "kind": "alpha",
+          "version": "92764f5dd6325fd9bc4ca6f96ed7d50fe31fc026e6ef11dd907ca8f455a129e8",
+          "ifNoneMatch": null,
+          "etag": "\"0728d33ba6872b94a5f8be9f4efbea4804a57ee072ff80bc518bc0a7341ded50\"",
+          "status": 200,
+          "bodyBytesOffered": 526239,
+          "finished": true,
+          "closed": true,
+          "sample": "cold-6",
+          "pacing": {
+            "bytesPerSecond": 5242880,
+            "delayMs": 40,
+            "chunkBytes": 65536,
+            "chunks": 9,
+            "bytesOffered": 526239,
+            "idealMs": 140.37212371826172,
+            "firstChunkMs": 54.82620799999859,
+            "lastChunkMs": 142.26104099999066,
+            "maxLateMs": 2.9916249999951106
+          }
+        }
+      ],
+      "bodyBytesOffered": 13071355
+    },
+    {
+      "scene": "pipes",
+      "cache": "cold-key",
+      "index": 7,
+      "format": "ply",
+      "loadMs": 12611.5,
+      "settleMs": 87.2000002861023,
+      "totalMs": 12698.700000286102,
+      "phases": [
+        {
+          "name": "ply-read",
+          "ms": 12448.400000095367
+        },
+        {
+          "name": "ply-hash",
+          "ms": 45.19999980926514
+        },
+        {
+          "name": "ply-initialize",
+          "ms": 117.90000009536743
+        },
+        {
+          "name": "ply-prepare-publish",
+          "ms": 0
+        }
+      ],
+      "otherLoadMs": 0,
+      "network": [
+        {
+          "run": "933084bf-10f1-4af6-8ccb-5c5d9e9e16a7",
+          "policy": "paced",
+          "scene": "pipes",
+          "kind": "ply",
+          "version": "b716afb08b23e18feed481eb8307238da7ba0788aea705601c7c66e022a51caf",
+          "ifNoneMatch": null,
+          "etag": "\"55b311c225e5ac53a2e2c3d6e2fa2cafd228dd16c7d5d6ac56daaf9efbf76734\"",
+          "status": 200,
+          "bodyBytesOffered": 64843796,
+          "finished": true,
+          "closed": true,
+          "sample": "cold-7",
+          "pacing": {
+            "bytesPerSecond": 5242880,
+            "delayMs": 40,
+            "chunkBytes": 65536,
+            "chunks": 990,
+            "bytesOffered": 64843796,
+            "idealMs": 12407.972564697266,
+            "firstChunkMs": 54.030165999996825,
+            "lastChunkMs": 12409.438916,
+            "maxLateMs": 3.4823749999923166
+          }
+        }
+      ],
+      "bodyBytesOffered": 64843796
+    },
+    {
+      "scene": "pipes",
+      "cache": "warm-key",
+      "index": 0,
+      "format": "ply",
+      "loadMs": 345,
+      "settleMs": 62.19999980926514,
+      "totalMs": 407.19999980926514,
+      "phases": [
+        {
+          "name": "ply-read",
+          "ms": 209.80000019073486
+        },
+        {
+          "name": "ply-hash",
+          "ms": 24.199999809265137
+        },
+        {
+          "name": "ply-initialize",
+          "ms": 110.90000009536743
+        },
+        {
+          "name": "ply-prepare-publish",
+          "ms": 0
+        }
+      ],
+      "otherLoadMs": 0.09999990463256836,
+      "network": [],
+      "bodyBytesOffered": 0
+    },
+    {
+      "scene": "pipes",
+      "cache": "warm-key",
+      "index": 1,
+      "format": "spz",
+      "loadMs": 159.10000038146973,
+      "settleMs": 65.7999997138977,
+      "totalMs": 224.90000009536743,
+      "phases": [
+        {
+          "name": "spz-read",
+          "ms": 5.100000381469727
+        },
+        {
+          "name": "spz-hash",
+          "ms": 4.399999618530273
+        },
+        {
+          "name": "alpha-read-validate",
+          "ms": 2.8000001907348633
+        },
+        {
+          "name": "alpha-hash",
+          "ms": 0.19999980926513672
+        },
+        {
+          "name": "spz-initialize",
+          "ms": 146.10000038146973
+        },
+        {
+          "name": "spz-prepare-publish",
+          "ms": 0.40000009536743164
+        }
+      ],
+      "otherLoadMs": 0.09999990463256836,
+      "network": [],
+      "bodyBytesOffered": 0
+    },
+    {
+      "scene": "pipes",
+      "cache": "warm-key",
+      "index": 2,
+      "format": "spz",
+      "loadMs": 159.2999997138977,
+      "settleMs": 56.200000286102295,
+      "totalMs": 215.5,
+      "phases": [
+        {
+          "name": "spz-read",
+          "ms": 5.099999904632568
+        },
+        {
+          "name": "spz-hash",
+          "ms": 4.699999809265137
+        },
+        {
+          "name": "alpha-read-validate",
+          "ms": 3.200000286102295
+        },
+        {
+          "name": "alpha-hash",
+          "ms": 0.2999997138977051
+        },
+        {
+          "name": "spz-initialize",
+          "ms": 145.60000038146973
+        },
+        {
+          "name": "spz-prepare-publish",
+          "ms": 0.39999961853027344
+        }
+      ],
+      "otherLoadMs": 0,
+      "network": [],
+      "bodyBytesOffered": 0
+    },
+    {
+      "scene": "pipes",
+      "cache": "warm-key",
+      "index": 3,
+      "format": "ply",
+      "loadMs": 345.5,
+      "settleMs": 52.59999990463257,
+      "totalMs": 398.09999990463257,
+      "phases": [
+        {
+          "name": "ply-read",
+          "ms": 207.09999990463257
+        },
+        {
+          "name": "ply-hash",
+          "ms": 25.40000009536743
+        },
+        {
+          "name": "ply-initialize",
+          "ms": 112.80000019073486
+        },
+        {
+          "name": "ply-prepare-publish",
+          "ms": 0
+        }
+      ],
+      "otherLoadMs": 0.19999980926513672,
+      "network": [],
+      "bodyBytesOffered": 0
+    },
+    {
+      "scene": "pipes",
+      "cache": "warm-key",
+      "index": 4,
+      "format": "ply",
+      "loadMs": 345.30000019073486,
+      "settleMs": 61.5,
+      "totalMs": 406.80000019073486,
+      "phases": [
+        {
+          "name": "ply-read",
+          "ms": 207.59999990463257
+        },
+        {
+          "name": "ply-hash",
+          "ms": 24.40000009536743
+        },
+        {
+          "name": "ply-initialize",
+          "ms": 113.30000019073486
+        },
+        {
+          "name": "ply-prepare-publish",
+          "ms": 0
+        }
+      ],
+      "otherLoadMs": 0,
+      "network": [],
+      "bodyBytesOffered": 0
+    },
+    {
+      "scene": "pipes",
+      "cache": "warm-key",
+      "index": 5,
+      "format": "spz",
+      "loadMs": 159.5,
+      "settleMs": 64.19999980926514,
+      "totalMs": 223.69999980926514,
+      "phases": [
+        {
+          "name": "spz-read",
+          "ms": 5.099999904632568
+        },
+        {
+          "name": "spz-hash",
+          "ms": 4.599999904632568
+        },
+        {
+          "name": "alpha-read-validate",
+          "ms": 2.5
+        },
+        {
+          "name": "alpha-hash",
+          "ms": 0.20000028610229492
+        },
+        {
+          "name": "spz-initialize",
+          "ms": 146.69999980926514
+        },
+        {
+          "name": "spz-prepare-publish",
+          "ms": 0.40000009536743164
+        }
+      ],
+      "otherLoadMs": 0,
+      "network": [],
+      "bodyBytesOffered": 0
+    },
+    {
+      "scene": "pipes",
+      "cache": "warm-key",
+      "index": 6,
+      "format": "spz",
+      "loadMs": 160,
+      "settleMs": 63.799999713897705,
+      "totalMs": 223.7999997138977,
+      "phases": [
+        {
+          "name": "spz-read",
+          "ms": 5.199999809265137
+        },
+        {
+          "name": "spz-hash",
+          "ms": 4.800000190734863
+        },
+        {
+          "name": "alpha-read-validate",
+          "ms": 3
+        },
+        {
+          "name": "alpha-hash",
+          "ms": 0.19999980926513672
+        },
+        {
+          "name": "spz-initialize",
+          "ms": 146.30000019073486
+        },
+        {
+          "name": "spz-prepare-publish",
+          "ms": 0.5
+        }
+      ],
+      "otherLoadMs": 0,
+      "network": [],
+      "bodyBytesOffered": 0
+    },
+    {
+      "scene": "pipes",
+      "cache": "warm-key",
+      "index": 7,
+      "format": "ply",
+      "loadMs": 347.3999996185303,
+      "settleMs": 68.2000002861023,
+      "totalMs": 415.59999990463257,
+      "phases": [
+        {
+          "name": "ply-read",
+          "ms": 206
+        },
+        {
+          "name": "ply-hash",
+          "ms": 27.5
+        },
+        {
+          "name": "ply-initialize",
+          "ms": 113.89999961853027
+        },
+        {
+          "name": "ply-prepare-publish",
+          "ms": 0
+        }
+      ],
+      "otherLoadMs": 0,
+      "network": [],
+      "bodyBytesOffered": 0
+    },
+    {
+      "scene": "office",
+      "cache": "cold-key",
+      "index": 0,
+      "format": "ply",
+      "loadMs": 9558.800000190735,
+      "settleMs": 73.09999990463257,
+      "totalMs": 9631.900000095367,
+      "phases": [
+        {
+          "name": "ply-read",
+          "ms": 9428.5
+        },
+        {
+          "name": "ply-hash",
+          "ms": 36.5
+        },
+        {
+          "name": "ply-initialize",
+          "ms": 93.80000019073486
+        },
+        {
+          "name": "ply-prepare-publish",
+          "ms": 0
+        }
+      ],
+      "otherLoadMs": 0,
+      "network": [
+        {
+          "run": "933084bf-10f1-4af6-8ccb-5c5d9e9e16a7",
+          "policy": "paced",
+          "scene": "office",
+          "kind": "ply",
+          "version": "0af14259673b165001a9e84f27b6e19a55e924e0432e491e9701229f1c24e276",
+          "ifNoneMatch": null,
+          "etag": "\"0786facf28ff0c2d6f47e3e9f7c392823a7eb3d892cf2e41b52d1964067e6b89\"",
+          "status": 200,
+          "bodyBytesOffered": 49050760,
+          "finished": true,
+          "closed": true,
+          "sample": "cold-0",
+          "pacing": {
+            "bytesPerSecond": 5242880,
+            "delayMs": 40,
+            "chunkBytes": 65536,
+            "chunks": 749,
+            "bytesOffered": 49050760,
+            "idealMs": 9395.690002441406,
+            "firstChunkMs": 54.12233299999207,
+            "lastChunkMs": 9397.788832999999,
+            "maxLateMs": 3.965165999994497
+          }
+        }
+      ],
+      "bodyBytesOffered": 49050760
+    },
+    {
+      "scene": "office",
+      "cache": "cold-key",
+      "index": 1,
+      "format": "spz",
+      "loadMs": 2027.1999998092651,
+      "settleMs": 71.5,
+      "totalMs": 2098.699999809265,
+      "phases": [
+        {
+          "name": "spz-read",
+          "ms": 1752.9000000953674
+        },
+        {
+          "name": "spz-hash",
+          "ms": 7.299999713897705
+        },
+        {
+          "name": "alpha-read-validate",
+          "ms": 121.90000009536743
+        },
+        {
+          "name": "alpha-hash",
+          "ms": 0.5999999046325684
+        },
+        {
+          "name": "spz-initialize",
+          "ms": 144
+        },
+        {
+          "name": "spz-prepare-publish",
+          "ms": 0.5
+        }
+      ],
+      "otherLoadMs": 0,
+      "network": [
+        {
+          "run": "933084bf-10f1-4af6-8ccb-5c5d9e9e16a7",
+          "policy": "paced",
+          "scene": "office",
+          "kind": "spz",
+          "version": "e77b9eccc5dce1a72b48c96bddabbc0aa0dc6bbbb2d8520cbd1ca5166e02768d",
+          "ifNoneMatch": null,
+          "etag": "\"e77b9eccc5dce1a72b48c96bddabbc0aa0dc6bbbb2d8520cbd1ca5166e02768d\"",
+          "status": 200,
+          "bodyBytesOffered": 8927279,
+          "finished": true,
+          "closed": true,
+          "sample": "cold-1",
+          "pacing": {
+            "bytesPerSecond": 5242880,
+            "delayMs": 40,
+            "chunkBytes": 65536,
+            "chunks": 137,
+            "bytesOffered": 8927279,
+            "idealMs": 1742.7433395385742,
+            "firstChunkMs": 55.17345899999782,
+            "lastChunkMs": 1743.7043750000012,
+            "maxLateMs": 3.1385000000009313
+          }
+        },
+        {
+          "run": "933084bf-10f1-4af6-8ccb-5c5d9e9e16a7",
+          "policy": "paced",
+          "scene": "office",
+          "kind": "alpha",
+          "version": "9c96203b9727bdb1ccb7ed705a0f84ee7a8691cdeabdfe32c3d5b06e2918b8e4",
+          "ifNoneMatch": null,
+          "etag": "\"0f3e396769d5da701fe5194fe028905d71f397bec30aa7e6efa35340aea66d79\"",
+          "status": 200,
+          "bodyBytesOffered": 407820,
+          "finished": true,
+          "closed": true,
+          "sample": "cold-1",
+          "pacing": {
+            "bytesPerSecond": 5242880,
+            "delayMs": 40,
+            "chunkBytes": 65536,
+            "chunks": 7,
+            "bytesOffered": 407820,
+            "idealMs": 117.78549194335938,
+            "firstChunkMs": 54.211167000001296,
+            "lastChunkMs": 118.2032920000056,
+            "maxLateMs": 2.7468749999970896
+          }
+        }
+      ],
+      "bodyBytesOffered": 9335099
+    },
+    {
+      "scene": "office",
+      "cache": "cold-key",
+      "index": 2,
+      "format": "spz",
+      "loadMs": 2025.3000001907349,
+      "settleMs": 65.19999980926514,
+      "totalMs": 2090.5,
+      "phases": [
+        {
+          "name": "spz-read",
+          "ms": 1749.7000002861023
+        },
+        {
+          "name": "spz-hash",
+          "ms": 7.899999618530273
+        },
+        {
+          "name": "alpha-read-validate",
+          "ms": 122
+        },
+        {
+          "name": "alpha-hash",
+          "ms": 0.8000001907348633
+        },
+        {
+          "name": "spz-initialize",
+          "ms": 144.5
+        },
+        {
+          "name": "spz-prepare-publish",
+          "ms": 0.40000009536743164
+        }
+      ],
+      "otherLoadMs": 0,
+      "network": [
+        {
+          "run": "933084bf-10f1-4af6-8ccb-5c5d9e9e16a7",
+          "policy": "paced",
+          "scene": "office",
+          "kind": "spz",
+          "version": "e77b9eccc5dce1a72b48c96bddabbc0aa0dc6bbbb2d8520cbd1ca5166e02768d",
+          "ifNoneMatch": null,
+          "etag": "\"e77b9eccc5dce1a72b48c96bddabbc0aa0dc6bbbb2d8520cbd1ca5166e02768d\"",
+          "status": 200,
+          "bodyBytesOffered": 8927279,
+          "finished": true,
+          "closed": true,
+          "sample": "cold-2",
+          "pacing": {
+            "bytesPerSecond": 5242880,
+            "delayMs": 40,
+            "chunkBytes": 65536,
+            "chunks": 137,
+            "bytesOffered": 8927279,
+            "idealMs": 1742.7433395385742,
+            "firstChunkMs": 53.988916999995126,
+            "lastChunkMs": 1743.7175829999906,
+            "maxLateMs": 3.0302079999964917
+          }
+        },
+        {
+          "run": "933084bf-10f1-4af6-8ccb-5c5d9e9e16a7",
+          "policy": "paced",
+          "scene": "office",
+          "kind": "alpha",
+          "version": "9c96203b9727bdb1ccb7ed705a0f84ee7a8691cdeabdfe32c3d5b06e2918b8e4",
+          "ifNoneMatch": null,
+          "etag": "\"0f3e396769d5da701fe5194fe028905d71f397bec30aa7e6efa35340aea66d79\"",
+          "status": 200,
+          "bodyBytesOffered": 407820,
+          "finished": true,
+          "closed": true,
+          "sample": "cold-2",
+          "pacing": {
+            "bytesPerSecond": 5242880,
+            "delayMs": 40,
+            "chunkBytes": 65536,
+            "chunks": 7,
+            "bytesOffered": 407820,
+            "idealMs": 117.78549194335938,
+            "firstChunkMs": 55.29829200000677,
+            "lastChunkMs": 118.5,
+            "maxLateMs": 2.798292000006768
+          }
+        }
+      ],
+      "bodyBytesOffered": 9335099
+    },
+    {
+      "scene": "office",
+      "cache": "cold-key",
+      "index": 3,
+      "format": "ply",
+      "loadMs": 9566.299999713898,
+      "settleMs": 74.2000002861023,
+      "totalMs": 9640.5,
+      "phases": [
+        {
+          "name": "ply-read",
+          "ms": 9429.199999809265
+        },
+        {
+          "name": "ply-hash",
+          "ms": 41.09999990463257
+        },
+        {
+          "name": "ply-initialize",
+          "ms": 96
+        },
+        {
+          "name": "ply-prepare-publish",
+          "ms": 0
+        }
+      ],
+      "otherLoadMs": 0,
+      "network": [
+        {
+          "run": "933084bf-10f1-4af6-8ccb-5c5d9e9e16a7",
+          "policy": "paced",
+          "scene": "office",
+          "kind": "ply",
+          "version": "0af14259673b165001a9e84f27b6e19a55e924e0432e491e9701229f1c24e276",
+          "ifNoneMatch": null,
+          "etag": "\"0786facf28ff0c2d6f47e3e9f7c392823a7eb3d892cf2e41b52d1964067e6b89\"",
+          "status": 200,
+          "bodyBytesOffered": 49050760,
+          "finished": true,
+          "closed": true,
+          "sample": "cold-3",
+          "pacing": {
+            "bytesPerSecond": 5242880,
+            "delayMs": 40,
+            "chunkBytes": 65536,
+            "chunks": 749,
+            "bytesOffered": 49050760,
+            "idealMs": 9395.690002441406,
+            "firstChunkMs": 55.0557919999992,
+            "lastChunkMs": 9397.128708999997,
+            "maxLateMs": 3.5993339999986347
+          }
+        }
+      ],
+      "bodyBytesOffered": 49050760
+    },
+    {
+      "scene": "office",
+      "cache": "cold-key",
+      "index": 4,
+      "format": "ply",
+      "loadMs": 9565.799999713898,
+      "settleMs": 74.5,
+      "totalMs": 9640.299999713898,
+      "phases": [
+        {
+          "name": "ply-read",
+          "ms": 9430.199999809265
+        },
+        {
+          "name": "ply-hash",
+          "ms": 39.40000009536743
+        },
+        {
+          "name": "ply-initialize",
+          "ms": 96.19999980926514
+        },
+        {
+          "name": "ply-prepare-publish",
+          "ms": 0
+        }
+      ],
+      "otherLoadMs": 0,
+      "network": [
+        {
+          "run": "933084bf-10f1-4af6-8ccb-5c5d9e9e16a7",
+          "policy": "paced",
+          "scene": "office",
+          "kind": "ply",
+          "version": "0af14259673b165001a9e84f27b6e19a55e924e0432e491e9701229f1c24e276",
+          "ifNoneMatch": null,
+          "etag": "\"0786facf28ff0c2d6f47e3e9f7c392823a7eb3d892cf2e41b52d1964067e6b89\"",
+          "status": 200,
+          "bodyBytesOffered": 49050760,
+          "finished": true,
+          "closed": true,
+          "sample": "cold-4",
+          "pacing": {
+            "bytesPerSecond": 5242880,
+            "delayMs": 40,
+            "chunkBytes": 65536,
+            "chunks": 749,
+            "bytesOffered": 49050760,
+            "idealMs": 9395.690002441406,
+            "firstChunkMs": 55.06483399998979,
+            "lastChunkMs": 9397.55808399999,
+            "maxLateMs": 3.3855420000036247
+          }
+        }
+      ],
+      "bodyBytesOffered": 49050760
+    },
+    {
+      "scene": "office",
+      "cache": "cold-key",
+      "index": 5,
+      "format": "spz",
+      "loadMs": 2021.2000002861023,
+      "settleMs": 69.09999990463257,
+      "totalMs": 2090.300000190735,
+      "phases": [
+        {
+          "name": "spz-read",
+          "ms": 1750.3000001907349
+        },
+        {
+          "name": "spz-hash",
+          "ms": 7.199999809265137
+        },
+        {
+          "name": "alpha-read-validate",
+          "ms": 121.80000019073486
+        },
+        {
+          "name": "alpha-hash",
+          "ms": 0.40000009536743164
+        },
+        {
+          "name": "spz-initialize",
+          "ms": 141.19999980926514
+        },
+        {
+          "name": "spz-prepare-publish",
+          "ms": 0.3000001907348633
+        }
+      ],
+      "otherLoadMs": 0,
+      "network": [
+        {
+          "run": "933084bf-10f1-4af6-8ccb-5c5d9e9e16a7",
+          "policy": "paced",
+          "scene": "office",
+          "kind": "spz",
+          "version": "e77b9eccc5dce1a72b48c96bddabbc0aa0dc6bbbb2d8520cbd1ca5166e02768d",
+          "ifNoneMatch": null,
+          "etag": "\"e77b9eccc5dce1a72b48c96bddabbc0aa0dc6bbbb2d8520cbd1ca5166e02768d\"",
+          "status": 200,
+          "bodyBytesOffered": 8927279,
+          "finished": true,
+          "closed": true,
+          "sample": "cold-5",
+          "pacing": {
+            "bytesPerSecond": 5242880,
+            "delayMs": 40,
+            "chunkBytes": 65536,
+            "chunks": 137,
+            "bytesOffered": 8927279,
+            "idealMs": 1742.7433395385742,
+            "firstChunkMs": 53.82379100000253,
+            "lastChunkMs": 1743.1101250000065,
+            "maxLateMs": 3.13262499999837
+          }
+        },
+        {
+          "run": "933084bf-10f1-4af6-8ccb-5c5d9e9e16a7",
+          "policy": "paced",
+          "scene": "office",
+          "kind": "alpha",
+          "version": "9c96203b9727bdb1ccb7ed705a0f84ee7a8691cdeabdfe32c3d5b06e2918b8e4",
+          "ifNoneMatch": null,
+          "etag": "\"0f3e396769d5da701fe5194fe028905d71f397bec30aa7e6efa35340aea66d79\"",
+          "status": 200,
+          "bodyBytesOffered": 407820,
+          "finished": true,
+          "closed": true,
+          "sample": "cold-5",
+          "pacing": {
+            "bytesPerSecond": 5242880,
+            "delayMs": 40,
+            "chunkBytes": 65536,
+            "chunks": 7,
+            "bytesOffered": 407820,
+            "idealMs": 117.78549194335938,
+            "firstChunkMs": 54.391875000001164,
+            "lastChunkMs": 118.03441699998803,
+            "maxLateMs": 2.878375000000233
+          }
+        }
+      ],
+      "bodyBytesOffered": 9335099
+    },
+    {
+      "scene": "office",
+      "cache": "cold-key",
+      "index": 6,
+      "format": "spz",
+      "loadMs": 2026.6999998092651,
+      "settleMs": 63.5,
+      "totalMs": 2090.199999809265,
+      "phases": [
+        {
+          "name": "spz-read",
+          "ms": 1751.6999998092651
+        },
+        {
+          "name": "spz-hash",
+          "ms": 7.700000286102295
+        },
+        {
+          "name": "alpha-read-validate",
+          "ms": 121.90000009536743
+        },
+        {
+          "name": "alpha-hash",
+          "ms": 0.39999961853027344
+        },
+        {
+          "name": "spz-initialize",
+          "ms": 144.60000038146973
+        },
+        {
+          "name": "spz-prepare-publish",
+          "ms": 0.39999961853027344
+        }
+      ],
+      "otherLoadMs": 0,
+      "network": [
+        {
+          "run": "933084bf-10f1-4af6-8ccb-5c5d9e9e16a7",
+          "policy": "paced",
+          "scene": "office",
+          "kind": "spz",
+          "version": "e77b9eccc5dce1a72b48c96bddabbc0aa0dc6bbbb2d8520cbd1ca5166e02768d",
+          "ifNoneMatch": null,
+          "etag": "\"e77b9eccc5dce1a72b48c96bddabbc0aa0dc6bbbb2d8520cbd1ca5166e02768d\"",
+          "status": 200,
+          "bodyBytesOffered": 8927279,
+          "finished": true,
+          "closed": true,
+          "sample": "cold-6",
+          "pacing": {
+            "bytesPerSecond": 5242880,
+            "delayMs": 40,
+            "chunkBytes": 65536,
+            "chunks": 137,
+            "bytesOffered": 8927279,
+            "idealMs": 1742.7433395385742,
+            "firstChunkMs": 55.06008299998939,
+            "lastChunkMs": 1743.9825420000125,
+            "maxLateMs": 3.288457999995444
+          }
+        },
+        {
+          "run": "933084bf-10f1-4af6-8ccb-5c5d9e9e16a7",
+          "policy": "paced",
+          "scene": "office",
+          "kind": "alpha",
+          "version": "9c96203b9727bdb1ccb7ed705a0f84ee7a8691cdeabdfe32c3d5b06e2918b8e4",
+          "ifNoneMatch": null,
+          "etag": "\"0f3e396769d5da701fe5194fe028905d71f397bec30aa7e6efa35340aea66d79\"",
+          "status": 200,
+          "bodyBytesOffered": 407820,
+          "finished": true,
+          "closed": true,
+          "sample": "cold-6",
+          "pacing": {
+            "bytesPerSecond": 5242880,
+            "delayMs": 40,
+            "chunkBytes": 65536,
+            "chunks": 7,
+            "bytesOffered": 407820,
+            "idealMs": 117.78549194335938,
+            "firstChunkMs": 53.72179199999664,
+            "lastChunkMs": 118.62704200000735,
+            "maxLateMs": 3.026917000010144
+          }
+        }
+      ],
+      "bodyBytesOffered": 9335099
+    },
+    {
+      "scene": "office",
+      "cache": "cold-key",
+      "index": 7,
+      "format": "ply",
+      "loadMs": 9567.400000095367,
+      "settleMs": 73,
+      "totalMs": 9640.400000095367,
+      "phases": [
+        {
+          "name": "ply-read",
+          "ms": 9431.400000095367
+        },
+        {
+          "name": "ply-hash",
+          "ms": 40.80000019073486
+        },
+        {
+          "name": "ply-initialize",
+          "ms": 95.19999980926514
+        },
+        {
+          "name": "ply-prepare-publish",
+          "ms": 0
+        }
+      ],
+      "otherLoadMs": 0,
+      "network": [
+        {
+          "run": "933084bf-10f1-4af6-8ccb-5c5d9e9e16a7",
+          "policy": "paced",
+          "scene": "office",
+          "kind": "ply",
+          "version": "0af14259673b165001a9e84f27b6e19a55e924e0432e491e9701229f1c24e276",
+          "ifNoneMatch": null,
+          "etag": "\"0786facf28ff0c2d6f47e3e9f7c392823a7eb3d892cf2e41b52d1964067e6b89\"",
+          "status": 200,
+          "bodyBytesOffered": 49050760,
+          "finished": true,
+          "closed": true,
+          "sample": "cold-7",
+          "pacing": {
+            "bytesPerSecond": 5242880,
+            "delayMs": 40,
+            "chunkBytes": 65536,
+            "chunks": 749,
+            "bytesOffered": 49050760,
+            "idealMs": 9395.690002441406,
+            "firstChunkMs": 55.06245800000033,
+            "lastChunkMs": 9396.841541000002,
+            "maxLateMs": 3.0956660000083502
+          }
+        }
+      ],
+      "bodyBytesOffered": 49050760
+    },
+    {
+      "scene": "office",
+      "cache": "warm-key",
+      "index": 0,
+      "format": "ply",
+      "loadMs": 265.2999997138977,
+      "settleMs": 50.30000019073486,
+      "totalMs": 315.59999990463257,
+      "phases": [
+        {
+          "name": "ply-read",
+          "ms": 158.40000009536743
+        },
+        {
+          "name": "ply-hash",
+          "ms": 19.899999618530273
+        },
+        {
+          "name": "ply-initialize",
+          "ms": 87
+        },
+        {
+          "name": "ply-prepare-publish",
+          "ms": 0
+        }
+      ],
+      "otherLoadMs": 0,
+      "network": [],
+      "bodyBytesOffered": 0
+    },
+    {
+      "scene": "office",
+      "cache": "warm-key",
+      "index": 1,
+      "format": "spz",
+      "loadMs": 125.09999990463257,
+      "settleMs": 48.90000009536743,
+      "totalMs": 174,
+      "phases": [
+        {
+          "name": "spz-read",
+          "ms": 8.099999904632568
+        },
+        {
+          "name": "spz-hash",
+          "ms": 3.3000001907348633
+        },
+        {
+          "name": "alpha-read-validate",
+          "ms": 2.5999999046325684
+        },
+        {
+          "name": "alpha-hash",
+          "ms": 0.20000028610229492
+        },
+        {
+          "name": "spz-initialize",
+          "ms": 110.5
+        },
+        {
+          "name": "spz-prepare-publish",
+          "ms": 0.39999961853027344
+        }
+      ],
+      "otherLoadMs": 0,
+      "network": [],
+      "bodyBytesOffered": 0
+    },
+    {
+      "scene": "office",
+      "cache": "warm-key",
+      "index": 2,
+      "format": "spz",
+      "loadMs": 120.80000019073486,
+      "settleMs": 52.799999713897705,
+      "totalMs": 173.59999990463257,
+      "phases": [
+        {
+          "name": "spz-read",
+          "ms": 3.8000001907348633
+        },
+        {
+          "name": "spz-hash",
+          "ms": 3.299999713897705
+        },
+        {
+          "name": "alpha-read-validate",
+          "ms": 2.200000286102295
+        },
+        {
+          "name": "alpha-hash",
+          "ms": 0.09999990463256836
+        },
+        {
+          "name": "spz-initialize",
+          "ms": 111
+        },
+        {
+          "name": "spz-prepare-publish",
+          "ms": 0.40000009536743164
+        }
+      ],
+      "otherLoadMs": 0,
+      "network": [],
+      "bodyBytesOffered": 0
+    },
+    {
+      "scene": "office",
+      "cache": "warm-key",
+      "index": 3,
+      "format": "ply",
+      "loadMs": 264.1000003814697,
+      "settleMs": 51.299999713897705,
+      "totalMs": 315.40000009536743,
+      "phases": [
+        {
+          "name": "ply-read",
+          "ms": 157.10000038146973
+        },
+        {
+          "name": "ply-hash",
+          "ms": 20
+        },
+        {
+          "name": "ply-initialize",
+          "ms": 87
+        },
+        {
+          "name": "ply-prepare-publish",
+          "ms": 0
+        }
+      ],
+      "otherLoadMs": 0,
+      "network": [],
+      "bodyBytesOffered": 0
+    },
+    {
+      "scene": "office",
+      "cache": "warm-key",
+      "index": 4,
+      "format": "ply",
+      "loadMs": 268.80000019073486,
+      "settleMs": 46.5,
+      "totalMs": 315.30000019073486,
+      "phases": [
+        {
+          "name": "ply-read",
+          "ms": 159.80000019073486
+        },
+        {
+          "name": "ply-hash",
+          "ms": 21.09999990463257
+        },
+        {
+          "name": "ply-initialize",
+          "ms": 87.90000009536743
+        },
+        {
+          "name": "ply-prepare-publish",
+          "ms": 0
+        }
+      ],
+      "otherLoadMs": 0,
+      "network": [],
+      "bodyBytesOffered": 0
+    },
+    {
+      "scene": "office",
+      "cache": "warm-key",
+      "index": 5,
+      "format": "spz",
+      "loadMs": 121,
+      "settleMs": 52.69999980926514,
+      "totalMs": 173.69999980926514,
+      "phases": [
+        {
+          "name": "spz-read",
+          "ms": 3.799999713897705
+        },
+        {
+          "name": "spz-hash",
+          "ms": 3.4000000953674316
+        },
+        {
+          "name": "alpha-read-validate",
+          "ms": 2.3000001907348633
+        },
+        {
+          "name": "alpha-hash",
+          "ms": 0.09999990463256836
+        },
+        {
+          "name": "spz-initialize",
+          "ms": 111
+        },
+        {
+          "name": "spz-prepare-publish",
+          "ms": 0.40000009536743164
+        }
+      ],
+      "otherLoadMs": 0,
+      "network": [],
+      "bodyBytesOffered": 0
+    },
+    {
+      "scene": "office",
+      "cache": "warm-key",
+      "index": 6,
+      "format": "spz",
+      "loadMs": 121.5,
+      "settleMs": 52.299999713897705,
+      "totalMs": 173.7999997138977,
+      "phases": [
+        {
+          "name": "spz-read",
+          "ms": 3.9000000953674316
+        },
+        {
+          "name": "spz-hash",
+          "ms": 3.1999998092651367
+        },
+        {
+          "name": "alpha-read-validate",
+          "ms": 2.1999998092651367
+        },
+        {
+          "name": "alpha-hash",
+          "ms": 0.20000028610229492
+        },
+        {
+          "name": "spz-initialize",
+          "ms": 111.5
+        },
+        {
+          "name": "spz-prepare-publish",
+          "ms": 0.5
+        }
+      ],
+      "otherLoadMs": 0,
+      "network": [],
+      "bodyBytesOffered": 0
+    },
+    {
+      "scene": "office",
+      "cache": "warm-key",
+      "index": 7,
+      "format": "ply",
+      "loadMs": 268.80000019073486,
+      "settleMs": 46.69999980926514,
+      "totalMs": 315.5,
+      "phases": [
+        {
+          "name": "ply-read",
+          "ms": 156.2000002861023
+        },
+        {
+          "name": "ply-hash",
+          "ms": 22.59999990463257
+        },
+        {
+          "name": "ply-initialize",
+          "ms": 90
+        },
+        {
+          "name": "ply-prepare-publish",
+          "ms": 0
+        }
+      ],
+      "otherLoadMs": 0,
+      "network": [],
+      "bodyBytesOffered": 0
+    }
+  ],
+  "comparisons": [
+    {
+      "scene": "pipes",
+      "name": "warm-up",
+      "format": "ply",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": 0,
+      "hash": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 18.7454079234687,
+        "ssim": 0.7833699625373709,
+        "mae": 23.128159378437843
+      }
+    },
+    {
+      "scene": "pipes",
+      "name": "warm-up",
+      "format": "ply",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": -0.08,
+      "hash": "77a3202754413348a4176ac57760d7c93611807159622ebee7c746dbd1732db8",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "pipes",
+      "name": "warm-up",
+      "format": "ply",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": 0.08,
+      "hash": "a3a8db66317ad19b5b4907123ae9484054c1409e764244c3d667245743ca417b",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "pipes",
+      "name": "warm-up",
+      "format": "ply",
+      "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+      "yaw": 0,
+      "hash": "c91b07263481e55ea3f9585a7deadf35d29fea9f3ac96c938275124b58935754",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 13.792416915886214,
+        "ssim": 0.6784728649187745,
+        "mae": 43.79629228547855
+      }
+    },
+    {
+      "scene": "pipes",
+      "name": "warm-up",
+      "format": "spz",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": 0,
+      "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 18.737894565676786,
+        "ssim": 0.7846525063941424,
+        "mae": 23.12381824119912
+      }
+    },
+    {
+      "scene": "pipes",
+      "name": "warm-up",
+      "format": "spz",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": -0.08,
+      "hash": "27c033857c6e5c988d9dff5026de99c326a3dfee995bef663c7d2452462f4d9e",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "pipes",
+      "name": "warm-up",
+      "format": "spz",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": 0.08,
+      "hash": "0cc73a81c589f1fdb7e8df11828d3217eaaaa03d4450392112f3e209f474be32",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "pipes",
+      "name": "warm-up",
+      "format": "spz",
+      "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+      "yaw": 0,
+      "hash": "b64e381af290a4e4a4b4492326c3eef3c858d0fa8771ea4a5712f8e17c6a8f86",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 13.798768312454413,
+        "ssim": 0.6789761687357988,
+        "mae": 43.764249003025306
+      }
+    },
+    {
+      "scene": "pipes",
+      "name": "cold-key-0",
+      "format": "ply",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": 0,
+      "hash": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "pipes",
+      "name": "cold-key-1",
+      "format": "spz",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": 0,
+      "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "pipes",
+      "name": "cold-key-2",
+      "format": "spz",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": 0,
+      "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "pipes",
+      "name": "cold-key-3",
+      "format": "ply",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": 0,
+      "hash": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "pipes",
+      "name": "cold-key-4",
+      "format": "ply",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": 0,
+      "hash": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "pipes",
+      "name": "cold-key-5",
+      "format": "spz",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": 0,
+      "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "pipes",
+      "name": "cold-key-6",
+      "format": "spz",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": 0,
+      "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "pipes",
+      "name": "cold-key-7",
+      "format": "ply",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": 0,
+      "hash": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "pipes",
+      "name": "warm-key-0",
+      "format": "ply",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": 0,
+      "hash": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "pipes",
+      "name": "warm-key-1",
+      "format": "spz",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": 0,
+      "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "pipes",
+      "name": "warm-key-2",
+      "format": "spz",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": 0,
+      "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "pipes",
+      "name": "warm-key-3",
+      "format": "ply",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": 0,
+      "hash": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "pipes",
+      "name": "warm-key-4",
+      "format": "ply",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": 0,
+      "hash": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "pipes",
+      "name": "warm-key-5",
+      "format": "spz",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": 0,
+      "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "pipes",
+      "name": "warm-key-6",
+      "format": "spz",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": 0,
+      "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "pipes",
+      "name": "warm-key-7",
+      "format": "ply",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": 0,
+      "hash": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "office",
+      "name": "warm-up",
+      "format": "ply",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": 0,
+      "hash": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 20.14224972070788,
+        "ssim": 0.854074841185931,
+        "mae": 19.42663628472222
+      }
+    },
+    {
+      "scene": "office",
+      "name": "warm-up",
+      "format": "ply",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": -0.08,
+      "hash": "eab164fb1727e3bf574e8592a82c3a962a5a3489b238754647b73bb181343ecd",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "office",
+      "name": "warm-up",
+      "format": "ply",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": 0.08,
+      "hash": "1c239cdf35aa90175f6becce1942c77222168482943bebf28b522b7a3d8d3c59",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "office",
+      "name": "warm-up",
+      "format": "ply",
+      "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+      "yaw": 0,
+      "hash": "8ba6cc5b7af30145763983b06ad0aa80dc911255e25b5d537c68653c14d8c0df",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 18.609404955593412,
+        "ssim": 0.9030411354183728,
+        "mae": 24.478438368055556
+      }
+    },
+    {
+      "scene": "office",
+      "name": "warm-up",
+      "format": "ply",
+      "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+      "yaw": 0,
+      "hash": "a16ea0b0e57a2be26e2c85b2315a1c0f2ae3d221328451d5e87449829991213f",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 15.281057627991563,
+        "ssim": 0.7627602027580822,
+        "mae": 36.04847569444444
+      }
+    },
+    {
+      "scene": "office",
+      "name": "warm-up",
+      "format": "ply",
+      "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+      "yaw": 0,
+      "hash": "7b0bf43e8967c537e2677326b567e2bea9f08162a374fab50489b48e049ed06d",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 21.781069172415165,
+        "ssim": 0.8361942484912689,
+        "mae": 15.425102430555556
+      }
+    },
+    {
+      "scene": "office",
+      "name": "warm-up",
+      "format": "spz",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": 0,
+      "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 20.137085533417896,
+        "ssim": 0.8539976958728277,
+        "mae": 19.464994791666665
+      }
+    },
+    {
+      "scene": "office",
+      "name": "warm-up",
+      "format": "spz",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": -0.08,
+      "hash": "0ed08cb6838ef35ad8af114b626b17bea3c121abdf3b96c6ba71681530a7bddb",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "office",
+      "name": "warm-up",
+      "format": "spz",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": 0.08,
+      "hash": "4b9de22ffea3b49f8e7048f5d8cfdaed9edb0ad6eba753cb4e66b8863b9011ff",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "office",
+      "name": "warm-up",
+      "format": "spz",
+      "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+      "yaw": 0,
+      "hash": "72e55dde0896b725aaacf7bea3dd29a4ca91119bc5d5b18baec3b69ec1677363",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 18.64524345192146,
+        "ssim": 0.9035747408221647,
+        "mae": 24.389116319444444
+      }
+    },
+    {
+      "scene": "office",
+      "name": "warm-up",
+      "format": "spz",
+      "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+      "yaw": 0,
+      "hash": "c98e4b3f25af58e5672a1f45277c8eaceebab7cab615ba4d58b418cbd3a7ff6e",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 15.288965780455477,
+        "ssim": 0.7635176639882258,
+        "mae": 36.01607118055556
+      }
+    },
+    {
+      "scene": "office",
+      "name": "warm-up",
+      "format": "spz",
+      "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+      "yaw": 0,
+      "hash": "37b646ef7fde599a1c1ae5beec9ac1c23924b787b21f2e776d60410415ebd7d5",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 21.778485699657587,
+        "ssim": 0.8363930078671684,
+        "mae": 15.439427083333333
+      }
+    },
+    {
+      "scene": "office",
+      "name": "cold-key-0",
+      "format": "ply",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": 0,
+      "hash": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "office",
+      "name": "cold-key-1",
+      "format": "spz",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": 0,
+      "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "office",
+      "name": "cold-key-2",
+      "format": "spz",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": 0,
+      "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "office",
+      "name": "cold-key-3",
+      "format": "ply",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": 0,
+      "hash": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "office",
+      "name": "cold-key-4",
+      "format": "ply",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": 0,
+      "hash": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "office",
+      "name": "cold-key-5",
+      "format": "spz",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": 0,
+      "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "office",
+      "name": "cold-key-6",
+      "format": "spz",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": 0,
+      "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "office",
+      "name": "cold-key-7",
+      "format": "ply",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": 0,
+      "hash": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "office",
+      "name": "warm-key-0",
+      "format": "ply",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": 0,
+      "hash": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "office",
+      "name": "warm-key-1",
+      "format": "spz",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": 0,
+      "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "office",
+      "name": "warm-key-2",
+      "format": "spz",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": 0,
+      "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "office",
+      "name": "warm-key-3",
+      "format": "ply",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": 0,
+      "hash": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "office",
+      "name": "warm-key-4",
+      "format": "ply",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": 0,
+      "hash": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "office",
+      "name": "warm-key-5",
+      "format": "spz",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": 0,
+      "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "office",
+      "name": "warm-key-6",
+      "format": "spz",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": 0,
+      "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "office",
+      "name": "warm-key-7",
+      "format": "ply",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": 0,
+      "hash": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3",
+      "matchesPrevious": true,
+      "quality": null
+    }
+  ],
+  "resources": [
+    {
+      "format": "ply",
+      "disposed": 1
+    },
+    {
+      "format": "spz",
+      "disposed": 1
+    },
+    {
+      "format": "ply",
+      "disposed": 1
+    },
+    {
+      "format": "spz",
+      "disposed": 1
+    },
+    {
+      "format": "spz",
+      "disposed": 1
+    },
+    {
+      "format": "ply",
+      "disposed": 1
+    },
+    {
+      "format": "ply",
+      "disposed": 1
+    },
+    {
+      "format": "spz",
+      "disposed": 1
+    },
+    {
+      "format": "spz",
+      "disposed": 1
+    },
+    {
+      "format": "ply",
+      "disposed": 1
+    },
+    {
+      "format": "ply",
+      "disposed": 1
+    },
+    {
+      "format": "spz",
+      "disposed": 1
+    },
+    {
+      "format": "spz",
+      "disposed": 1
+    },
+    {
+      "format": "ply",
+      "disposed": 1
+    },
+    {
+      "format": "ply",
+      "disposed": 1
+    },
+    {
+      "format": "spz",
+      "disposed": 1
+    },
+    {
+      "format": "spz",
+      "disposed": 1
+    },
+    {
+      "format": "ply",
+      "disposed": 1
+    },
+    {
+      "format": "ply",
+      "disposed": 1
+    },
+    {
+      "format": "spz",
+      "disposed": 1
+    },
+    {
+      "format": "ply",
+      "disposed": 1
+    },
+    {
+      "format": "spz",
+      "disposed": 1
+    },
+    {
+      "format": "spz",
+      "disposed": 1
+    },
+    {
+      "format": "ply",
+      "disposed": 1
+    },
+    {
+      "format": "ply",
+      "disposed": 1
+    },
+    {
+      "format": "spz",
+      "disposed": 1
+    },
+    {
+      "format": "spz",
+      "disposed": 1
+    },
+    {
+      "format": "ply",
+      "disposed": 1
+    },
+    {
+      "format": "ply",
+      "disposed": 1
+    },
+    {
+      "format": "spz",
+      "disposed": 1
+    },
+    {
+      "format": "spz",
+      "disposed": 1
+    },
+    {
+      "format": "ply",
+      "disposed": 1
+    },
+    {
+      "format": "ply",
+      "disposed": 1
+    },
+    {
+      "format": "spz",
+      "disposed": 1
+    },
+    {
+      "format": "spz",
+      "disposed": 1
+    },
+    {
+      "format": "ply",
+      "disposed": 1
+    }
+  ],
+  "errors": []
+}

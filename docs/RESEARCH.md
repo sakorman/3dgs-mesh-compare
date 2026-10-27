@@ -249,3 +249,18 @@ Spark 2.4.0（最新发行 2026-10-20，MIT）的 [SplatMesh.initialized 实现]
 [SplatStream](https://arxiv.org/abs/2607.25971v2) v1 为 2026-07-28，v2 为 07-29，页面注明 Asilomar 2026 接收；论文为 arXiv 非独占永久发布许可。[正文 II-F / II-G](https://arxiv.org/html/2607.25971v2)让清单记录分层字节数、预测元数据和依赖，解码按依赖关系进行。第 III 节与表 II 的所需带宽按四帧 GOP、30fps 和字节量计算，并非浏览器 HTTP 缓存或启动等待测量。
 
 本次原文与定向检索未找到可核实的作者实现仓库、发布版本及代码许可；正文也未明确可复现的 WebGL2/WebGPU/Metal/CUDA 软件配置。没有移植其动态预测、剪枝或引用论文性能作为本项目结果。可行动约束是将完整依赖数据量、实际 HTTP 请求/缓存、解码及首帧分开记录；当前静态双文件候选先完成后两项，不能把文件缩小或估算带宽直接换算成用户等待改善。
+
+
+### 已测：候选读取收益与初始化成本分离
+
+[受控 HTTP 加载](PACED-MODEL.md)固定 5MiB/s 正文、每请求服务器等待 40ms，保持 SH3/点数/画幅。热运行时下，候选缓存未命中等待缩短 77.4% / 78.3%，缓存命中缩短 45.0% / 44.9%；候选初始化反而较慢。32 个样本、52 个像素控制通过。后续应定位初始化与内存成本，不能把总等待下降写成解码或 GPU 加速。
+
+再次核对 [Spark 2.4.0](https://github.com/sparkjsdev/spark/releases/tag/v2.4.0)仍为最新发行，GitHub 发布时间 2026-10-20（发行说明标题为 10-19），主分支仍为 `ffe210d`，MIT。发行说明包含 SPZ gzip 后端替换，但本次两组使用同一版本，不归因为库升级。[worker.ts](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/worker.ts)的 `fileBytes` 分支重新建立读取流，没有证明命中 HTTP 缓存能复用已解码模型。
+
+### 候选：KoalaGS 的时间—画质评价
+
+[KoalaGS v1](https://arxiv.org/abs/2610.28615v1)提交于 2026-10-20，标注 NeurIPS 2026 Spotlight，论文 CC BY-SA 4.0。[正文 §5.5、附录 B.2 / D.3](https://arxiv.org/html/2610.28615v1)研究按复杂度排序的模型前缀与时间—画质关系；实现基于 gsplat 的 3DGS-MCMC，实验为 NVIDIA H100。保留大面积高斯提高低预算覆盖，但不保证更快渲染；未验证 WebGL2/WebGPU/Metal 移植。
+
+[作者页面](https://rdbch.github.io/koalags/)明确区分演示和论文：演示使用降低 SH 阶数的 SPZ 分块并模拟到达时间，不能直接比较本项目完整 SH3 的真实 HTTP 加载。论文正文写每点 236B，页面对论文设置写 244B，核算前需澄清，不据其带宽曲线推导本项目首帧。
+
+截至 2026-10-28，[作者仓库 `5821f00`](https://github.com/rdbch/koalags/tree/5821f00dfe9f2fe9fb5289d45344aee9ee58fb1e)最新提交为 10-21，仅 README 提示代码待发布；没有可核实的训练实现或代码许可证，不把论文许可当作代码许可。可行动结论是后续渐进实验同时记录实际传输、达到的画质与 SH/点数预算；当前先补冷运行时和内存测量，暂不重训或移植。

@@ -12,6 +12,7 @@ export interface PairedSpec {
   plySha256: string;
 }
 export type ModelFormat = "spz" | "ply";
+export interface ModelPhase { name: string; ms: number }
 export interface ModelDriver<M> {
   fetch(url: string, signal: AbortSignal): Promise<Response>;
   create(bytes: Uint8Array, format: ModelFormat): M;
@@ -44,7 +45,7 @@ export class PairedModelLoader<M> {
   }
   dispose() { this.closed = true; this.clear(); }
 
-  async load(input: PairedSpec): Promise<{ model: M; format: ModelFormat; fallbackReason?: string }> {
+  async load(input: PairedSpec, format: ModelFormat = "spz"): Promise<{ model: M; format: ModelFormat; fallbackReason?: string; phases: ModelPhase[] }> {
     if (this.closed) throw new Error("Paired loader disposed");
     // Snapshot the manifest so a caller cannot change identity during an await.
     const spec = { ...input };
@@ -55,6 +56,12 @@ export class PairedModelLoader<M> {
     const controller = new AbortController();
     this.active = controller;
     const { signal } = controller;
+    const phases: ModelPhase[] = [];
+    const phase = async <T>(name: string, action: () => Promise<T>) => {
+      const start = performance.now();
+      try { return await action(); }
+      finally { phases.push({ name, ms: performance.now() - start }); }
+    };
     const check = () => signal.throwIfAborted();
     const response = async (url: string) => {
       const result = await this.driver.fetch(url, signal);
@@ -73,17 +80,21 @@ export class PairedModelLoader<M> {
     };
     const initialize = async (bytes: Uint8Array, format: ModelFormat, alpha?: Uint8Array, modelHash?: Uint8Array) => {
       check();
+      const start = performance.now();
       const model = this.driver.create(bytes, format);
       try {
         // Spark initialization is not cancellable. Do not dispose until it settles.
         await this.driver.initialized(model);
+        phases.push({ name: `${format}-initialize`, ms: performance.now() - start });
         check();
+        const prepareStart = performance.now();
         const target = this.driver.attributes(model);
         if (target.count !== spec.count || target.sh !== 3) throw new Error("Paired model count/SH mismatch");
         if (alpha) applyAlpha16(alpha, target.words, target.count, modelHash!);
         this.driver.prepare(model);
         check();
         this.driver.publish(model);
+        phases.push({ name: `${format}-prepare-publish`, ms: performance.now() - prepareStart });
       } catch (error) {
         this.driver.dispose(model);
         throw error;
@@ -93,23 +104,28 @@ export class PairedModelLoader<M> {
       if (old !== undefined) this.driver.dispose(old);
       return model;
     };
+    const loadPly = async () => {
+      const ply = await phase("ply-read", async () => new Uint8Array(await readPlyResponse(await response(spec.plyUrl), signal)));
+      check();
+      await phase("ply-hash", () => verify(ply, spec.plySha256));
+      return { model: await initialize(ply, "ply"), format: "ply" as const, phases };
+    };
     try {
+      // Direct PLY control uses the same fetch, validation and ownership path as fallback.
+      if (format === "ply") return await loadPly();
       try {
-        const spz = new Uint8Array(await (await response(spec.spzUrl)).arrayBuffer());
+        const spz = await phase("spz-read", async () => new Uint8Array(await (await response(spec.spzUrl)).arrayBuffer()));
         check();
-        const modelHash = await verify(spz, spec.spzSha256);
-        const alpha = await readAlpha16Response(await response(spec.alphaUrl), spec.count, modelHash, signal);
+        const modelHash = await phase("spz-hash", () => verify(spz, spec.spzSha256));
+        const alpha = await phase("alpha-read-validate", async () => readAlpha16Response(await response(spec.alphaUrl), spec.count, modelHash, signal));
         check();
         // Header binding alone cannot detect stale opacity for the same SPZ bytes.
-        await verify(alpha, spec.alphaRawSha256);
-        return { model: await initialize(spz, "spz", alpha, modelHash), format: "spz" };
+        await phase("alpha-hash", () => verify(alpha, spec.alphaRawSha256));
+        return { model: await initialize(spz, "spz", alpha, modelHash), format: "spz", phases };
       } catch (candidateError) {
         check(); // Cancellation is never a reason to fetch a fallback.
         try {
-          const ply = new Uint8Array(await readPlyResponse(await response(spec.plyUrl), signal));
-          check();
-          await verify(ply, spec.plySha256);
-          return { model: await initialize(ply, "ply"), format: "ply", fallbackReason: String(candidateError) };
+          return { ...await loadPly(), fallbackReason: String(candidateError) };
         } catch (fallbackError) {
           check();
           throw new AggregateError([candidateError, fallbackError], "Candidate and PLY fallback failed");

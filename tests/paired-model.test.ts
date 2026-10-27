@@ -168,3 +168,17 @@ test("cancel during a sidecar body or PLY fallback preserves the existing displa
     f.loader.dispose();
   }
 });
+
+
+test("direct PLY control skips candidate requests and shares integrity and ownership checks", async () => {
+  const f = await fixture();
+  const result = await f.loader.load(f.spec, "ply");
+  assert.deepEqual(f.requests, ["ply"]); assert.equal(result.format, "ply");
+  assert.equal(result.fallbackReason, undefined);
+  assert.deepEqual(result.phases.map(p => p.name), ["ply-read", "ply-hash", "ply-initialize", "ply-prepare-publish"]);
+  assert.ok(result.phases.every(p => Number.isFinite(p.ms) && p.ms >= 0));
+  f.ply[4]++;
+  await assert.rejects(f.loader.load(f.spec, "ply"), /digest mismatch/);
+  assert.equal(f.visible(), result.model); assert.equal(f.models.length, 1);
+  f.loader.dispose(); assert.equal(result.model.freed, 1);
+});

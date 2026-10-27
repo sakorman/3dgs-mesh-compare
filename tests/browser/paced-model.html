@@ -1,0 +1,5 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>受控 HTTP 模型加载耗时</title>
+<style>body{font:14px system-ui;margin:20px;color:#223}#views,#gallery{display:grid;grid-template-columns:1fr 1fr;gap:12px}canvas,img{display:block;width:100%}button{padding:10px}pre{white-space:pre-wrap}table{border-collapse:collapse;width:100%}td,th{padding:7px;border-bottom:1px solid #ddd;text-align:left}figure{margin:0}</style>
+<h1>受控 HTTP 模型加载耗时</h1><p>5 MiB/s 正文限速 · 每请求服务器延迟 40ms · 长边 768 · SH3 · LoD 关闭。计至排序稳定后的绘制提交，不代表屏幕呈现时间。</p>
+<button id="run">运行串行加载对照</button><p id="status">Ready</p><table><thead><tr><th>场景</th><th>缓存</th><th>格式</th><th>加载 ms</th><th>稳定等待 ms</th><th>合计 ms</th><th>正文 B</th></tr></thead><tbody id="rows"></tbody></table>
+<div id="views"><div id="left"></div><div id="right"></div></div><div id="gallery"></div><pre id="result"></pre><script type="module" src="./paced-model.ts"></script></html>
