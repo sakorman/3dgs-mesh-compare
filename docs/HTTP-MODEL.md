@@ -69,6 +69,6 @@ npx vite --config tests/browser/vite-http-model.config.ts
 
 新增 3 项 Node 回归，核对 HTTP 响应、304 无正文、场景更新隔离、版本摘要拒绝、断连及取消记录。75 项测试、类型检查和生产构建通过。Node Fetch 不具备这里的浏览器缓存行为，不能用这 3 项测试替代浏览器记录。生产 JS/CSS 哈希不变，本次不重复部署 Pages。
 
-下一步使用版本化候选资源，在固定带宽和延迟下串行测量冷/热 HTTP 缓存的端到端首帧，单列读取、摘要、初始化与排序准备。缓存命中仍会执行校验、解码、模型构建和上传；0B 不代表 0ms。真实 CDN、304 元数据更新、页面重启后的磁盘缓存、内存峰值及移动端均未验证。
+后续[受控加载报告](PACED-MODEL.md)已补充版本化候选的冷/热 HTTP 缓存耗时，分别记录读取、摘要、初始化与排序稳定后的绘制提交；渲染器/WASM 仍为热状态，不能视为整页首帧。缓存命中仍会执行校验、解码、模型构建和上传；0B 不代表 0ms。真实 CDN、304 元数据更新、页面重启后的磁盘缓存、内存峰值及移动端均未验证。
 
 参考 [Fetch 缓存模式](https://developer.mozilla.org/en-US/docs/Web/API/Request/cache)、[Spark Worker 读取](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/worker.ts)及 [SplatStream v2](https://arxiv.org/abs/2607.25971v2)。论文带宽估算不能代替真实网络/缓存测量，详见[研究索引](RESEARCH.md)。
