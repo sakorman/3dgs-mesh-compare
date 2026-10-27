@@ -222,3 +222,18 @@ Spark 2.4.0（最新发行 2026-10-20，MIT）的 [SplatMesh.initialized 实现]
 [作者仓库](https://github.com/emanuele-artioli/MoQSplat/tree/15e02a669456d767abf5d68f9fb1f909f260dde0)最新提交为 15e02a6（09-16），没有 GitHub Release。已阅读 [client.py](https://github.com/emanuele-artioli/MoQSplat/blob/15e02a669456d767abf5d68f9fb1f909f260dde0/src/moq3dgs/transport/client.py) 的接收与断开、[cache.py](https://github.com/emanuele-artioli/MoQSplat/blob/15e02a669456d767abf5d68f9fb1f909f260dde0/src/moq3dgs/render/cache.py) 的缓存边界；客户端读取完整消息再解码/写缓存，断开时取消接收任务。[包元数据](https://github.com/emanuele-artioli/MoQSplat/blob/15e02a669456d767abf5d68f9fb1f909f260dde0/pyproject.toml)声明 MIT，但仓库没有独立 LICENSE/COPYING 文件，未复制作者代码。
 
 作者路径为 Python/PyTorch/gsplat 与 CUDA、MoQ/QUIC 组件，论文使用 NVIDIA GV100；没有验证 WebGL2/WebGPU/Metal 等价实现。当前静态 Pages 没有引入中继或新服务；没有复现其网络跑分，后续需要将传输、缓存、解码和 GPU 上传的完成状态分别验证。
+
+
+### 已验证：候选文件配对、迟到初始化与回退
+
+[独立加载验证](PAIRED-MODEL.md)把流式 AP16 与真实 Spark 模型连通：固定 SPZ/原始 AP16/解压后 PLY 三份摘要，发布前核对点数与 SH3；取消不回退，迟到初始化释放后拒绝。30 个画面和 12 个模型释放记录通过，默认网页未变。真实缓存、冷/热首帧及峰值内存仍待测，不能把 dispose 次数当作显存回收量。
+
+重新核对 [Spark 2.4.0 / ffe210d](https://github.com/sparkjsdev/spark/releases/tag/v2.4.0)（2026-10-20，MIT）。[#392](https://github.com/sparkjsdev/spark/pull/392)于 08-24 合并，改动 [SplatPager.ts](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/SplatPager.ts)：PagedSplats 释放时取消 fetch，获取结果后再次检查中止状态。它不是普通 `SplatMesh.initialized` 的取消 API；当前实验仍等待初始化结束，再按所有权释放。已测 WebGL2 / ANGLE Metal，未测 WebGPU 或 CUDA。
+
+### 候选：ProGS 的版本清单与完整前缀
+
+[ProGS: Towards Progressive Coding for 3D Gaussian Splatting](https://arxiv.org/abs/2603.09703) v1 提交于 2026-03-10，论文 CC BY-SA 4.0。[正文 III 节](https://arxiv.org/html/2603.09703v1)通过八叉树父子依赖组织渐进层级，低层画质需要单独训练约束。此处与 Zhiye Tang 等人的 ProGS 对应，不混同其他同名缩写项目。
+
+[作者公开实现 f0e7b5d](https://github.com/ZhiyeTang/ProGS-Official/tree/f0e7b5d977fe38bde47eeb45a985c7b15940d0d9)于 08-28 发布源码，截至 10-27 无 GitHub Release。[artifact.py](https://github.com/ZhiyeTang/ProGS-Official/blob/f0e7b5d977fe38bde47eeb45a985c7b15940d0d9/progs/artifact.py)检查格式版本、文件存在性、字节数和 SHA-256；[model_codec.py](https://github.com/ZhiyeTang/ProGS-Official/blob/f0e7b5d977fe38bde47eeb45a985c7b15940d0d9/progs/model_codec.py)在解码前校验所需前缀文件和模型配置。可行动启示是分别验证每个依赖文件的身份，不能只检查主文件或 URL；本项目已增加 AP16 自身摘要，尚未采用其渐进表示。
+
+作者环境为 Ubuntu / PyTorch 2.1.2 / CUDA 12.1 / RTX 4090，含本地 CUDA 扩展和神经解码组件，没有验证 WebGL2/WebGPU/Metal 路径。根 [LICENSE.md](https://github.com/ZhiyeTang/ProGS-Official/blob/f0e7b5d977fe38bde47eeb45a985c7b15940d0d9/LICENSE.md)为 Gaussian-Splatting 研究/非商业许可，子模块另有许可证，并非 MIT。未复制作者实现、安装编码器或复现论文性能；若未来评估渐进数据，应先核对依赖许可、完整前缀的总字节与解码成本。
