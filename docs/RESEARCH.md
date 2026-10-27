@@ -175,6 +175,18 @@ Spark 2.4.0（最新发行 2026-10-20，MIT）的 [SplatMesh.initialized 实现]
 
 后续进入实验的条件是取得有许可的编码器、解码器和权重，再将共享解码模型、LoRA、属性图的总传输量与解码成本一起测量。若需要场景适配，只使用训练视角；当前先完成非学习式属性误差定位，避免仅凭单个压缩文件大小判断可部署性。
 
+### 已定位：SH8 文件中的不透明度误差
+
+[非 SH 属性对照](SPZ-NONSH.md)固定 SH8，逐项恢复位置、DC 颜色、不透明度、尺度和旋转。只恢复不透明度，pipes / office 平均 PSNR 回升 0.171 / 0.306dB；其他单项影响较小且不总是改善。80 次画面、20 项复制控制及全部不透明度字节复现通过；两个场景都没有正值被量化成零。当前是内存诊断，没有对应新文件大小或加载时间，默认仍保留 PLY。
+
+继续核对 [Spark 主分支 ffe210d](https://github.com/sparkjsdev/spark/commit/ffe210dc0a45d0515a06c9235878108112827d61)（2026-10-20）、[2.4.0 发行](https://github.com/sparkjsdev/spark/releases/tag/v2.4.0)、[SPZ 编码](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/rust/spark-lib/src/spz.rs)及[扩展属性布局](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/utils.ts)，MIT。当前非 LoD 路径的 alpha 使用均匀 uint8；下一步先验证保留较高精度 alpha 的实际存储和浏览器解码成本，不能直接将诊断组合称为标准 SPZ3。已验证 WebGL2 / ANGLE Metal；WebGPU、CUDA 和跨解码器互操作未验证。
+
+### 待验证：PLEDGE 的属性约束边界
+
+[PLEDGE](https://arxiv.org/abs/2610.17605)（v1，2026-10-13，arXiv 非独占永久发布许可）按位置、形状、颜色和不透明度约束组织渐进量化。[原文](https://arxiv.org/html/2610.17605v1)明确：不透明度仅有参数误差约束；合成颜色的界限要求几何和 alpha 固定；默认剪枝处于保证范围之外。论文使用 A100 编码并以 gsplat 重渲染，正文和定向检索未找到可核实的作者代码版本及许可。未移植或复现数字，WebGL2/WebGPU/Metal/CUDA 的可复现实现条件未确认。
+
+对当前实验的约束是：alpha 数值误差小并不能替代最终画质检查；若后续采用渐进或裁剪，须分开报告缺失高斯和参数量化的代价。先完成固定点数下的高精度不透明度文件验证。
+
 ## 后续研究记录
 
 记录新增来源时注明论文日期或仓库 commit/tag，以及与当前瓶颈的关系。进入实现前，补充最小实验、对照设置和可验证指标；完成后链接对应 CHANGELOG 或实验报告，标明采用或暂缓的理由。

@@ -1,0 +1,34 @@
+{
+  "method": "CPU opacity-byte audit: sigmoid f32, f16 intermediate, u8 SPZ control, f16 decoded error; not a rendered-error bound",
+  "numpyVersion": "2.2.6",
+  "assets": [
+    {
+      "scene": "pipes",
+      "count": 300000,
+      "plySha256": "b716afb08b23e18feed481eb8307238da7ba0788aea705601c7c66e022a51caf",
+      "sh8Sha256": "4d86d47f541a66d4724525125e698b35706fdf4d42d844710664e96c9a14b87c",
+      "alphaControlBytesEqual": true,
+      "positiveRoundedToZero": 0,
+      "sourceZero": 0,
+      "maxAbsErrorVsHalf": 0.00196075439453125,
+      "meanAbsErrorVsHalf": 0.000980153912678361,
+      "meanSignedError": -5.467446499096695e-06,
+      "alphaMin": 0.0032901763916015625,
+      "alphaMax": 0.99951171875
+    },
+    {
+      "scene": "office",
+      "count": 231428,
+      "plySha256": "0af14259673b165001a9e84f27b6e19a55e924e0432e491e9701229f1c24e276",
+      "sh8Sha256": "e77b9eccc5dce1a72b48c96bddabbc0aa0dc6bbbb2d8520cbd1ca5166e02768d",
+      "alphaControlBytesEqual": true,
+      "positiveRoundedToZero": 0,
+      "sourceZero": 0,
+      "maxAbsErrorVsHalf": 0.00196075439453125,
+      "meanAbsErrorVsHalf": 0.0009819224942475557,
+      "meanSignedError": -3.2813140933285467e-06,
+      "alphaMin": 0.0029163360595703125,
+      "alphaMax": 0.99609375
+    }
+  ]
+}
