@@ -125,7 +125,7 @@ export class CompareViewer {
             signal: load.signal,
           });
           if (!res.ok) throw new Error("高斯模型下载失败");
-          const bytes = await readPlyResponse(res, load.signal);
+          const bytes = await readPlyResponse(res, load.signal, data.gaussian.decodedBytes ?? NaN);
           readDone();
           progress("正在解析高斯模型与纹理…");
           const initializeDone = clock.start("gaussianInitialize");

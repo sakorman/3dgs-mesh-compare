@@ -264,3 +264,18 @@ Spark 2.4.0（最新发行 2026-10-20，MIT）的 [SplatMesh.initialized 实现]
 [作者页面](https://rdbch.github.io/koalags/)明确区分演示和论文：演示使用降低 SH 阶数的 SPZ 分块并模拟到达时间，不能直接比较本项目完整 SH3 的真实 HTTP 加载。论文正文写每点 236B，页面对论文设置写 244B，核算前需澄清，不据其带宽曲线推导本项目首帧。
 
 截至 2026-10-28，[作者仓库 `5821f00`](https://github.com/rdbch/koalags/tree/5821f00dfe9f2fe9fb5289d45344aee9ee58fb1e)最新提交为 10-21，仅 README 提示代码待发布；没有可核实的训练实现或代码许可证，不把论文许可当作代码许可。可行动结论是后续渐进实验同时记录实际传输、达到的画质与 SH/点数预算；当前先补冷运行时和内存测量，暂不重训或移植。
+
+
+### 已采用：默认 PLY 读取核对解压后长度
+
+[PLY 长度检查](PLY-SIZE.md)把清单的 `decodedBytes` 用于默认加载，超长块在结果收集前拒绝，短包和缺失长度也拒绝。4 组真实文件字节、3 种查看器失败与恢复、10 个原始画面控制通过；没有测峰值内存或声称正常加载加速。模拟流供给量不能替代进程、Worker 或显存统计。
+
+Spark 最新发行仍为 [2.4.0](https://github.com/sparkjsdev/spark/releases/tag/v2.4.0)，发布于 2026-10-20，主分支 `ffe210d`，MIT；本次没有升级依赖。[SplatLoader.ts](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/SplatLoader.ts)向 Worker 传递 `fileBytes?.slice()`，完整输入之后还有复制和解析阶段。当前先在这些步骤前拒绝长度不符的数据；正常初始化副本的生命期及实际峰值仍待测，不把文件大小当作总内存。
+
+### 待验证：BoundedGS 的工作集与预取生命周期
+
+[BoundedGS v1](https://arxiv.org/abs/2610.34233v1)发表于 2026-10-25，论文为 arXiv 非独占永久发布许可。[正文 §3.4 / §4.1](https://arxiv.org/html/2610.34233v1)区分临时渲染工作集、持久参数/优化器状态及主机内存，限制同时驻留的解码图像。其训练内存口径不能直接用于浏览器加载峰值。
+
+[作者仓库 `23bca83`](https://github.com/XiaoBin2001/BoundedGS/tree/23bca8369a793ab9e29cc2b5d7c5966d4660d850)最新提交为 10-27 的链接更新，截至 10-28 无 GitHub Release，已公开实现。[image_prefetch.py](https://github.com/XiaoBin2001/BoundedGS/blob/23bca8369a793ab9e29cc2b5d7c5966d4660d850/utils/image_prefetch.py)按 `prefetch_count` 限制待处理队列，结束时取消未执行任务并等待执行器关闭。可行动启示是同时核对容量与释放时点；本项目的流取消和输出字节计数仍不能说明内部解压/WASM 状态已释放。
+
+[README 环境](https://github.com/XiaoBin2001/BoundedGS/blob/23bca8369a793ab9e29cc2b5d7c5966d4660d850/README.md)为 Ubuntu 22.04、PyTorch 2.5.1 / CUDA 12.1 / RTX 4090；WebGL2、WebGPU、Metal 未验证。[LICENSE.md](https://github.com/XiaoBin2001/BoundedGS/blob/23bca8369a793ab9e29cc2b5d7c5966d4660d850/LICENSE.md)对原创贡献使用 MIT，继承的 3DGS / ImprovedGS 及其他组件继续受各自许可约束，不能称整个工程为纯 MIT。未安装或移植作者实现，暂保留为后续内存计量参考。

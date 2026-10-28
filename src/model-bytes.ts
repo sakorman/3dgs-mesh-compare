@@ -4,13 +4,16 @@
 export async function readPlyResponse(
   response: Response,
   signal?: AbortSignal,
+  expectedBytes?: number,
 ): Promise<ArrayBuffer> {
   if (!response.body) throw new Error("高斯模型文件格式无效");
   const reader = response.body.getReader();
-  let headerError: Error | undefined;
-  const rejectHeader = () => {
-    headerError = new Error("高斯模型文件格式无效");
-    throw headerError;
+  let validationError: Error | undefined;
+  const rejectData = (message = "高斯模型文件格式无效") => {
+    validationError = new Error(message);
+    // Stop the source immediately instead of waiting for errors to cross gzip pipes.
+    void reader.cancel(validationError).catch(() => {});
+    throw validationError;
   };
   let inputController: ReadableStreamDefaultController<Uint8Array> | undefined;
   const abort = () => {
@@ -20,6 +23,9 @@ export async function readPlyResponse(
   signal?.addEventListener("abort", abort, { once: true });
   try {
     signal?.throwIfAborted();
+    // Content-Length can describe gzip bytes; use the manifest's decoded size.
+    if (expectedBytes !== undefined && (!Number.isSafeInteger(expectedBytes) || expectedBytes < 4))
+      rejectData("高斯模型长度配置无效");
     const prefix: Uint8Array[] = [];
     const magic: number[] = [];
     // Headers can cross network chunks, including single-byte chunks.
@@ -61,17 +67,24 @@ export async function readPlyResponse(
         : input;
     const signature = [0x70, 0x6c, 0x79, 0x0a];
     let checked = 0;
+    let decodedBytes = 0;
     const validated = body.pipeThrough(
       new TransformStream<Uint8Array, Uint8Array>({
         transform(chunk, controller) {
           // Reject wrong responses before buffering the rest of the decoded model.
           for (let i = 0; i < chunk.length && checked < signature.length; i++) {
-            if (chunk[i] !== signature[checked++]) rejectHeader();
+            if (chunk[i] !== signature[checked++]) rejectData();
           }
+          // Reject an oversized chunk before the result collector retains it.
+          if (expectedBytes !== undefined && chunk.byteLength > expectedBytes - decodedBytes)
+            rejectData("高斯模型解压后长度超出场景记录");
+          decodedBytes += chunk.byteLength;
           controller.enqueue(chunk);
         },
         flush() {
-          if (checked < signature.length) rejectHeader();
+          if (checked < signature.length) rejectData();
+          if (expectedBytes !== undefined && decodedBytes !== expectedBytes)
+            rejectData("高斯模型解压后长度与场景记录不符");
         },
       }),
       { signal },
@@ -83,7 +96,7 @@ export async function readPlyResponse(
     // Some browsers turn stream errors into a generic Response TypeError.
     // Preserve cancellation and header validation reasons for the caller.
     signal?.throwIfAborted();
-    throw headerError ?? error;
+    throw validationError ?? error;
   } finally {
     signal?.removeEventListener("abort", abort);
     // On malformed data or a downstream error, stop the original body as well.

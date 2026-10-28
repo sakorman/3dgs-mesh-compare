@@ -259,3 +259,48 @@ test("cancel after the compressed source closes still rejects the decoded result
   assert.equal(closed, true);
   assert.equal(response.body!.locked, false);
 });
+
+for (const gzip of [false, true]) {
+  test(`decoded length accepts exact ${gzip ? "gzip" : "plain"} data independently of HTTP Content-Length`, async () => {
+    const bytes = gzip ? gzipSync(fixture) : fixture;
+    const response = chunked(bytes, 1, { "Content-Length": String(gzipSync(fixture).length), "Content-Encoding": "gzip" });
+    assert.deepEqual(new Uint8Array(await readPlyResponse(response, undefined, fixture.length)), fixture);
+    assert.equal(response.body!.locked, false);
+  });
+  test(`decoded length rejects short and oversized ${gzip ? "gzip" : "plain"} payloads`, async () => {
+    for (const difference of [-1, 1]) {
+      const response = chunked(gzip ? gzipSync(fixture) : fixture, 5);
+      await assert.rejects(readPlyResponse(response, undefined, fixture.length + difference),
+        difference < 0 ? /超出场景记录/ : /与场景记录不符/);
+      assert.equal(response.body!.locked, false);
+    }
+  });
+  test(`oversized ${gzip ? "gzip" : "plain"} PLY cancels an unfinished source without waiting for EOF`, { timeout: 3000 }, async () => {
+    const raw = new Uint8Array(1024 * 1024);
+    let seed = 42;
+    for (let i = 0; i < raw.length; i++) { seed ^= seed << 13; seed ^= seed >>> 17; seed ^= seed << 5; raw[i] = seed & 255; }
+    raw.set(new TextEncoder().encode("ply\n"));
+    const bytes = gzip ? gzipSync(raw) : raw;
+    let supplied = 0, cancelled = false;
+    const response = new Response(new ReadableStream<Uint8Array>({
+      pull(controller) {
+        if (supplied >= 65536) return new Promise<void>(() => {});
+        controller.enqueue(bytes.subarray(supplied, supplied + 1024)); supplied += 1024;
+      },
+      cancel() { cancelled = true; },
+    }, { highWaterMark: 0 }));
+    await assert.rejects(readPlyResponse(response, undefined, 64), /超出场景记录/);
+    assert.ok(cancelled); assert.ok(supplied <= 65536 && supplied < bytes.length); assert.equal(response.body!.locked, false);
+  });
+}
+
+test("invalid decoded length cancels the body before its first pull", async () => {
+  for (const expected of [0, 3, -1, 5.5, NaN, Infinity, Number.MAX_SAFE_INTEGER + 1]) {
+    let pulls = 0, cancelled = false;
+    const response = new Response(new ReadableStream<Uint8Array>({
+      pull() { pulls++; }, cancel() { cancelled = true; },
+    }, { highWaterMark: 0 }));
+    await assert.rejects(readPlyResponse(response, undefined, expected), /长度配置无效/);
+    assert.equal(pulls, 0); assert.ok(cancelled); assert.equal(response.body!.locked, false);
+  }
+});
