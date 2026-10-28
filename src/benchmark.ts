@@ -1,4 +1,5 @@
-import { CompareViewer, nextFrame } from "./viewer";
+import type { CompareViewer } from "./viewer";
+import { nextFrame } from "./next-frame";
 import { summarize } from "./metrics";
 import type { Backend, Sample } from "./types";
 type TimerExt = { TIME_ELAPSED_EXT: number; GPU_DISJOINT_EXT: number };
@@ -60,18 +61,19 @@ export async function benchmark(
     if (signal.aborted) throw new Error("测试已取消");
     if (document.hidden) throw new Error("页面进入后台，本次测试已作废");
     if (viewer.lost) throw new Error("显卡上下文丢失，本次测试已作废");
+    if (viewer.disposed) throw new Error("查看器已释放，本次测试已作废");
   };
   viewer.playing = false;
   try {
     check();
-    await viewer.settle();
+    await viewer.settle(signal);
     // Static, frozen photo camera. Sorting has settled before both backends run.
     for (let round = 0; round < order.length; round++)
       for (const kind of order[round]) {
         progress(
           `第 ${round + 1}/4 轮 · ${kind === "gaussian" ? "3DGS" : "Mesh"} 单独采样`,
         );
-        let previous = await nextFrame();
+        let previous = await nextFrame(signal);
         for (let frame = -12; frame < 40; frame++) {
           check();
           timers[kind].poll();
@@ -91,7 +93,7 @@ export async function benchmark(
             samples[kind].push(sample);
             timers[kind].end(q, sample);
           }
-          const now = await nextFrame();
+          const now = await nextFrame(signal);
           check();
           if (frame >= 0)
             samples[kind][samples[kind].length - 1].intervalMs = now - previous;
@@ -104,10 +106,12 @@ export async function benchmark(
       i++
     ) {
       check();
-      await nextFrame();
+      await nextFrame(signal);
+      check();
       timers.gaussian.poll();
       timers.mesh.poll();
     }
+    check();
     for (const kind of ["gaussian", "mesh"] as const)
       if (timers[kind].disjoint) samples[kind].forEach((s) => (s.gpuMs = null));
     return {
@@ -129,9 +133,13 @@ export async function benchmark(
         note: "Main-thread submit CPU excludes asynchronous sort worker. FPS is refresh-rate limited. No moving-camera benchmark.",
       },
     };
+  } catch (error) {
+    // Keep the same user-facing cancellation/context message for every wait.
+    check();
+    throw error;
   } finally {
     timers.gaussian.dispose();
     timers.mesh.dispose();
-    viewer.playing = !viewer.lost;
+    viewer.playing = !viewer.lost && !viewer.disposed;
   }
 }

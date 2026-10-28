@@ -1,5 +1,12 @@
 # 更新日志
 
+## 2026-10-28 · 性能评测取消
+
+- 修复性能评测取消仍等待下一帧的问题，信号覆盖排序准备、帧采样与查询收尾；暂停帧时也能清理查询和恢复操作，见[对照记录](docs/BENCHMARK-CANCEL.md)。
+- 7 项浏览器取消检查通过，原来滞留的 3 个查询均删除，18 次画面校验与原始 PLY 一致；没有发布残缺性能成绩，不宣称 GPU 提速。
+- 新增 10 项回归，共 107 项测试、类型检查与生产构建通过；保持原有 AB/BA 顺序、每组 160 帧及默认模型。
+- 复核 [Spark 销毁修复](https://github.com/sparkjsdev/spark/pull/476)，补充 [TIGAS 论文](https://arxiv.org/abs/2605.08699)与[作者取消实现](https://github.com/Rekenar/GaussianAdaptiveStreamer/blob/8143b03687577e91b106ea5fe1be44678dd66cf2/templates/player.html)，区分取消请求、任务结束和 GPU 执行；原生后台限流与系统睡眠待验。
+
 ## 2026-10-28 · 分块输入与失败边界
 
 - 完成 PLY 完整输入与 1MiB 分块对照：单次 Worker 输入由 67.52 / 52.09MiB 限为 1MiB，总复制量不变；16 个热运行时样本未证明初始化提速，未测峰值内存，见[数据与截图](docs/STREAM-INPUT.md)。

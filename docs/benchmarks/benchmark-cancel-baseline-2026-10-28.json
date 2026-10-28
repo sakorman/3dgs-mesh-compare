@@ -1,0 +1,235 @@
+{
+  "createdAt": "2026-10-28T14:46:26.979Z",
+  "variant": "baseline",
+  "baselineCommit": "8190435",
+  "method": "Real models and WebGL2; animation callbacks held by fixture, synthetic visibility/pagehide. 80ms observation; not native background throttling, GPU speed or memory measurement.",
+  "records": [
+    {
+      "scene": "pipes",
+      "scenario": "settle",
+      "endedWithoutFrame": false,
+      "heldFrames": 1,
+      "allocatedQueries": 0,
+      "deletedQueries": 0,
+      "remainingQueries": 0,
+      "lateDraws": 0,
+      "controlsUnlocked": false,
+      "cancelledStatus": "加载完成，可切换照片或自由查看。",
+      "disposed": false,
+      "performanceAbsent": true
+    },
+    {
+      "scene": "pipes",
+      "scenario": "first-frame",
+      "endedWithoutFrame": false,
+      "heldFrames": 1,
+      "allocatedQueries": 0,
+      "deletedQueries": 0,
+      "remainingQueries": 0,
+      "lateDraws": 0,
+      "controlsUnlocked": false,
+      "cancelledStatus": "第 1/4 轮 · 3DGS 单独采样",
+      "disposed": false,
+      "performanceAbsent": true
+    },
+    {
+      "scene": "pipes",
+      "scenario": "sample-hidden",
+      "endedWithoutFrame": false,
+      "heldFrames": 1,
+      "allocatedQueries": 1,
+      "deletedQueries": 0,
+      "remainingQueries": 1,
+      "lateDraws": 0,
+      "controlsUnlocked": false,
+      "cancelledStatus": "第 1/4 轮 · 3DGS 单独采样",
+      "disposed": false,
+      "performanceAbsent": true
+    },
+    {
+      "scene": "office",
+      "scenario": "settle",
+      "endedWithoutFrame": false,
+      "heldFrames": 1,
+      "allocatedQueries": 0,
+      "deletedQueries": 0,
+      "remainingQueries": 0,
+      "lateDraws": 0,
+      "controlsUnlocked": false,
+      "cancelledStatus": "加载完成，可切换照片或自由查看。",
+      "disposed": false,
+      "performanceAbsent": true
+    },
+    {
+      "scene": "office",
+      "scenario": "first-frame",
+      "endedWithoutFrame": false,
+      "heldFrames": 1,
+      "allocatedQueries": 0,
+      "deletedQueries": 0,
+      "remainingQueries": 0,
+      "lateDraws": 0,
+      "controlsUnlocked": false,
+      "cancelledStatus": "第 1/4 轮 · 3DGS 单独采样",
+      "disposed": false,
+      "performanceAbsent": true
+    },
+    {
+      "scene": "office",
+      "scenario": "sample-hidden",
+      "endedWithoutFrame": false,
+      "heldFrames": 1,
+      "allocatedQueries": 1,
+      "deletedQueries": 0,
+      "remainingQueries": 1,
+      "lateDraws": 0,
+      "controlsUnlocked": false,
+      "cancelledStatus": "第 1/4 轮 · 3DGS 单独采样",
+      "disposed": false,
+      "performanceAbsent": true
+    },
+    {
+      "scene": "office",
+      "scenario": "sample-dispose",
+      "endedWithoutFrame": false,
+      "heldFrames": 1,
+      "allocatedQueries": 1,
+      "deletedQueries": 0,
+      "remainingQueries": 1,
+      "lateDraws": 0,
+      "controlsUnlocked": false,
+      "cancelledStatus": "第 1/4 轮 · 3DGS 单独采样",
+      "disposed": true,
+      "performanceAbsent": true
+    }
+  ],
+  "pixels": [
+    {
+      "scene": "pipes",
+      "scenario": "settle",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "hash": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36",
+      "matchesOriginal": true
+    },
+    {
+      "scene": "pipes",
+      "scenario": "settle",
+      "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+      "hash": "c91b07263481e55ea3f9585a7deadf35d29fea9f3ac96c938275124b58935754",
+      "matchesOriginal": true
+    },
+    {
+      "scene": "pipes",
+      "scenario": "first-frame",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "hash": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36",
+      "matchesOriginal": true
+    },
+    {
+      "scene": "pipes",
+      "scenario": "first-frame",
+      "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+      "hash": "c91b07263481e55ea3f9585a7deadf35d29fea9f3ac96c938275124b58935754",
+      "matchesOriginal": true
+    },
+    {
+      "scene": "pipes",
+      "scenario": "sample-hidden",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "hash": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36",
+      "matchesOriginal": true
+    },
+    {
+      "scene": "pipes",
+      "scenario": "sample-hidden",
+      "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+      "hash": "c91b07263481e55ea3f9585a7deadf35d29fea9f3ac96c938275124b58935754",
+      "matchesOriginal": true
+    },
+    {
+      "scene": "office",
+      "scenario": "settle",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "hash": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3",
+      "matchesOriginal": true
+    },
+    {
+      "scene": "office",
+      "scenario": "settle",
+      "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+      "hash": "8ba6cc5b7af30145763983b06ad0aa80dc911255e25b5d537c68653c14d8c0df",
+      "matchesOriginal": true
+    },
+    {
+      "scene": "office",
+      "scenario": "settle",
+      "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+      "hash": "a16ea0b0e57a2be26e2c85b2315a1c0f2ae3d221328451d5e87449829991213f",
+      "matchesOriginal": true
+    },
+    {
+      "scene": "office",
+      "scenario": "settle",
+      "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+      "hash": "7b0bf43e8967c537e2677326b567e2bea9f08162a374fab50489b48e049ed06d",
+      "matchesOriginal": true
+    },
+    {
+      "scene": "office",
+      "scenario": "first-frame",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "hash": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3",
+      "matchesOriginal": true
+    },
+    {
+      "scene": "office",
+      "scenario": "first-frame",
+      "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+      "hash": "8ba6cc5b7af30145763983b06ad0aa80dc911255e25b5d537c68653c14d8c0df",
+      "matchesOriginal": true
+    },
+    {
+      "scene": "office",
+      "scenario": "first-frame",
+      "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+      "hash": "a16ea0b0e57a2be26e2c85b2315a1c0f2ae3d221328451d5e87449829991213f",
+      "matchesOriginal": true
+    },
+    {
+      "scene": "office",
+      "scenario": "first-frame",
+      "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+      "hash": "7b0bf43e8967c537e2677326b567e2bea9f08162a374fab50489b48e049ed06d",
+      "matchesOriginal": true
+    },
+    {
+      "scene": "office",
+      "scenario": "sample-hidden",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "hash": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3",
+      "matchesOriginal": true
+    },
+    {
+      "scene": "office",
+      "scenario": "sample-hidden",
+      "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+      "hash": "8ba6cc5b7af30145763983b06ad0aa80dc911255e25b5d537c68653c14d8c0df",
+      "matchesOriginal": true
+    },
+    {
+      "scene": "office",
+      "scenario": "sample-hidden",
+      "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+      "hash": "a16ea0b0e57a2be26e2c85b2315a1c0f2ae3d221328451d5e87449829991213f",
+      "matchesOriginal": true
+    },
+    {
+      "scene": "office",
+      "scenario": "sample-hidden",
+      "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+      "hash": "7b0bf43e8967c537e2677326b567e2bea9f08162a374fab50489b48e049ed06d",
+      "matchesOriginal": true
+    }
+  ],
+  "errors": []
+}
