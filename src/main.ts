@@ -300,9 +300,12 @@ if (isBenchmark) {
   button("quality").onclick = async () => {
     begin();
     viewer.playing = false;
-    qualityReport = undefined;
-    for (const side of ["gs", "mesh"]) $(`${side}-quality`).textContent = "—";
-    $("quality-details").hidden = true;
+    const clearQuality = () => {
+      qualityReport = undefined;
+      for (const side of ["gs", "mesh"]) $(`${side}-quality`).textContent = "—";
+      $("quality-details").hidden = true;
+    };
+    clearQuality();
     const original = viewIndex;
     const signal = controller!.signal;
     const rows: {
@@ -335,7 +338,7 @@ if (isBenchmark) {
           viewer.width,
           viewer.height,
         );
-        await nextFrame();
+        await nextFrame(signal);
         check();
         const mesh = quality(
           viewer.pixels("mesh"),
@@ -368,13 +371,17 @@ if (isBenchmark) {
       $("quality-details").hidden = false;
       status("留出画质评测完成，逐视角结果可导出。");
     } catch (e) {
-      for (const side of ["gs", "mesh"]) $(`${side}-quality`).textContent = "—";
-      $("quality-details").hidden = true;
-      status(message(e), true);
+      clearQuality();
+      status(signal.aborted ? "评测已取消" : message(e), true);
     } finally {
       if (!viewer.disposed && !viewer.lost) {
         viewer.setView(data.views[original]);
-        await viewer.settle().catch(() => {});
+        await viewer.settle(signal).catch(() => {});
+      }
+      // Cancellation also covers restoring the original camera after scoring.
+      if (signal.aborted) {
+        clearQuality();
+        status("评测已取消", true);
       }
       finish();
     }

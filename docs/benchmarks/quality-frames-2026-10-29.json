@@ -1,0 +1,425 @@
+{
+  "createdAt": "2026-10-28T18:45:32.807Z",
+  "variant": "fixed",
+  "baselineCommit": "d0bfb5b",
+  "method": "Real models and scores; hold animation callbacks, synthetic visibility. Observe for 80ms before releasing. Not native background throttling or cancellation latency measurement.",
+  "records": [
+    {
+      "scene": "pipes",
+      "scenario": "settle-cancel",
+      "endedWithoutFrame": true,
+      "heldFrames": 0,
+      "controlsUnlocked": true,
+      "latePixels": 0,
+      "lateRenders": 0,
+      "setsAfterDispose": 0,
+      "reportVisibleAtInterrupt": false,
+      "reportAbsent": true,
+      "cameraRestored": true,
+      "status": "评测已取消",
+      "exportedQualityAbsent": true
+    },
+    {
+      "scene": "pipes",
+      "scenario": "yield-cancel",
+      "endedWithoutFrame": true,
+      "heldFrames": 0,
+      "controlsUnlocked": true,
+      "latePixels": 0,
+      "lateRenders": 0,
+      "setsAfterDispose": 0,
+      "reportVisibleAtInterrupt": false,
+      "reportAbsent": true,
+      "cameraRestored": true,
+      "status": "评测已取消",
+      "exportedQualityAbsent": true
+    },
+    {
+      "scene": "pipes",
+      "scenario": "yield-hidden",
+      "endedWithoutFrame": true,
+      "heldFrames": 0,
+      "controlsUnlocked": true,
+      "latePixels": 0,
+      "lateRenders": 0,
+      "setsAfterDispose": 0,
+      "reportVisibleAtInterrupt": false,
+      "reportAbsent": true,
+      "cameraRestored": true,
+      "status": "评测已取消",
+      "exportedQualityAbsent": true
+    },
+    {
+      "scene": "pipes",
+      "scenario": "restore-cancel",
+      "endedWithoutFrame": true,
+      "heldFrames": 0,
+      "controlsUnlocked": true,
+      "latePixels": 0,
+      "lateRenders": 0,
+      "setsAfterDispose": 0,
+      "reportVisibleAtInterrupt": true,
+      "reportAbsent": true,
+      "cameraRestored": true,
+      "status": "评测已取消",
+      "exportedQualityAbsent": true
+    },
+    {
+      "scene": "pipes",
+      "scenario": "restore-hidden",
+      "endedWithoutFrame": true,
+      "heldFrames": 0,
+      "controlsUnlocked": true,
+      "latePixels": 0,
+      "lateRenders": 0,
+      "setsAfterDispose": 0,
+      "reportVisibleAtInterrupt": true,
+      "reportAbsent": true,
+      "cameraRestored": true,
+      "status": "评测已取消",
+      "exportedQualityAbsent": true
+    },
+    {
+      "scene": "office",
+      "scenario": "settle-cancel",
+      "endedWithoutFrame": true,
+      "heldFrames": 0,
+      "controlsUnlocked": true,
+      "latePixels": 0,
+      "lateRenders": 0,
+      "setsAfterDispose": 0,
+      "reportVisibleAtInterrupt": false,
+      "reportAbsent": true,
+      "cameraRestored": true,
+      "status": "评测已取消",
+      "exportedQualityAbsent": true
+    },
+    {
+      "scene": "office",
+      "scenario": "yield-cancel",
+      "endedWithoutFrame": true,
+      "heldFrames": 0,
+      "controlsUnlocked": true,
+      "latePixels": 0,
+      "lateRenders": 0,
+      "setsAfterDispose": 0,
+      "reportVisibleAtInterrupt": false,
+      "reportAbsent": true,
+      "cameraRestored": true,
+      "status": "评测已取消",
+      "exportedQualityAbsent": true
+    },
+    {
+      "scene": "office",
+      "scenario": "yield-hidden",
+      "endedWithoutFrame": true,
+      "heldFrames": 0,
+      "controlsUnlocked": true,
+      "latePixels": 0,
+      "lateRenders": 0,
+      "setsAfterDispose": 0,
+      "reportVisibleAtInterrupt": false,
+      "reportAbsent": true,
+      "cameraRestored": true,
+      "status": "评测已取消",
+      "exportedQualityAbsent": true
+    },
+    {
+      "scene": "office",
+      "scenario": "restore-cancel",
+      "endedWithoutFrame": true,
+      "heldFrames": 0,
+      "controlsUnlocked": true,
+      "latePixels": 0,
+      "lateRenders": 0,
+      "setsAfterDispose": 0,
+      "reportVisibleAtInterrupt": true,
+      "reportAbsent": true,
+      "cameraRestored": true,
+      "status": "评测已取消",
+      "exportedQualityAbsent": true
+    },
+    {
+      "scene": "office",
+      "scenario": "restore-hidden",
+      "endedWithoutFrame": true,
+      "heldFrames": 0,
+      "controlsUnlocked": true,
+      "latePixels": 0,
+      "lateRenders": 0,
+      "setsAfterDispose": 0,
+      "reportVisibleAtInterrupt": true,
+      "reportAbsent": true,
+      "cameraRestored": true,
+      "status": "评测已取消",
+      "exportedQualityAbsent": true
+    }
+  ],
+  "normal": [
+    {
+      "scene": "pipes",
+      "quality": {
+        "resolution": [
+          768,
+          505
+        ],
+        "views": [
+          {
+            "index": 0,
+            "name": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+            "gaussian": {
+              "psnr": 18.7454079234687,
+              "ssim": 0.7833699625373709,
+              "mae": 23.128159378437843
+            },
+            "mesh": {
+              "psnr": 16.203956014134363,
+              "ssim": 0.6405673672234332,
+              "mae": 24.89255277090209
+            }
+          },
+          {
+            "index": 8,
+            "name": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+            "gaussian": {
+              "psnr": 13.792416915886214,
+              "ssim": 0.6784728649187745,
+              "mae": 43.79629228547855
+            },
+            "mesh": {
+              "psnr": 10.703182508757498,
+              "ssim": 0.44565281751496727,
+              "mae": 55.57786286441144
+            }
+          }
+        ],
+        "averages": {
+          "gaussian": {
+            "psnr": 16.268912419677456,
+            "ssim": 0.7309214137280726,
+            "mae": 33.46222583195819
+          },
+          "mesh": {
+            "psnr": 13.453569261445931,
+            "ssim": 0.5431100923692003,
+            "mae": 40.235207817656764
+          }
+        }
+      },
+      "inputs": [
+        {
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "kind": "reference",
+          "hash": "31b8f18df8a2dd5d5ce509500ff4b56a3a6878f916deff5e3965bfe0af22ebb5"
+        },
+        {
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "kind": "gaussian",
+          "hash": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36"
+        },
+        {
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "kind": "mesh",
+          "hash": "c3c2144e2ef68b0306e923997f7336302afc5ff7097be8b9a2926b6c5b78cdb9"
+        },
+        {
+          "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+          "kind": "reference",
+          "hash": "a4b39c3eb6a9657796cfaf742e13b8af13a8b9f3128f7054b749dedf1b37873e"
+        },
+        {
+          "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+          "kind": "gaussian",
+          "hash": "c91b07263481e55ea3f9585a7deadf35d29fea9f3ac96c938275124b58935754"
+        },
+        {
+          "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+          "kind": "mesh",
+          "hash": "5cac2f041f2016ab5a86f7db66c4fe0180218f345175fabec76dac67c397008a"
+        }
+      ],
+      "cameraRestored": true
+    },
+    {
+      "scene": "office",
+      "quality": {
+        "resolution": [
+          768,
+          500
+        ],
+        "views": [
+          {
+            "index": 0,
+            "name": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+            "gaussian": {
+              "psnr": 20.14224972070788,
+              "ssim": 0.854074841185931,
+              "mae": 19.42663628472222
+            },
+            "mesh": {
+              "psnr": 12.908715161761181,
+              "ssim": 0.5523269728757447,
+              "mae": 43.283671875
+            }
+          },
+          {
+            "index": 8,
+            "name": "0008-1c6da61406eb4744893572435799058c.jpg",
+            "gaussian": {
+              "psnr": 18.609404955593412,
+              "ssim": 0.9030411354183728,
+              "mae": 24.478438368055556
+            },
+            "mesh": {
+              "psnr": 13.659212822977622,
+              "ssim": 0.7938037629857664,
+              "mae": 35.42440972222222
+            }
+          },
+          {
+            "index": 16,
+            "name": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+            "gaussian": {
+              "psnr": 15.281057627991563,
+              "ssim": 0.7627602027580822,
+              "mae": 36.04847569444444
+            },
+            "mesh": {
+              "psnr": 13.199993005936507,
+              "ssim": 0.514409906920705,
+              "mae": 41.8853125
+            }
+          },
+          {
+            "index": 24,
+            "name": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+            "gaussian": {
+              "psnr": 21.781069172415165,
+              "ssim": 0.8361942484912689,
+              "mae": 15.425102430555556
+            },
+            "mesh": {
+              "psnr": 13.618649893923978,
+              "ssim": 0.5806073766403183,
+              "mae": 34.43380555555556
+            }
+          }
+        ],
+        "averages": {
+          "gaussian": {
+            "psnr": 18.953445369177004,
+            "ssim": 0.8390176069634138,
+            "mae": 23.844663194444443
+          },
+          "mesh": {
+            "psnr": 13.346642721149822,
+            "ssim": 0.6102870048556336,
+            "mae": 38.75679991319444
+          }
+        }
+      },
+      "inputs": [
+        {
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "kind": "reference",
+          "hash": "5bd1500eb7b6a3f1c1f462c2886e81be55f590d37b4c2ee2221d90d7a5e10b58"
+        },
+        {
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "kind": "gaussian",
+          "hash": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3"
+        },
+        {
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "kind": "mesh",
+          "hash": "ac95a13722ceebb9e56bfeb53a925f674a5145242504fb1929e44f4b8b66a4e7"
+        },
+        {
+          "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+          "kind": "reference",
+          "hash": "431e2a1b7b88753e34a6df5586d233f30711f3e7dc30e9fa79d9782d539abf12"
+        },
+        {
+          "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+          "kind": "gaussian",
+          "hash": "8ba6cc5b7af30145763983b06ad0aa80dc911255e25b5d537c68653c14d8c0df"
+        },
+        {
+          "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+          "kind": "mesh",
+          "hash": "3af78ee4ba301c23d5ffaf227f2873c64eecec70b5db10e7dbd2fec1ca1573ad"
+        },
+        {
+          "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+          "kind": "reference",
+          "hash": "fbc00767bbca9de8034d780a332b05ee763dbf3b5d994eca83f6721215a19a61"
+        },
+        {
+          "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+          "kind": "gaussian",
+          "hash": "a16ea0b0e57a2be26e2c85b2315a1c0f2ae3d221328451d5e87449829991213f"
+        },
+        {
+          "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+          "kind": "mesh",
+          "hash": "e1732f8812ec8de3b4c1560717cf85c1068d7c34ae8f48a7beb9df0354e8112b"
+        },
+        {
+          "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+          "kind": "reference",
+          "hash": "c59de703792bea8b2c8c6696bae1c5ca35a121c0f504c2c8521c5db95262cead"
+        },
+        {
+          "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+          "kind": "gaussian",
+          "hash": "7b0bf43e8967c537e2677326b567e2bea9f08162a374fab50489b48e049ed06d"
+        },
+        {
+          "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+          "kind": "mesh",
+          "hash": "b9b1b565d36a0fa5cca1da62c0a7d0a39726d4431a64239ecae7548eb7e3ea97"
+        }
+      ],
+      "cameraRestored": true
+    }
+  ],
+  "pixels": [
+    {
+      "scene": "pipes",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "hash": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36",
+      "matchesOriginal": true
+    },
+    {
+      "scene": "pipes",
+      "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+      "hash": "c91b07263481e55ea3f9585a7deadf35d29fea9f3ac96c938275124b58935754",
+      "matchesOriginal": true
+    },
+    {
+      "scene": "office",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "hash": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3",
+      "matchesOriginal": true
+    },
+    {
+      "scene": "office",
+      "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+      "hash": "8ba6cc5b7af30145763983b06ad0aa80dc911255e25b5d537c68653c14d8c0df",
+      "matchesOriginal": true
+    },
+    {
+      "scene": "office",
+      "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+      "hash": "a16ea0b0e57a2be26e2c85b2315a1c0f2ae3d221328451d5e87449829991213f",
+      "matchesOriginal": true
+    },
+    {
+      "scene": "office",
+      "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+      "hash": "7b0bf43e8967c537e2677326b567e2bea9f08162a374fab50489b48e049ed06d",
+      "matchesOriginal": true
+    }
+  ],
+  "errors": []
+}
