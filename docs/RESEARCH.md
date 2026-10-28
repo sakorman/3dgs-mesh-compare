@@ -1,6 +1,6 @@
 # 3DGS 研究索引
 
-查阅日期：2026-10-27。以下区分已验证的应用改进与尚未验证收益的研究候选。
+查阅日期：2026-10-28。以下区分已验证的应用改进与尚未验证收益的研究候选。
 
 ## 实现
 
@@ -296,3 +296,19 @@ Spark 最新发行仍为 [2.4.0](https://github.com/sparkjsdev/spark/releases/ta
 已阅读 [gaussian-renderer.ts](https://github.com/websplatter/WebSplatter/blob/16bb06e86b8fb12193d4bb4cd2b0b3d4f3ab62be/src/gaussian-renderer.ts)与 [scatter WGSL](https://github.com/websplatter/WebSplatter/blob/16bb06e86b8fb12193d4bb4cd2b0b3d4f3ab62be/src/shaders/gaussian_sort_scatter.wgsl)：每个 radix round 分直方图、六个前缀子 pass 与 scatter；局部位图通过 `atomicOr`、工作组屏障和 `countOneBits` 得到稳定 rank。需要 WebGPU compute，不能直接放进当前 WebGL2 Spark 渲染器。论文含 Apple 设备，但本项目未运行其 WebGPU/Metal 路径；也不是 CUDA 移植结果。
 
 可行动方向是后续独立排序后端原型明确记录 GPU pass、读回、Worker 等待与页面可见性，并在相同 SH3/点数/画幅下检查画质。当前先保留已验证的 WebGL2 路径，不把 GPU 工作组推进保证当作浏览器后台恢复保证。
+
+### 暂缓：将默认 PLY 改为分块 Worker 输入
+
+2026-10-28 复核 [Spark v2.4.0](https://github.com/sparkjsdev/spark/releases/tag/v2.4.0)（2026-10-20 发布，MIT）与 main `ffe210d`。[SplatLoader](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/SplatLoader.ts)会复制完整 `fileBytes`，也提供按需 `stream` 输入；[Worker](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/worker.ts)逐块送入解码器。输入分块不能证明解码器总分配有界。
+
+[实际对照](STREAM-INPUT.md)把最大单次输入消息由 67.52 / 52.09MiB 限为 1MiB，累计复制量不变；16 个热运行时样本未证明初始化提速，36 次画面校验一致。另在第二次读取报错后，初始化于一秒观察窗口内仍 pending，reader 未解锁并出现一次未处理拒绝。[SplatWorker 状态调用](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/SplatWorker.ts)没有等待异步回调，与复现吻合；不据此断言无限等待。
+
+默认仍保留读取/解压完成后提交 `fileBytes`。流失败与取消的错误传递、reader 释放、Worker 作业结束及恢复必须先有可验证实现，再做冷启动和峰值内存测量。此次为 WebGL2 / Chromium 156 / Apple M5 的浏览器 Worker 实验，非 WebGPU、原生 Metal 或 CUDA 结果。
+
+### 测量参考：RLSplat 的预算与生成工作量
+
+[RLSplat](https://arxiv.org/abs/2610.27712) v1 为 2026-10-20，v2 为 2026-10-23；arXiv 使用非独占永久发布许可。[论文 v2 §4.1](https://arxiv.org/html/2610.27712v2)明确只计高斯生成延迟/峰值显存，排除加载、位姿对齐和渲染；RTX A6000、batch=1、256×256，首次场景预热不计入。该口径提醒后续分别测输入传递、实际分配和屏幕呈现，不能把预算变小直接当作整体峰值内存或加载收益。
+
+[作者仓库](https://github.com/mlvlab/RLSplat/tree/0eee023e1892996a35dd2af58a32738d331a57a3)最新提交为 2026-10-23（链接项目主页），没有 Release；公开推理/评测实现使用 MIT，保留 LICENSE 的 2025 Honggyu An 版权，第三方依赖及权重须分别核实条款。[预算分配](https://github.com/mlvlab/RLSplat/blob/0eee023e1892996a35dd2af58a32738d331a57a3/src/model/gaussian_allocation/sampling.py)使用最大余数和容量重分配，[生成器](https://github.com/mlvlab/RLSplat/blob/0eee023e1892996a35dd2af58a32738d331a57a3/src/model/encoder/common/gaussian_token_generator.py)按分配计数展开 token，再执行预测，而非先产生全量 token 后裁剪。
+
+作者快速启动要求 Python 3.11、CUDA 兼容 PyTorch，涉及 PyTorch3D、DVLT 和 gsplat；首次运行还可能下载权重并编译 CUDA 扩展。未找到作者已验证的 WebGL2/WebGPU/Metal 路径。本项目未运行、未移植、未减少高斯数量；不引用论文倍数作为本项目性能，也不把生成预算算法等同浏览器字节分块。后续若开展生成实验，需单列其输入/相机/训练与质量边界。

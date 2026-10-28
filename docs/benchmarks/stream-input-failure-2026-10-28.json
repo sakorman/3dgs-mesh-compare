@@ -1,0 +1,15 @@
+{
+  "createdAt": "2026-10-28T10:50:52.938Z",
+  "spark": "2.4.0",
+  "scene": "pipes",
+  "chunkBytes": 1048576,
+  "readRequests": 2,
+  "observedAfterFailureMs": 1002.7000002861023,
+  "initializationState": "pending",
+  "reason": null,
+  "streamLocked": true,
+  "unhandledRejections": [
+    "Error: Intentional stream input failure"
+  ],
+  "method": "Fresh isolated document; one valid PLY prefix then an intentional source error. Observed initialization for 1 second after injection; not a proof of infinite hang. Close this tab to terminate its Worker context."
+}
