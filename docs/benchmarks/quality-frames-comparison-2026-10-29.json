@@ -1,0 +1,576 @@
+{
+  "baselineCommit": "d0bfb5b",
+  "tracedRepeat": {
+    "inputHashesMatched": 18,
+    "qualityReportsEqual": true,
+    "restoredOriginalCamera": true
+  },
+  "initialUntracedPair": {
+    "baseline": [
+      {
+        "scene": "pipes",
+        "quality": {
+          "resolution": [
+            768,
+            505
+          ],
+          "views": [
+            {
+              "index": 0,
+              "name": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+              "gaussian": {
+                "psnr": 18.746325232679297,
+                "ssim": 0.7828604299564245,
+                "mae": 23.129355748074808
+              },
+              "mesh": {
+                "psnr": 16.204464957202468,
+                "ssim": 0.6401811281121497,
+                "mae": 24.89280545242024
+              }
+            },
+            {
+              "index": 8,
+              "name": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+              "gaussian": {
+                "psnr": 13.792416915886214,
+                "ssim": 0.6784728649187745,
+                "mae": 43.79629228547855
+              },
+              "mesh": {
+                "psnr": 10.703182508757498,
+                "ssim": 0.44565281751496727,
+                "mae": 55.57786286441144
+              }
+            }
+          ],
+          "averages": {
+            "gaussian": {
+              "psnr": 16.269371074282756,
+              "ssim": 0.7306666474375995,
+              "mae": 33.46282401677668
+            },
+            "mesh": {
+              "psnr": 13.453823732979984,
+              "ssim": 0.5429169728135584,
+              "mae": 40.23533415841584
+            }
+          }
+        },
+        "cameraRestored": true
+      },
+      {
+        "scene": "office",
+        "quality": {
+          "resolution": [
+            768,
+            500
+          ],
+          "views": [
+            {
+              "index": 0,
+              "name": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+              "gaussian": {
+                "psnr": 20.142175215204638,
+                "ssim": 0.8530732601091046,
+                "mae": 19.428631944444444
+              },
+              "mesh": {
+                "psnr": 12.907945562962873,
+                "ssim": 0.5517336328825183,
+                "mae": 43.28658767361111
+              }
+            },
+            {
+              "index": 8,
+              "name": "0008-1c6da61406eb4744893572435799058c.jpg",
+              "gaussian": {
+                "psnr": 18.609404955593412,
+                "ssim": 0.9030411354183728,
+                "mae": 24.478438368055556
+              },
+              "mesh": {
+                "psnr": 13.659212822977622,
+                "ssim": 0.7938037629857664,
+                "mae": 35.42440972222222
+              }
+            },
+            {
+              "index": 16,
+              "name": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+              "gaussian": {
+                "psnr": 15.281057627991563,
+                "ssim": 0.7627602027580822,
+                "mae": 36.04847569444444
+              },
+              "mesh": {
+                "psnr": 13.199993005936507,
+                "ssim": 0.514409906920705,
+                "mae": 41.8853125
+              }
+            },
+            {
+              "index": 24,
+              "name": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+              "gaussian": {
+                "psnr": 21.781069172415165,
+                "ssim": 0.8361942484912689,
+                "mae": 15.425102430555556
+              },
+              "mesh": {
+                "psnr": 13.618649893923978,
+                "ssim": 0.5806073766403183,
+                "mae": 34.43380555555556
+              }
+            }
+          ],
+          "averages": {
+            "gaussian": {
+              "psnr": 18.953426742801195,
+              "ssim": 0.8387672116942071,
+              "mae": 23.845162109375
+            },
+            "mesh": {
+              "psnr": 13.346450321450245,
+              "ssim": 0.6101386698573269,
+              "mae": 38.757528862847224
+            }
+          }
+        },
+        "cameraRestored": true
+      }
+    ],
+    "fixed": [
+      {
+        "scene": "pipes",
+        "quality": {
+          "resolution": [
+            768,
+            505
+          ],
+          "views": [
+            {
+              "index": 0,
+              "name": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+              "gaussian": {
+                "psnr": 18.7454079234687,
+                "ssim": 0.7833699625373709,
+                "mae": 23.128159378437843
+              },
+              "mesh": {
+                "psnr": 16.203956014134363,
+                "ssim": 0.6405673672234332,
+                "mae": 24.89255277090209
+              }
+            },
+            {
+              "index": 8,
+              "name": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+              "gaussian": {
+                "psnr": 13.792416915886214,
+                "ssim": 0.6784728649187745,
+                "mae": 43.79629228547855
+              },
+              "mesh": {
+                "psnr": 10.703182508757498,
+                "ssim": 0.44565281751496727,
+                "mae": 55.57786286441144
+              }
+            }
+          ],
+          "averages": {
+            "gaussian": {
+              "psnr": 16.268912419677456,
+              "ssim": 0.7309214137280726,
+              "mae": 33.46222583195819
+            },
+            "mesh": {
+              "psnr": 13.453569261445931,
+              "ssim": 0.5431100923692003,
+              "mae": 40.235207817656764
+            }
+          }
+        },
+        "cameraRestored": true
+      },
+      {
+        "scene": "office",
+        "quality": {
+          "resolution": [
+            768,
+            500
+          ],
+          "views": [
+            {
+              "index": 0,
+              "name": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+              "gaussian": {
+                "psnr": 20.14224972070788,
+                "ssim": 0.854074841185931,
+                "mae": 19.42663628472222
+              },
+              "mesh": {
+                "psnr": 12.908715161761181,
+                "ssim": 0.5523269728757447,
+                "mae": 43.283671875
+              }
+            },
+            {
+              "index": 8,
+              "name": "0008-1c6da61406eb4744893572435799058c.jpg",
+              "gaussian": {
+                "psnr": 18.609404955593412,
+                "ssim": 0.9030411354183728,
+                "mae": 24.478438368055556
+              },
+              "mesh": {
+                "psnr": 13.659212822977622,
+                "ssim": 0.7938037629857664,
+                "mae": 35.42440972222222
+              }
+            },
+            {
+              "index": 16,
+              "name": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+              "gaussian": {
+                "psnr": 15.281057627991563,
+                "ssim": 0.7627602027580822,
+                "mae": 36.04847569444444
+              },
+              "mesh": {
+                "psnr": 13.199993005936507,
+                "ssim": 0.514409906920705,
+                "mae": 41.8853125
+              }
+            },
+            {
+              "index": 24,
+              "name": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+              "gaussian": {
+                "psnr": 21.781069172415165,
+                "ssim": 0.8361942484912689,
+                "mae": 15.425102430555556
+              },
+              "mesh": {
+                "psnr": 13.618649893923978,
+                "ssim": 0.5806073766403183,
+                "mae": 34.43380555555556
+              }
+            }
+          ],
+          "averages": {
+            "gaussian": {
+              "psnr": 18.953445369177004,
+              "ssim": 0.8390176069634138,
+              "mae": 23.844663194444443
+            },
+            "mesh": {
+              "psnr": 13.346642721149822,
+              "ssim": 0.6102870048556336,
+              "mae": 38.75679991319444
+            }
+          }
+        },
+        "cameraRestored": true
+      }
+    ],
+    "differences": [
+      {
+        "scene": "pipes",
+        "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+        "backend": "gaussian",
+        "metric": "psnr",
+        "difference": -0.0009173092105960734
+      },
+      {
+        "scene": "pipes",
+        "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+        "backend": "gaussian",
+        "metric": "ssim",
+        "difference": 0.0005095325809464368
+      },
+      {
+        "scene": "pipes",
+        "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+        "backend": "gaussian",
+        "metric": "mae",
+        "difference": -0.0011963696369647892
+      },
+      {
+        "scene": "pipes",
+        "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+        "backend": "mesh",
+        "metric": "psnr",
+        "difference": -0.0005089430681053386
+      },
+      {
+        "scene": "pipes",
+        "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+        "backend": "mesh",
+        "metric": "ssim",
+        "difference": 0.0003862391112835484
+      },
+      {
+        "scene": "pipes",
+        "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+        "backend": "mesh",
+        "metric": "mae",
+        "difference": -0.0002526815181518316
+      },
+      {
+        "scene": "office",
+        "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+        "backend": "gaussian",
+        "metric": "psnr",
+        "difference": 7.450550324250571e-05
+      },
+      {
+        "scene": "office",
+        "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+        "backend": "gaussian",
+        "metric": "ssim",
+        "difference": 0.0010015810768264632
+      },
+      {
+        "scene": "office",
+        "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+        "backend": "gaussian",
+        "metric": "mae",
+        "difference": -0.001995659722222598
+      },
+      {
+        "scene": "office",
+        "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+        "backend": "mesh",
+        "metric": "psnr",
+        "difference": 0.0007695987983087349
+      },
+      {
+        "scene": "office",
+        "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+        "backend": "mesh",
+        "metric": "ssim",
+        "difference": 0.0005933399932264161
+      },
+      {
+        "scene": "office",
+        "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+        "backend": "mesh",
+        "metric": "mae",
+        "difference": -0.002915798611105913
+      }
+    ],
+    "pixelControlsEqual": true,
+    "limitation": "First-photo scores differed in this pair, but evaluation input hashes were not captured. Cause is unverified. Traced repeats matched all inputs and scores; no quality-improvement claim."
+  },
+  "delayedReferenceDispose": {
+    "variant": "candidate",
+    "scenario": "dispose",
+    "passed": true,
+    "pixelsAfterInterrupt": 0,
+    "viewChangesAfterDispose": 0,
+    "rendersAfterDispose": 0,
+    "disposedBeforeResume": true,
+    "playing": false,
+    "controlsUnlocked": false,
+    "reportAbsent": true,
+    "loadingExported": false,
+    "status": "评测已取消",
+    "errors": []
+  },
+  "productionUI": {
+    "build": "main-BGXN10To.js",
+    "url": "http://127.0.0.1:5187/benchmark.html",
+    "runs": [
+      {
+        "scene": "pipes",
+        "cancelledStatus": "评测已取消",
+        "restoredCameraIndex": 1,
+        "quality": {
+          "resolution": [
+            768,
+            505
+          ],
+          "views": [
+            {
+              "index": 0,
+              "name": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+              "gaussian": {
+                "psnr": 18.7454079234687,
+                "ssim": 0.7833699625373709,
+                "mae": 23.128159378437843
+              },
+              "mesh": {
+                "psnr": 16.203956014134363,
+                "ssim": 0.6405673672234332,
+                "mae": 24.89255277090209
+              }
+            },
+            {
+              "index": 8,
+              "name": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+              "gaussian": {
+                "psnr": 13.792416915886214,
+                "ssim": 0.6784728649187745,
+                "mae": 43.79629228547855
+              },
+              "mesh": {
+                "psnr": 10.703182508757498,
+                "ssim": 0.44565281751496727,
+                "mae": 55.57786286441144
+              }
+            }
+          ],
+          "averages": {
+            "gaussian": {
+              "psnr": 16.268912419677456,
+              "ssim": 0.7309214137280726,
+              "mae": 33.46222583195819
+            },
+            "mesh": {
+              "psnr": 13.453569261445931,
+              "ssim": 0.5431100923692003,
+              "mae": 40.235207817656764
+            }
+          }
+        },
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "hardwareConcurrency": 10,
+          "screenRefreshRate": "unknown",
+          "devicePixelRatio": 2,
+          "drawingPixelRatio": 1
+        },
+        "differencesFromTracedRepeat": []
+      },
+      {
+        "scene": "office",
+        "cancelledStatus": "评测已取消",
+        "restoredCameraIndex": 1,
+        "quality": {
+          "resolution": [
+            768,
+            500
+          ],
+          "views": [
+            {
+              "index": 0,
+              "name": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+              "gaussian": {
+                "psnr": 20.142175215204638,
+                "ssim": 0.8530732601091046,
+                "mae": 19.428631944444444
+              },
+              "mesh": {
+                "psnr": 12.907945562962873,
+                "ssim": 0.5517336328825183,
+                "mae": 43.28658767361111
+              }
+            },
+            {
+              "index": 8,
+              "name": "0008-1c6da61406eb4744893572435799058c.jpg",
+              "gaussian": {
+                "psnr": 18.609404955593412,
+                "ssim": 0.9030411354183728,
+                "mae": 24.478438368055556
+              },
+              "mesh": {
+                "psnr": 13.659212822977622,
+                "ssim": 0.7938037629857664,
+                "mae": 35.42440972222222
+              }
+            },
+            {
+              "index": 16,
+              "name": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+              "gaussian": {
+                "psnr": 15.281057627991563,
+                "ssim": 0.7627602027580822,
+                "mae": 36.04847569444444
+              },
+              "mesh": {
+                "psnr": 13.199993005936507,
+                "ssim": 0.514409906920705,
+                "mae": 41.8853125
+              }
+            },
+            {
+              "index": 24,
+              "name": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+              "gaussian": {
+                "psnr": 21.781069172415165,
+                "ssim": 0.8361942484912689,
+                "mae": 15.425102430555556
+              },
+              "mesh": {
+                "psnr": 13.618649893923978,
+                "ssim": 0.5806073766403183,
+                "mae": 34.43380555555556
+              }
+            }
+          ],
+          "averages": {
+            "gaussian": {
+              "psnr": 18.953426742801195,
+              "ssim": 0.8387672116942071,
+              "mae": 23.845162109375
+            },
+            "mesh": {
+              "psnr": 13.346450321450245,
+              "ssim": 0.6101386698573269,
+              "mae": 38.757528862847224
+            }
+          }
+        },
+        "environment": {
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+          "hardwareConcurrency": 10,
+          "screenRefreshRate": "unknown",
+          "devicePixelRatio": 2,
+          "drawingPixelRatio": 1
+        },
+        "differencesFromTracedRepeat": [
+          {
+            "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+            "backend": "gaussian",
+            "metric": "psnr",
+            "difference": -7.450550324250571e-05
+          },
+          {
+            "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+            "backend": "gaussian",
+            "metric": "ssim",
+            "difference": -0.0010015810768264632
+          },
+          {
+            "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+            "backend": "gaussian",
+            "metric": "mae",
+            "difference": 0.001995659722222598
+          },
+          {
+            "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+            "backend": "mesh",
+            "metric": "psnr",
+            "difference": -0.0007695987983087349
+          },
+          {
+            "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+            "backend": "mesh",
+            "metric": "ssim",
+            "difference": -0.0005933399932264161
+          },
+          {
+            "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+            "backend": "mesh",
+            "metric": "mae",
+            "difference": 0.002915798611105913
+          }
+        ]
+      }
+    ],
+    "consoleErrors": [],
+    "limitation": "Cancellation and restart succeeded. Scores again showed small first-photo variation; production input hashes were not captured. No causal claim or quality improvement."
+  }
+}

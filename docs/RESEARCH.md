@@ -1,6 +1,6 @@
 # 3DGS 研究索引
 
-查阅日期：2026-10-28。以下区分已验证的应用改进与尚未验证收益的研究候选。
+查阅日期：2026-10-29。以下区分已验证的应用改进与尚未验证收益的研究候选。
 
 ## 实现
 
@@ -326,3 +326,20 @@ Spark 最新发行仍为 [2.4.0](https://github.com/sparkjsdev/spark/releases/ta
 [作者仓库](https://github.com/Rekenar/GaussianAdaptiveStreamer/tree/8143b03687577e91b106ea5fe1be44678dd66cf2)最新提交为 2026-05-26 的 WebTransport 合并，无 GitHub Release，仓库未见 LICENSE 或明确代码授权。[player.html](https://github.com/Rekenar/GaussianAdaptiveStreamer/blob/8143b03687577e91b106ea5fe1be44678dd66cf2/templates/player.html)的取消按钮设置 `EXP_CANCEL` 并显示等待当前请求结束，顺序实验在执行边界检查标志。可行动约束是分别验证“提出取消”和“挂起工作结束”，不能只凭状态标志宣告清理完成。
 
 [作者环境说明](https://github.com/Rekenar/GaussianAdaptiveStreamer/blob/8143b03687577e91b106ea5fe1be44678dd66cf2/readme.md)要求 NVIDIA / CUDA 11.8，依赖 PyTorch 2.5.1、gsplat 1.5.3；浏览器 WebGPU 用于可选超分，不是把服务器光栅化直接移入 WebGL2。未验证 Metal 后端，没有复制代码或安装服务端，公开代码许可未明确前不移植。当前静态页面保留本地渲染。
+
+
+### 已修复：画质取消覆盖恢复阶段
+
+[画质帧等待](QUALITY-FRAMES.md)补齐评分间隔和原相机恢复的取消信号，10 项检查通过；取消后的预览恢复与评分结果发布分别处理。复测保存 18 份实际评分输入摘要后结果一致，初测的微小波动仍保留待查。没有增加帧率或画质提升结论。
+
+2026-10-29 复核 [Spark v2.4.0](https://github.com/sparkjsdev/spark/releases/tag/v2.4.0)仍为最新发行（10-20，MIT，`ffe210d`）；[SparkRenderer](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/SparkRenderer.ts)的内部销毁检查不能取消应用 `finally` 中另一次等待。本次没有修改排序或依赖。
+
+### 待验证：Brush 的帧身份与读回资源
+
+[Brush 当前 main 1388f74](https://github.com/ArthurBrussee/brush/commit/1388f74c6fe0236f68ee4915564bf00e9d2e3747)提交于 2026-10-03，最新 GitHub Release 仍为 [v0.3.0](https://github.com/ArthurBrussee/brush/releases/tag/v0.3.0)（2025-09-14），两者不能混作同一版本。仓库 Apache-2.0，已阅读提交与[作者实现](https://github.com/ArthurBrussee/brush/blob/1388f74c6fe0236f68ee4915564bf00e9d2e3747/apps/brush-app/src/ui/splat_backbuffer.rs)。
+
+实现将异步读回物化为 CPU 像素，以弱引用跟踪帧身份；相同帧的重复重绘跳过上传，上传缓冲增长时才重建绑定。可行动假设是未来缓存读回时分别记录帧身份、强引用保留及上传次数，不能凭跳过调用就声称显存下降。当前本地取消修复不移植该路径，不引入像素缓存。
+
+作者使用 Burn / CubeCL 与 wgpu，README 列出原生 macOS/Windows/Linux 与 WebGPU 浏览器支持；不是 WebGL2 接口，也不要求以 CUDA 作为唯一后端。本项目未构建或实测其 WebGPU/Metal 版本，未采用提交中的训练改动或引用其速度为本项目结果。
+
+再次阅读 [WebSplatter v1 §4](https://arxiv.org/html/2602.03207v1#S4)（2026-02-03，arXiv 非独占永久发布许可）及[当前作者页面](https://websplatter.github.io/)：运行失败、总帧时间和跨设备画质分别报告。当前页面的设备和画质口径不同于早期 v1，继续保留版本边界。[公开实现](https://github.com/websplatter/WebSplatter/tree/16bb06e86b8fb12193d4bb4cd2b0b3d4f3ab62be)仍为 08-29 的 `16bb06e`，Release 1.0.0 为 08-10，MIT；需要 WebGPU compute，未在本项目验证 Metal/CUDA 对照。此处只用其失败记录与分段评价方式约束测量，不把工作组推进保证当作页面取消保证。
