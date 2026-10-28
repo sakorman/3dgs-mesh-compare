@@ -1,0 +1,131 @@
+{
+  "date": "2026-10-28",
+  "build": "main-BZwouhhI.js",
+  "url": "http://127.0.0.1:5185/benchmark.html",
+  "scope": "Production UI cancel, clear performance cells, restart and export; no speed comparison.",
+  "runs": [
+    {
+      "scene": "pipes",
+      "createdAt": "2026-10-28T14:54:27.129Z",
+      "cancelledStatus": "测试已取消",
+      "performanceCellsAfterCancel": [
+        "—",
+        "—",
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "controlsUnlockedAfterCancel": true,
+      "restarted": true,
+      "sampleCounts": {
+        "gaussian": 160,
+        "mesh": 160
+      },
+      "protocol": {
+        "order": [
+          [
+            "gaussian",
+            "mesh"
+          ],
+          [
+            "mesh",
+            "gaussian"
+          ],
+          [
+            "gaussian",
+            "mesh"
+          ],
+          [
+            "mesh",
+            "gaussian"
+          ]
+        ],
+        "warmup": 12,
+        "samplesPerRound": 40,
+        "camera": "static calibrated photo; sort settled",
+        "resolution": [
+          768,
+          505
+        ],
+        "devicePixelRatio": 1,
+        "antialias": false,
+        "background": "#000000",
+        "gpuDisjoint": {
+          "gaussian": false,
+          "mesh": false
+        },
+        "note": "Main-thread submit CPU excludes asynchronous sort worker. FPS is refresh-rate limited. No moving-camera benchmark."
+      },
+      "environment": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "hardwareConcurrency": 10,
+        "screenRefreshRate": "unknown",
+        "devicePixelRatio": 2,
+        "drawingPixelRatio": 1
+      }
+    },
+    {
+      "scene": "office",
+      "createdAt": "2026-10-28T14:58:51.967Z",
+      "cancelledStatus": "测试已取消",
+      "performanceCellsAfterCancel": [
+        "—",
+        "—",
+        "—",
+        "—",
+        "—",
+        "—"
+      ],
+      "controlsUnlockedAfterCancel": true,
+      "restarted": true,
+      "sampleCounts": {
+        "gaussian": 160,
+        "mesh": 160
+      },
+      "protocol": {
+        "order": [
+          [
+            "gaussian",
+            "mesh"
+          ],
+          [
+            "mesh",
+            "gaussian"
+          ],
+          [
+            "gaussian",
+            "mesh"
+          ],
+          [
+            "mesh",
+            "gaussian"
+          ]
+        ],
+        "warmup": 12,
+        "samplesPerRound": 40,
+        "camera": "static calibrated photo; sort settled",
+        "resolution": [
+          768,
+          500
+        ],
+        "devicePixelRatio": 1,
+        "antialias": false,
+        "background": "#000000",
+        "gpuDisjoint": {
+          "gaussian": false,
+          "mesh": false
+        },
+        "note": "Main-thread submit CPU excludes asynchronous sort worker. FPS is refresh-rate limited. No moving-camera benchmark."
+      },
+      "environment": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "hardwareConcurrency": 10,
+        "screenRefreshRate": "unknown",
+        "devicePixelRatio": 2,
+        "drawingPixelRatio": 1
+      }
+    }
+  ],
+  "errors": []
+}

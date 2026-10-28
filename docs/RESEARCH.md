@@ -312,3 +312,17 @@ Spark 最新发行仍为 [2.4.0](https://github.com/sparkjsdev/spark/releases/ta
 [作者仓库](https://github.com/mlvlab/RLSplat/tree/0eee023e1892996a35dd2af58a32738d331a57a3)最新提交为 2026-10-23（链接项目主页），没有 Release；公开推理/评测实现使用 MIT，保留 LICENSE 的 2025 Honggyu An 版权，第三方依赖及权重须分别核实条款。[预算分配](https://github.com/mlvlab/RLSplat/blob/0eee023e1892996a35dd2af58a32738d331a57a3/src/model/gaussian_allocation/sampling.py)使用最大余数和容量重分配，[生成器](https://github.com/mlvlab/RLSplat/blob/0eee023e1892996a35dd2af58a32738d331a57a3/src/model/encoder/common/gaussian_token_generator.py)按分配计数展开 token，再执行预测，而非先产生全量 token 后裁剪。
 
 作者快速启动要求 Python 3.11、CUDA 兼容 PyTorch，涉及 PyTorch3D、DVLT 和 gsplat；首次运行还可能下载权重并编译 CUDA 扩展。未找到作者已验证的 WebGL2/WebGPU/Metal 路径。本项目未运行、未移植、未减少高斯数量；不引用论文倍数作为本项目性能，也不把生成预算算法等同浏览器字节分块。后续若开展生成实验，需单列其输入/相机/训练与质量边界。
+
+### 已修复：性能评测的帧等待取消
+
+[取消对照](BENCHMARK-CANCEL.md)复现应用等待与 Spark 内部任务的不同边界：即使调用方信号已取消，直接等待下一帧仍不会结束。现在信号覆盖排序准备、采样和查询收尾；7 项浏览器检查通过，3 个已创建查询及时删除，18 次画面控制不变。没有将该修复写为排序或 GPU 加速。
+
+2026-10-28 复核 Spark 最新发行仍为 [v2.4.0](https://github.com/sparkjsdev/spark/releases/tag/v2.4.0)（10-20，MIT，`ffe210d`）。[#476](https://github.com/sparkjsdev/spark/pull/476)于 10-15 合并，屏蔽销毁后内部任务的迟到拒绝；[#480](https://github.com/sparkjsdev/spark/pull/480)于 10-12 合并，在任务结束后替换遇到致命 trap 的池化 Worker。两者均不承诺取消应用层 Promise 或停止已提交 GPU 作业，不替代此次帧回调与查询清理。
+
+### 测量参考：TIGAS 的交互时延与取消边界
+
+新补查 [TIGAS v1](https://arxiv.org/abs/2605.08699)（2026-05-09，arXiv 非独占永久发布许可）。论文把远端渲染、传输及客户端处理纳入交互时延；这与本项目的主线程提交、GPU 查询和刷新间隔不同。未套用论文速度或把本次取消响应视为运动到显示的时延。
+
+[作者仓库](https://github.com/Rekenar/GaussianAdaptiveStreamer/tree/8143b03687577e91b106ea5fe1be44678dd66cf2)最新提交为 2026-05-26 的 WebTransport 合并，无 GitHub Release，仓库未见 LICENSE 或明确代码授权。[player.html](https://github.com/Rekenar/GaussianAdaptiveStreamer/blob/8143b03687577e91b106ea5fe1be44678dd66cf2/templates/player.html)的取消按钮设置 `EXP_CANCEL` 并显示等待当前请求结束，顺序实验在执行边界检查标志。可行动约束是分别验证“提出取消”和“挂起工作结束”，不能只凭状态标志宣告清理完成。
+
+[作者环境说明](https://github.com/Rekenar/GaussianAdaptiveStreamer/blob/8143b03687577e91b106ea5fe1be44678dd66cf2/readme.md)要求 NVIDIA / CUDA 11.8，依赖 PyTorch 2.5.1、gsplat 1.5.3；浏览器 WebGPU 用于可选超分，不是把服务器光栅化直接移入 WebGL2。未验证 Metal 后端，没有复制代码或安装服务端，公开代码许可未明确前不移植。当前静态页面保留本地渲染。

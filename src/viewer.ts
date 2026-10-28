@@ -10,8 +10,7 @@ import { disposeMeshResources } from "./mesh-resources";
 import { LoadScope } from "./load-scope";
 import { LoadClock, type LoadTimings } from "./load-timing";
 import type { Backend, SceneData, View } from "./types";
-export const nextFrame = () =>
-  new Promise<number>((resolve) => requestAnimationFrame(resolve));
+export { nextFrame } from "./next-frame";
 export class CompareViewer {
   camera = new THREE.PerspectiveCamera(60, 1, 0.005, 200);
   renderers: Record<Backend, THREE.WebGLRenderer>;
