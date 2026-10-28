@@ -115,7 +115,7 @@ PSNR 使用全图 RGB MSE；SSIM 使用每通道 RGB、11×11 Gaussian 窗口（
 
 ### 重建时间与体积
 
-具体数值见[重建耗时](#重建耗时)。3DGS 时间来自 web-scan 历史 GPU 训练记录；Mesh 时间来自当前 CPU 构建，均单独标识，不推导速度倍数。模型大小是 gzip PLY 与含纹理 GLB 的文件字节数，不是 GPU 显存占用。高斯解压后字节数也记录在 manifest。
+具体数值见[重建耗时](#重建耗时)。3DGS 时间来自 web-scan 历史 GPU 训练记录；Mesh 时间来自当前 CPU 构建，均单独标识，不推导速度倍数。模型大小是 gzip PLY 与含纹理 GLB 的文件字节数，不是 GPU 显存占用。高斯解压后字节数也记录在 manifest；默认加载会[核对完整长度](docs/PLY-SIZE.md)，拒绝超长、截断或缺失长度记录的数据。
 
 ## 复现 Mesh
 

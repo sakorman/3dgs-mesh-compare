@@ -1,0 +1,215 @@
+{
+  "createdAt": "2026-10-28T02:52:17.427Z",
+  "baselineCommit": "5ceb8c5",
+  "spark": "2.4.0",
+  "resolution": 768,
+  "maxSh": 3,
+  "lod": false,
+  "environment": {
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+    "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)"
+  },
+  "method": "Synthetic streamed source counts are bytes supplied to the reader, not network or peak memory. Actual files use gzip-file and HTTP-inflated paths; viewer failures use real HTTP metadata with invalid decoded lengths. No performance or memory benchmark. Pixel checks match prior original PLY controls.",
+  "cases": [
+    {
+      "variant": "baseline",
+      "encoding": "plain",
+      "expectedBytes": 64,
+      "sourceBytes": 1048576,
+      "suppliedBytes": 1048576,
+      "resultBytes": 1048576,
+      "error": null,
+      "cancelled": false,
+      "unlocked": true
+    },
+    {
+      "variant": "bounded",
+      "encoding": "plain",
+      "expectedBytes": 64,
+      "sourceBytes": 1048576,
+      "suppliedBytes": 1024,
+      "resultBytes": null,
+      "error": "Error: 高斯模型解压后长度超出场景记录",
+      "cancelled": true,
+      "unlocked": true
+    },
+    {
+      "variant": "baseline",
+      "encoding": "gzip",
+      "expectedBytes": 64,
+      "sourceBytes": 1048919,
+      "suppliedBytes": 1048919,
+      "resultBytes": 1048576,
+      "error": null,
+      "cancelled": false,
+      "unlocked": true
+    },
+    {
+      "variant": "bounded",
+      "encoding": "gzip",
+      "expectedBytes": 64,
+      "sourceBytes": 1048919,
+      "suppliedBytes": 1024,
+      "resultBytes": null,
+      "error": "Error: 高斯模型解压后长度超出场景记录",
+      "cancelled": true,
+      "unlocked": true
+    }
+  ],
+  "files": [
+    {
+      "scene": "pipes",
+      "mode": "gzip-file",
+      "decodedBytes": 70801551,
+      "sha256": "b716afb08b23e18feed481eb8307238da7ba0788aea705601c7c66e022a51caf"
+    },
+    {
+      "scene": "pipes",
+      "mode": "http-inflated",
+      "decodedBytes": 70801551,
+      "sha256": "b716afb08b23e18feed481eb8307238da7ba0788aea705601c7c66e022a51caf"
+    },
+    {
+      "scene": "office",
+      "mode": "gzip-file",
+      "decodedBytes": 54618559,
+      "sha256": "0af14259673b165001a9e84f27b6e19a55e924e0432e491e9701229f1c24e276"
+    },
+    {
+      "scene": "office",
+      "mode": "http-inflated",
+      "decodedBytes": 54618559,
+      "sha256": "0af14259673b165001a9e84f27b6e19a55e924e0432e491e9701229f1c24e276"
+    }
+  ],
+  "failures": [
+    {
+      "kind": "over",
+      "error": "Error: 高斯模型解压后长度超出场景记录",
+      "gaussianAbsent": true,
+      "dataAbsent": true,
+      "timingAbsent": true
+    },
+    {
+      "kind": "short",
+      "error": "Error: 高斯模型解压后长度与场景记录不符",
+      "gaussianAbsent": true,
+      "dataAbsent": true,
+      "timingAbsent": true
+    },
+    {
+      "kind": "missing",
+      "error": "Error: 高斯模型长度配置无效",
+      "gaussianAbsent": true,
+      "dataAbsent": true,
+      "timingAbsent": true
+    }
+  ],
+  "comparisons": [
+    {
+      "scene": "pipes",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": 0,
+      "hash": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 18.7454079234687,
+        "ssim": 0.7833699625373709,
+        "mae": 23.128159378437843
+      }
+    },
+    {
+      "scene": "pipes",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": -0.08,
+      "hash": "77a3202754413348a4176ac57760d7c93611807159622ebee7c746dbd1732db8",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "pipes",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": 0.08,
+      "hash": "a3a8db66317ad19b5b4907123ae9484054c1409e764244c3d667245743ca417b",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "pipes",
+      "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+      "yaw": 0,
+      "hash": "c91b07263481e55ea3f9585a7deadf35d29fea9f3ac96c938275124b58935754",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 13.792416915886214,
+        "ssim": 0.6784728649187745,
+        "mae": 43.79629228547855
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": 0,
+      "hash": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 20.14224972070788,
+        "ssim": 0.854074841185931,
+        "mae": 19.42663628472222
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": -0.08,
+      "hash": "eab164fb1727e3bf574e8592a82c3a962a5a3489b238754647b73bb181343ecd",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "office",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": 0.08,
+      "hash": "1c239cdf35aa90175f6becce1942c77222168482943bebf28b522b7a3d8d3c59",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "office",
+      "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+      "yaw": 0,
+      "hash": "8ba6cc5b7af30145763983b06ad0aa80dc911255e25b5d537c68653c14d8c0df",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 18.609404955593412,
+        "ssim": 0.9030411354183728,
+        "mae": 24.478438368055556
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+      "yaw": 0,
+      "hash": "a16ea0b0e57a2be26e2c85b2315a1c0f2ae3d221328451d5e87449829991213f",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 15.281057627991563,
+        "ssim": 0.7627602027580822,
+        "mae": 36.04847569444444
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+      "yaw": 0,
+      "hash": "7b0bf43e8967c537e2677326b567e2bea9f08162a374fab50489b48e049ed06d",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 21.781069172415165,
+        "ssim": 0.8361942484912689,
+        "mae": 15.425102430555556
+      }
+    }
+  ],
+  "errors": []
+}

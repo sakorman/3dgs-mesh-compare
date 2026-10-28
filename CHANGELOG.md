@@ -1,5 +1,12 @@
 # 更新日志
 
+## 2026-10-28 · PLY 加载长度检查
+
+- 默认高斯加载按场景清单检查解压后长度，超长块在结果收集前拒绝并取消源流，短包与缺失长度也不进入模型初始化；见[边界验证与截图](docs/PLY-SIZE.md)。
+- 模拟超长输入从完整读取约 1MiB 变为供给 1KiB 后拒绝；这是流计数，不是网络或内存峰值。4 组真实文件字节、3 种失败后恢复和 10 个原始画面对照通过。
+- 新增 7 项回归，共 85 项测试、类型检查及构建通过；默认照片、模型、SH3 与画质不变，正常加载耗时未重新测量。
+- 补充 [BoundedGS v1](https://arxiv.org/abs/2610.34233v1)、[作者有界预取](https://github.com/XiaoBin2001/BoundedGS/blob/23bca8369a793ab9e29cc2b5d7c5966d4660d850/utils/image_prefetch.py)及 [Spark 输入复制](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/SplatLoader.ts)；区分临时工作集与总内存，未套用 CUDA 训练跑分。
+
 ## 2026-10-28 · 受控加载耗时
 
 - 补齐候选模型的限速加载对照：5MiB/s、每请求服务器等待 40ms，热运行时下缓存未命中等待由管道 12.686s 降至 2.870s、办公室 9.640s 降至 2.090s；见[分段耗时与截图](docs/PACED-MODEL.md)。
