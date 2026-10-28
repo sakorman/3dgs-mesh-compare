@@ -1,5 +1,12 @@
 # 更新日志
 
+## 2026-10-29 · 场景加载取消与重试
+
+- 首页和评测页增加「取消加载」，下载等待时可退出并重试或切换场景；取消后清除旧画面，迟到解析结果不覆盖新场景，见[对照记录](docs/LOAD-CANCEL.md)。
+- 两场景共 10 项取消、重试与迟到结果检查通过，6 个留出画面摘要与原始 PLY 一致；真实 HTTP 停流后两次请求均在正文完成前关闭并成功重试。
+- 107 项测试、类型检查与生产构建通过；底层已提交解析可能继续结束，未宣称下载或 GPU 提速，线上 CDN 慢加载原因仍待查。
+- 补充 [Spark 读取取消接口](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/PagedSplatsFetcher.ts)、[MoQSplat 论文](https://arxiv.org/abs/2609.18624v1)及[公开实现](https://github.com/emanuele-artioli/MoQSplat/tree/15e02a669456d767abf5d68f9fb1f909f260dde0)，区分界面恢复、传输终止与解析结束。
+
 ## 2026-10-29 · 画质评测取消与恢复
 
 - 补齐画质评分间隔和相机恢复的取消信号，修复停帧后控件锁定，以及恢复阶段取消仍保留报告的问题；见[验证与截图](docs/QUALITY-FRAMES.md)。

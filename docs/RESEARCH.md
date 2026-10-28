@@ -343,3 +343,18 @@ Spark 最新发行仍为 [2.4.0](https://github.com/sparkjsdev/spark/releases/ta
 作者使用 Burn / CubeCL 与 wgpu，README 列出原生 macOS/Windows/Linux 与 WebGPU 浏览器支持；不是 WebGL2 接口，也不要求以 CUDA 作为唯一后端。本项目未构建或实测其 WebGPU/Metal 版本，未采用提交中的训练改动或引用其速度为本项目结果。
 
 再次阅读 [WebSplatter v1 §4](https://arxiv.org/html/2602.03207v1#S4)（2026-02-03，arXiv 非独占永久发布许可）及[当前作者页面](https://websplatter.github.io/)：运行失败、总帧时间和跨设备画质分别报告。当前页面的设备和画质口径不同于早期 v1，继续保留版本边界。[公开实现](https://github.com/websplatter/WebSplatter/tree/16bb06e86b8fb12193d4bb4cd2b0b3d4f3ab62be)仍为 08-29 的 `16bb06e`，Release 1.0.0 为 08-10，MIT；需要 WebGPU compute，未在本项目验证 Metal/CUDA 对照。此处只用其失败记录与分段评价方式约束测量，不把工作组推进保证当作页面取消保证。
+
+
+### 已采用：加载取消入口与迟到结果隔离
+
+2026-10-29 复核 Spark 最新发行仍为 [v2.4.0](https://github.com/sparkjsdev/spark/releases/tag/v2.4.0)，发布于 10-20，main 为 `ffe210d`，MIT。发行说明中的读取抽象在当前源码为 [PagedSplatsFetcher.ts](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/PagedSplatsFetcher.ts)：URL 路径把信号传入 Request，但接口允许实现取消后继续完成。不能只依赖请求拒绝清理迟到模型。
+
+[页面加载取消](LOAD-CANCEL.md)复用既有 LoadScope，并在清理前让界面请求编号失效；10 项受控检查、两次真实 HTTP 取消与重试通过。该修复未使用 RAD 分页或修改 Spark Worker，WebGL2 渲染器与完整 SH3 资源不变；没有 WebGPU、原生 Metal 或 CUDA 性能结论。
+
+### 候选：MoQSplat 的传输状态与取消边界
+
+[MoQSplat v1](https://arxiv.org/abs/2609.18624v1)发布于 2026-09-16，arXiv 页面标 CC BY-SA 4.0，正文另有 IEEE 版权说明，引用保留原链接，不再分发论文内容。[原文第三节](https://arxiv.org/html/2609.18624v1#S3)区分 MISSING / DOWNLOADING / CACHED，在失败后重新请求；原型采用单 Track 与五级剪枝层，不能将完整多 Track 架构描述当作已实现和验证结果。
+
+[作者仓库](https://github.com/emanuele-artioli/MoQSplat/tree/15e02a669456d767abf5d68f9fb1f909f260dde0)最近提交为 2026-09-16 的 `15e02a6`，无 GitHub Release；[pyproject.toml](https://github.com/emanuele-artioli/MoQSplat/blob/15e02a669456d767abf5d68f9fb1f909f260dde0/pyproject.toml)标版本 0.1.0、MIT，但树中未见独立 LICENSE 文件，依赖与发布代码仍需分别核实。已读 [transport/client.py](https://github.com/emanuele-artioli/MoQSplat/blob/15e02a669456d767abf5d68f9fb1f909f260dde0/src/moq3dgs/transport/client.py)：disconnect 取消并等待接收任务，再关闭写入器。请求停止、任务结束和缓存可用是不同状态。
+
+作者环境固定 Python 3.10 / PyTorch 2.5.1 / CUDA 12.1，论文使用 Python gsplat 与定制 moq-lite 服务；不是可直接加入 GitHub Pages 的 WebGL2/WebGPU 模块，未找到已验证 Metal 路径。本项目未安装、复制或测试其实现，也未采纳论文跑分。可行动假设是后续渐进加载必须分别验证不完整层、取消后的迟到内容与重试；当前完整 PLY 保留原状，先记录真实 CDN/缓存证据，不因单次慢加载就迁移传输协议。
