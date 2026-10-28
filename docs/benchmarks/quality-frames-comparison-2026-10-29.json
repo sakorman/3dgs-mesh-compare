@@ -572,5 +572,123 @@
     ],
     "consoleErrors": [],
     "limitation": "Cancellation and restart succeeded. Scores again showed small first-photo variation; production input hashes were not captured. No causal claim or quality improvement."
+  },
+  "publishedUI": {
+    "commit": "00d7da75d2ecdcbb15589270718641ddb8f09db3",
+    "build": "main-BGXN10To.js",
+    "url": "https://sakorman.github.io/3dgs-mesh-compare/benchmark.html",
+    "pagesRun": 40748885478,
+    "cancelledStatus": "评测已取消",
+    "restoredCameraIndex": 1,
+    "quality": {
+      "resolution": [
+        768,
+        505
+      ],
+      "views": [
+        {
+          "index": 0,
+          "name": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "gaussian": {
+            "psnr": 18.7454079234687,
+            "ssim": 0.7833699625373709,
+            "mae": 23.128159378437843
+          },
+          "mesh": {
+            "psnr": 16.203956014134363,
+            "ssim": 0.6405673672234332,
+            "mae": 24.89255277090209
+          }
+        },
+        {
+          "index": 8,
+          "name": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+          "gaussian": {
+            "psnr": 13.792416915886214,
+            "ssim": 0.6784728649187745,
+            "mae": 43.79629228547855
+          },
+          "mesh": {
+            "psnr": 10.703182508757498,
+            "ssim": 0.44565281751496727,
+            "mae": 55.57786286441144
+          }
+        }
+      ],
+      "averages": {
+        "gaussian": {
+          "psnr": 16.268912419677456,
+          "ssim": 0.7309214137280726,
+          "mae": 33.46222583195819
+        },
+        "mesh": {
+          "psnr": 13.453569261445931,
+          "ssim": 0.5431100923692003,
+          "mae": 40.235207817656764
+        }
+      }
+    },
+    "loading": {
+      "schemaVersion": 1,
+      "scene": "pipes",
+      "createdAt": "2026-10-28T18:52:47.890Z",
+      "totalMs": 332242.80000019073,
+      "spans": [
+        {
+          "stage": "metadata",
+          "startMs": 10.300000190734863,
+          "endMs": 281.5,
+          "durationMs": 271.19999980926514
+        },
+        {
+          "stage": "gaussianReadDecode",
+          "startMs": 284.59999990463257,
+          "endMs": 332001.59999990463,
+          "durationMs": 331717
+        },
+        {
+          "stage": "meshRead",
+          "startMs": 284.7000002861023,
+          "endMs": 306161.5,
+          "durationMs": 305876.7999997139
+        },
+        {
+          "stage": "meshParse",
+          "startMs": 306161.5,
+          "endMs": 306188.30000019073,
+          "durationMs": 26.800000190734863
+        },
+        {
+          "stage": "gaussianInitialize",
+          "startMs": 332001.90000009537,
+          "endMs": 332133,
+          "durationMs": 131.09999990463257
+        },
+        {
+          "stage": "settle",
+          "startMs": 332133.09999990463,
+          "endMs": 332242.80000019073,
+          "durationMs": 109.7000002861023
+        }
+      ],
+      "resolution": [
+        768,
+        505
+      ],
+      "camera": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "visibility": "foreground",
+      "cache": "uncontrolled",
+      "scope": "scene-load-to-settled-submission",
+      "execution": "parallel-model-loading"
+    },
+    "environment": {
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+      "hardwareConcurrency": 10,
+      "screenRefreshRate": "unknown",
+      "devicePixelRatio": 2,
+      "drawingPixelRatio": 1
+    },
+    "consoleErrors": [],
+    "limitations": "Single uncontrolled CDN load. Reading dominates this observation; download and gzip decode are not separated. No causal comparison to prior releases."
   }
 }
