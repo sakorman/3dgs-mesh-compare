@@ -1,0 +1,17 @@
+{
+  "baselineCommit": "96c45c2",
+  "method": "Original settle method; injected clock and frame queue, no GPU measurement",
+  "results": [
+    {
+      "mode": "background-gap",
+      "simulatedElapsedMs": 20000,
+      "status": "rejected",
+      "name": "Error",
+      "message": "高斯排序未就绪，请重试"
+    },
+    {
+      "mode": "abort-without-frame",
+      "settledWithoutFrame": false
+    }
+  ]
+}

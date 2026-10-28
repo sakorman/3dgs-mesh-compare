@@ -279,3 +279,20 @@ Spark 最新发行仍为 [2.4.0](https://github.com/sparkjsdev/spark/releases/ta
 [作者仓库 `23bca83`](https://github.com/XiaoBin2001/BoundedGS/tree/23bca8369a793ab9e29cc2b5d7c5966d4660d850)最新提交为 10-27 的链接更新，截至 10-28 无 GitHub Release，已公开实现。[image_prefetch.py](https://github.com/XiaoBin2001/BoundedGS/blob/23bca8369a793ab9e29cc2b5d7c5966d4660d850/utils/image_prefetch.py)按 `prefetch_count` 限制待处理队列，结束时取消未执行任务并等待执行器关闭。可行动启示是同时核对容量与释放时点；本项目的流取消和输出字节计数仍不能说明内部解压/WASM 状态已释放。
 
 [README 环境](https://github.com/XiaoBin2001/BoundedGS/blob/23bca8369a793ab9e29cc2b5d7c5966d4660d850/README.md)为 Ubuntu 22.04、PyTorch 2.5.1 / CUDA 12.1 / RTX 4090；WebGL2、WebGPU、Metal 未验证。[LICENSE.md](https://github.com/XiaoBin2001/BoundedGS/blob/23bca8369a793ab9e29cc2b5d7c5966d4660d850/LICENSE.md)对原创贡献使用 MIT，继承的 3DGS / ImprovedGS 及其他组件继续受各自许可约束，不能称整个工程为纯 MIT。未安装或移植作者实现，暂保留为后续内存计量参考。
+
+
+### 已采用：页面调度与排序就绪分开处理
+
+[后台排序恢复](SETTLE-VISIBILITY.md)修复可见性计时与取消，不更换排序算法。[MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame)说明隐藏标签页通常暂停动画帧；当前 15 秒上限改为累计可见时间，加载报告仍保留墙钟等待。合成可见性测试通过，原生限流/睡眠恢复仍待验。
+
+2026-10-28 再次核对 Spark 最新发行仍为 [2.4.0](https://github.com/sparkjsdev/spark/releases/tag/v2.4.0)，10-20 发布，主分支 `ffe210d`，MIT。[SparkRenderer.driveSort](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/SparkRenderer.ts)先异步 `readbackDepth`，再 `sortWorker.call("sortSplats32")`，最终才清除 `sorting`。网页长时间没有帧不能独立证明 Worker 或 GPU 排序故障；本次不提前宣告就绪，也不改库内同步。
+
+### 候选：WebSplatter 的排序推进保证
+
+[arXiv v1](https://arxiv.org/abs/2602.03207v1)为 2026-02-03，非独占永久发布许可；截至 10-28 仅列 v1。[§3.3](https://arxiv.org/html/2602.03207v1)把跨工作组依赖拆成多阶段 radix sort，避免忙等。当前[作者页面](https://websplatter.github.io/)标注 ACM Multimedia 2026，其标题、作者列表及评价口径与早期 arXiv 不同；仓库 README 的会议届次又与项目页不一致，引用时保留各版本原链接，不合并跑分。
+
+[作者仓库](https://github.com/websplatter/WebSplatter/tree/16bb06e86b8fb12193d4bb4cd2b0b3d4f3ab62be)最新提交为 2026-08-29，`16bb06e`；[1.0.0 发行](https://github.com/websplatter/WebSplatter/releases/tag/1.0.0)为 08-10，[Zenodo 归档](https://zenodo.org/records/21798977)标 08-05、提交 `beb9532`。仓库 [LICENSE](https://github.com/websplatter/WebSplatter/blob/16bb06e86b8fb12193d4bb4cd2b0b3d4f3ab62be/LICENSE)为 MIT，保留 shrekshao 版权。
+
+已阅读 [gaussian-renderer.ts](https://github.com/websplatter/WebSplatter/blob/16bb06e86b8fb12193d4bb4cd2b0b3d4f3ab62be/src/gaussian-renderer.ts)与 [scatter WGSL](https://github.com/websplatter/WebSplatter/blob/16bb06e86b8fb12193d4bb4cd2b0b3d4f3ab62be/src/shaders/gaussian_sort_scatter.wgsl)：每个 radix round 分直方图、六个前缀子 pass 与 scatter；局部位图通过 `atomicOr`、工作组屏障和 `countOneBits` 得到稳定 rank。需要 WebGPU compute，不能直接放进当前 WebGL2 Spark 渲染器。论文含 Apple 设备，但本项目未运行其 WebGPU/Metal 路径；也不是 CUDA 移植结果。
+
+可行动方向是后续独立排序后端原型明确记录 GPU pass、读回、Worker 等待与页面可见性，并在相同 SH3/点数/画幅下检查画质。当前先保留已验证的 WebGL2 路径，不把 GPU 工作组推进保证当作浏览器后台恢复保证。
