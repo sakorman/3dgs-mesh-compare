@@ -1,0 +1,17 @@
+{
+  "method": "Local production build, first Gaussian body stalls after 1024 bytes; real UI cancel followed by retry. Not a bandwidth benchmark.",
+  "requests": {
+    "/scenes/pipes/gaussians.ply.gz": {
+      "sentBytes": 1024,
+      "closedBeforeCompletion": true
+    },
+    "/scenes/office/gaussians.ply.gz": {
+      "sentBytes": 1024,
+      "closedBeforeCompletion": true
+    }
+  },
+  "retry": {
+    "pipes": "loaded",
+    "office": "loaded"
+  }
+}

@@ -61,6 +61,7 @@ let viewer: CompareViewer;
 let data: SceneData;
 let sceneId = "pipes";
 let loadRequest = 0;
+let loading = false;
 let viewIndex = 0;
 let ready = false;
 let controller: AbortController | undefined;
@@ -177,12 +178,15 @@ function selectView(index: number) {
 }
 async function loadScene(id: string) {
   const request = ++loadRequest;
+  loading = true;
   sceneId = id;
   ready = false;
   lock(true);
   clearResults();
   if (isBenchmark) $("load-details").hidden = true;
   button("retry").hidden = true;
+  button("cancel").textContent = "取消加载";
+  button("cancel").hidden = false;
   status("正在加载照片与真实三维模型…");
   document.querySelectorAll<HTMLButtonElement>("[data-scene]").forEach((b) => {
     b.classList.toggle("active", b.dataset.scene === id);
@@ -242,7 +246,11 @@ async function loadScene(id: string) {
     status(`加载失败：${message(e)}。请重试。`, true);
     button("retry").hidden = false;
   } finally {
-    if (request === loadRequest) lock(false);
+    if (request === loadRequest) {
+      loading = false;
+      button("cancel").hidden = true;
+      lock(false);
+    }
   }
 }
 function message(e: unknown) {
@@ -258,6 +266,7 @@ function begin() {
   standard();
   lock(true);
   controller = new AbortController();
+  button("cancel").textContent = "取消测试";
   button("cancel").hidden = false;
 }
 function finish() {
@@ -387,7 +396,31 @@ if (isBenchmark) {
     }
   };
 }
-button("cancel").onclick = () => controller?.abort();
+button("cancel").onclick = () => {
+  if (!loading) {
+    controller?.abort();
+    return;
+  }
+  // Invalidate UI completion before releasing resources. Parsing may finish later.
+  ++loadRequest;
+  loading = false;
+  viewer.playing = false;
+  viewer.clear();
+  if (!viewer.lost && !viewer.disposed)
+    Object.values(viewer.renderers).forEach((renderer) => renderer.clear());
+  document.querySelectorAll<HTMLElement>(".reference, .photo-label")
+    .forEach((element) => (element.hidden = true));
+  for (const side of ["gs", "mesh"]) {
+    $(`${side}-count`).textContent = "未加载";
+    $(`${side}-size`).textContent = "—";
+  }
+  $("scene-info").textContent = "场景加载已取消";
+  ready = false;
+  button("cancel").hidden = true;
+  button("retry").hidden = false;
+  lock(false);
+  status("加载已取消，可重新加载或选择其他场景。");
+};
 button("retry").onclick = () => loadScene(sceneId);
 button("orbit").onclick = () => {
   setOrbit(!orbit);
