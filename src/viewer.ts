@@ -5,6 +5,7 @@ import { SparkRenderer, SplatMesh, SplatFileType } from "@sparkjsdev/spark";
 import { applyView } from "./camera";
 import { readPlyResponse } from "./model-bytes";
 import { RenderScheduler } from "./render-scheduler";
+import { settleFrames } from "./settle-frames";
 import { disposeMeshResources } from "./mesh-resources";
 import { LoadScope } from "./load-scope";
 import { LoadClock, type LoadTimings } from "./load-timing";
@@ -43,6 +44,7 @@ export class CompareViewer {
   onError = (s: string) => {};
   onProgress = (s: string) => {};
   private currentLoad?: LoadScope;
+  private settleScope = new AbortController();
   constructor(left: HTMLElement, right: HTMLElement) {
     const make = (parent: HTMLElement, label: string) => {
       const r = new THREE.WebGLRenderer({
@@ -61,6 +63,7 @@ export class CompareViewer {
         this.lost = true;
         this.playing = false;
         this.currentLoad?.cancel();
+        this.settleScope.abort();
         this.loadTimings = undefined;
         this.onError("显卡上下文丢失，请刷新页面重新加载。");
       });
@@ -211,6 +214,8 @@ export class CompareViewer {
     }
   }
   clear() {
+    this.settleScope.abort();
+    this.settleScope = new AbortController();
     const load = this.currentLoad;
     this.currentLoad = undefined;
     load?.cancel();
@@ -290,19 +295,15 @@ export class CompareViewer {
       }
     };
     check();
-    // Keep submitting frames while Spark's asynchronous readback/sort completes.
-    // Awaiting update() before the first frame can stall a hidden/offscreen context.
-    this.render("gaussian");
-    const start = performance.now();
-    let quiet = 0;
-    while (quiet < 4) {
-      if (performance.now() - start > 15000)
-        throw new Error("高斯排序未就绪，请重试");
-      await nextFrame();
+    const pending = signal
+      ? AbortSignal.any([signal, this.settleScope.signal])
+      : this.settleScope.signal;
+    await settleFrames(() => {
       check();
       this.render("gaussian");
-      quiet = this.spark.sorting || this.spark.sortDirty ? 0 : quiet + 1;
-    }
+      return this.spark.sorting || this.spark.sortDirty;
+    }, pending);
+    check();
     this.render("mesh");
   }
   pixels(kind: Backend) {

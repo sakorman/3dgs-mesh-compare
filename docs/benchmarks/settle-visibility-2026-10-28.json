@@ -1,0 +1,281 @@
+{
+  "createdAt": "2026-10-28T06:58:29.114Z",
+  "baselineCommit": "96c45c2",
+  "spark": "2.4.0",
+  "resolution": 768,
+  "maxSh": 3,
+  "lod": false,
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+  "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+  "method": "Real WebGL2 models and frames; document.hidden overridden plus synthetic visibilitychange for controlled 16s pauses. Not native tab suspension or GPU sorting speed measurement. Wall-clock load timings retain background wait. Pixel hashes match original PLY controls.",
+  "baseline": {
+    "baselineCommit": "96c45c2",
+    "method": "Original settle method; injected clock and frame queue, no GPU measurement",
+    "results": [
+      {
+        "mode": "background-gap",
+        "simulatedElapsedMs": 20000,
+        "status": "rejected",
+        "name": "Error",
+        "message": "高斯排序未就绪，请重试"
+      },
+      {
+        "mode": "abort-without-frame",
+        "settledWithoutFrame": false
+      }
+    ]
+  },
+  "cases": [
+    {
+      "scene": "pipes",
+      "kind": "synthetic-hidden-load",
+      "hiddenMs": 16001.599999904633,
+      "hiddenDraws": 0,
+      "success": true,
+      "timing": {
+        "schemaVersion": 1,
+        "scene": "pipes",
+        "createdAt": "2026-10-28T06:57:55.013Z",
+        "totalMs": 16468.800000190735,
+        "spans": [
+          {
+            "stage": "metadata",
+            "startMs": 0.09999990463256836,
+            "endMs": 2,
+            "durationMs": 1.9000000953674316
+          },
+          {
+            "stage": "gaussianReadDecode",
+            "startMs": 4.300000190734863,
+            "endMs": 223.19999980926514,
+            "durationMs": 218.89999961853027
+          },
+          {
+            "stage": "meshRead",
+            "startMs": 4.400000095367432,
+            "endMs": 18.90000009536743,
+            "durationMs": 14.5
+          },
+          {
+            "stage": "meshParse",
+            "startMs": 19,
+            "endMs": 30,
+            "durationMs": 11
+          },
+          {
+            "stage": "gaussianInitialize",
+            "startMs": 223.19999980926514,
+            "endMs": 347.30000019073486,
+            "durationMs": 124.10000038146973
+          },
+          {
+            "stage": "settle",
+            "startMs": 347.40000009536743,
+            "endMs": 16468.800000190735,
+            "durationMs": 16121.400000095367
+          }
+        ],
+        "resolution": [
+          768,
+          505
+        ],
+        "camera": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+        "visibility": "backgrounded",
+        "cache": "uncontrolled",
+        "scope": "scene-load-to-settled-submission",
+        "execution": "parallel-model-loading"
+      }
+    },
+    {
+      "scene": "pipes",
+      "kind": "hidden-caller-cancel",
+      "success": true
+    },
+    {
+      "scene": "pipes",
+      "kind": "hidden-clear",
+      "success": true
+    },
+    {
+      "scene": "office",
+      "kind": "synthetic-hidden-load",
+      "hiddenMs": 16001.300000190735,
+      "hiddenDraws": 0,
+      "success": true,
+      "timing": {
+        "schemaVersion": 1,
+        "scene": "office",
+        "createdAt": "2026-10-28T06:58:11.943Z",
+        "totalMs": 16443.299999713898,
+        "spans": [
+          {
+            "stage": "metadata",
+            "startMs": 0.09999990463256836,
+            "endMs": 1.799999713897705,
+            "durationMs": 1.6999998092651367
+          },
+          {
+            "stage": "gaussianReadDecode",
+            "startMs": 3.1999998092651367,
+            "endMs": 168.89999961853027,
+            "durationMs": 165.69999980926514
+          },
+          {
+            "stage": "meshRead",
+            "startMs": 3.299999713897705,
+            "endMs": 26.09999990463257,
+            "durationMs": 22.800000190734863
+          },
+          {
+            "stage": "meshParse",
+            "startMs": 26.09999990463257,
+            "endMs": 42.09999990463257,
+            "durationMs": 16
+          },
+          {
+            "stage": "gaussianInitialize",
+            "startMs": 168.89999961853027,
+            "endMs": 259.2999997138977,
+            "durationMs": 90.40000009536743
+          },
+          {
+            "stage": "settle",
+            "startMs": 259.2999997138977,
+            "endMs": 16443.299999713898,
+            "durationMs": 16184
+          }
+        ],
+        "resolution": [
+          768,
+          500
+        ],
+        "camera": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+        "visibility": "backgrounded",
+        "cache": "uncontrolled",
+        "scope": "scene-load-to-settled-submission",
+        "execution": "parallel-model-loading"
+      }
+    },
+    {
+      "scene": "office",
+      "kind": "hidden-caller-cancel",
+      "success": true
+    },
+    {
+      "scene": "office",
+      "kind": "hidden-clear",
+      "success": true
+    },
+    {
+      "kind": "hidden-dispose",
+      "success": true
+    }
+  ],
+  "comparisons": [
+    {
+      "scene": "pipes",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": 0,
+      "hash": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 18.7454079234687,
+        "ssim": 0.7833699625373709,
+        "mae": 23.128159378437843
+      }
+    },
+    {
+      "scene": "pipes",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": -0.08,
+      "hash": "77a3202754413348a4176ac57760d7c93611807159622ebee7c746dbd1732db8",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "pipes",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "yaw": 0.08,
+      "hash": "a3a8db66317ad19b5b4907123ae9484054c1409e764244c3d667245743ca417b",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "pipes",
+      "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+      "yaw": 0,
+      "hash": "c91b07263481e55ea3f9585a7deadf35d29fea9f3ac96c938275124b58935754",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 13.792416915886214,
+        "ssim": 0.6784728649187745,
+        "mae": 43.79629228547855
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": 0,
+      "hash": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 20.14224972070788,
+        "ssim": 0.854074841185931,
+        "mae": 19.42663628472222
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": -0.08,
+      "hash": "eab164fb1727e3bf574e8592a82c3a962a5a3489b238754647b73bb181343ecd",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "office",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "yaw": 0.08,
+      "hash": "1c239cdf35aa90175f6becce1942c77222168482943bebf28b522b7a3d8d3c59",
+      "matchesPrevious": true,
+      "quality": null
+    },
+    {
+      "scene": "office",
+      "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+      "yaw": 0,
+      "hash": "8ba6cc5b7af30145763983b06ad0aa80dc911255e25b5d537c68653c14d8c0df",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 18.609404955593412,
+        "ssim": 0.9030411354183728,
+        "mae": 24.478438368055556
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+      "yaw": 0,
+      "hash": "a16ea0b0e57a2be26e2c85b2315a1c0f2ae3d221328451d5e87449829991213f",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 15.281057627991563,
+        "ssim": 0.7627602027580822,
+        "mae": 36.04847569444444
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+      "yaw": 0,
+      "hash": "7b0bf43e8967c537e2677326b567e2bea9f08162a374fab50489b48e049ed06d",
+      "matchesPrevious": true,
+      "quality": {
+        "psnr": 21.781069172415165,
+        "ssim": 0.8361942484912689,
+        "mae": 15.425102430555556
+      }
+    }
+  ],
+  "errors": []
+}

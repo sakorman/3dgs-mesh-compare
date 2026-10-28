@@ -1,5 +1,12 @@
 # 更新日志
 
+## 2026-10-28 · 后台排序恢复
+
+- 修复排序等待把后台停留计入超时的问题：隐藏时暂停检查，恢复后等待稳定帧，前台累计 15 秒超时保护仍保留；见[验证与截图](docs/SETTLE-VISIBILITY.md)。
+- 取消、场景清理和销毁无需再等下一帧；两场景各模拟隐藏 16 秒后恢复，期间绘制 0 次，7 项生命周期检查通过。
+- 10 个留出与偏转画面逐像素不变；新增 9 项回归，类型检查和构建通过。加载报告仍包含后台等待，未宣称 GPU 加速；原生后台限流与系统睡眠待验。
+- 核对 [Spark 排序实现](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/SparkRenderer.ts)，补充 [WebSplatter 论文](https://arxiv.org/abs/2602.03207v1)与[公开 WebGPU 代码](https://github.com/websplatter/WebSplatter/tree/16bb06e86b8fb12193d4bb4cd2b0b3d4f3ab62be)，区分 GPU 同步与页面调度，不混用论文版本跑分。
+
 ## 2026-10-28 · PLY 加载长度检查
 
 - 默认高斯加载按场景清单检查解压后长度，超长块在结果收集前拒绝并取消源流，短包与缺失长度也不进入模型初始化；见[边界验证与截图](docs/PLY-SIZE.md)。
