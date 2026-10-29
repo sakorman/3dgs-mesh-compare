@@ -1,0 +1,27 @@
+{
+  "renderedInputsUnchanged": 12,
+  "initialScoringInputsMatched": 17,
+  "scoringInputsTotal": 18,
+  "officeBaselineRepeatMatchesFixed": true,
+  "firstComparisonDifferences": [
+    {
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "kind": "gaussian",
+      "delta": {
+        "psnr": -7.450550324250571e-05,
+        "ssim": -0.0010015810768264632,
+        "mae": 0.001995659722222598
+      }
+    },
+    {
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "kind": "mesh",
+      "delta": {
+        "psnr": -0.0007695987983087349,
+        "ssim": -0.0005933399932264161,
+        "mae": 0.002915798611105913
+      }
+    }
+  ],
+  "cause": "Only first office post-drawImage reference RGBA changed; raw decode vs scaling cause unresolved. The same state occurs with the old implementation."
+}

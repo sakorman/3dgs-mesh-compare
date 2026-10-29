@@ -1,0 +1,145 @@
+{
+  "createdAt": "2026-10-29T02:57:19.700Z",
+  "variant": "fixed",
+  "scene": "pipes",
+  "baselineCommit": "870afb8",
+  "method": "Hold decoded image completion; observe cancellation for 80ms before releasing, with a late rejection in hidden case. Not a network or cancellation latency benchmark.",
+  "records": [
+    {
+      "scene": "pipes",
+      "scenario": "cancel",
+      "endedWithoutDecode": true,
+      "sourceDetached": true,
+      "controlsUnlocked": true,
+      "disposed": false,
+      "lateReads": 0,
+      "restoredCamera": true,
+      "reportAbsent": true,
+      "status": "评测已取消",
+      "lateReadsAfterRelease": 0,
+      "exportedQualityAbsent": true
+    },
+    {
+      "scene": "pipes",
+      "scenario": "resize",
+      "endedWithoutDecode": true,
+      "sourceDetached": true,
+      "controlsUnlocked": true,
+      "disposed": false,
+      "lateReads": 0,
+      "restoredCamera": true,
+      "reportAbsent": true,
+      "status": "评测已取消",
+      "lateReadsAfterRelease": 0,
+      "exportedQualityAbsent": true
+    },
+    {
+      "scene": "pipes",
+      "scenario": "hidden",
+      "endedWithoutDecode": true,
+      "sourceDetached": true,
+      "controlsUnlocked": true,
+      "disposed": false,
+      "lateReads": 0,
+      "restoredCamera": true,
+      "reportAbsent": true,
+      "status": "评测已取消",
+      "lateReadsAfterRelease": 0,
+      "exportedQualityAbsent": true
+    },
+    {
+      "scene": "pipes",
+      "scenario": "dispose",
+      "endedWithoutDecode": true,
+      "sourceDetached": true,
+      "controlsUnlocked": false,
+      "disposed": true,
+      "lateReads": 0,
+      "restoredCamera": null,
+      "reportAbsent": true,
+      "status": "评测已取消",
+      "lateReadsAfterRelease": 0
+    }
+  ],
+  "inputs": [
+    {
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "kind": "reference",
+      "hash": "31b8f18df8a2dd5d5ce509500ff4b56a3a6878f916deff5e3965bfe0af22ebb5"
+    },
+    {
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "kind": "gaussian",
+      "hash": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36"
+    },
+    {
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "kind": "mesh",
+      "hash": "c3c2144e2ef68b0306e923997f7336302afc5ff7097be8b9a2926b6c5b78cdb9"
+    },
+    {
+      "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+      "kind": "reference",
+      "hash": "a4b39c3eb6a9657796cfaf742e13b8af13a8b9f3128f7054b749dedf1b37873e"
+    },
+    {
+      "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+      "kind": "gaussian",
+      "hash": "c91b07263481e55ea3f9585a7deadf35d29fea9f3ac96c938275124b58935754"
+    },
+    {
+      "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+      "kind": "mesh",
+      "hash": "5cac2f041f2016ab5a86f7db66c4fe0180218f345175fabec76dac67c397008a"
+    }
+  ],
+  "normal": {
+    "resolution": [
+      768,
+      505
+    ],
+    "views": [
+      {
+        "index": 0,
+        "name": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+        "gaussian": {
+          "psnr": 18.7454079234687,
+          "ssim": 0.7833699625373709,
+          "mae": 23.128159378437843
+        },
+        "mesh": {
+          "psnr": 16.203956014134363,
+          "ssim": 0.6405673672234332,
+          "mae": 24.89255277090209
+        }
+      },
+      {
+        "index": 8,
+        "name": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+        "gaussian": {
+          "psnr": 13.792416915886214,
+          "ssim": 0.6784728649187745,
+          "mae": 43.79629228547855
+        },
+        "mesh": {
+          "psnr": 10.703182508757498,
+          "ssim": 0.44565281751496727,
+          "mae": 55.57786286441144
+        }
+      }
+    ],
+    "averages": {
+      "gaussian": {
+        "psnr": 16.268912419677456,
+        "ssim": 0.7309214137280726,
+        "mae": 33.46222583195819
+      },
+      "mesh": {
+        "psnr": 13.453569261445931,
+        "ssim": 0.5431100923692003,
+        "mae": 40.235207817656764
+      }
+    }
+  },
+  "errors": []
+}
