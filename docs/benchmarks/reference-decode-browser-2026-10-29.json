@@ -1,0 +1,2385 @@
+{
+  "createdAt": "2026-10-29T10:45:17.567Z",
+  "baseline": "08e1507",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+  "method": "Hash-checked JPEG and independently decoded RGB PNG; natural read first, then default-smoothing resize. Three repeats, last follows source detach/retry. Warm/uncontrolled browser cache; no rendering or timing benchmark.",
+  "records": [
+    {
+      "scene": "pipes",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "format": "jpeg",
+      "repeat": 0,
+      "readFrequently": false,
+      "naturalSize": [
+        1024,
+        673
+      ],
+      "scaledSize": [
+        768,
+        505
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": false
+      },
+      "canonicalHash": "50a3343191e42d42111bb7fda16c43cda32c0153f47b131eea7145502d9af012",
+      "naturalHash": "ed34e427e9019c0eedd36f39247b455c738e7de8f9e0de2fcd8606da1a551a42",
+      "scaledHash": "31b8f18df8a2dd5d5ce509500ff4b56a3a6878f916deff5e3965bfe0af22ebb5",
+      "naturalDifference": {
+        "changedChannels": 314457,
+        "maxAbsolute": 1,
+        "meanAbsolute": 0.11407389081073552
+      }
+    },
+    {
+      "scene": "pipes",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "format": "jpeg",
+      "repeat": 0,
+      "readFrequently": true,
+      "naturalSize": [
+        1024,
+        673
+      ],
+      "scaledSize": [
+        768,
+        505
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": true
+      },
+      "canonicalHash": "50a3343191e42d42111bb7fda16c43cda32c0153f47b131eea7145502d9af012",
+      "naturalHash": "50a3343191e42d42111bb7fda16c43cda32c0153f47b131eea7145502d9af012",
+      "scaledHash": "de8c6be16c0f5a9d3f94f20d59b4ab29ac227fbb47035ee91bc0ffd48789f29c",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "pipes",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "format": "jpeg",
+      "repeat": 1,
+      "readFrequently": false,
+      "naturalSize": [
+        1024,
+        673
+      ],
+      "scaledSize": [
+        768,
+        505
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": false
+      },
+      "canonicalHash": "50a3343191e42d42111bb7fda16c43cda32c0153f47b131eea7145502d9af012",
+      "naturalHash": "ed34e427e9019c0eedd36f39247b455c738e7de8f9e0de2fcd8606da1a551a42",
+      "scaledHash": "31b8f18df8a2dd5d5ce509500ff4b56a3a6878f916deff5e3965bfe0af22ebb5",
+      "naturalDifference": {
+        "changedChannels": 314457,
+        "maxAbsolute": 1,
+        "meanAbsolute": 0.11407389081073552
+      }
+    },
+    {
+      "scene": "pipes",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "format": "jpeg",
+      "repeat": 1,
+      "readFrequently": true,
+      "naturalSize": [
+        1024,
+        673
+      ],
+      "scaledSize": [
+        768,
+        505
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": true
+      },
+      "canonicalHash": "50a3343191e42d42111bb7fda16c43cda32c0153f47b131eea7145502d9af012",
+      "naturalHash": "50a3343191e42d42111bb7fda16c43cda32c0153f47b131eea7145502d9af012",
+      "scaledHash": "de8c6be16c0f5a9d3f94f20d59b4ab29ac227fbb47035ee91bc0ffd48789f29c",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "pipes",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "format": "jpeg",
+      "repeat": 2,
+      "readFrequently": false,
+      "naturalSize": [
+        1024,
+        673
+      ],
+      "scaledSize": [
+        768,
+        505
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": false
+      },
+      "canonicalHash": "50a3343191e42d42111bb7fda16c43cda32c0153f47b131eea7145502d9af012",
+      "naturalHash": "ed34e427e9019c0eedd36f39247b455c738e7de8f9e0de2fcd8606da1a551a42",
+      "scaledHash": "31b8f18df8a2dd5d5ce509500ff4b56a3a6878f916deff5e3965bfe0af22ebb5",
+      "naturalDifference": {
+        "changedChannels": 314457,
+        "maxAbsolute": 1,
+        "meanAbsolute": 0.11407389081073552
+      }
+    },
+    {
+      "scene": "pipes",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "format": "jpeg",
+      "repeat": 2,
+      "readFrequently": true,
+      "naturalSize": [
+        1024,
+        673
+      ],
+      "scaledSize": [
+        768,
+        505
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": true
+      },
+      "canonicalHash": "50a3343191e42d42111bb7fda16c43cda32c0153f47b131eea7145502d9af012",
+      "naturalHash": "50a3343191e42d42111bb7fda16c43cda32c0153f47b131eea7145502d9af012",
+      "scaledHash": "de8c6be16c0f5a9d3f94f20d59b4ab29ac227fbb47035ee91bc0ffd48789f29c",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "pipes",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "format": "png",
+      "repeat": 0,
+      "readFrequently": false,
+      "naturalSize": [
+        1024,
+        673
+      ],
+      "scaledSize": [
+        768,
+        505
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": false
+      },
+      "canonicalHash": "50a3343191e42d42111bb7fda16c43cda32c0153f47b131eea7145502d9af012",
+      "naturalHash": "50a3343191e42d42111bb7fda16c43cda32c0153f47b131eea7145502d9af012",
+      "scaledHash": "b8748d04a9be5522ae6df0b4b158a9c96efa6e0449a160ddcc295275ef71c120",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "pipes",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "format": "png",
+      "repeat": 0,
+      "readFrequently": true,
+      "naturalSize": [
+        1024,
+        673
+      ],
+      "scaledSize": [
+        768,
+        505
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": true
+      },
+      "canonicalHash": "50a3343191e42d42111bb7fda16c43cda32c0153f47b131eea7145502d9af012",
+      "naturalHash": "50a3343191e42d42111bb7fda16c43cda32c0153f47b131eea7145502d9af012",
+      "scaledHash": "de8c6be16c0f5a9d3f94f20d59b4ab29ac227fbb47035ee91bc0ffd48789f29c",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "pipes",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "format": "png",
+      "repeat": 1,
+      "readFrequently": false,
+      "naturalSize": [
+        1024,
+        673
+      ],
+      "scaledSize": [
+        768,
+        505
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": false
+      },
+      "canonicalHash": "50a3343191e42d42111bb7fda16c43cda32c0153f47b131eea7145502d9af012",
+      "naturalHash": "50a3343191e42d42111bb7fda16c43cda32c0153f47b131eea7145502d9af012",
+      "scaledHash": "b8748d04a9be5522ae6df0b4b158a9c96efa6e0449a160ddcc295275ef71c120",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "pipes",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "format": "png",
+      "repeat": 1,
+      "readFrequently": true,
+      "naturalSize": [
+        1024,
+        673
+      ],
+      "scaledSize": [
+        768,
+        505
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": true
+      },
+      "canonicalHash": "50a3343191e42d42111bb7fda16c43cda32c0153f47b131eea7145502d9af012",
+      "naturalHash": "50a3343191e42d42111bb7fda16c43cda32c0153f47b131eea7145502d9af012",
+      "scaledHash": "de8c6be16c0f5a9d3f94f20d59b4ab29ac227fbb47035ee91bc0ffd48789f29c",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "pipes",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "format": "png",
+      "repeat": 2,
+      "readFrequently": false,
+      "naturalSize": [
+        1024,
+        673
+      ],
+      "scaledSize": [
+        768,
+        505
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": false
+      },
+      "canonicalHash": "50a3343191e42d42111bb7fda16c43cda32c0153f47b131eea7145502d9af012",
+      "naturalHash": "50a3343191e42d42111bb7fda16c43cda32c0153f47b131eea7145502d9af012",
+      "scaledHash": "b8748d04a9be5522ae6df0b4b158a9c96efa6e0449a160ddcc295275ef71c120",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "pipes",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "format": "png",
+      "repeat": 2,
+      "readFrequently": true,
+      "naturalSize": [
+        1024,
+        673
+      ],
+      "scaledSize": [
+        768,
+        505
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": true
+      },
+      "canonicalHash": "50a3343191e42d42111bb7fda16c43cda32c0153f47b131eea7145502d9af012",
+      "naturalHash": "50a3343191e42d42111bb7fda16c43cda32c0153f47b131eea7145502d9af012",
+      "scaledHash": "de8c6be16c0f5a9d3f94f20d59b4ab29ac227fbb47035ee91bc0ffd48789f29c",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "pipes",
+      "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+      "format": "jpeg",
+      "repeat": 0,
+      "readFrequently": false,
+      "naturalSize": [
+        1024,
+        673
+      ],
+      "scaledSize": [
+        768,
+        505
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": false
+      },
+      "canonicalHash": "d90febde9b643b4412ffe23ac06631e4e1e43fef74ad01acc38d382c044391e7",
+      "naturalHash": "9b8b6445cfccffa1111e51671b81e52e7cd3db2fef306e2f26a402e89edebd1d",
+      "scaledHash": "a4b39c3eb6a9657796cfaf742e13b8af13a8b9f3128f7054b749dedf1b37873e",
+      "naturalDifference": {
+        "changedChannels": 362049,
+        "maxAbsolute": 1,
+        "meanAbsolute": 0.13133858713317237
+      }
+    },
+    {
+      "scene": "pipes",
+      "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+      "format": "jpeg",
+      "repeat": 0,
+      "readFrequently": true,
+      "naturalSize": [
+        1024,
+        673
+      ],
+      "scaledSize": [
+        768,
+        505
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": true
+      },
+      "canonicalHash": "d90febde9b643b4412ffe23ac06631e4e1e43fef74ad01acc38d382c044391e7",
+      "naturalHash": "d90febde9b643b4412ffe23ac06631e4e1e43fef74ad01acc38d382c044391e7",
+      "scaledHash": "d28178221654612ddaefd3d10db3630515a366d4031f31c253c3dedd8a3d1bcc",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "pipes",
+      "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+      "format": "jpeg",
+      "repeat": 1,
+      "readFrequently": false,
+      "naturalSize": [
+        1024,
+        673
+      ],
+      "scaledSize": [
+        768,
+        505
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": false
+      },
+      "canonicalHash": "d90febde9b643b4412ffe23ac06631e4e1e43fef74ad01acc38d382c044391e7",
+      "naturalHash": "9b8b6445cfccffa1111e51671b81e52e7cd3db2fef306e2f26a402e89edebd1d",
+      "scaledHash": "a4b39c3eb6a9657796cfaf742e13b8af13a8b9f3128f7054b749dedf1b37873e",
+      "naturalDifference": {
+        "changedChannels": 362049,
+        "maxAbsolute": 1,
+        "meanAbsolute": 0.13133858713317237
+      }
+    },
+    {
+      "scene": "pipes",
+      "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+      "format": "jpeg",
+      "repeat": 1,
+      "readFrequently": true,
+      "naturalSize": [
+        1024,
+        673
+      ],
+      "scaledSize": [
+        768,
+        505
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": true
+      },
+      "canonicalHash": "d90febde9b643b4412ffe23ac06631e4e1e43fef74ad01acc38d382c044391e7",
+      "naturalHash": "d90febde9b643b4412ffe23ac06631e4e1e43fef74ad01acc38d382c044391e7",
+      "scaledHash": "d28178221654612ddaefd3d10db3630515a366d4031f31c253c3dedd8a3d1bcc",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "pipes",
+      "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+      "format": "jpeg",
+      "repeat": 2,
+      "readFrequently": false,
+      "naturalSize": [
+        1024,
+        673
+      ],
+      "scaledSize": [
+        768,
+        505
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": false
+      },
+      "canonicalHash": "d90febde9b643b4412ffe23ac06631e4e1e43fef74ad01acc38d382c044391e7",
+      "naturalHash": "9b8b6445cfccffa1111e51671b81e52e7cd3db2fef306e2f26a402e89edebd1d",
+      "scaledHash": "a4b39c3eb6a9657796cfaf742e13b8af13a8b9f3128f7054b749dedf1b37873e",
+      "naturalDifference": {
+        "changedChannels": 362049,
+        "maxAbsolute": 1,
+        "meanAbsolute": 0.13133858713317237
+      }
+    },
+    {
+      "scene": "pipes",
+      "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+      "format": "jpeg",
+      "repeat": 2,
+      "readFrequently": true,
+      "naturalSize": [
+        1024,
+        673
+      ],
+      "scaledSize": [
+        768,
+        505
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": true
+      },
+      "canonicalHash": "d90febde9b643b4412ffe23ac06631e4e1e43fef74ad01acc38d382c044391e7",
+      "naturalHash": "d90febde9b643b4412ffe23ac06631e4e1e43fef74ad01acc38d382c044391e7",
+      "scaledHash": "d28178221654612ddaefd3d10db3630515a366d4031f31c253c3dedd8a3d1bcc",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "pipes",
+      "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+      "format": "png",
+      "repeat": 0,
+      "readFrequently": false,
+      "naturalSize": [
+        1024,
+        673
+      ],
+      "scaledSize": [
+        768,
+        505
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": false
+      },
+      "canonicalHash": "d90febde9b643b4412ffe23ac06631e4e1e43fef74ad01acc38d382c044391e7",
+      "naturalHash": "d90febde9b643b4412ffe23ac06631e4e1e43fef74ad01acc38d382c044391e7",
+      "scaledHash": "22989cc5d119703a45c8bcfb905cd08f8210ae04ca8f770bf99d48d292cbde5b",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "pipes",
+      "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+      "format": "png",
+      "repeat": 0,
+      "readFrequently": true,
+      "naturalSize": [
+        1024,
+        673
+      ],
+      "scaledSize": [
+        768,
+        505
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": true
+      },
+      "canonicalHash": "d90febde9b643b4412ffe23ac06631e4e1e43fef74ad01acc38d382c044391e7",
+      "naturalHash": "d90febde9b643b4412ffe23ac06631e4e1e43fef74ad01acc38d382c044391e7",
+      "scaledHash": "d28178221654612ddaefd3d10db3630515a366d4031f31c253c3dedd8a3d1bcc",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "pipes",
+      "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+      "format": "png",
+      "repeat": 1,
+      "readFrequently": false,
+      "naturalSize": [
+        1024,
+        673
+      ],
+      "scaledSize": [
+        768,
+        505
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": false
+      },
+      "canonicalHash": "d90febde9b643b4412ffe23ac06631e4e1e43fef74ad01acc38d382c044391e7",
+      "naturalHash": "d90febde9b643b4412ffe23ac06631e4e1e43fef74ad01acc38d382c044391e7",
+      "scaledHash": "22989cc5d119703a45c8bcfb905cd08f8210ae04ca8f770bf99d48d292cbde5b",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "pipes",
+      "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+      "format": "png",
+      "repeat": 1,
+      "readFrequently": true,
+      "naturalSize": [
+        1024,
+        673
+      ],
+      "scaledSize": [
+        768,
+        505
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": true
+      },
+      "canonicalHash": "d90febde9b643b4412ffe23ac06631e4e1e43fef74ad01acc38d382c044391e7",
+      "naturalHash": "d90febde9b643b4412ffe23ac06631e4e1e43fef74ad01acc38d382c044391e7",
+      "scaledHash": "d28178221654612ddaefd3d10db3630515a366d4031f31c253c3dedd8a3d1bcc",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "pipes",
+      "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+      "format": "png",
+      "repeat": 2,
+      "readFrequently": false,
+      "naturalSize": [
+        1024,
+        673
+      ],
+      "scaledSize": [
+        768,
+        505
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": false
+      },
+      "canonicalHash": "d90febde9b643b4412ffe23ac06631e4e1e43fef74ad01acc38d382c044391e7",
+      "naturalHash": "d90febde9b643b4412ffe23ac06631e4e1e43fef74ad01acc38d382c044391e7",
+      "scaledHash": "22989cc5d119703a45c8bcfb905cd08f8210ae04ca8f770bf99d48d292cbde5b",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "pipes",
+      "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+      "format": "png",
+      "repeat": 2,
+      "readFrequently": true,
+      "naturalSize": [
+        1024,
+        673
+      ],
+      "scaledSize": [
+        768,
+        505
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": true
+      },
+      "canonicalHash": "d90febde9b643b4412ffe23ac06631e4e1e43fef74ad01acc38d382c044391e7",
+      "naturalHash": "d90febde9b643b4412ffe23ac06631e4e1e43fef74ad01acc38d382c044391e7",
+      "scaledHash": "d28178221654612ddaefd3d10db3630515a366d4031f31c253c3dedd8a3d1bcc",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "format": "jpeg",
+      "repeat": 0,
+      "readFrequently": false,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": false
+      },
+      "canonicalHash": "d7c4fe25073c4cfb36c4741dcd3c4655bbc175127c212a6e5d0b8c5e4b88b1d5",
+      "naturalHash": "78ad868aa6bef5a412a4cdb4a44c53f84ae91eaa469ff49229c06f655c243d43",
+      "scaledHash": "5bd1500eb7b6a3f1c1f462c2886e81be55f590d37b4c2ee2221d90d7a5e10b58",
+      "naturalDifference": {
+        "changedChannels": 323356,
+        "maxAbsolute": 1,
+        "meanAbsolute": 0.11835732524362819
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "format": "jpeg",
+      "repeat": 0,
+      "readFrequently": true,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": true
+      },
+      "canonicalHash": "d7c4fe25073c4cfb36c4741dcd3c4655bbc175127c212a6e5d0b8c5e4b88b1d5",
+      "naturalHash": "d7c4fe25073c4cfb36c4741dcd3c4655bbc175127c212a6e5d0b8c5e4b88b1d5",
+      "scaledHash": "b377910af837d4d772698743ed441ea4a64ffc57f47386edb2e835d48dbf84c7",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "format": "jpeg",
+      "repeat": 1,
+      "readFrequently": false,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": false
+      },
+      "canonicalHash": "d7c4fe25073c4cfb36c4741dcd3c4655bbc175127c212a6e5d0b8c5e4b88b1d5",
+      "naturalHash": "78ad868aa6bef5a412a4cdb4a44c53f84ae91eaa469ff49229c06f655c243d43",
+      "scaledHash": "5bd1500eb7b6a3f1c1f462c2886e81be55f590d37b4c2ee2221d90d7a5e10b58",
+      "naturalDifference": {
+        "changedChannels": 323356,
+        "maxAbsolute": 1,
+        "meanAbsolute": 0.11835732524362819
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "format": "jpeg",
+      "repeat": 1,
+      "readFrequently": true,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": true
+      },
+      "canonicalHash": "d7c4fe25073c4cfb36c4741dcd3c4655bbc175127c212a6e5d0b8c5e4b88b1d5",
+      "naturalHash": "d7c4fe25073c4cfb36c4741dcd3c4655bbc175127c212a6e5d0b8c5e4b88b1d5",
+      "scaledHash": "b377910af837d4d772698743ed441ea4a64ffc57f47386edb2e835d48dbf84c7",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "format": "jpeg",
+      "repeat": 2,
+      "readFrequently": false,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": false
+      },
+      "canonicalHash": "d7c4fe25073c4cfb36c4741dcd3c4655bbc175127c212a6e5d0b8c5e4b88b1d5",
+      "naturalHash": "78ad868aa6bef5a412a4cdb4a44c53f84ae91eaa469ff49229c06f655c243d43",
+      "scaledHash": "5bd1500eb7b6a3f1c1f462c2886e81be55f590d37b4c2ee2221d90d7a5e10b58",
+      "naturalDifference": {
+        "changedChannels": 323356,
+        "maxAbsolute": 1,
+        "meanAbsolute": 0.11835732524362819
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "format": "jpeg",
+      "repeat": 2,
+      "readFrequently": true,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": true
+      },
+      "canonicalHash": "d7c4fe25073c4cfb36c4741dcd3c4655bbc175127c212a6e5d0b8c5e4b88b1d5",
+      "naturalHash": "d7c4fe25073c4cfb36c4741dcd3c4655bbc175127c212a6e5d0b8c5e4b88b1d5",
+      "scaledHash": "b377910af837d4d772698743ed441ea4a64ffc57f47386edb2e835d48dbf84c7",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "format": "png",
+      "repeat": 0,
+      "readFrequently": false,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": false
+      },
+      "canonicalHash": "d7c4fe25073c4cfb36c4741dcd3c4655bbc175127c212a6e5d0b8c5e4b88b1d5",
+      "naturalHash": "d7c4fe25073c4cfb36c4741dcd3c4655bbc175127c212a6e5d0b8c5e4b88b1d5",
+      "scaledHash": "36ca148fee0bbd6e39082a2f6afb3eb705eea12520aa2c7f8369adef6d0c8337",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "format": "png",
+      "repeat": 0,
+      "readFrequently": true,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": true
+      },
+      "canonicalHash": "d7c4fe25073c4cfb36c4741dcd3c4655bbc175127c212a6e5d0b8c5e4b88b1d5",
+      "naturalHash": "d7c4fe25073c4cfb36c4741dcd3c4655bbc175127c212a6e5d0b8c5e4b88b1d5",
+      "scaledHash": "b377910af837d4d772698743ed441ea4a64ffc57f47386edb2e835d48dbf84c7",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "format": "png",
+      "repeat": 1,
+      "readFrequently": false,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": false
+      },
+      "canonicalHash": "d7c4fe25073c4cfb36c4741dcd3c4655bbc175127c212a6e5d0b8c5e4b88b1d5",
+      "naturalHash": "d7c4fe25073c4cfb36c4741dcd3c4655bbc175127c212a6e5d0b8c5e4b88b1d5",
+      "scaledHash": "36ca148fee0bbd6e39082a2f6afb3eb705eea12520aa2c7f8369adef6d0c8337",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "format": "png",
+      "repeat": 1,
+      "readFrequently": true,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": true
+      },
+      "canonicalHash": "d7c4fe25073c4cfb36c4741dcd3c4655bbc175127c212a6e5d0b8c5e4b88b1d5",
+      "naturalHash": "d7c4fe25073c4cfb36c4741dcd3c4655bbc175127c212a6e5d0b8c5e4b88b1d5",
+      "scaledHash": "b377910af837d4d772698743ed441ea4a64ffc57f47386edb2e835d48dbf84c7",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "format": "png",
+      "repeat": 2,
+      "readFrequently": false,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": false
+      },
+      "canonicalHash": "d7c4fe25073c4cfb36c4741dcd3c4655bbc175127c212a6e5d0b8c5e4b88b1d5",
+      "naturalHash": "d7c4fe25073c4cfb36c4741dcd3c4655bbc175127c212a6e5d0b8c5e4b88b1d5",
+      "scaledHash": "36ca148fee0bbd6e39082a2f6afb3eb705eea12520aa2c7f8369adef6d0c8337",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "format": "png",
+      "repeat": 2,
+      "readFrequently": true,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": true
+      },
+      "canonicalHash": "d7c4fe25073c4cfb36c4741dcd3c4655bbc175127c212a6e5d0b8c5e4b88b1d5",
+      "naturalHash": "d7c4fe25073c4cfb36c4741dcd3c4655bbc175127c212a6e5d0b8c5e4b88b1d5",
+      "scaledHash": "b377910af837d4d772698743ed441ea4a64ffc57f47386edb2e835d48dbf84c7",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+      "format": "jpeg",
+      "repeat": 0,
+      "readFrequently": false,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": false
+      },
+      "canonicalHash": "6bceb23eae912079c7deab3eac5f12ecb09cab1907457f2a423ebdb59aceb1da",
+      "naturalHash": "87d09da0e2b1f0068e138bb8e152f7473f6339bcc98e1869ab4d2f990a264bbd",
+      "scaledHash": "431e2a1b7b88753e34a6df5586d233f30711f3e7dc30e9fa79d9782d539abf12",
+      "naturalDifference": {
+        "changedChannels": 223483,
+        "maxAbsolute": 1,
+        "meanAbsolute": 0.08180101843609446
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+      "format": "jpeg",
+      "repeat": 0,
+      "readFrequently": true,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": true
+      },
+      "canonicalHash": "6bceb23eae912079c7deab3eac5f12ecb09cab1907457f2a423ebdb59aceb1da",
+      "naturalHash": "6bceb23eae912079c7deab3eac5f12ecb09cab1907457f2a423ebdb59aceb1da",
+      "scaledHash": "0cb5341a14fda23a31150895e980fc76fef2f26df2b0e1b64b9664dd6be4ae71",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+      "format": "jpeg",
+      "repeat": 1,
+      "readFrequently": false,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": false
+      },
+      "canonicalHash": "6bceb23eae912079c7deab3eac5f12ecb09cab1907457f2a423ebdb59aceb1da",
+      "naturalHash": "87d09da0e2b1f0068e138bb8e152f7473f6339bcc98e1869ab4d2f990a264bbd",
+      "scaledHash": "431e2a1b7b88753e34a6df5586d233f30711f3e7dc30e9fa79d9782d539abf12",
+      "naturalDifference": {
+        "changedChannels": 223483,
+        "maxAbsolute": 1,
+        "meanAbsolute": 0.08180101843609446
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+      "format": "jpeg",
+      "repeat": 1,
+      "readFrequently": true,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": true
+      },
+      "canonicalHash": "6bceb23eae912079c7deab3eac5f12ecb09cab1907457f2a423ebdb59aceb1da",
+      "naturalHash": "6bceb23eae912079c7deab3eac5f12ecb09cab1907457f2a423ebdb59aceb1da",
+      "scaledHash": "0cb5341a14fda23a31150895e980fc76fef2f26df2b0e1b64b9664dd6be4ae71",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+      "format": "jpeg",
+      "repeat": 2,
+      "readFrequently": false,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": false
+      },
+      "canonicalHash": "6bceb23eae912079c7deab3eac5f12ecb09cab1907457f2a423ebdb59aceb1da",
+      "naturalHash": "87d09da0e2b1f0068e138bb8e152f7473f6339bcc98e1869ab4d2f990a264bbd",
+      "scaledHash": "431e2a1b7b88753e34a6df5586d233f30711f3e7dc30e9fa79d9782d539abf12",
+      "naturalDifference": {
+        "changedChannels": 223483,
+        "maxAbsolute": 1,
+        "meanAbsolute": 0.08180101843609446
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+      "format": "jpeg",
+      "repeat": 2,
+      "readFrequently": true,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": true
+      },
+      "canonicalHash": "6bceb23eae912079c7deab3eac5f12ecb09cab1907457f2a423ebdb59aceb1da",
+      "naturalHash": "6bceb23eae912079c7deab3eac5f12ecb09cab1907457f2a423ebdb59aceb1da",
+      "scaledHash": "0cb5341a14fda23a31150895e980fc76fef2f26df2b0e1b64b9664dd6be4ae71",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+      "format": "png",
+      "repeat": 0,
+      "readFrequently": false,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": false
+      },
+      "canonicalHash": "6bceb23eae912079c7deab3eac5f12ecb09cab1907457f2a423ebdb59aceb1da",
+      "naturalHash": "6bceb23eae912079c7deab3eac5f12ecb09cab1907457f2a423ebdb59aceb1da",
+      "scaledHash": "1d2546e6001fad94edceebfec9287ad25449d909f06c4a07b14d4af98d58f72f",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+      "format": "png",
+      "repeat": 0,
+      "readFrequently": true,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": true
+      },
+      "canonicalHash": "6bceb23eae912079c7deab3eac5f12ecb09cab1907457f2a423ebdb59aceb1da",
+      "naturalHash": "6bceb23eae912079c7deab3eac5f12ecb09cab1907457f2a423ebdb59aceb1da",
+      "scaledHash": "0cb5341a14fda23a31150895e980fc76fef2f26df2b0e1b64b9664dd6be4ae71",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+      "format": "png",
+      "repeat": 1,
+      "readFrequently": false,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": false
+      },
+      "canonicalHash": "6bceb23eae912079c7deab3eac5f12ecb09cab1907457f2a423ebdb59aceb1da",
+      "naturalHash": "6bceb23eae912079c7deab3eac5f12ecb09cab1907457f2a423ebdb59aceb1da",
+      "scaledHash": "1d2546e6001fad94edceebfec9287ad25449d909f06c4a07b14d4af98d58f72f",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+      "format": "png",
+      "repeat": 1,
+      "readFrequently": true,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": true
+      },
+      "canonicalHash": "6bceb23eae912079c7deab3eac5f12ecb09cab1907457f2a423ebdb59aceb1da",
+      "naturalHash": "6bceb23eae912079c7deab3eac5f12ecb09cab1907457f2a423ebdb59aceb1da",
+      "scaledHash": "0cb5341a14fda23a31150895e980fc76fef2f26df2b0e1b64b9664dd6be4ae71",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+      "format": "png",
+      "repeat": 2,
+      "readFrequently": false,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": false
+      },
+      "canonicalHash": "6bceb23eae912079c7deab3eac5f12ecb09cab1907457f2a423ebdb59aceb1da",
+      "naturalHash": "6bceb23eae912079c7deab3eac5f12ecb09cab1907457f2a423ebdb59aceb1da",
+      "scaledHash": "1d2546e6001fad94edceebfec9287ad25449d909f06c4a07b14d4af98d58f72f",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+      "format": "png",
+      "repeat": 2,
+      "readFrequently": true,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": true
+      },
+      "canonicalHash": "6bceb23eae912079c7deab3eac5f12ecb09cab1907457f2a423ebdb59aceb1da",
+      "naturalHash": "6bceb23eae912079c7deab3eac5f12ecb09cab1907457f2a423ebdb59aceb1da",
+      "scaledHash": "0cb5341a14fda23a31150895e980fc76fef2f26df2b0e1b64b9664dd6be4ae71",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+      "format": "jpeg",
+      "repeat": 0,
+      "readFrequently": false,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": false
+      },
+      "canonicalHash": "83c16235faba2ea4d09e43ca5037a366453b748bfbffb2b3bb43553be23719e3",
+      "naturalHash": "511538f22ec0b8f3874ccb79b468a9abffa27340f6b2a9ba191948f0d579a73f",
+      "scaledHash": "fbc00767bbca9de8034d780a332b05ee763dbf3b5d994eca83f6721215a19a61",
+      "naturalDifference": {
+        "changedChannels": 313709,
+        "maxAbsolute": 1,
+        "meanAbsolute": 0.11482625386525487
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+      "format": "jpeg",
+      "repeat": 0,
+      "readFrequently": true,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": true
+      },
+      "canonicalHash": "83c16235faba2ea4d09e43ca5037a366453b748bfbffb2b3bb43553be23719e3",
+      "naturalHash": "83c16235faba2ea4d09e43ca5037a366453b748bfbffb2b3bb43553be23719e3",
+      "scaledHash": "af40c3bf8524bb964a3f11ef10f59004a8cdca8283718b6b5a27e8a25d3e1f78",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+      "format": "jpeg",
+      "repeat": 1,
+      "readFrequently": false,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": false
+      },
+      "canonicalHash": "83c16235faba2ea4d09e43ca5037a366453b748bfbffb2b3bb43553be23719e3",
+      "naturalHash": "511538f22ec0b8f3874ccb79b468a9abffa27340f6b2a9ba191948f0d579a73f",
+      "scaledHash": "fbc00767bbca9de8034d780a332b05ee763dbf3b5d994eca83f6721215a19a61",
+      "naturalDifference": {
+        "changedChannels": 313709,
+        "maxAbsolute": 1,
+        "meanAbsolute": 0.11482625386525487
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+      "format": "jpeg",
+      "repeat": 1,
+      "readFrequently": true,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": true
+      },
+      "canonicalHash": "83c16235faba2ea4d09e43ca5037a366453b748bfbffb2b3bb43553be23719e3",
+      "naturalHash": "83c16235faba2ea4d09e43ca5037a366453b748bfbffb2b3bb43553be23719e3",
+      "scaledHash": "af40c3bf8524bb964a3f11ef10f59004a8cdca8283718b6b5a27e8a25d3e1f78",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+      "format": "jpeg",
+      "repeat": 2,
+      "readFrequently": false,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": false
+      },
+      "canonicalHash": "83c16235faba2ea4d09e43ca5037a366453b748bfbffb2b3bb43553be23719e3",
+      "naturalHash": "511538f22ec0b8f3874ccb79b468a9abffa27340f6b2a9ba191948f0d579a73f",
+      "scaledHash": "fbc00767bbca9de8034d780a332b05ee763dbf3b5d994eca83f6721215a19a61",
+      "naturalDifference": {
+        "changedChannels": 313709,
+        "maxAbsolute": 1,
+        "meanAbsolute": 0.11482625386525487
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+      "format": "jpeg",
+      "repeat": 2,
+      "readFrequently": true,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": true
+      },
+      "canonicalHash": "83c16235faba2ea4d09e43ca5037a366453b748bfbffb2b3bb43553be23719e3",
+      "naturalHash": "83c16235faba2ea4d09e43ca5037a366453b748bfbffb2b3bb43553be23719e3",
+      "scaledHash": "af40c3bf8524bb964a3f11ef10f59004a8cdca8283718b6b5a27e8a25d3e1f78",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+      "format": "png",
+      "repeat": 0,
+      "readFrequently": false,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": false
+      },
+      "canonicalHash": "83c16235faba2ea4d09e43ca5037a366453b748bfbffb2b3bb43553be23719e3",
+      "naturalHash": "83c16235faba2ea4d09e43ca5037a366453b748bfbffb2b3bb43553be23719e3",
+      "scaledHash": "d725a4ca106c11d234acb943ecd77dad0860e9cff4f9f5a3b2b790b6f905abe0",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+      "format": "png",
+      "repeat": 0,
+      "readFrequently": true,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": true
+      },
+      "canonicalHash": "83c16235faba2ea4d09e43ca5037a366453b748bfbffb2b3bb43553be23719e3",
+      "naturalHash": "83c16235faba2ea4d09e43ca5037a366453b748bfbffb2b3bb43553be23719e3",
+      "scaledHash": "af40c3bf8524bb964a3f11ef10f59004a8cdca8283718b6b5a27e8a25d3e1f78",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+      "format": "png",
+      "repeat": 1,
+      "readFrequently": false,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": false
+      },
+      "canonicalHash": "83c16235faba2ea4d09e43ca5037a366453b748bfbffb2b3bb43553be23719e3",
+      "naturalHash": "83c16235faba2ea4d09e43ca5037a366453b748bfbffb2b3bb43553be23719e3",
+      "scaledHash": "d725a4ca106c11d234acb943ecd77dad0860e9cff4f9f5a3b2b790b6f905abe0",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+      "format": "png",
+      "repeat": 1,
+      "readFrequently": true,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": true
+      },
+      "canonicalHash": "83c16235faba2ea4d09e43ca5037a366453b748bfbffb2b3bb43553be23719e3",
+      "naturalHash": "83c16235faba2ea4d09e43ca5037a366453b748bfbffb2b3bb43553be23719e3",
+      "scaledHash": "af40c3bf8524bb964a3f11ef10f59004a8cdca8283718b6b5a27e8a25d3e1f78",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+      "format": "png",
+      "repeat": 2,
+      "readFrequently": false,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": false
+      },
+      "canonicalHash": "83c16235faba2ea4d09e43ca5037a366453b748bfbffb2b3bb43553be23719e3",
+      "naturalHash": "83c16235faba2ea4d09e43ca5037a366453b748bfbffb2b3bb43553be23719e3",
+      "scaledHash": "d725a4ca106c11d234acb943ecd77dad0860e9cff4f9f5a3b2b790b6f905abe0",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+      "format": "png",
+      "repeat": 2,
+      "readFrequently": true,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": true
+      },
+      "canonicalHash": "83c16235faba2ea4d09e43ca5037a366453b748bfbffb2b3bb43553be23719e3",
+      "naturalHash": "83c16235faba2ea4d09e43ca5037a366453b748bfbffb2b3bb43553be23719e3",
+      "scaledHash": "af40c3bf8524bb964a3f11ef10f59004a8cdca8283718b6b5a27e8a25d3e1f78",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+      "format": "jpeg",
+      "repeat": 0,
+      "readFrequently": false,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": false
+      },
+      "canonicalHash": "6fab1ffa0e00772699fafa2f92240ef2827aa0a6e983ae0380726e50171544ce",
+      "naturalHash": "03d7f871e5b6be70ea0eb67731bc3cf6cd939367ff4c5c1d086ca873cafebd7b",
+      "scaledHash": "c59de703792bea8b2c8c6696bae1c5ca35a121c0f504c2c8521c5db95262cead",
+      "naturalDifference": {
+        "changedChannels": 307431,
+        "maxAbsolute": 1,
+        "meanAbsolute": 0.11252833056128186
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+      "format": "jpeg",
+      "repeat": 0,
+      "readFrequently": true,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": true
+      },
+      "canonicalHash": "6fab1ffa0e00772699fafa2f92240ef2827aa0a6e983ae0380726e50171544ce",
+      "naturalHash": "6fab1ffa0e00772699fafa2f92240ef2827aa0a6e983ae0380726e50171544ce",
+      "scaledHash": "49c1d54ef9a38e505c518a0bc701881d7c9bc211b86779d7dfc7f83b4a478d3a",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+      "format": "jpeg",
+      "repeat": 1,
+      "readFrequently": false,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": false
+      },
+      "canonicalHash": "6fab1ffa0e00772699fafa2f92240ef2827aa0a6e983ae0380726e50171544ce",
+      "naturalHash": "03d7f871e5b6be70ea0eb67731bc3cf6cd939367ff4c5c1d086ca873cafebd7b",
+      "scaledHash": "c59de703792bea8b2c8c6696bae1c5ca35a121c0f504c2c8521c5db95262cead",
+      "naturalDifference": {
+        "changedChannels": 307431,
+        "maxAbsolute": 1,
+        "meanAbsolute": 0.11252833056128186
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+      "format": "jpeg",
+      "repeat": 1,
+      "readFrequently": true,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": true
+      },
+      "canonicalHash": "6fab1ffa0e00772699fafa2f92240ef2827aa0a6e983ae0380726e50171544ce",
+      "naturalHash": "6fab1ffa0e00772699fafa2f92240ef2827aa0a6e983ae0380726e50171544ce",
+      "scaledHash": "49c1d54ef9a38e505c518a0bc701881d7c9bc211b86779d7dfc7f83b4a478d3a",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+      "format": "jpeg",
+      "repeat": 2,
+      "readFrequently": false,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": false
+      },
+      "canonicalHash": "6fab1ffa0e00772699fafa2f92240ef2827aa0a6e983ae0380726e50171544ce",
+      "naturalHash": "03d7f871e5b6be70ea0eb67731bc3cf6cd939367ff4c5c1d086ca873cafebd7b",
+      "scaledHash": "c59de703792bea8b2c8c6696bae1c5ca35a121c0f504c2c8521c5db95262cead",
+      "naturalDifference": {
+        "changedChannels": 307431,
+        "maxAbsolute": 1,
+        "meanAbsolute": 0.11252833056128186
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+      "format": "jpeg",
+      "repeat": 2,
+      "readFrequently": true,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": true
+      },
+      "canonicalHash": "6fab1ffa0e00772699fafa2f92240ef2827aa0a6e983ae0380726e50171544ce",
+      "naturalHash": "6fab1ffa0e00772699fafa2f92240ef2827aa0a6e983ae0380726e50171544ce",
+      "scaledHash": "49c1d54ef9a38e505c518a0bc701881d7c9bc211b86779d7dfc7f83b4a478d3a",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+      "format": "png",
+      "repeat": 0,
+      "readFrequently": false,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": false
+      },
+      "canonicalHash": "6fab1ffa0e00772699fafa2f92240ef2827aa0a6e983ae0380726e50171544ce",
+      "naturalHash": "6fab1ffa0e00772699fafa2f92240ef2827aa0a6e983ae0380726e50171544ce",
+      "scaledHash": "cfc7c2ffe9da550f5a7efb7cb1fd6f92584e7fe936f693bd1cd388851b78723a",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+      "format": "png",
+      "repeat": 0,
+      "readFrequently": true,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": true
+      },
+      "canonicalHash": "6fab1ffa0e00772699fafa2f92240ef2827aa0a6e983ae0380726e50171544ce",
+      "naturalHash": "6fab1ffa0e00772699fafa2f92240ef2827aa0a6e983ae0380726e50171544ce",
+      "scaledHash": "49c1d54ef9a38e505c518a0bc701881d7c9bc211b86779d7dfc7f83b4a478d3a",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+      "format": "png",
+      "repeat": 1,
+      "readFrequently": false,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": false
+      },
+      "canonicalHash": "6fab1ffa0e00772699fafa2f92240ef2827aa0a6e983ae0380726e50171544ce",
+      "naturalHash": "6fab1ffa0e00772699fafa2f92240ef2827aa0a6e983ae0380726e50171544ce",
+      "scaledHash": "cfc7c2ffe9da550f5a7efb7cb1fd6f92584e7fe936f693bd1cd388851b78723a",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+      "format": "png",
+      "repeat": 1,
+      "readFrequently": true,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": true
+      },
+      "canonicalHash": "6fab1ffa0e00772699fafa2f92240ef2827aa0a6e983ae0380726e50171544ce",
+      "naturalHash": "6fab1ffa0e00772699fafa2f92240ef2827aa0a6e983ae0380726e50171544ce",
+      "scaledHash": "49c1d54ef9a38e505c518a0bc701881d7c9bc211b86779d7dfc7f83b4a478d3a",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+      "format": "png",
+      "repeat": 2,
+      "readFrequently": false,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": false
+      },
+      "canonicalHash": "6fab1ffa0e00772699fafa2f92240ef2827aa0a6e983ae0380726e50171544ce",
+      "naturalHash": "6fab1ffa0e00772699fafa2f92240ef2827aa0a6e983ae0380726e50171544ce",
+      "scaledHash": "cfc7c2ffe9da550f5a7efb7cb1fd6f92584e7fe936f693bd1cd388851b78723a",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+      "format": "png",
+      "repeat": 2,
+      "readFrequently": true,
+      "naturalSize": [
+        1024,
+        667
+      ],
+      "scaledSize": [
+        768,
+        500
+      ],
+      "attributes": {
+        "alpha": true,
+        "colorSpace": "srgb",
+        "colorType": "unorm8",
+        "desynchronized": false,
+        "toneMapping": {
+          "mode": "standard"
+        },
+        "willReadFrequently": true
+      },
+      "canonicalHash": "6fab1ffa0e00772699fafa2f92240ef2827aa0a6e983ae0380726e50171544ce",
+      "naturalHash": "6fab1ffa0e00772699fafa2f92240ef2827aa0a6e983ae0380726e50171544ce",
+      "scaledHash": "49c1d54ef9a38e505c518a0bc701881d7c9bc211b86779d7dfc7f83b4a478d3a",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      }
+    }
+  ],
+  "errors": []
+}

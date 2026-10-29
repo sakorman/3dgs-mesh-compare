@@ -1,0 +1,332 @@
+{
+  "createdAt": "2026-10-29T10:47:11.440Z",
+  "metricSource": "src/metrics.ts at 08e1507",
+  "renderSource": "reference-pixels-quality-{scene}-2026-10-29.json; frozen RGBA captured at 0344969",
+  "method": "Same frozen model bytes; newly captured JPEG/PNG references at identical dimensions with default Canvas2D. This is a reference-input comparison, not a new render or speed benchmark.",
+  "records": [
+    {
+      "scene": "pipes",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "backend": "gaussian",
+      "resolution": [
+        768,
+        505
+      ],
+      "renderHash": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36",
+      "jpegHash": "31b8f18df8a2dd5d5ce509500ff4b56a3a6878f916deff5e3965bfe0af22ebb5",
+      "pngHash": "b8748d04a9be5522ae6df0b4b158a9c96efa6e0449a160ddcc295275ef71c120",
+      "jpeg": {
+        "psnr": 18.7454079234687,
+        "ssim": 0.7833699625373709,
+        "mae": 23.128159378437843
+      },
+      "png": {
+        "psnr": 18.746325232679297,
+        "ssim": 0.7828604299564245,
+        "mae": 23.129355748074808
+      },
+      "delta": {
+        "psnr": 0.0009173092105960734,
+        "ssim": -0.0005095325809464368,
+        "mae": 0.0011963696369647892
+      }
+    },
+    {
+      "scene": "pipes",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "backend": "mesh",
+      "resolution": [
+        768,
+        505
+      ],
+      "renderHash": "c3c2144e2ef68b0306e923997f7336302afc5ff7097be8b9a2926b6c5b78cdb9",
+      "jpegHash": "31b8f18df8a2dd5d5ce509500ff4b56a3a6878f916deff5e3965bfe0af22ebb5",
+      "pngHash": "b8748d04a9be5522ae6df0b4b158a9c96efa6e0449a160ddcc295275ef71c120",
+      "jpeg": {
+        "psnr": 16.203956014134363,
+        "ssim": 0.6405673672234332,
+        "mae": 24.89255277090209
+      },
+      "png": {
+        "psnr": 16.204464957202468,
+        "ssim": 0.6401811281121497,
+        "mae": 24.89280545242024
+      },
+      "delta": {
+        "psnr": 0.0005089430681053386,
+        "ssim": -0.0003862391112835484,
+        "mae": 0.0002526815181518316
+      }
+    },
+    {
+      "scene": "pipes",
+      "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+      "backend": "gaussian",
+      "resolution": [
+        768,
+        505
+      ],
+      "renderHash": "c91b07263481e55ea3f9585a7deadf35d29fea9f3ac96c938275124b58935754",
+      "jpegHash": "a4b39c3eb6a9657796cfaf742e13b8af13a8b9f3128f7054b749dedf1b37873e",
+      "pngHash": "22989cc5d119703a45c8bcfb905cd08f8210ae04ca8f770bf99d48d292cbde5b",
+      "jpeg": {
+        "psnr": 13.792416915886214,
+        "ssim": 0.6784728649187745,
+        "mae": 43.79629228547855
+      },
+      "png": {
+        "psnr": 13.796126352156028,
+        "ssim": 0.6779924558248729,
+        "mae": 43.78421428080308
+      },
+      "delta": {
+        "psnr": 0.003709436269813793,
+        "ssim": -0.00048040909390156816,
+        "mae": -0.012078004675473153
+      }
+    },
+    {
+      "scene": "pipes",
+      "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+      "backend": "mesh",
+      "resolution": [
+        768,
+        505
+      ],
+      "renderHash": "5cac2f041f2016ab5a86f7db66c4fe0180218f345175fabec76dac67c397008a",
+      "jpegHash": "a4b39c3eb6a9657796cfaf742e13b8af13a8b9f3128f7054b749dedf1b37873e",
+      "pngHash": "22989cc5d119703a45c8bcfb905cd08f8210ae04ca8f770bf99d48d292cbde5b",
+      "jpeg": {
+        "psnr": 10.703182508757498,
+        "ssim": 0.44565281751496727,
+        "mae": 55.57786286441144
+      },
+      "png": {
+        "psnr": 10.705598472595963,
+        "ssim": 0.4452555092821565,
+        "mae": 55.564469884488446
+      },
+      "delta": {
+        "psnr": 0.002415963838464208,
+        "ssim": -0.0003973082328107558,
+        "mae": -0.013392979922997483
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "backend": "gaussian",
+      "resolution": [
+        768,
+        500
+      ],
+      "renderHash": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3",
+      "jpegHash": "5bd1500eb7b6a3f1c1f462c2886e81be55f590d37b4c2ee2221d90d7a5e10b58",
+      "pngHash": "36ca148fee0bbd6e39082a2f6afb3eb705eea12520aa2c7f8369adef6d0c8337",
+      "jpeg": {
+        "psnr": 20.14224972070788,
+        "ssim": 0.854074841185931,
+        "mae": 19.42663628472222
+      },
+      "png": {
+        "psnr": 20.142175215204638,
+        "ssim": 0.8530732601091046,
+        "mae": 19.428631944444444
+      },
+      "delta": {
+        "psnr": -7.450550324250571e-05,
+        "ssim": -0.0010015810768264632,
+        "mae": 0.001995659722222598
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "backend": "mesh",
+      "resolution": [
+        768,
+        500
+      ],
+      "renderHash": "ac95a13722ceebb9e56bfeb53a925f674a5145242504fb1929e44f4b8b66a4e7",
+      "jpegHash": "5bd1500eb7b6a3f1c1f462c2886e81be55f590d37b4c2ee2221d90d7a5e10b58",
+      "pngHash": "36ca148fee0bbd6e39082a2f6afb3eb705eea12520aa2c7f8369adef6d0c8337",
+      "jpeg": {
+        "psnr": 12.908715161761181,
+        "ssim": 0.5523269728757447,
+        "mae": 43.283671875
+      },
+      "png": {
+        "psnr": 12.907945562962873,
+        "ssim": 0.5517336328825183,
+        "mae": 43.28658767361111
+      },
+      "delta": {
+        "psnr": -0.0007695987983087349,
+        "ssim": -0.0005933399932264161,
+        "mae": 0.002915798611105913
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+      "backend": "gaussian",
+      "resolution": [
+        768,
+        500
+      ],
+      "renderHash": "8ba6cc5b7af30145763983b06ad0aa80dc911255e25b5d537c68653c14d8c0df",
+      "jpegHash": "431e2a1b7b88753e34a6df5586d233f30711f3e7dc30e9fa79d9782d539abf12",
+      "pngHash": "1d2546e6001fad94edceebfec9287ad25449d909f06c4a07b14d4af98d58f72f",
+      "jpeg": {
+        "psnr": 18.609404955593412,
+        "ssim": 0.9030411354183728,
+        "mae": 24.478438368055556
+      },
+      "png": {
+        "psnr": 18.60959005587099,
+        "ssim": 0.9019387938110114,
+        "mae": 24.479661458333332
+      },
+      "delta": {
+        "psnr": 0.00018510027757656644,
+        "ssim": -0.0011023416073614456,
+        "mae": 0.0012230902777758956
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+      "backend": "mesh",
+      "resolution": [
+        768,
+        500
+      ],
+      "renderHash": "3af78ee4ba301c23d5ffaf227f2873c64eecec70b5db10e7dbd2fec1ca1573ad",
+      "jpegHash": "431e2a1b7b88753e34a6df5586d233f30711f3e7dc30e9fa79d9782d539abf12",
+      "pngHash": "1d2546e6001fad94edceebfec9287ad25449d909f06c4a07b14d4af98d58f72f",
+      "jpeg": {
+        "psnr": 13.659212822977622,
+        "ssim": 0.7938037629857664,
+        "mae": 35.42440972222222
+      },
+      "png": {
+        "psnr": 13.663586646701962,
+        "ssim": 0.7929753636947499,
+        "mae": 35.40479253472222
+      },
+      "delta": {
+        "psnr": 0.004373823724339587,
+        "ssim": -0.0008283992910165239,
+        "mae": -0.019617187500003297
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+      "backend": "gaussian",
+      "resolution": [
+        768,
+        500
+      ],
+      "renderHash": "a16ea0b0e57a2be26e2c85b2315a1c0f2ae3d221328451d5e87449829991213f",
+      "jpegHash": "fbc00767bbca9de8034d780a332b05ee763dbf3b5d994eca83f6721215a19a61",
+      "pngHash": "d725a4ca106c11d234acb943ecd77dad0860e9cff4f9f5a3b2b790b6f905abe0",
+      "jpeg": {
+        "psnr": 15.281057627991563,
+        "ssim": 0.7627602027580822,
+        "mae": 36.04847569444444
+      },
+      "png": {
+        "psnr": 15.280496115625182,
+        "ssim": 0.7618599775779562,
+        "mae": 36.06028472222222
+      },
+      "delta": {
+        "psnr": -0.000561512366381578,
+        "ssim": -0.0009002251801260019,
+        "mae": 0.01180902777777959
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+      "backend": "mesh",
+      "resolution": [
+        768,
+        500
+      ],
+      "renderHash": "e1732f8812ec8de3b4c1560717cf85c1068d7c34ae8f48a7beb9df0354e8112b",
+      "jpegHash": "fbc00767bbca9de8034d780a332b05ee763dbf3b5d994eca83f6721215a19a61",
+      "pngHash": "d725a4ca106c11d234acb943ecd77dad0860e9cff4f9f5a3b2b790b6f905abe0",
+      "jpeg": {
+        "psnr": 13.199993005936507,
+        "ssim": 0.514409906920705,
+        "mae": 41.8853125
+      },
+      "png": {
+        "psnr": 13.20075985151416,
+        "ssim": 0.5138307782141438,
+        "mae": 41.881246527777776
+      },
+      "delta": {
+        "psnr": 0.0007668455776528305,
+        "ssim": -0.0005791287065611828,
+        "mae": -0.004065972222221603
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+      "backend": "gaussian",
+      "resolution": [
+        768,
+        500
+      ],
+      "renderHash": "7b0bf43e8967c537e2677326b567e2bea9f08162a374fab50489b48e049ed06d",
+      "jpegHash": "c59de703792bea8b2c8c6696bae1c5ca35a121c0f504c2c8521c5db95262cead",
+      "pngHash": "cfc7c2ffe9da550f5a7efb7cb1fd6f92584e7fe936f693bd1cd388851b78723a",
+      "jpeg": {
+        "psnr": 21.781069172415165,
+        "ssim": 0.8361942484912689,
+        "mae": 15.425102430555556
+      },
+      "png": {
+        "psnr": 21.779923362863517,
+        "ssim": 0.8352850950608486,
+        "mae": 15.42719357638889
+      },
+      "delta": {
+        "psnr": -0.0011458095516481137,
+        "ssim": -0.0009091534304203064,
+        "mae": 0.00209114583333303
+      }
+    },
+    {
+      "scene": "office",
+      "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+      "backend": "mesh",
+      "resolution": [
+        768,
+        500
+      ],
+      "renderHash": "b9b1b565d36a0fa5cca1da62c0a7d0a39726d4431a64239ecae7548eb7e3ea97",
+      "jpegHash": "c59de703792bea8b2c8c6696bae1c5ca35a121c0f504c2c8521c5db95262cead",
+      "pngHash": "cfc7c2ffe9da550f5a7efb7cb1fd6f92584e7fe936f693bd1cd388851b78723a",
+      "jpeg": {
+        "psnr": 13.618649893923978,
+        "ssim": 0.5806073766403183,
+        "mae": 34.43380555555556
+      },
+      "png": {
+        "psnr": 13.618494882601075,
+        "ssim": 0.5799910157820751,
+        "mae": 34.43871614583333
+      },
+      "delta": {
+        "psnr": -0.00015501132290296482,
+        "ssim": -0.0006163608582431257,
+        "mae": 0.004910590277773963
+      }
+    }
+  ]
+}
