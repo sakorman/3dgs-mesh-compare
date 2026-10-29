@@ -73,4 +73,4 @@ npx vite --config tests/browser/vite-http-model.config.ts
 - [Spark v2.4.0](https://github.com/sparkjsdev/spark/releases/tag/v2.4.0)（2026-10-20 发布）及固定版本 [PagedSplatsFetcher](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/PagedSplatsFetcher.ts)：MIT，读取接口传递取消信号；不等于本项目已实现分页或可取消解析。
 - [ProGS 原文](https://arxiv.org/html/2603.09703v1)（2026-03-10）和作者 2026-08-28 [公开代码](https://github.com/ZhiyeTang/ProGS-Official/tree/f0e7b5d977fe38bde47eeb45a985c7b15940d0d9)：前缀解码有头部和父级依赖，不能把所有分块任意并行；[清单实现](https://github.com/ZhiyeTang/ProGS-Official/blob/f0e7b5d977fe38bde47eeb45a985c7b15940d0d9/progs/artifact.py)与[解码实现](https://github.com/ZhiyeTang/ProGS-Official/blob/f0e7b5d977fe38bde47eeb45a985c7b15940d0d9/progs/model_codec.py)分别核查文件完整性和模型依赖。只作为后续设计参考，未移植其代码或采用论文跑分。
 
-继续验证共享带宽、真实 CDN 与内存重叠成本；SPZ 解压和属性转换仍为独立待测项。ProGS 需要重训和 CUDA 参考栈、采用非商业研究许可，不能直接替换当前浏览器候选。
+[共享总带宽上限对照](SHARED-PAIR.md)已补充，使用单独调度器与样本；继续验证真实 CDN 与内存重叠成本。SPZ 解压和属性转换仍为独立待测项。ProGS 需要重训和 CUDA 参考栈、采用非商业研究许可，不能直接替换当前浏览器候选。

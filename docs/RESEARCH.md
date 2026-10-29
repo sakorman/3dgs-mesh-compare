@@ -430,3 +430,19 @@ Spark 最新发行仍为 [2.4.0](https://github.com/sparkjsdev/spark/releases/ta
 [参考环境](https://github.com/ZhiyeTang/ProGS-Official/blob/f0e7b5d977fe38bde47eeb45a985c7b15940d0d9/README.md)为 Ubuntu 22.04、Python 3.9、PyTorch 2.1.2、CUDA 12.1 / RTX 4090，论文实验写 Ubuntu 20.04；[许可证](https://github.com/ZhiyeTang/ProGS-Official/blob/f0e7b5d977fe38bde47eeb45a985c7b15940d0d9/LICENSE.md)限非商业研究/评价，不是 MIT。未下载权重、运行训练或复制实现，WebGL2/WebGPU/Metal 的完整训练/解码/渲染适配均未验证。
 
 可行动结论：后续若引入分页，先列出可独立下载与必须按序解码的依赖，再验证文件绑定、缺块恢复和前缀画质；ProGS 需要重新训练及后端、许可评估，暂不改变当前模型。当前 AP16 并行读取只借鉴这一依赖区分，不称为实现 ProGS 或 LoD。
+
+### 已验证：共享正文预算下的并发收益边界
+
+[共享限速实验](SHARED-PAIR.md)将两请求放入一份 5MiB/s 正文上限，新增 16 个串行对照样本；同条件总等待中位数减少约 71 / 58ms，36 次候选画面保持一致。实际供给速率为 4.127–4.286MiB/s，不将设定上限当作已达到吞吐。新的调度器禁止空闲额度与补发突发，因此只比较本批同调度器样本，不把前后批次差额全归因于共享带宽。
+
+2026-10-30 核对 Spark 最新 main 仍为 [ffe210d / v2.4.0](https://github.com/sparkjsdev/spark/releases/tag/v2.4.0)（2026-10-20，MIT）。发行说明的 FetchSource 分离并不提供额外网络带宽；固定版本 [SparkRenderer.ts](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/SparkRenderer.ts)将 numLodFetchers 默认设为 3，注释说明与其它任务共享 4 个 Worker。增加获取任务、解码线程与减少必需传输字节是不同问题，当前无 LoD 查看器不调整此配置。保持 WebGL2/WASM 路径，未运行 WebGPU 或原生 Metal/CUDA 对照。
+
+### 待验证：LapisGS 分层模型与不透明度更新
+
+阅读 [LapisGS v2](https://arxiv.org/html/2408.14823v2)第 3 节：首版 2024-08-27，v2 为 2025-02-10，3DV 2025，arXiv 永久非独占许可。它构建可累积的基础层与增强层，加入新层时仍优化旧层不透明度，并在层间插值；这是有独立训练和画质约束的模型表示，不是简单多开几个下载请求。论文不是 2026 年新发表，相关的是近期作者实现的更新。
+
+作者仓库 main 为 2026-06-08 的 [d302c35](https://github.com/nus-vv-streams/lapis-gs/commit/d302c3508593423c69b5debd617a8646a43f77de)，无 GitHub Release；新增 [top-down 流水线](https://github.com/nus-vv-streams/lapis-gs/blob/d302c3508593423c69b5debd617a8646a43f77de/train_full_pipeline_topdown.py)从完整模型重要性排序和分层，再逐层微调，和论文的原始 bottom-up 流程分开记录。代码启用 dynamic_opacity 时保留旧层除不透明度以外的属性；可选固定层大小还涉及剪枝。这提示后续分层文件需要绑定点身份、层级和对应的不透明度版本，不能直接把当前 AP16 视为所有 LoD 通用。
+
+公开入口显式使用 CUDA 数据设备，重要性评分还依赖额外 CUDA 光栅化器；没有直接接入本项目的 WebGL2/WebGPU/Metal 训练与分层运行时适配。根目录同时有 [MIT LICENSE](https://github.com/nus-vv-streams/lapis-gs/blob/d302c3508593423c69b5debd617a8646a43f77de/LICENSE)和原始 3DGS 的[非商业研究 LICENSE.md](https://github.com/nus-vv-streams/lapis-gs/blob/d302c3508593423c69b5debd617a8646a43f77de/LICENSE.md)，不能仅凭 GitHub 的 MIT 标签概括全部派生代码或子模块。未复制实现、运行流水线、改变原模型或沿用作者跑分。
+
+可行动结论：完整文件加载优先分解解压/属性转换与真实 CDN 等待；若后续研究可用前缀，需要独立产物验证各层画质、点身份、不透明度切换和传输体积，不跳过候选配对完整校验。

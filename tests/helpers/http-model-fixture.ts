@@ -1,3 +1,4 @@
+import { sharedResponsePacer, type SharedPacingRecord } from "./shared-response";
 import { paceResponse, type PacingRecord } from "./paced-response";
 import { createHash } from "node:crypto";
 import type { IncomingMessage, ServerResponse } from "node:http";
@@ -8,12 +9,13 @@ export interface HttpRecord {
   run: string; policy: string; scene: string; kind: string; version: string | null;
   ifNoneMatch: string | null; etag: string; status: number; bodyBytesOffered: number;
   finished: boolean; closed: boolean;
-  sample?: string | null; pacing?: PacingRecord;
+  sample?: string | null; pacing?: PacingRecord; shared?: SharedPacingRecord;
 }
 /** Loopback-only test middleware. The caller supplies a fixed allowlist of model bytes. */
 export function modelHttpFixture(assets: Record<string, HttpSceneAssets>) {
   const records: HttpRecord[] = [];
   const updated = new Set<string>();
+  const shared = new Map<string, ReturnType<typeof sharedResponsePacer>>();
   return (request: IncomingMessage, response: ServerResponse, next: () => void) => {
     const url = new URL(request.url!, "http://127.0.0.1");
     if (!url.pathname.startsWith("/__model_http/")) return next();
@@ -30,13 +32,13 @@ export function modelHttpFixture(assets: Record<string, HttpSceneAssets>) {
     }
     const source = assets[scene];
     if (request.method !== "GET" || !source || !["spz", "alpha", "ply"].includes(kind) ||
-        !["fresh", "validate", "mutable", "versioned", "paced", "cut", "slow"].includes(policy)) {
+        !["fresh", "validate", "mutable", "versioned", "paced", "shared", "cut", "slow"].includes(policy)) {
       response.writeHead(404, { "Cache-Control": "no-store" }).end(); return;
     }
     const version = url.searchParams.get("sha256");
     let asset = source[kind as "spz" | "alpha" | "ply"];
     if (kind === "alpha" && policy === "mutable" && !updated.has(`${run}/${scene}`)) asset = source.oldAlpha;
-    if (["versioned", "paced"].includes(policy)) {
+    if (["versioned", "paced", "shared"].includes(policy)) {
       if (kind === "alpha" && version === source.oldAlpha.digest) asset = source.oldAlpha;
       if (version !== asset.digest) { response.writeHead(404, { "Cache-Control": "no-store" }).end(); return; }
     }
@@ -59,6 +61,14 @@ export function modelHttpFixture(assets: Record<string, HttpSceneAssets>) {
       // Leave a real, incomplete HTTP body outstanding until reset/abort is observed.
       const timer = setTimeout(() => response.destroy(), policy === "cut" ? 50 : 10000);
       response.once("close", () => clearTimeout(timer)); return;
+    }
+    if (policy === "shared") {
+      let pace = shared.get(run);
+      if (!pace) { pace = sharedResponsePacer(); shared.set(run, pace); }
+      row.sample = url.searchParams.get("sample");
+      row.shared = pace(response, asset.bytes);
+      response.once("close", () => { row.bodyBytesOffered = row.shared!.bytesOffered; });
+      return;
     }
     if (policy === "paced") {
       row.sample = url.searchParams.get("sample");
