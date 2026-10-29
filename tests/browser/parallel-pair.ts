@@ -7,6 +7,11 @@ import { PairedModelLoader, elapsedModelPhases, hashHex, sha256, type PairedSpec
 import { PairedModelLoader as SerialLoader } from "/.qa/parallel-pair/serial-loader.ts";
 import type { HttpRecord } from "../helpers/http-model-fixture";
 
+const sharedBudget = new URLSearchParams(location.search).get("budget") === "shared";
+const policy = sharedBudget ? "shared" : "paced";
+document.querySelector("#profile")!.textContent = sharedBudget
+  ? "全部请求共享 5 MiB/s 正文上限（无空闲额度与补发突发）"
+  : "每请求独立 5 MiB/s 正文限速（非共享带宽）";
 const viewer = new CompareViewer(document.querySelector("#left")!, document.querySelector("#right")!);
 viewer.playing = false;
 const status = document.querySelector("#status")!, button = document.querySelector<HTMLButtonElement>("#run")!;
@@ -67,7 +72,7 @@ button.onclick = async () => {
       const a = prior.assets.find((x: { scene: string }) => x.scene === scene);
       const views = viewer.data!.views.filter(v => v.heldOut);
       const specFor = (sample: string): PairedSpec => {
-        const url = (kind: string, digest: string) => `/__model_http/${run}/paced/${scene}/${kind}?sha256=${digest}&sample=${sample}`;
+        const url = (kind: string, digest: string) => `/__model_http/${run}/${policy}/${scene}/${kind}?sha256=${digest}&sample=${sample}`;
         return { count: a.count, spzSha256: a.spzSha256, alphaRawSha256: a.alphaRawSha256, plySha256: a.plySha256,
           spzUrl: url("spz", a.spzSha256), alphaUrl: url("alpha", a.alphaRawSha256), plyUrl: url("ply", a.plySha256) };
       };
@@ -104,7 +109,7 @@ button.onclick = async () => {
         warmups.push({ scene, schedule, network: (await logs()).slice(before) });
         await capture("warm-up", schedule, true);
       }
-      for (const cache of ["cold-key", "warm-key"]) {
+      for (const cache of sharedBudget ? ["cold-key"] : ["cold-key", "warm-key"]) {
         const order: Schedule[] = ["serial", "parallel", "parallel", "serial", "serial", "parallel", "parallel", "serial"];
         for (const [index, schedule] of order.entries()) {
           status.textContent = `${scene}: ${cache} ${index + 1}/8 ${schedule}`;
@@ -126,7 +131,15 @@ button.onclick = async () => {
           else {
             assert(network.length === 2, "Unexpected request count");
             assert(bytes === a.combinedBytes, "HTTP byte mismatch");
-            assert(network.every(row => row.pacing && row.pacing.lastChunkMs! >= row.pacing.idealMs), "Pacing budget violated");
+            if (sharedBudget) {
+              assert(network.every(row => row.shared), "Missing shared budget records");
+              const writes = network.flatMap(row => row.shared!.writes).sort((a,b) => a[0]-b[0]);
+              const rate = network[0].shared!.bytesPerSecond;
+              assert(writes.reduce((n,x)=>n+x[1],0) === a.combinedBytes, "Shared byte count");
+              for (let i=1; i<writes.length; i++)
+                assert(writes[i][0]-writes[i-1][0] >= writes[i][1]/rate*1000, "Aggregate pacing exceeded");
+              assert(writes.at(-1)![0] >= Math.min(...network.map(row=>row.shared!.readyMs)) + bytes/rate*1000, "Shared duration budget violated");
+            } else assert(network.every(row => row.pacing && row.pacing.lastChunkMs! >= row.pacing.idealMs), "Pacing budget violated");
           }
           assert(viewer.scenes.gaussian.children.filter(x => x instanceof SplatMesh).length === 1, "Overlapping models");
           samples.push({ scene, cache, index, schedule, loadMs, settleMs, totalMs, phases: result.phases,
@@ -143,13 +156,15 @@ button.onclick = async () => {
       clearCandidate(); select("parallel"); viewer.setView(views[0]); await viewer.settle();
       const beforeCancel = (await logs()).length;
       const cancelSpec = specFor("cancel");
-      cancelSpec.alphaUrl = cancelSpec.alphaUrl.replace("/paced/", "/slow/");
+      cancelSpec.alphaUrl = cancelSpec.alphaUrl.replace(`/${policy}/`, "/slow/");
       const pending = loader.load(cancelSpec);
       const outcome = pending.then(() => "resolved", error => String(error));
       const deadline = performance.now() + 5000;
-      while ((await logs()).slice(beforeCancel).length < 2 && performance.now() < deadline)
+      const cancelReady = (rows: HttpRecord[]) => rows.length === 2 &&
+        (!sharedBudget || rows.every(row => (row.shared?.bytesOffered ?? row.bodyBytesOffered) > 0));
+      while (!cancelReady((await logs()).slice(beforeCancel)) && performance.now() < deadline)
         await new Promise(resolve => setTimeout(resolve, 10));
-      assert((await logs()).slice(beforeCancel).length === 2, "Both requests must start before cancel");
+      assert(cancelReady((await logs()).slice(beforeCancel)), "Both requests must reach cancellation checkpoint");
       const cancelStart = performance.now(); loader.cancel();
       const error = await outcome, cancelMs = performance.now() - cancelStart;
       assert(error.includes("AbortError") && viewer.gaussian === original, "Cancel changed model or failed");
@@ -178,10 +193,11 @@ button.onclick = async () => {
     }
     assert(errors.length === 0 && resources.every(r => r.disposed === 1), "Errors or unbalanced resources");
     const gl = viewer.renderers.gaussian.getContext(), debug = gl.getExtension("WEBGL_debug_renderer_info");
-    document.querySelector("#result")!.textContent = JSON.stringify({ createdAt: new Date().toISOString(), run, baselineCommit: "6b2f87522f63e73f7656ab5156bf91b4e71a5c14",
+    document.querySelector("#result")!.textContent = JSON.stringify({ createdAt: new Date().toISOString(), run, baselineCommit: "6b2f87522f63e73f7656ab5156bf91b4e71a5c14", candidateCommit: "094b41d024e649809b92fefb66a8e6e0a6efd887",
+      budget: sharedBudget ? "shared-body-cap" : "per-request",
       spark: "2.4.0", resolution: 768, maxSh: 3, lod: false,
       environment: { userAgent: navigator.userAgent, gpu: debug ? gl.getParameter(debug.UNMASKED_RENDERER_WEBGL) : gl.getParameter(gl.RENDERER), visibility },
-      method: "Serial ABBAABBA, four samples per schedule/cache/scene. Identical SPZ + AP16. HTTP body paced at 5 MiB/s PER REQUEST, 64 KiB chunks, 40ms server hold per request (not RTT). Concurrent requests have independent budgets: this is not a shared-link bandwidth experiment. Cold-key is an unused HTTP cache key, with warm renderer/WASM; warm-key reuses exact primed URL. New model every trial. Baseline model retained and displayed while loading, removed on publish. All formats use digest validation. Total ends after four quiet sort frames and mesh draw submission; not GPU time or screen presentation. Excludes page/mesh/runtime startup, baseline restoration, controls, captures and quality scoring. No memory, training, FPS or CDN measurement.",
+      method: (sharedBudget ? "One shared 5 MiB/s body cap, round-robin ready requests, no idle credit/catch-up. 40ms server hold per request; 64KiB chunks. Timer and backpressure can reduce achieved throughput. Cold keys only; cached response path is unchanged and was measured separately. Not a TCP/HTTP2/RTT simulation. " : "Independent per-request budgets. ") + "Serial ABBAABBA, four samples per schedule/cache/scene. Identical SPZ + AP16. Cold-key is an unused HTTP cache key, with warm renderer/WASM; warm-key reuses exact primed URL. New model every trial. Baseline model retained and displayed while loading, removed on publish. All formats use digest validation. Total ends after four quiet sort frames and mesh draw submission; not GPU time or screen presentation. Excludes page/mesh/runtime startup, baseline restoration, controls, captures and quality scoring. No memory, training, FPS or CDN measurement.",
       assets: prior.assets, warmups, samples, comparisons, checks, resources: resources.map(({ format, disposed }) => ({ format, disposed })), errors }, null, 2);
     status.textContent = `Complete; samples=${samples.length}; controls=${comparisons.length}; disposed=${resources.length}; errors=${errors.length}`;
   } catch (error) { status.textContent = `FAILED: ${error}`; }
