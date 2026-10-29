@@ -1,0 +1,298 @@
+[
+  {
+    "scene": "pipes",
+    "format": "ply",
+    "importMs": {
+      "median": 9.900000095367432,
+      "min": 9.599999904632568,
+      "max": 21.300000190734863,
+      "samples": 3
+    },
+    "constructMs": {
+      "median": 7.899999618530273,
+      "min": 7.800000190734863,
+      "max": 9.699999809265137,
+      "samples": 3
+    },
+    "first": {
+      "initializeMs": {
+        "median": 130.69999980926514,
+        "min": 119.40000009536743,
+        "max": 133,
+        "samples": 3
+      },
+      "prepareMs": {
+        "median": 0,
+        "min": 0,
+        "max": 0,
+        "samples": 3
+      },
+      "settleMs": {
+        "median": 62.40000009536743,
+        "min": 59.90000009536743,
+        "max": 71.40000009536743,
+        "samples": 3
+      },
+      "totalMs": {
+        "median": 195.40000009536743,
+        "min": 179.30000019073486,
+        "max": 202.09999990463257,
+        "samples": 3
+      }
+    },
+    "repeat": {
+      "initializeMs": {
+        "median": 126.09999990463257,
+        "min": 116.40000009536743,
+        "max": 144.30000019073486,
+        "samples": 6
+      },
+      "prepareMs": {
+        "median": 0.0,
+        "min": 0,
+        "max": 0.09999990463256836,
+        "samples": 6
+      },
+      "settleMs": {
+        "median": 55.950000047683716,
+        "min": 52.19999980926514,
+        "max": 61.40000009536743,
+        "samples": 6
+      },
+      "totalMs": {
+        "median": 185.70000004768372,
+        "min": 170.59999990463257,
+        "max": 198.30000019073486,
+        "samples": 6
+      }
+    },
+    "pairedInitializeDifferenceMs": {
+      "median": 0.5999999046325684,
+      "min": -2.4000000953674316,
+      "max": 2.6499998569488525,
+      "samples": 3
+    }
+  },
+  {
+    "scene": "pipes",
+    "format": "spz",
+    "importMs": {
+      "median": 8.099999904632568,
+      "min": 7.5,
+      "max": 9.200000286102295,
+      "samples": 3
+    },
+    "constructMs": {
+      "median": 8,
+      "min": 8,
+      "max": 8.199999809265137,
+      "samples": 3
+    },
+    "first": {
+      "initializeMs": {
+        "median": 153.69999980926514,
+        "min": 153.59999990463257,
+        "max": 166,
+        "samples": 3
+      },
+      "prepareMs": {
+        "median": 1.3000001907348633,
+        "min": 1.1000003814697266,
+        "max": 1.5,
+        "samples": 3
+      },
+      "settleMs": {
+        "median": 62.09999990463257,
+        "min": 56,
+        "max": 64.39999961853027,
+        "samples": 3
+      },
+      "totalMs": {
+        "median": 219.19999980926514,
+        "min": 211.09999990463257,
+        "max": 229.40000009536743,
+        "samples": 3
+      }
+    },
+    "repeat": {
+      "initializeMs": {
+        "median": 148.60000014305115,
+        "min": 146.60000038146973,
+        "max": 150.09999990463257,
+        "samples": 6
+      },
+      "prepareMs": {
+        "median": 1.5500001907348633,
+        "min": 0.5,
+        "max": 3,
+        "samples": 6
+      },
+      "settleMs": {
+        "median": 53.59999966621399,
+        "min": 46.299999713897705,
+        "max": 68.30000019073486,
+        "samples": 6
+      },
+      "totalMs": {
+        "median": 205.59999990463257,
+        "min": 193.40000009536743,
+        "max": 218.30000019073486,
+        "samples": 6
+      }
+    },
+    "pairedInitializeDifferenceMs": {
+      "median": 5.699999570846558,
+      "min": 3.9499998092651367,
+      "max": 18.550000190734863,
+      "samples": 3
+    }
+  },
+  {
+    "scene": "office",
+    "format": "ply",
+    "importMs": {
+      "median": 9,
+      "min": 8.600000381469727,
+      "max": 9.400000095367432,
+      "samples": 3
+    },
+    "constructMs": {
+      "median": 8,
+      "min": 8,
+      "max": 8.199999809265137,
+      "samples": 3
+    },
+    "first": {
+      "initializeMs": {
+        "median": 97,
+        "min": 92.5,
+        "max": 97.09999990463257,
+        "samples": 3
+      },
+      "prepareMs": {
+        "median": 0,
+        "min": 0,
+        "max": 0,
+        "samples": 3
+      },
+      "settleMs": {
+        "median": 58.40000009536743,
+        "min": 56.5,
+        "max": 62.5,
+        "samples": 3
+      },
+      "totalMs": {
+        "median": 155.5,
+        "min": 149,
+        "max": 159.5,
+        "samples": 3
+      }
+    },
+    "repeat": {
+      "initializeMs": {
+        "median": 92.94999980926514,
+        "min": 91.60000038146973,
+        "max": 99.19999980926514,
+        "samples": 6
+      },
+      "prepareMs": {
+        "median": 0.0,
+        "min": 0,
+        "max": 0,
+        "samples": 6
+      },
+      "settleMs": {
+        "median": 49.94999980926514,
+        "min": 49.19999980926514,
+        "max": 58.59999990463257,
+        "samples": 6
+      },
+      "totalMs": {
+        "median": 146.2999997138977,
+        "min": 141,
+        "max": 150.7999997138977,
+        "samples": 6
+      }
+    },
+    "pairedInitializeDifferenceMs": {
+      "median": 2.250000238418579,
+      "min": -3.1999998092651367,
+      "max": 4.449999809265137,
+      "samples": 3
+    }
+  },
+  {
+    "scene": "office",
+    "format": "spz",
+    "importMs": {
+      "median": 8,
+      "min": 7.599999904632568,
+      "max": 8.199999809265137,
+      "samples": 3
+    },
+    "constructMs": {
+      "median": 8.200000286102295,
+      "min": 8.199999809265137,
+      "max": 9.099999904632568,
+      "samples": 3
+    },
+    "first": {
+      "initializeMs": {
+        "median": 119.40000009536743,
+        "min": 117.69999980926514,
+        "max": 120.60000038146973,
+        "samples": 3
+      },
+      "prepareMs": {
+        "median": 0.7999997138977051,
+        "min": 0.7000002861022949,
+        "max": 1.1999998092651367,
+        "samples": 3
+      },
+      "settleMs": {
+        "median": 56.60000038146973,
+        "min": 55.5,
+        "max": 62.19999980926514,
+        "samples": 3
+      },
+      "totalMs": {
+        "median": 176.80000019073486,
+        "min": 173.90000009536743,
+        "max": 184,
+        "samples": 3
+      }
+    },
+    "repeat": {
+      "initializeMs": {
+        "median": 113.09999966621399,
+        "min": 111.60000038146973,
+        "max": 115.2000002861023,
+        "samples": 6
+      },
+      "prepareMs": {
+        "median": 0.7999999523162842,
+        "min": 0.39999961853027344,
+        "max": 1.3000001907348633,
+        "samples": 6
+      },
+      "settleMs": {
+        "median": 52.5,
+        "min": 44.30000019073486,
+        "max": 56.5,
+        "samples": 6
+      },
+      "totalMs": {
+        "median": 165.95000004768372,
+        "min": 158.90000009536743,
+        "max": 171.30000019073486,
+        "samples": 6
+      }
+    },
+    "pairedInitializeDifferenceMs": {
+      "median": 6.850000381469727,
+      "min": 4.549999952316284,
+      "max": 6.950000047683716,
+      "samples": 3
+    }
+  }
+]
