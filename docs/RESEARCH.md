@@ -388,7 +388,7 @@ Spark 最新发行仍为 [2.4.0](https://github.com/sparkjsdev/spark/releases/ta
 
 ### 候选：固定评价输入与分维度质量检查
 
-[独立解码实验](REFERENCE-DECODE.md)使用 Pillow 11.3.0 / libjpeg-turbo 3.1.1，为六张网页 JPEG 生成固定 RGB 与 PNG。原尺寸 PNG 全部复现该 RGB，默认 Canvas2D 缩放也复现 office 历史恢复状态，但不能消除不同画布设置的重采样差异；文件体积增加 4.02 倍，暂不采用。后续性能实验保留输入摘要，比单独比较小幅 PSNR/SSIM 变化更可核查。
+[独立解码实验](REFERENCE-DECODE.md)使用 Pillow 11.3.0 / libjpeg-turbo 3.1.1，为六张网页 JPEG 生成固定 RGB 与 PNG。原尺寸 PNG 全部复现该 RGB，默认 Canvas2D 缩放也复现 office 历史恢复状态，但不能消除不同画布设置的重采样差异；文件总体积为原来的 4.02 倍，暂不采用。后续性能实验保留输入摘要，比单独比较小幅 PSNR/SSIM 变化更可核查。
 
 2026-10-29 复核 Brush main 仍为 `1388f74`（2026-10-03，Apache-2.0），最新 Release 为 v0.3.0（2025-09-14）。[decode_jpeg_scaled](https://github.com/ArthurBrussee/brush/blob/1388f74c6fe0236f68ee4915564bf00e9d2e3747/crates/brush-dataset/src/load_image.rs)显式调用 Rust JPEG 解码器并区分 RGB24 / L8，其他像素格式回退；本次独立控制使用另一套 Pillow/libjpeg-turbo 实现，未宣称与 Brush 逐像素相同。Brush 的 WebGPU / macOS 路径此前已记录，本次没有训练或后端迁移。
 
@@ -397,3 +397,20 @@ Spark 最新发行仍为 [2.4.0](https://github.com/sparkjsdev/spark/releases/ta
 新读 [3DGSI-Assessor v1](https://arxiv.org/abs/2608.03279)（2026-08-04，arXiv 永久非独占许可），[第四、五节](https://arxiv.org/html/2608.03279v1#S4)分别建模整体、几何与颜色质量，并使用参考/渲染图配对。作者方案为 PyTorch / NVIDIA GPU 上的多模态模型评价；不套用其跑分，也不将这种评价器当作渲染加速。
 
 [作者仓库 6e50dad](https://github.com/YukeXing/3DGSI-Assessor/tree/6e50dad6491fcafd2793e76eb30dace3223e55a9)只有 2026-03-04 的初始提交，README 仅标题，另附 Apache-2.0 LICENSE，无发行版、实现、权重或环境说明；仓库更新时间不能当作代码发布日期。因公开实现尚缺，CUDA 依赖和 WebGL2/WebGPU/Metal 适用性无法验证，暂不接入。可行动结论是先保存明确的参考输入与分维度证据，待代码公开再评估成本和是否优于现有图像检查。
+
+
+### 测量结论：首次模型初始化不能替代格式成本分析
+
+[新文档实验](RUNTIME-INIT.md)测得：首次各创建解析/排序 Worker，同页重复均复用，但候选解析初始化仍比 PLY 慢约 20–23ms。文件读取已在计时外，PLY 已展开 gzip、SPZ 则在 Worker 内展开，不能把此差距直接解释为纯属性解析或端到端速度。暂不增加常驻预热，优先分解压缩容器、属性转换、传递与峰值内存。
+
+2026-10-29 复核 [Spark main / v2.4.0](https://github.com/sparkjsdev/spark/releases/tag/v2.4.0)仍为 `ffe210d`，发行时间 2026-10-20，MIT。[wasm.ts](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/wasm.ts)在模块求值时调用 WebAssembly.compile；[SplatWorker](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/SplatWorker.ts)复用编译模块，在各 Worker 实例化并池化解析任务。调用方“新模型”不等于“新运行时”，模型释放也不等于池化 Worker 终止。当前路径为 WebGL2 + WASM，不需要 CUDA；ANGLE Metal 不是原生 Metal 渲染器测试。
+
+重新阅读 2026-10-16 合并的 [#485 / 538ed22](https://github.com/sparkjsdev/spark/pull/485)及[当前 SPZ 实现](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/rust/spark-lib/src/spz.rs)：v1–v3 gzip 已改为 flate2，分块展开后逐段消费；裸 NGSP 分支用于 v4。当前依赖已经包含该变更，不能再次升级来宣称收益；浏览器原生预解压 v3 也不是可直接传回该接口的输入。本次没有修改依赖或复制解码器。
+
+### 候选：Visionary 的加载分段与浏览器后端边界
+
+补充 [Visionary v1](https://arxiv.org/abs/2512.08478)（2025-12-09，arXiv 永久非独占许可），阅读[第 3.4、4.1–4.4 节](https://arxiv.org/html/2512.08478v1#S3.SS4)。它把预处理和排序放到 WebGPU，论文在 RTX 4090 上用 PIX 回放测 GPU 时间，对照 Spark 版本为 0.1.10；这些条件与本项目 Spark 2.4.0 / M5 / WebGL2 不同，不能套用论文倍数或把帧时间当作启动成本。
+
+[作者当前 main 76a2b93](https://github.com/Visionary-Laboratory/visionary/tree/76a2b93cec0e0dfaeb598fd320b6ceabf4b39d48)提交于 2026-10-15，无 GitHub Release，仓库 Apache-2.0；最新提交修改项目 URL，不是新的解码算法。[SPZLoader](https://github.com/Visionary-Laboratory/visionary/blob/76a2b93cec0e0dfaeb598fd320b6ceabf4b39d48/src/io/spz_loader.ts)最近文件提交为 2025-12-09 的 `0727fe8`：通过浏览器 DecompressionStream 先展开 gzip，再解析 v1–v3、转换并打包属性；仍有解压后的整块缓冲和 CPU 转换，不代表零复制或较低峰值内存。只将“分开测容器展开与属性转换”列为待验证假设，未移植。
+
+[当前 README](https://github.com/Visionary-Laboratory/visionary/blob/76a2b93cec0e0dfaeb598fd320b6ceabf4b39d48/README.md)要求支持 WebGPU 的 Chromium，推荐 Windows 独显，并列出 Ubuntu fp16 问题及 macOS 性能限制；没有可直接接入本项目的 WebGL2 后端。所读 SPZ 文件解码路径不依赖 CUDA，但其它 ONNX 导出/训练工具需单独审查。此处未运行其 WebGPU/Metal 实现、下载权重或复现论文结果。

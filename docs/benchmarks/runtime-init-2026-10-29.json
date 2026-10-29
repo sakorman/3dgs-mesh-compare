@@ -1,0 +1,1974 @@
+{
+  "createdAt": "2026-10-29T14:56:58.011Z",
+  "baseline": "d4b0602",
+  "documents": 12,
+  "trials": 36,
+  "controls": 52,
+  "preflight": "An initial SPZ run rejected a gzip file stored with a .bin suffix before model creation. The final fixture uses the validated gzip reader. Initial PLY timing was repeated with the final fixture; preliminary timing is excluded.",
+  "runs": [
+    {
+      "createdAt": "2026-10-29T14:52:46.707Z",
+      "baseline": "d4b0602",
+      "scene": "pipes",
+      "format": "spz",
+      "sample": "0",
+      "spark": "2.4.0",
+      "three": "0.180.0",
+      "environment": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+        "visibility": []
+      },
+      "importMs": 9.200000286102295,
+      "constructMs": 8,
+      "inputBytes": 12545116,
+      "inputHash": "4d86d47f541a66d4724525125e698b35706fdf4d42d844710664e96c9a14b87c",
+      "alphaHash": "92764f5dd6325fd9bc4ca6f96ed7d50fe31fc026e6ef11dd907ca8f455a129e8",
+      "count": 300000,
+      "resolution": [
+        768,
+        505
+      ],
+      "method": "New document per scene/format, preloaded hash-checked memory inputs, runtime dynamic import before first viewer/model. Three serial fresh models in one viewer; source buffer copy excluded. initialize includes Spark worker dispatch/parse/results; settle includes shader/upload/sort/frame wait and empty Mesh draw submission. No page-navigation/network cold-cache, browser restart, independent WASM/GPU timing, presentation or peak-memory claim. Worker messages observed on main thread.",
+      "samples": [
+        {
+          "index": 0,
+          "runtime": "first-model-new-document",
+          "startMs": 252.19999980926514,
+          "initializeMs": 166,
+          "prepareMs": 1.3000001907348633,
+          "settleMs": 62.09999990463257,
+          "totalMs": 229.40000009536743,
+          "newWorkers": 2
+        },
+        {
+          "index": 1,
+          "runtime": "repeat-same-document",
+          "startMs": 546.8000001907349,
+          "initializeMs": 148,
+          "prepareMs": 1.799999713897705,
+          "settleMs": 68.30000019073486,
+          "totalMs": 218.09999990463257,
+          "newWorkers": 0
+        },
+        {
+          "index": 2,
+          "runtime": "repeat-same-document",
+          "startMs": 819.8000001907349,
+          "initializeMs": 146.89999961853027,
+          "prepareMs": 0.7000002861022949,
+          "settleMs": 47.59999990463257,
+          "totalMs": 195.19999980926514,
+          "newWorkers": 0
+        }
+      ],
+      "controls": [
+        {
+          "index": 0,
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac",
+          "matchesPrevious": true
+        },
+        {
+          "index": 1,
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac",
+          "matchesPrevious": true
+        },
+        {
+          "index": 2,
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac",
+          "matchesPrevious": true
+        },
+        {
+          "index": 2,
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": -0.08,
+          "hash": "27c033857c6e5c988d9dff5026de99c326a3dfee995bef663c7d2452462f4d9e",
+          "matchesPrevious": true
+        },
+        {
+          "index": 2,
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0.08,
+          "hash": "0cc73a81c589f1fdb7e8df11828d3217eaaaa03d4450392112f3e209f474be32",
+          "matchesPrevious": true
+        },
+        {
+          "index": 2,
+          "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+          "yaw": 0,
+          "hash": "b64e381af290a4e4a4b4492326c3eef3c858d0fa8771ea4a5712f8e17c6a8f86",
+          "matchesPrevious": true
+        }
+      ],
+      "workers": [
+        {
+          "createdMs": 252.69999980926514,
+          "calls": [
+            {
+              "name": "init-wasm",
+              "sentMs": 252.69999980926514
+            },
+            {
+              "name": "loadExtSplats",
+              "id": 1,
+              "sentMs": 253.69999980926514,
+              "completedMs": 418,
+              "error": false
+            },
+            {
+              "name": "loadExtSplats",
+              "id": 3,
+              "sentMs": 548.1999998092651,
+              "completedMs": 694.6999998092651,
+              "error": false
+            },
+            {
+              "name": "loadExtSplats",
+              "id": 5,
+              "sentMs": 820.8000001907349,
+              "completedMs": 966.5999999046326,
+              "error": false
+            }
+          ]
+        },
+        {
+          "createdMs": 450.40000009536743,
+          "calls": [
+            {
+              "name": "sortSplats32",
+              "id": 2,
+              "sentMs": 450.5,
+              "completedMs": 454.69999980926514,
+              "error": false
+            },
+            {
+              "name": "init-wasm",
+              "sentMs": 450.5
+            },
+            {
+              "name": "sortSplats32",
+              "id": 4,
+              "sentMs": 734.9000000953674,
+              "completedMs": 736.5999999046326,
+              "error": false
+            },
+            {
+              "name": "sortSplats32",
+              "id": 6,
+              "sentMs": 984,
+              "completedMs": 985.5999999046326,
+              "error": false
+            },
+            {
+              "name": "sortSplats32",
+              "id": 7,
+              "sentMs": 1082.1999998092651,
+              "completedMs": 1083.8000001907349,
+              "error": false
+            },
+            {
+              "name": "sortSplats32",
+              "id": 8,
+              "sentMs": 1138.5,
+              "completedMs": 1140.1999998092651,
+              "error": false
+            },
+            {
+              "name": "sortSplats32",
+              "id": 9,
+              "sentMs": 1196.8000001907349,
+              "completedMs": 1198.4000000953674,
+              "error": false
+            }
+          ],
+          "terminatedMs": 1245.5999999046326
+        }
+      ],
+      "disposedModels": 3,
+      "errors": []
+    },
+    {
+      "createdAt": "2026-10-29T14:53:10.329Z",
+      "baseline": "d4b0602",
+      "scene": "office",
+      "format": "ply",
+      "sample": "0",
+      "spark": "2.4.0",
+      "three": "0.180.0",
+      "environment": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+        "visibility": []
+      },
+      "importMs": 8.600000381469727,
+      "constructMs": 8.199999809265137,
+      "inputBytes": 54618559,
+      "inputHash": "0af14259673b165001a9e84f27b6e19a55e924e0432e491e9701229f1c24e276",
+      "alphaHash": null,
+      "count": 231428,
+      "resolution": [
+        768,
+        500
+      ],
+      "method": "New document per scene/format, preloaded hash-checked memory inputs, runtime dynamic import before first viewer/model. Three serial fresh models in one viewer; source buffer copy excluded. initialize includes Spark worker dispatch/parse/results; settle includes shader/upload/sort/frame wait and empty Mesh draw submission. No page-navigation/network cold-cache, browser restart, independent WASM/GPU timing, presentation or peak-memory claim. Worker messages observed on main thread.",
+      "samples": [
+        {
+          "index": 0,
+          "runtime": "first-model-new-document",
+          "startMs": 423.09999990463257,
+          "initializeMs": 97,
+          "prepareMs": 0,
+          "settleMs": 62.5,
+          "totalMs": 159.5,
+          "newWorkers": 2
+        },
+        {
+          "index": 1,
+          "runtime": "repeat-same-document",
+          "startMs": 649.8000001907349,
+          "initializeMs": 91.89999961853027,
+          "prepareMs": 0,
+          "settleMs": 49.30000019073486,
+          "totalMs": 141.19999980926514,
+          "newWorkers": 0
+        },
+        {
+          "index": 2,
+          "runtime": "repeat-same-document",
+          "startMs": 848.4000000953674,
+          "initializeMs": 97.59999990463257,
+          "prepareMs": 0,
+          "settleMs": 52.59999990463257,
+          "totalMs": 150.19999980926514,
+          "newWorkers": 0
+        }
+      ],
+      "controls": [
+        {
+          "index": 0,
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3",
+          "matchesPrevious": true
+        },
+        {
+          "index": 1,
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3",
+          "matchesPrevious": true
+        },
+        {
+          "index": 2,
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3",
+          "matchesPrevious": true
+        },
+        {
+          "index": 2,
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": -0.08,
+          "hash": "eab164fb1727e3bf574e8592a82c3a962a5a3489b238754647b73bb181343ecd",
+          "matchesPrevious": true
+        },
+        {
+          "index": 2,
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0.08,
+          "hash": "1c239cdf35aa90175f6becce1942c77222168482943bebf28b522b7a3d8d3c59",
+          "matchesPrevious": true
+        },
+        {
+          "index": 2,
+          "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+          "yaw": 0,
+          "hash": "8ba6cc5b7af30145763983b06ad0aa80dc911255e25b5d537c68653c14d8c0df",
+          "matchesPrevious": true
+        },
+        {
+          "index": 2,
+          "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+          "yaw": 0,
+          "hash": "a16ea0b0e57a2be26e2c85b2315a1c0f2ae3d221328451d5e87449829991213f",
+          "matchesPrevious": true
+        },
+        {
+          "index": 2,
+          "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+          "yaw": 0,
+          "hash": "7b0bf43e8967c537e2677326b567e2bea9f08162a374fab50489b48e049ed06d",
+          "matchesPrevious": true
+        }
+      ],
+      "workers": [
+        {
+          "createdMs": 423.5,
+          "calls": [
+            {
+              "name": "init-wasm",
+              "sentMs": 423.59999990463257
+            },
+            {
+              "name": "loadExtSplats",
+              "id": 1,
+              "sentMs": 427.90000009536743,
+              "completedMs": 520,
+              "error": false
+            },
+            {
+              "name": "loadExtSplats",
+              "id": 3,
+              "sentMs": 656.1999998092651,
+              "completedMs": 741.6999998092651,
+              "error": false
+            },
+            {
+              "name": "loadExtSplats",
+              "id": 5,
+              "sentMs": 858.0999999046326,
+              "completedMs": 945.9000000953674,
+              "error": false
+            }
+          ]
+        },
+        {
+          "createdMs": 545.6999998092651,
+          "calls": [
+            {
+              "name": "sortSplats32",
+              "id": 2,
+              "sentMs": 545.6999998092651,
+              "completedMs": 549.5999999046326,
+              "error": false
+            },
+            {
+              "name": "init-wasm",
+              "sentMs": 545.6999998092651
+            },
+            {
+              "name": "sortSplats32",
+              "id": 4,
+              "sentMs": 762.9000000953674,
+              "completedMs": 764.3000001907349,
+              "error": false
+            },
+            {
+              "name": "sortSplats32",
+              "id": 6,
+              "sentMs": 966.1999998092651,
+              "completedMs": 967.5,
+              "error": false
+            },
+            {
+              "name": "sortSplats32",
+              "id": 7,
+              "sentMs": 1064.1999998092651,
+              "completedMs": 1065.5999999046326,
+              "error": false
+            },
+            {
+              "name": "sortSplats32",
+              "id": 8,
+              "sentMs": 1112.5999999046326,
+              "completedMs": 1114,
+              "error": false
+            },
+            {
+              "name": "sortSplats32",
+              "id": 9,
+              "sentMs": 1159.3000001907349,
+              "completedMs": 1160.5999999046326,
+              "error": false
+            },
+            {
+              "name": "sortSplats32",
+              "id": 10,
+              "sentMs": 1206.4000000953674,
+              "completedMs": 1208.1999998092651,
+              "error": false
+            },
+            {
+              "name": "sortSplats32",
+              "id": 11,
+              "sentMs": 1263.3000001907349,
+              "completedMs": 1265.8000001907349,
+              "error": false
+            }
+          ],
+          "terminatedMs": 1302.4000000953674
+        }
+      ],
+      "disposedModels": 3,
+      "errors": []
+    },
+    {
+      "createdAt": "2026-10-29T14:53:11.683Z",
+      "baseline": "d4b0602",
+      "scene": "office",
+      "format": "spz",
+      "sample": "0",
+      "spark": "2.4.0",
+      "three": "0.180.0",
+      "environment": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+        "visibility": []
+      },
+      "importMs": 7.599999904632568,
+      "constructMs": 8.200000286102295,
+      "inputBytes": 8927279,
+      "inputHash": "e77b9eccc5dce1a72b48c96bddabbc0aa0dc6bbbb2d8520cbd1ca5166e02768d",
+      "alphaHash": "9c96203b9727bdb1ccb7ed705a0f84ee7a8691cdeabdfe32c3d5b06e2918b8e4",
+      "count": 231428,
+      "resolution": [
+        768,
+        500
+      ],
+      "method": "New document per scene/format, preloaded hash-checked memory inputs, runtime dynamic import before first viewer/model. Three serial fresh models in one viewer; source buffer copy excluded. initialize includes Spark worker dispatch/parse/results; settle includes shader/upload/sort/frame wait and empty Mesh draw submission. No page-navigation/network cold-cache, browser restart, independent WASM/GPU timing, presentation or peak-memory claim. Worker messages observed on main thread.",
+      "samples": [
+        {
+          "index": 0,
+          "runtime": "first-model-new-document",
+          "startMs": 304.19999980926514,
+          "initializeMs": 120.60000038146973,
+          "prepareMs": 1.1999998092651367,
+          "settleMs": 62.19999980926514,
+          "totalMs": 184,
+          "newWorkers": 2
+        },
+        {
+          "index": 1,
+          "runtime": "repeat-same-document",
+          "startMs": 552.3000001907349,
+          "initializeMs": 112.2999997138977,
+          "prepareMs": 0.40000009536743164,
+          "settleMs": 56.5,
+          "totalMs": 169.19999980926514,
+          "newWorkers": 0
+        },
+        {
+          "index": 2,
+          "runtime": "repeat-same-document",
+          "startMs": 775.1999998092651,
+          "initializeMs": 115.2000002861023,
+          "prepareMs": 1,
+          "settleMs": 55.09999990463257,
+          "totalMs": 171.30000019073486,
+          "newWorkers": 0
+        }
+      ],
+      "controls": [
+        {
+          "index": 0,
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037",
+          "matchesPrevious": true
+        },
+        {
+          "index": 1,
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037",
+          "matchesPrevious": true
+        },
+        {
+          "index": 2,
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037",
+          "matchesPrevious": true
+        },
+        {
+          "index": 2,
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": -0.08,
+          "hash": "0ed08cb6838ef35ad8af114b626b17bea3c121abdf3b96c6ba71681530a7bddb",
+          "matchesPrevious": true
+        },
+        {
+          "index": 2,
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0.08,
+          "hash": "4b9de22ffea3b49f8e7048f5d8cfdaed9edb0ad6eba753cb4e66b8863b9011ff",
+          "matchesPrevious": true
+        },
+        {
+          "index": 2,
+          "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+          "yaw": 0,
+          "hash": "72e55dde0896b725aaacf7bea3dd29a4ca91119bc5d5b18baec3b69ec1677363",
+          "matchesPrevious": true
+        },
+        {
+          "index": 2,
+          "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+          "yaw": 0,
+          "hash": "c98e4b3f25af58e5672a1f45277c8eaceebab7cab615ba4d58b418cbd3a7ff6e",
+          "matchesPrevious": true
+        },
+        {
+          "index": 2,
+          "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+          "yaw": 0,
+          "hash": "37b646ef7fde599a1c1ae5beec9ac1c23924b787b21f2e776d60410415ebd7d5",
+          "matchesPrevious": true
+        }
+      ],
+      "workers": [
+        {
+          "createdMs": 304.69999980926514,
+          "calls": [
+            {
+              "name": "init-wasm",
+              "sentMs": 304.69999980926514
+            },
+            {
+              "name": "loadExtSplats",
+              "id": 1,
+              "sentMs": 305.5,
+              "completedMs": 424.80000019073486,
+              "error": false
+            },
+            {
+              "name": "loadExtSplats",
+              "id": 3,
+              "sentMs": 553.4000000953674,
+              "completedMs": 664.5999999046326,
+              "error": false
+            },
+            {
+              "name": "loadExtSplats",
+              "id": 5,
+              "sentMs": 776.1999998092651,
+              "completedMs": 890.3000001907349,
+              "error": false
+            }
+          ]
+        },
+        {
+          "createdMs": 451.40000009536743,
+          "calls": [
+            {
+              "name": "sortSplats32",
+              "id": 2,
+              "sentMs": 451.40000009536743,
+              "completedMs": 455.19999980926514,
+              "error": false
+            },
+            {
+              "name": "init-wasm",
+              "sentMs": 451.40000009536743
+            },
+            {
+              "name": "sortSplats32",
+              "id": 4,
+              "sentMs": 693.5,
+              "completedMs": 694.6999998092651,
+              "error": false
+            },
+            {
+              "name": "sortSplats32",
+              "id": 6,
+              "sentMs": 917.1999998092651,
+              "completedMs": 918.3000001907349,
+              "error": false
+            },
+            {
+              "name": "sortSplats32",
+              "id": 7,
+              "sentMs": 1011.6999998092651,
+              "completedMs": 1013.0999999046326,
+              "error": false
+            },
+            {
+              "name": "sortSplats32",
+              "id": 8,
+              "sentMs": 1068.5,
+              "completedMs": 1069.8000001907349,
+              "error": false
+            },
+            {
+              "name": "sortSplats32",
+              "id": 9,
+              "sentMs": 1114.8000001907349,
+              "completedMs": 1116.1999998092651,
+              "error": false
+            },
+            {
+              "name": "sortSplats32",
+              "id": 10,
+              "sentMs": 1162,
+              "completedMs": 1163.9000000953674,
+              "error": false
+            },
+            {
+              "name": "sortSplats32",
+              "id": 11,
+              "sentMs": 1215.4000000953674,
+              "completedMs": 1217.4000000953674,
+              "error": false
+            }
+          ],
+          "terminatedMs": 1261.9000000953674
+        }
+      ],
+      "disposedModels": 3,
+      "errors": []
+    },
+    {
+      "createdAt": "2026-10-29T14:53:12.888Z",
+      "baseline": "d4b0602",
+      "scene": "pipes",
+      "format": "spz",
+      "sample": "1",
+      "spark": "2.4.0",
+      "three": "0.180.0",
+      "environment": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+        "visibility": []
+      },
+      "importMs": 8.099999904632568,
+      "constructMs": 8.199999809265137,
+      "inputBytes": 12545116,
+      "inputHash": "4d86d47f541a66d4724525125e698b35706fdf4d42d844710664e96c9a14b87c",
+      "alphaHash": "92764f5dd6325fd9bc4ca6f96ed7d50fe31fc026e6ef11dd907ca8f455a129e8",
+      "count": 300000,
+      "resolution": [
+        768,
+        505
+      ],
+      "method": "New document per scene/format, preloaded hash-checked memory inputs, runtime dynamic import before first viewer/model. Three serial fresh models in one viewer; source buffer copy excluded. initialize includes Spark worker dispatch/parse/results; settle includes shader/upload/sort/frame wait and empty Mesh draw submission. No page-navigation/network cold-cache, browser restart, independent WASM/GPU timing, presentation or peak-memory claim. Worker messages observed on main thread.",
+      "samples": [
+        {
+          "index": 0,
+          "runtime": "first-model-new-document",
+          "startMs": 329.1000003814697,
+          "initializeMs": 153.59999990463257,
+          "prepareMs": 1.5,
+          "settleMs": 56,
+          "totalMs": 211.09999990463257,
+          "newWorkers": 2
+        },
+        {
+          "index": 1,
+          "runtime": "repeat-same-document",
+          "startMs": 605.4000000953674,
+          "initializeMs": 149.2000002861023,
+          "prepareMs": 3,
+          "settleMs": 47.89999961853027,
+          "totalMs": 200.09999990463257,
+          "newWorkers": 0
+        },
+        {
+          "index": 2,
+          "runtime": "repeat-same-document",
+          "startMs": 862.3000001907349,
+          "initializeMs": 150.09999990463257,
+          "prepareMs": 1.700000286102295,
+          "settleMs": 59.299999713897705,
+          "totalMs": 211.09999990463257,
+          "newWorkers": 0
+        }
+      ],
+      "controls": [
+        {
+          "index": 0,
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac",
+          "matchesPrevious": true
+        },
+        {
+          "index": 1,
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac",
+          "matchesPrevious": true
+        },
+        {
+          "index": 2,
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac",
+          "matchesPrevious": true
+        }
+      ],
+      "workers": [
+        {
+          "createdMs": 329.40000009536743,
+          "calls": [
+            {
+              "name": "init-wasm",
+              "sentMs": 329.40000009536743
+            },
+            {
+              "name": "loadExtSplats",
+              "id": 1,
+              "sentMs": 330.6000003814697,
+              "completedMs": 482.6000003814697,
+              "error": false
+            },
+            {
+              "name": "loadExtSplats",
+              "id": 3,
+              "sentMs": 606.8000001907349,
+              "completedMs": 754.5,
+              "error": false
+            },
+            {
+              "name": "loadExtSplats",
+              "id": 5,
+              "sentMs": 863.7000002861023,
+              "completedMs": 1012.3000001907349,
+              "error": false
+            }
+          ]
+        },
+        {
+          "createdMs": 510.30000019073486,
+          "calls": [
+            {
+              "name": "sortSplats32",
+              "id": 2,
+              "sentMs": 510.30000019073486,
+              "completedMs": 514.7000002861023,
+              "error": false
+            },
+            {
+              "name": "init-wasm",
+              "sentMs": 510.30000019073486
+            },
+            {
+              "name": "sortSplats32",
+              "id": 4,
+              "sentMs": 775.9000000953674,
+              "completedMs": 777.7000002861023,
+              "error": false
+            },
+            {
+              "name": "sortSplats32",
+              "id": 6,
+              "sentMs": 1038.7000002861023,
+              "completedMs": 1040.3000001907349,
+              "error": false
+            }
+          ],
+          "terminatedMs": 1127.5
+        }
+      ],
+      "disposedModels": 3,
+      "errors": []
+    },
+    {
+      "createdAt": "2026-10-29T14:53:14.122Z",
+      "baseline": "d4b0602",
+      "scene": "pipes",
+      "format": "ply",
+      "sample": "1",
+      "spark": "2.4.0",
+      "three": "0.180.0",
+      "environment": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+        "visibility": []
+      },
+      "importMs": 9.599999904632568,
+      "constructMs": 7.800000190734863,
+      "inputBytes": 70801551,
+      "inputHash": "b716afb08b23e18feed481eb8307238da7ba0788aea705601c7c66e022a51caf",
+      "alphaHash": null,
+      "count": 300000,
+      "resolution": [
+        768,
+        505
+      ],
+      "method": "New document per scene/format, preloaded hash-checked memory inputs, runtime dynamic import before first viewer/model. Three serial fresh models in one viewer; source buffer copy excluded. initialize includes Spark worker dispatch/parse/results; settle includes shader/upload/sort/frame wait and empty Mesh draw submission. No page-navigation/network cold-cache, browser restart, independent WASM/GPU timing, presentation or peak-memory claim. Worker messages observed on main thread.",
+      "samples": [
+        {
+          "index": 0,
+          "runtime": "first-model-new-document",
+          "startMs": 458.40000009536743,
+          "initializeMs": 133,
+          "prepareMs": 0,
+          "settleMs": 62.40000009536743,
+          "totalMs": 195.40000009536743,
+          "newWorkers": 2
+        },
+        {
+          "index": 1,
+          "runtime": "repeat-same-document",
+          "startMs": 726.5,
+          "initializeMs": 126.5,
+          "prepareMs": 0,
+          "settleMs": 57.80000019073486,
+          "totalMs": 184.30000019073486,
+          "newWorkers": 0
+        },
+        {
+          "index": 2,
+          "runtime": "repeat-same-document",
+          "startMs": 972,
+          "initializeMs": 144.30000019073486,
+          "prepareMs": 0,
+          "settleMs": 54,
+          "totalMs": 198.30000019073486,
+          "newWorkers": 0
+        }
+      ],
+      "controls": [
+        {
+          "index": 0,
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36",
+          "matchesPrevious": true
+        },
+        {
+          "index": 1,
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36",
+          "matchesPrevious": true
+        },
+        {
+          "index": 2,
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36",
+          "matchesPrevious": true
+        }
+      ],
+      "workers": [
+        {
+          "createdMs": 458.90000009536743,
+          "calls": [
+            {
+              "name": "init-wasm",
+              "sentMs": 459
+            },
+            {
+              "name": "loadExtSplats",
+              "id": 1,
+              "sentMs": 471.90000009536743,
+              "completedMs": 591.4000000953674,
+              "error": false
+            },
+            {
+              "name": "loadExtSplats",
+              "id": 3,
+              "sentMs": 740.4000000953674,
+              "completedMs": 852.9000000953674,
+              "error": false
+            },
+            {
+              "name": "loadExtSplats",
+              "id": 5,
+              "sentMs": 1003.2000002861023,
+              "completedMs": 1116.3000001907349,
+              "error": false
+            }
+          ]
+        },
+        {
+          "createdMs": 619.9000000953674,
+          "calls": [
+            {
+              "name": "sortSplats32",
+              "id": 2,
+              "sentMs": 619.9000000953674,
+              "completedMs": 624.5999999046326,
+              "error": false
+            },
+            {
+              "name": "init-wasm",
+              "sentMs": 619.9000000953674
+            },
+            {
+              "name": "sortSplats32",
+              "id": 4,
+              "sentMs": 883.9000000953674,
+              "completedMs": 885.5999999046326,
+              "error": false
+            },
+            {
+              "name": "sortSplats32",
+              "id": 6,
+              "sentMs": 1140.4000000953674,
+              "completedMs": 1142.0999999046326,
+              "error": false
+            }
+          ],
+          "terminatedMs": 1224.5999999046326
+        }
+      ],
+      "disposedModels": 3,
+      "errors": []
+    },
+    {
+      "createdAt": "2026-10-29T14:53:25.043Z",
+      "baseline": "d4b0602",
+      "scene": "office",
+      "format": "spz",
+      "sample": "1",
+      "spark": "2.4.0",
+      "three": "0.180.0",
+      "environment": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+        "visibility": []
+      },
+      "importMs": 8.199999809265137,
+      "constructMs": 9.099999904632568,
+      "inputBytes": 8927279,
+      "inputHash": "e77b9eccc5dce1a72b48c96bddabbc0aa0dc6bbbb2d8520cbd1ca5166e02768d",
+      "alphaHash": "9c96203b9727bdb1ccb7ed705a0f84ee7a8691cdeabdfe32c3d5b06e2918b8e4",
+      "count": 231428,
+      "resolution": [
+        768,
+        500
+      ],
+      "method": "New document per scene/format, preloaded hash-checked memory inputs, runtime dynamic import before first viewer/model. Three serial fresh models in one viewer; source buffer copy excluded. initialize includes Spark worker dispatch/parse/results; settle includes shader/upload/sort/frame wait and empty Mesh draw submission. No page-navigation/network cold-cache, browser restart, independent WASM/GPU timing, presentation or peak-memory claim. Worker messages observed on main thread.",
+      "samples": [
+        {
+          "index": 0,
+          "runtime": "first-model-new-document",
+          "startMs": 343.19999980926514,
+          "initializeMs": 119.40000009536743,
+          "prepareMs": 0.7999997138977051,
+          "settleMs": 56.60000038146973,
+          "totalMs": 176.80000019073486,
+          "newWorkers": 2
+        },
+        {
+          "index": 1,
+          "runtime": "repeat-same-document",
+          "startMs": 586.0999999046326,
+          "initializeMs": 113.2999997138977,
+          "prepareMs": 1.3000001907348633,
+          "settleMs": 44.30000019073486,
+          "totalMs": 158.90000009536743,
+          "newWorkers": 0
+        },
+        {
+          "index": 2,
+          "runtime": "repeat-same-document",
+          "startMs": 798.3999996185303,
+          "initializeMs": 111.60000038146973,
+          "prepareMs": 0.39999961853027344,
+          "settleMs": 50.40000009536743,
+          "totalMs": 162.40000009536743,
+          "newWorkers": 0
+        }
+      ],
+      "controls": [
+        {
+          "index": 0,
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037",
+          "matchesPrevious": true
+        },
+        {
+          "index": 1,
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037",
+          "matchesPrevious": true
+        },
+        {
+          "index": 2,
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037",
+          "matchesPrevious": true
+        }
+      ],
+      "workers": [
+        {
+          "createdMs": 343.5,
+          "calls": [
+            {
+              "name": "init-wasm",
+              "sentMs": 343.59999990463257
+            },
+            {
+              "name": "loadExtSplats",
+              "id": 1,
+              "sentMs": 344.2999997138977,
+              "completedMs": 462.59999990463257,
+              "error": false
+            },
+            {
+              "name": "loadExtSplats",
+              "id": 3,
+              "sentMs": 587.1999998092651,
+              "completedMs": 699.3999996185303,
+              "error": false
+            },
+            {
+              "name": "loadExtSplats",
+              "id": 5,
+              "sentMs": 799.1999998092651,
+              "completedMs": 909.8999996185303,
+              "error": false
+            }
+          ]
+        },
+        {
+          "createdMs": 488.7999997138977,
+          "calls": [
+            {
+              "name": "sortSplats32",
+              "id": 2,
+              "sentMs": 488.7999997138977,
+              "completedMs": 492.3999996185303,
+              "error": false
+            },
+            {
+              "name": "init-wasm",
+              "sentMs": 488.7999997138977
+            },
+            {
+              "name": "sortSplats32",
+              "id": 4,
+              "sentMs": 717.0999999046326,
+              "completedMs": 718.3999996185303,
+              "error": false
+            },
+            {
+              "name": "sortSplats32",
+              "id": 6,
+              "sentMs": 930.3999996185303,
+              "completedMs": 931.6999998092651,
+              "error": false
+            }
+          ],
+          "terminatedMs": 1012.8999996185303
+        }
+      ],
+      "disposedModels": 3,
+      "errors": []
+    },
+    {
+      "createdAt": "2026-10-29T14:53:26.204Z",
+      "baseline": "d4b0602",
+      "scene": "office",
+      "format": "ply",
+      "sample": "1",
+      "spark": "2.4.0",
+      "three": "0.180.0",
+      "environment": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+        "visibility": []
+      },
+      "importMs": 9,
+      "constructMs": 8,
+      "inputBytes": 54618559,
+      "inputHash": "0af14259673b165001a9e84f27b6e19a55e924e0432e491e9701229f1c24e276",
+      "alphaHash": null,
+      "count": 231428,
+      "resolution": [
+        768,
+        500
+      ],
+      "method": "New document per scene/format, preloaded hash-checked memory inputs, runtime dynamic import before first viewer/model. Three serial fresh models in one viewer; source buffer copy excluded. initialize includes Spark worker dispatch/parse/results; settle includes shader/upload/sort/frame wait and empty Mesh draw submission. No page-navigation/network cold-cache, browser restart, independent WASM/GPU timing, presentation or peak-memory claim. Worker messages observed on main thread.",
+      "samples": [
+        {
+          "index": 0,
+          "runtime": "first-model-new-document",
+          "startMs": 502.90000009536743,
+          "initializeMs": 97.09999990463257,
+          "prepareMs": 0,
+          "settleMs": 58.40000009536743,
+          "totalMs": 155.5,
+          "newWorkers": 2
+        },
+        {
+          "index": 1,
+          "runtime": "repeat-same-document",
+          "startMs": 725.6999998092651,
+          "initializeMs": 91.60000038146973,
+          "prepareMs": 0,
+          "settleMs": 49.39999961853027,
+          "totalMs": 141,
+          "newWorkers": 0
+        },
+        {
+          "index": 2,
+          "runtime": "repeat-same-document",
+          "startMs": 923.8000001907349,
+          "initializeMs": 93.69999980926514,
+          "prepareMs": 0,
+          "settleMs": 49.19999980926514,
+          "totalMs": 142.89999961853027,
+          "newWorkers": 0
+        }
+      ],
+      "controls": [
+        {
+          "index": 0,
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3",
+          "matchesPrevious": true
+        },
+        {
+          "index": 1,
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3",
+          "matchesPrevious": true
+        },
+        {
+          "index": 2,
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3",
+          "matchesPrevious": true
+        }
+      ],
+      "workers": [
+        {
+          "createdMs": 503.19999980926514,
+          "calls": [
+            {
+              "name": "init-wasm",
+              "sentMs": 503.40000009536743
+            },
+            {
+              "name": "loadExtSplats",
+              "id": 1,
+              "sentMs": 507.59999990463257,
+              "completedMs": 600,
+              "error": false
+            },
+            {
+              "name": "loadExtSplats",
+              "id": 3,
+              "sentMs": 730.0999999046326,
+              "completedMs": 817.1999998092651,
+              "error": false
+            },
+            {
+              "name": "loadExtSplats",
+              "id": 5,
+              "sentMs": 929.8000001907349,
+              "completedMs": 1017.5,
+              "error": false
+            }
+          ]
+        },
+        {
+          "createdMs": 622.5999999046326,
+          "calls": [
+            {
+              "name": "sortSplats32",
+              "id": 2,
+              "sentMs": 622.5999999046326,
+              "completedMs": 626.4000000953674,
+              "error": false
+            },
+            {
+              "name": "init-wasm",
+              "sentMs": 622.5999999046326
+            },
+            {
+              "name": "sortSplats32",
+              "id": 4,
+              "sentMs": 838.8000001907349,
+              "completedMs": 840.0999999046326,
+              "error": false
+            },
+            {
+              "name": "sortSplats32",
+              "id": 6,
+              "sentMs": 1038.9000000953674,
+              "completedMs": 1040.1999998092651,
+              "error": false
+            }
+          ],
+          "terminatedMs": 1120.0999999046326
+        }
+      ],
+      "disposedModels": 3,
+      "errors": []
+    },
+    {
+      "createdAt": "2026-10-29T14:53:27.455Z",
+      "baseline": "d4b0602",
+      "scene": "pipes",
+      "format": "ply",
+      "sample": "2",
+      "spark": "2.4.0",
+      "three": "0.180.0",
+      "environment": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+        "visibility": []
+      },
+      "importMs": 9.900000095367432,
+      "constructMs": 7.899999618530273,
+      "inputBytes": 70801551,
+      "inputHash": "b716afb08b23e18feed481eb8307238da7ba0788aea705601c7c66e022a51caf",
+      "alphaHash": null,
+      "count": 300000,
+      "resolution": [
+        768,
+        505
+      ],
+      "method": "New document per scene/format, preloaded hash-checked memory inputs, runtime dynamic import before first viewer/model. Three serial fresh models in one viewer; source buffer copy excluded. initialize includes Spark worker dispatch/parse/results; settle includes shader/upload/sort/frame wait and empty Mesh draw submission. No page-navigation/network cold-cache, browser restart, independent WASM/GPU timing, presentation or peak-memory claim. Worker messages observed on main thread.",
+      "samples": [
+        {
+          "index": 0,
+          "runtime": "first-model-new-document",
+          "startMs": 511.80000019073486,
+          "initializeMs": 119.40000009536743,
+          "prepareMs": 0,
+          "settleMs": 59.90000009536743,
+          "totalMs": 179.30000019073486,
+          "newWorkers": 2
+        },
+        {
+          "index": 1,
+          "runtime": "repeat-same-document",
+          "startMs": 760.7000002861023,
+          "initializeMs": 116.40000009536743,
+          "prepareMs": 0.09999990463256836,
+          "settleMs": 54.09999990463257,
+          "totalMs": 170.59999990463257,
+          "newWorkers": 0
+        },
+        {
+          "index": 2,
+          "runtime": "repeat-same-document",
+          "startMs": 992.5,
+          "initializeMs": 121.2000002861023,
+          "prepareMs": 0,
+          "settleMs": 52.19999980926514,
+          "totalMs": 173.40000009536743,
+          "newWorkers": 0
+        }
+      ],
+      "controls": [
+        {
+          "index": 0,
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36",
+          "matchesPrevious": true
+        },
+        {
+          "index": 1,
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36",
+          "matchesPrevious": true
+        },
+        {
+          "index": 2,
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36",
+          "matchesPrevious": true
+        }
+      ],
+      "workers": [
+        {
+          "createdMs": 512.1000003814697,
+          "calls": [
+            {
+              "name": "init-wasm",
+              "sentMs": 512.3000001907349
+            },
+            {
+              "name": "loadExtSplats",
+              "id": 1,
+              "sentMs": 517.9000000953674,
+              "completedMs": 631.2000002861023,
+              "error": false
+            },
+            {
+              "name": "loadExtSplats",
+              "id": 3,
+              "sentMs": 767.4000000953674,
+              "completedMs": 877.1000003814697,
+              "error": false
+            },
+            {
+              "name": "loadExtSplats",
+              "id": 5,
+              "sentMs": 1000.8000001907349,
+              "completedMs": 1113.7000002861023,
+              "error": false
+            }
+          ]
+        },
+        {
+          "createdMs": 657.8000001907349,
+          "calls": [
+            {
+              "name": "sortSplats32",
+              "id": 2,
+              "sentMs": 657.9000000953674,
+              "completedMs": 662,
+              "error": false
+            },
+            {
+              "name": "init-wasm",
+              "sentMs": 657.9000000953674
+            },
+            {
+              "name": "sortSplats32",
+              "id": 4,
+              "sentMs": 900.7000002861023,
+              "completedMs": 902.6000003814697,
+              "error": false
+            },
+            {
+              "name": "sortSplats32",
+              "id": 6,
+              "sentMs": 1138.1000003814697,
+              "completedMs": 1139.6000003814697,
+              "error": false
+            }
+          ],
+          "terminatedMs": 1220.2000002861023
+        }
+      ],
+      "disposedModels": 3,
+      "errors": []
+    },
+    {
+      "createdAt": "2026-10-29T14:53:28.463Z",
+      "baseline": "d4b0602",
+      "scene": "pipes",
+      "format": "spz",
+      "sample": "2",
+      "spark": "2.4.0",
+      "three": "0.180.0",
+      "environment": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+        "visibility": []
+      },
+      "importMs": 7.5,
+      "constructMs": 8,
+      "inputBytes": 12545116,
+      "inputHash": "4d86d47f541a66d4724525125e698b35706fdf4d42d844710664e96c9a14b87c",
+      "alphaHash": "92764f5dd6325fd9bc4ca6f96ed7d50fe31fc026e6ef11dd907ca8f455a129e8",
+      "count": 300000,
+      "resolution": [
+        768,
+        505
+      ],
+      "method": "New document per scene/format, preloaded hash-checked memory inputs, runtime dynamic import before first viewer/model. Three serial fresh models in one viewer; source buffer copy excluded. initialize includes Spark worker dispatch/parse/results; settle includes shader/upload/sort/frame wait and empty Mesh draw submission. No page-navigation/network cold-cache, browser restart, independent WASM/GPU timing, presentation or peak-memory claim. Worker messages observed on main thread.",
+      "samples": [
+        {
+          "index": 0,
+          "runtime": "first-model-new-document",
+          "startMs": 193.19999980926514,
+          "initializeMs": 153.69999980926514,
+          "prepareMs": 1.1000003814697266,
+          "settleMs": 64.39999961853027,
+          "totalMs": 219.19999980926514,
+          "newWorkers": 2
+        },
+        {
+          "index": 1,
+          "runtime": "repeat-same-document",
+          "startMs": 477.3999996185303,
+          "initializeMs": 149.40000009536743,
+          "prepareMs": 1.4000000953674316,
+          "settleMs": 67.5,
+          "totalMs": 218.30000019073486,
+          "newWorkers": 0
+        },
+        {
+          "index": 2,
+          "runtime": "repeat-same-document",
+          "startMs": 750.8999996185303,
+          "initializeMs": 146.60000038146973,
+          "prepareMs": 0.5,
+          "settleMs": 46.299999713897705,
+          "totalMs": 193.40000009536743,
+          "newWorkers": 0
+        }
+      ],
+      "controls": [
+        {
+          "index": 0,
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac",
+          "matchesPrevious": true
+        },
+        {
+          "index": 1,
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac",
+          "matchesPrevious": true
+        },
+        {
+          "index": 2,
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac",
+          "matchesPrevious": true
+        }
+      ],
+      "workers": [
+        {
+          "createdMs": 193.5,
+          "calls": [
+            {
+              "name": "init-wasm",
+              "sentMs": 193.59999990463257
+            },
+            {
+              "name": "loadExtSplats",
+              "id": 1,
+              "sentMs": 194.59999990463257,
+              "completedMs": 346.7999997138977,
+              "error": false
+            },
+            {
+              "name": "loadExtSplats",
+              "id": 3,
+              "sentMs": 478.7999997138977,
+              "completedMs": 626.7999997138977,
+              "error": false
+            },
+            {
+              "name": "loadExtSplats",
+              "id": 5,
+              "sentMs": 751.8999996185303,
+              "completedMs": 897.5,
+              "error": false
+            }
+          ]
+        },
+        {
+          "createdMs": 375.59999990463257,
+          "calls": [
+            {
+              "name": "sortSplats32",
+              "id": 2,
+              "sentMs": 375.69999980926514,
+              "completedMs": 380,
+              "error": false
+            },
+            {
+              "name": "init-wasm",
+              "sentMs": 375.69999980926514
+            },
+            {
+              "name": "sortSplats32",
+              "id": 4,
+              "sentMs": 667,
+              "completedMs": 668.6999998092651,
+              "error": false
+            },
+            {
+              "name": "sortSplats32",
+              "id": 6,
+              "sentMs": 915.7999997138977,
+              "completedMs": 917.5,
+              "error": false
+            }
+          ],
+          "terminatedMs": 999.7999997138977
+        }
+      ],
+      "disposedModels": 3,
+      "errors": []
+    },
+    {
+      "createdAt": "2026-10-29T14:53:29.487Z",
+      "baseline": "d4b0602",
+      "scene": "office",
+      "format": "ply",
+      "sample": "2",
+      "spark": "2.4.0",
+      "three": "0.180.0",
+      "environment": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+        "visibility": []
+      },
+      "importMs": 9.400000095367432,
+      "constructMs": 8,
+      "inputBytes": 54618559,
+      "inputHash": "0af14259673b165001a9e84f27b6e19a55e924e0432e491e9701229f1c24e276",
+      "alphaHash": null,
+      "count": 231428,
+      "resolution": [
+        768,
+        500
+      ],
+      "method": "New document per scene/format, preloaded hash-checked memory inputs, runtime dynamic import before first viewer/model. Three serial fresh models in one viewer; source buffer copy excluded. initialize includes Spark worker dispatch/parse/results; settle includes shader/upload/sort/frame wait and empty Mesh draw submission. No page-navigation/network cold-cache, browser restart, independent WASM/GPU timing, presentation or peak-memory claim. Worker messages observed on main thread.",
+      "samples": [
+        {
+          "index": 0,
+          "runtime": "first-model-new-document",
+          "startMs": 388.5,
+          "initializeMs": 92.5,
+          "prepareMs": 0,
+          "settleMs": 56.5,
+          "totalMs": 149,
+          "newWorkers": 2
+        },
+        {
+          "index": 1,
+          "runtime": "repeat-same-document",
+          "startMs": 603.5,
+          "initializeMs": 92.19999980926514,
+          "prepareMs": 0,
+          "settleMs": 58.59999990463257,
+          "totalMs": 150.7999997138977,
+          "newWorkers": 0
+        },
+        {
+          "index": 2,
+          "runtime": "repeat-same-document",
+          "startMs": 813,
+          "initializeMs": 99.19999980926514,
+          "prepareMs": 0,
+          "settleMs": 50.5,
+          "totalMs": 149.69999980926514,
+          "newWorkers": 0
+        }
+      ],
+      "controls": [
+        {
+          "index": 0,
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3",
+          "matchesPrevious": true
+        },
+        {
+          "index": 1,
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3",
+          "matchesPrevious": true
+        },
+        {
+          "index": 2,
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3",
+          "matchesPrevious": true
+        }
+      ],
+      "workers": [
+        {
+          "createdMs": 389,
+          "calls": [
+            {
+              "name": "init-wasm",
+              "sentMs": 389
+            },
+            {
+              "name": "loadExtSplats",
+              "id": 1,
+              "sentMs": 393,
+              "completedMs": 480.90000009536743,
+              "error": false
+            },
+            {
+              "name": "loadExtSplats",
+              "id": 3,
+              "sentMs": 608.7999997138977,
+              "completedMs": 695.6999998092651,
+              "error": false
+            },
+            {
+              "name": "loadExtSplats",
+              "id": 5,
+              "sentMs": 822.1999998092651,
+              "completedMs": 912.1999998092651,
+              "error": false
+            }
+          ]
+        },
+        {
+          "createdMs": 507.2999997138977,
+          "calls": [
+            {
+              "name": "sortSplats32",
+              "id": 2,
+              "sentMs": 507.2999997138977,
+              "completedMs": 510.90000009536743,
+              "error": false
+            },
+            {
+              "name": "init-wasm",
+              "sentMs": 507.2999997138977
+            },
+            {
+              "name": "sortSplats32",
+              "id": 4,
+              "sentMs": 721.1999998092651,
+              "completedMs": 722.5999999046326,
+              "error": false
+            },
+            {
+              "name": "sortSplats32",
+              "id": 6,
+              "sentMs": 932.1999998092651,
+              "completedMs": 933.5,
+              "error": false
+            }
+          ],
+          "terminatedMs": 1015.7999997138977
+        }
+      ],
+      "disposedModels": 3,
+      "errors": []
+    },
+    {
+      "createdAt": "2026-10-29T14:53:30.420Z",
+      "baseline": "d4b0602",
+      "scene": "office",
+      "format": "spz",
+      "sample": "2",
+      "spark": "2.4.0",
+      "three": "0.180.0",
+      "environment": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+        "visibility": []
+      },
+      "importMs": 8,
+      "constructMs": 8.199999809265137,
+      "inputBytes": 8927279,
+      "inputHash": "e77b9eccc5dce1a72b48c96bddabbc0aa0dc6bbbb2d8520cbd1ca5166e02768d",
+      "alphaHash": "9c96203b9727bdb1ccb7ed705a0f84ee7a8691cdeabdfe32c3d5b06e2918b8e4",
+      "count": 231428,
+      "resolution": [
+        768,
+        500
+      ],
+      "method": "New document per scene/format, preloaded hash-checked memory inputs, runtime dynamic import before first viewer/model. Three serial fresh models in one viewer; source buffer copy excluded. initialize includes Spark worker dispatch/parse/results; settle includes shader/upload/sort/frame wait and empty Mesh draw submission. No page-navigation/network cold-cache, browser restart, independent WASM/GPU timing, presentation or peak-memory claim. Worker messages observed on main thread.",
+      "samples": [
+        {
+          "index": 0,
+          "runtime": "first-model-new-document",
+          "startMs": 237.40000009536743,
+          "initializeMs": 117.69999980926514,
+          "prepareMs": 0.7000002861022949,
+          "settleMs": 55.5,
+          "totalMs": 173.90000009536743,
+          "newWorkers": 2
+        },
+        {
+          "index": 1,
+          "runtime": "repeat-same-document",
+          "startMs": 476.2000002861023,
+          "initializeMs": 112.89999961853027,
+          "prepareMs": 1.200000286102295,
+          "settleMs": 54.59999990463257,
+          "totalMs": 168.69999980926514,
+          "newWorkers": 0
+        },
+        {
+          "index": 2,
+          "runtime": "repeat-same-document",
+          "startMs": 698.0999999046326,
+          "initializeMs": 113.40000009536743,
+          "prepareMs": 0.5999999046325684,
+          "settleMs": 49.200000286102295,
+          "totalMs": 163.2000002861023,
+          "newWorkers": 0
+        }
+      ],
+      "controls": [
+        {
+          "index": 0,
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037",
+          "matchesPrevious": true
+        },
+        {
+          "index": 1,
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037",
+          "matchesPrevious": true
+        },
+        {
+          "index": 2,
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037",
+          "matchesPrevious": true
+        }
+      ],
+      "workers": [
+        {
+          "createdMs": 237.7000002861023,
+          "calls": [
+            {
+              "name": "init-wasm",
+              "sentMs": 237.7000002861023
+            },
+            {
+              "name": "loadExtSplats",
+              "id": 1,
+              "sentMs": 238.5,
+              "completedMs": 355,
+              "error": false
+            },
+            {
+              "name": "loadExtSplats",
+              "id": 3,
+              "sentMs": 477.40000009536743,
+              "completedMs": 589,
+              "error": false
+            },
+            {
+              "name": "loadExtSplats",
+              "id": 5,
+              "sentMs": 698.9000000953674,
+              "completedMs": 811.5,
+              "error": false
+            }
+          ]
+        },
+        {
+          "createdMs": 381.59999990463257,
+          "calls": [
+            {
+              "name": "sortSplats32",
+              "id": 2,
+              "sentMs": 381.59999990463257,
+              "completedMs": 385.40000009536743,
+              "error": false
+            },
+            {
+              "name": "init-wasm",
+              "sentMs": 381.59999990463257
+            },
+            {
+              "name": "sortSplats32",
+              "id": 4,
+              "sentMs": 610.9000000953674,
+              "completedMs": 612.3000001907349,
+              "error": false
+            },
+            {
+              "name": "sortSplats32",
+              "id": 6,
+              "sentMs": 827.8000001907349,
+              "completedMs": 829.2000002861023,
+              "error": false
+            }
+          ],
+          "terminatedMs": 914.2000002861023
+        }
+      ],
+      "disposedModels": 3,
+      "errors": []
+    },
+    {
+      "createdAt": "2026-10-29T14:56:58.011Z",
+      "baseline": "d4b0602",
+      "scene": "pipes",
+      "format": "ply",
+      "sample": "0",
+      "spark": "2.4.0",
+      "three": "0.180.0",
+      "environment": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+        "visibility": []
+      },
+      "importMs": 21.300000190734863,
+      "constructMs": 9.699999809265137,
+      "inputBytes": 70801551,
+      "inputHash": "b716afb08b23e18feed481eb8307238da7ba0788aea705601c7c66e022a51caf",
+      "alphaHash": null,
+      "count": 300000,
+      "resolution": [
+        768,
+        505
+      ],
+      "method": "New document per scene/format, preloaded hash-checked memory inputs, runtime dynamic import before first viewer/model. Three serial fresh models in one viewer; source buffer copy excluded. initialize includes Spark worker dispatch/parse/results; settle includes shader/upload/sort/frame wait and empty Mesh draw submission. No page-navigation/network cold-cache, browser restart, independent WASM/GPU timing, presentation or peak-memory claim. Worker messages observed on main thread.",
+      "samples": [
+        {
+          "index": 0,
+          "runtime": "first-model-new-document",
+          "startMs": 25988.5,
+          "initializeMs": 130.69999980926514,
+          "prepareMs": 0,
+          "settleMs": 71.40000009536743,
+          "totalMs": 202.09999990463257,
+          "newWorkers": 2
+        },
+        {
+          "index": 1,
+          "runtime": "repeat-same-document",
+          "startMs": 26261.800000190735,
+          "initializeMs": 125.69999980926514,
+          "prepareMs": 0,
+          "settleMs": 61.40000009536743,
+          "totalMs": 187.09999990463257,
+          "newWorkers": 0
+        },
+        {
+          "index": 2,
+          "runtime": "repeat-same-document",
+          "startMs": 26509.5,
+          "initializeMs": 130.40000009536743,
+          "prepareMs": 0,
+          "settleMs": 58.90000009536743,
+          "totalMs": 189.30000019073486,
+          "newWorkers": 0
+        }
+      ],
+      "controls": [
+        {
+          "index": 0,
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36",
+          "matchesPrevious": true
+        },
+        {
+          "index": 1,
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36",
+          "matchesPrevious": true
+        },
+        {
+          "index": 2,
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36",
+          "matchesPrevious": true
+        },
+        {
+          "index": 2,
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": -0.08,
+          "hash": "77a3202754413348a4176ac57760d7c93611807159622ebee7c746dbd1732db8",
+          "matchesPrevious": true
+        },
+        {
+          "index": 2,
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0.08,
+          "hash": "a3a8db66317ad19b5b4907123ae9484054c1409e764244c3d667245743ca417b",
+          "matchesPrevious": true
+        },
+        {
+          "index": 2,
+          "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+          "yaw": 0,
+          "hash": "c91b07263481e55ea3f9585a7deadf35d29fea9f3ac96c938275124b58935754",
+          "matchesPrevious": true
+        }
+      ],
+      "workers": [
+        {
+          "createdMs": 25989.199999809265,
+          "calls": [
+            {
+              "name": "loadExtSplats",
+              "id": 1,
+              "sentMs": 25998.099999904633,
+              "completedMs": 26119.099999904633,
+              "error": false
+            },
+            {
+              "name": "init-wasm",
+              "sentMs": 25998.5
+            },
+            {
+              "name": "loadExtSplats",
+              "id": 3,
+              "sentMs": 26274.300000190735,
+              "completedMs": 26387.400000095367,
+              "error": false
+            },
+            {
+              "name": "loadExtSplats",
+              "id": 5,
+              "sentMs": 26526.800000190735,
+              "completedMs": 26639.900000095367,
+              "error": false
+            }
+          ]
+        },
+        {
+          "createdMs": 26157.900000095367,
+          "calls": [
+            {
+              "name": "sortSplats32",
+              "id": 2,
+              "sentMs": 26158,
+              "completedMs": 26162.599999904633,
+              "error": false
+            },
+            {
+              "name": "init-wasm",
+              "sentMs": 26158
+            },
+            {
+              "name": "sortSplats32",
+              "id": 4,
+              "sentMs": 26414,
+              "completedMs": 26415.800000190735,
+              "error": false
+            },
+            {
+              "name": "sortSplats32",
+              "id": 6,
+              "sentMs": 26663.900000095367,
+              "completedMs": 26665.5,
+              "error": false
+            },
+            {
+              "name": "sortSplats32",
+              "id": 7,
+              "sentMs": 26765.199999809265,
+              "completedMs": 26767.099999904633,
+              "error": false
+            },
+            {
+              "name": "sortSplats32",
+              "id": 8,
+              "sentMs": 26819.800000190735,
+              "completedMs": 26821.5,
+              "error": false
+            },
+            {
+              "name": "sortSplats32",
+              "id": 9,
+              "sentMs": 26873.599999904633,
+              "completedMs": 26875.099999904633,
+              "error": false
+            }
+          ],
+          "terminatedMs": 26920.900000095367
+        }
+      ],
+      "disposedModels": 3,
+      "errors": []
+    }
+  ]
+}

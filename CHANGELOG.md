@@ -1,5 +1,12 @@
 # 更新日志
 
+## 2026-10-29 · 首次初始化与 Worker 复用
+
+- 增加新文档首次/同页重复初始化对照：12 个文档、36 个串行样本、52 次画面摘要全部匹配，见[耗时记录](docs/RUNTIME-INIT.md)。
+- 复用 Worker 后，SH8 + AP16 初始化仍比 PLY 慢 22.50 / 20.15ms；首次启动不是差距的唯一来源，下一步分解 SPZ 解压与属性转换，不引入常驻预热。
+- 36 个模型各释放一次，解析 Worker 仍由文档内池持有；未测内存峰值、整页冷启动或 GPU 时间。116 项测试、类型检查与构建通过，默认资源不变。
+- 核对 [Spark SPZ 解压更新](https://github.com/sparkjsdev/spark/pull/485)及 [Visionary 原文](https://arxiv.org/abs/2512.08478)与[实现](https://github.com/Visionary-Laboratory/visionary/blob/76a2b93cec0e0dfaeb598fd320b6ceabf4b39d48/src/io/spz_loader.ts)；后者的原生解压思路待单独适配验证，不沿用论文速度倍数。
+
 ## 2026-10-29 · 独立解码与参考图控制
 
 - 增加独立 RGB 解码及 PNG 对照工具；六张照片与既有频繁读取画布逐字节一致，72 组浏览器检查中 36 次 PNG 原尺寸读回全部匹配，见[验证记录](docs/REFERENCE-DECODE.md)。
