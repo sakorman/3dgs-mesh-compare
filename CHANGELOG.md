@@ -1,5 +1,12 @@
 # 更新日志
 
+## 2026-10-30 · 候选配对文件并行读取
+
+- SPZ 与 AP16 改为并行读取，保留双文件完整校验；任一失败取消同组请求，用户取消不触发 PLY 回退，迟到响应不改写已完成报告。
+- 在每请求独立 5MiB/s、40ms 等待条件下，32 个样本中未命中缓存的总等待中位数减少 158 / 126ms（5.5% / 6.0%）；热缓存无明显收益，非共享链路或 GPU 提速，见[完整记录与截图](docs/PARALLEL-PAIR.md)。
+- 52 次候选画面、六张留出评分和两次 PLY 回退画面保持一致；38 个模型各释放一次，122 项回归、类型检查与构建通过。默认 PLY 与生产页面不变。
+- 复核 [Spark 读取接口](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/PagedSplatsFetcher.ts)，补充 [ProGS 论文](https://arxiv.org/abs/2603.09703)及[作者实现](https://github.com/ZhiyeTang/ProGS-Official/tree/f0e7b5d977fe38bde47eeb45a985c7b15940d0d9)：渐进解码存在父级依赖，CUDA 与非商业研究许可另列，未移植或引用论文速度倍数。
+
 ## 2026-10-29 · 首次初始化与 Worker 复用
 
 - 增加新文档首次/同页重复初始化对照：12 个文档、36 个串行样本、52 次画面摘要全部匹配，见[耗时记录](docs/RUNTIME-INIT.md)。

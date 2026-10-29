@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { PairedModelLoader, hashHex, sha256, type ModelFormat } from "./helpers/paired-model";
+import { PairedModelLoader, elapsedModelPhases, hashHex, sha256, type ModelFormat } from "./helpers/paired-model";
 import { encodeAlpha16 } from "./helpers/alpha16";
 
 function deferred() {
@@ -181,4 +181,101 @@ test("direct PLY control skips candidate requests and shares integrity and owner
   await assert.rejects(f.loader.load(f.spec, "ply"), /digest mismatch/);
   assert.equal(f.visible(), result.model); assert.equal(f.models.length, 1);
   f.loader.dispose(); assert.equal(result.model.freed, 1);
+});
+
+test("candidate requests overlap but cannot initialize before both files are verified", async () => {
+  const f = await fixture(), gate = deferred(), entered = deferred();
+  const original = f.driver.fetch;
+  f.driver.fetch = async (url, signal) => {
+    if (url === "spz") { entered.resolve(); await gate.promise; }
+    return original(url, signal);
+  };
+  const pending = f.loader.load(f.spec);
+  await entered.promise;
+  await new Promise(resolve => setImmediate(resolve));
+  try {
+    assert.ok(f.requests.includes("alpha"), "sidecar should start while SPZ is pending");
+    assert.equal(f.models.length, 0);
+  } finally { gate.resolve(); await pending; f.loader.dispose(); }
+});
+
+test("sidecar failure aborts an outstanding SPZ request before PLY fallback", async () => {
+  const f = await fixture(), started = deferred();
+  const original = f.driver.fetch;
+  let aborted = false, fallbackAfterAbort = false;
+  f.driver.fetch = async (url, signal) => {
+    if (url === "spz") return new Promise((_resolve, reject) => {
+      signal.addEventListener("abort", () => { aborted = true; reject(signal.reason); }, { once: true });
+      started.resolve();
+    });
+    if (url === "alpha") { await started.promise; return new Response(null, {status:404}); }
+    fallbackAfterAbort = aborted;
+    return original(url, signal);
+  };
+  const result = await f.loader.load(f.spec);
+  assert.equal(result.format, "ply"); assert.equal(fallbackAfterAbort, true);
+  assert.equal(f.models.length, 1); f.loader.dispose();
+});
+
+test("SPZ digest failure cancels the sidecar body and never publishes partial data", async () => {
+  const f = await fixture(), original = f.driver.fetch;
+  let cancelled = false;
+  f.spz[0]++;
+  f.driver.fetch = async (url, signal) => url !== "alpha" ? original(url, signal) :
+    new Response(new ReadableStream<Uint8Array>({
+      start(c) { c.enqueue(f.alpha.slice(0, 1)); },
+      cancel() { cancelled = true; },
+    }, {highWaterMark:0}));
+  const result = await f.loader.load(f.spec);
+  assert.equal(result.format, "ply"); assert.equal(cancelled, true);
+  assert.equal(f.published.length, 1); f.loader.dispose();
+});
+
+test("late ignored sibling cannot mutate a completed fallback report", async () => {
+  const f = await fixture(), gate = deferred(), original = f.driver.fetch;
+  let cancelled = false;
+  f.driver.fetch = async (url, signal) => {
+    if (url === "alpha") return new Response(null, {status:404});
+    if (url === "spz") {
+      await gate.promise;
+      return new Response(new ReadableStream({cancel() { cancelled = true; }}));
+    }
+    return original(url, signal);
+  };
+  const result = await f.loader.load(f.spec);
+  assert.equal(result.format, "ply");
+  const snapshot = JSON.stringify(result.phases);
+  gate.resolve(); await new Promise(resolve => setImmediate(resolve));
+  assert.equal(cancelled, true);
+  assert.equal(JSON.stringify(result.phases), snapshot);
+  assert.deepEqual(f.published, [result.model]); f.loader.dispose();
+});
+
+test("cancellation aborts both concurrent requests and never fetches fallback", async () => {
+  const f = await fixture(), started = deferred();
+  const aborted: string[] = [], requests: string[] = [];
+  f.driver.fetch = async (url, signal) => {
+    requests.push(url);
+    return new Promise((_resolve, reject) => {
+      signal.addEventListener("abort", () => { aborted.push(url); reject(signal.reason); }, {once:true});
+      if (requests.length === 2) started.resolve();
+    });
+  };
+  const pending = f.loader.load(f.spec), rejection = assert.rejects(pending, {name:"AbortError"});
+  await started.promise; f.loader.cancel(); await rejection;
+  assert.deepEqual(requests.sort(), ["alpha","spz"]);
+  assert.deepEqual(aborted.sort(), ["alpha","spz"]); assert.equal(f.models.length, 0);
+});
+
+test("parallel phase accounting uses interval union without mutating samples", () => {
+  const phases = [
+    {name:"hash",startMs:4,endMs:5,ms:1},
+    {name:"read",startMs:0,endMs:4,ms:4},
+    {name:"sidecar",startMs:1,endMs:3,ms:2},
+    {name:"initialize",startMs:7,endMs:9,ms:2},
+  ];
+  const copy = structuredClone(phases);
+  assert.equal(elapsedModelPhases(phases),7);
+  assert.equal(elapsedModelPhases([]),0);
+  assert.deepEqual(phases,copy);
 });

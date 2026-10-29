@@ -12,7 +12,16 @@ export interface PairedSpec {
   plySha256: string;
 }
 export type ModelFormat = "spz" | "ply";
-export interface ModelPhase { name: string; ms: number }
+export interface ModelPhase { name: string; ms: number; startMs: number; endMs: number }
+/** Union of wall-clock intervals: parallel phases must not be added twice. */
+export function elapsedModelPhases(phases: ModelPhase[]) {
+  let total = 0, end = 0;
+  for (const phase of [...phases].sort((a, b) => a.startMs - b.startMs)) {
+    total += Math.max(0, phase.endMs - Math.max(end, phase.startMs));
+    end = Math.max(end, phase.endMs);
+  }
+  return total;
+}
 export interface ModelDriver<M> {
   fetch(url: string, signal: AbortSignal): Promise<Response>;
   create(bytes: Uint8Array, format: ModelFormat): M;
@@ -57,24 +66,31 @@ export class PairedModelLoader<M> {
     this.active = controller;
     const { signal } = controller;
     const phases: ModelPhase[] = [];
+    const origin = performance.now();
+    let recording = true;
+    const record = (name: string, start: number) => {
+      if (!recording) return; // A cancelled driver can still deliver a late response.
+      const end = performance.now();
+      phases.push({ name, ms: end - start, startMs: start - origin, endMs: end - origin });
+    };
     const phase = async <T>(name: string, action: () => Promise<T>) => {
       const start = performance.now();
       try { return await action(); }
-      finally { phases.push({ name, ms: performance.now() - start }); }
+      finally { record(name, start); }
     };
     const check = () => signal.throwIfAborted();
-    const response = async (url: string) => {
-      const result = await this.driver.fetch(url, signal);
-      if (signal.aborted || !result.ok) {
+    const response = async (url: string, pending = signal) => {
+      const result = await this.driver.fetch(url, pending);
+      if (pending.aborted || !result.ok) {
         await result.body?.cancel().catch(() => {});
-        check();
+        pending.throwIfAborted();
         throw new Error(`Model HTTP ${result.status}`);
       }
       return result;
     };
-    const verify = async (bytes: Uint8Array, expected: string) => {
+    const verify = async (bytes: Uint8Array, expected: string, pending = signal) => {
       const digest = await sha256(bytes);
-      check();
+      pending.throwIfAborted();
       if (hashHex(digest) !== expected) throw new Error("Paired model digest mismatch");
       return digest;
     };
@@ -85,7 +101,7 @@ export class PairedModelLoader<M> {
       try {
         // Spark initialization is not cancellable. Do not dispose until it settles.
         await this.driver.initialized(model);
-        phases.push({ name: `${format}-initialize`, ms: performance.now() - start });
+        record(`${format}-initialize`, start);
         check();
         const prepareStart = performance.now();
         const target = this.driver.attributes(model);
@@ -94,7 +110,7 @@ export class PairedModelLoader<M> {
         this.driver.prepare(model);
         check();
         this.driver.publish(model);
-        phases.push({ name: `${format}-prepare-publish`, ms: performance.now() - prepareStart });
+        record(`${format}-prepare-publish`, prepareStart);
       } catch (error) {
         this.driver.dispose(model);
         throw error;
@@ -114,14 +130,32 @@ export class PairedModelLoader<M> {
       // Direct PLY control uses the same fetch, validation and ownership path as fallback.
       if (format === "ply") return await loadPly();
       try {
-        const spz = await phase("spz-read", async () => new Uint8Array(await (await response(spec.spzUrl)).arrayBuffer()));
-        check();
-        const modelHash = await phase("spz-hash", () => verify(spz, spec.spzSha256));
-        const alpha = await phase("alpha-read-validate", async () => readAlpha16Response(await response(spec.alphaUrl), spec.count, modelHash, signal));
-        check();
-        // Header binding alone cannot detect stale opacity for the same SPZ bytes.
-        await phase("alpha-hash", () => verify(alpha, spec.alphaRawSha256));
-        return { model: await initialize(spz, "spz", alpha, modelHash), format: "spz", phases };
+        const candidate = new AbortController();
+        const pending = AbortSignal.any([signal, candidate.signal]);
+        // The manifest is the expected binding, not proof that either file is valid.
+        const modelHash = Uint8Array.from(spec.spzSha256.match(/../g)!, pair => Number.parseInt(pair, 16));
+        try {
+          const [spz, alpha] = await Promise.all([
+            (async () => {
+              const bytes = await phase("spz-read", async () => new Uint8Array(await (await response(spec.spzUrl, pending)).arrayBuffer()));
+              pending.throwIfAborted();
+              await phase("spz-hash", () => verify(bytes, spec.spzSha256, pending));
+              return bytes;
+            })(),
+            (async () => {
+              const bytes = await phase("alpha-read-validate", async () => readAlpha16Response(await response(spec.alphaUrl, pending), spec.count, modelHash, pending));
+              pending.throwIfAborted();
+              // Header binding alone cannot detect stale opacity for the same SPZ bytes.
+              await phase("alpha-hash", () => verify(bytes, spec.alphaRawSha256, pending));
+              return bytes;
+            })(),
+          ]);
+          check();
+          return { model: await initialize(spz, "spz", alpha, modelHash), format: "spz", phases };
+        } finally {
+          // Stop the sibling request on failure without aborting a valid PLY fallback.
+          candidate.abort();
+        }
       } catch (candidateError) {
         check(); // Cancellation is never a reason to fetch a fallback.
         try {
@@ -132,6 +166,7 @@ export class PairedModelLoader<M> {
         }
       }
     } finally {
+      recording = false;
       if (this.active === controller) this.active = undefined;
     }
   }

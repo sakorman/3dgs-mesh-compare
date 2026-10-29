@@ -1,6 +1,6 @@
 # 3DGS 研究索引
 
-查阅日期：2026-10-29。以下区分已验证的应用改进与尚未验证收益的研究候选。
+查阅日期：2026-10-30。以下区分已验证的应用改进与尚未验证收益的研究候选。
 
 ## 实现
 
@@ -414,3 +414,19 @@ Spark 最新发行仍为 [2.4.0](https://github.com/sparkjsdev/spark/releases/ta
 [作者当前 main 76a2b93](https://github.com/Visionary-Laboratory/visionary/tree/76a2b93cec0e0dfaeb598fd320b6ceabf4b39d48)提交于 2026-10-15，无 GitHub Release，仓库 Apache-2.0；最新提交修改项目 URL，不是新的解码算法。[SPZLoader](https://github.com/Visionary-Laboratory/visionary/blob/76a2b93cec0e0dfaeb598fd320b6ceabf4b39d48/src/io/spz_loader.ts)最近文件提交为 2025-12-09 的 `0727fe8`：通过浏览器 DecompressionStream 先展开 gzip，再解析 v1–v3、转换并打包属性；仍有解压后的整块缓冲和 CPU 转换，不代表零复制或较低峰值内存。只将“分开测容器展开与属性转换”列为待验证假设，未移植。
 
 [当前 README](https://github.com/Visionary-Laboratory/visionary/blob/76a2b93cec0e0dfaeb598fd320b6ceabf4b39d48/README.md)要求支持 WebGPU 的 Chromium，推荐 Windows 独显，并列出 Ubuntu fp16 问题及 macOS 性能限制；没有可直接接入本项目的 WebGL2 后端。所读 SPZ 文件解码路径不依赖 CUDA，但其它 ONNX 导出/训练工具需单独审查。此处未运行其 WebGPU/Metal 实现、下载权重或复现论文结果。
+
+### 候选已验证：配对文件并行读取与完整性边界
+
+2026-10-30 再查 Spark main 仍为 2026-10-20 的 [ffe210d](https://github.com/sparkjsdev/spark/commit/ffe210dc0a45d0515a06c9235878108112827d61)，最新 [v2.4.0](https://github.com/sparkjsdev/spark/releases/tag/v2.4.0) 当日发布（说明标题使用 10-19），MIT，没有新的可升级版本。重新阅读 [PagedSplatsFetcher](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/PagedSplatsFetcher.ts) 的取消信号及完整正文读取边界，未将获取接口等同于可中断的 Spark 初始化或真正渐进渲染。当前验证仍为 WebGL2/WASM，经 ANGLE Metal 执行；没有新增 WebGPU、原生 Metal 或 CUDA 后端。
+
+本项目 SPZ 与 AP16 的下载不需要彼此内容，故在清单快照下并行读取，再等待两份实际摘要和绑定全部通过后发布；失败取消同组请求，PLY 回退使用独立父生命周期。阶段时间改用区间并集避免重复加总。[32 个同模型样本](PARALLEL-PAIR.md)支持在每请求独立带宽预算下减少串行等待，热缓存无明显收益；共享链路和峰值内存尚无证据。此改动仅进入候选夹具，默认 PLY 不变。
+
+### 待验证：ProGS 渐进前缀的依赖与许可
+
+新读 [ProGS v1](https://arxiv.org/abs/2603.09703)（2026-03-10，论文 CC BY-SA 4.0），重点为[第 III-D–III-F 节](https://arxiv.org/html/2603.09703v1#S3.SS4)的父子上下文和头部—层级解码顺序。论文以八叉树组织可累积 LoD，先获得共享头部再由根至叶解码；不能据此假设所有解码任务互相独立，也不引用其压缩率或画质数字作为本项目收益。
+
+作者仓库当前只有 2026-08-28 的 [f0e7b5d](https://github.com/ZhiyeTang/ProGS-Official/commit/f0e7b5d977fe38bde47eeb45a985c7b15940d0d9)，无 GitHub Release。阅读 [artifact.py](https://github.com/ZhiyeTang/ProGS-Official/blob/f0e7b5d977fe38bde47eeb45a985c7b15940d0d9/progs/artifact.py)、[model_codec.py](https://github.com/ZhiyeTang/ProGS-Official/blob/f0e7b5d977fe38bde47eeb45a985c7b15940d0d9/progs/model_codec.py) 和[格式文档](https://github.com/ZhiyeTang/ProGS-Official/blob/f0e7b5d977fe38bde47eeb45a985c7b15940d0d9/docs/ARTIFACT_FORMAT.md)：清单保存文件长度及 SHA-256，解码前验证所需前缀，再重建哈希与层级；容器核查可在 CPU 上做，但模型解码显式使用 CUDA，不是现有 SPZ 的浏览器即插即用解码器。公开 README 的父级上下文及 refinement 描述与论文分别记录，未假定代码已复现全部论文结果。
+
+[参考环境](https://github.com/ZhiyeTang/ProGS-Official/blob/f0e7b5d977fe38bde47eeb45a985c7b15940d0d9/README.md)为 Ubuntu 22.04、Python 3.9、PyTorch 2.1.2、CUDA 12.1 / RTX 4090，论文实验写 Ubuntu 20.04；[许可证](https://github.com/ZhiyeTang/ProGS-Official/blob/f0e7b5d977fe38bde47eeb45a985c7b15940d0d9/LICENSE.md)限非商业研究/评价，不是 MIT。未下载权重、运行训练或复制实现，WebGL2/WebGPU/Metal 的完整训练/解码/渲染适配均未验证。
+
+可行动结论：后续若引入分页，先列出可独立下载与必须按序解码的依赖，再验证文件绑定、缺块恢复和前缀画质；ProGS 需要重新训练及后端、许可评估，暂不改变当前模型。当前 AP16 并行读取只借鉴这一依赖区分，不称为实现 ProGS 或 LoD。
