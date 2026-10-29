@@ -1,9 +1,11 @@
 import { CompareViewer } from "../../src/viewer";
 import { hashHex, sha256 } from "../helpers/paired-model";
+import { read, keep } from "../helpers/reference-pixels";
 
 const params = new URLSearchParams(location.search);
 const baseline = params.get("variant") === "baseline";
 const scene = params.get("scene") ?? "pipes";
+const probeReference = params.get("probe") === "reference";
 const output = document.querySelector("#qa-result")!;
 const run = document.querySelector<HTMLButtonElement>("#qa-run")!;
 const button = (id: string) => document.querySelector<HTMLButtonElement>(`#${id}`)!;
@@ -36,6 +38,11 @@ run.disabled = false; output.textContent = `Ready: ${baseline ? "baseline" : "fi
 run.onclick = async () => {
   run.disabled = true;
   const records: object[] = [], inputs: object[] = [];
+  const referenceDiagnostics: object[] = [];
+  if (probeReference) {
+    const files = document.createElement("div"); files.id = "files";
+    document.querySelector("aside")!.append(files);
+  }
   let normal: unknown;
   const decode = HTMLImageElement.prototype.decode;
   const getImageData = CanvasRenderingContext2D.prototype.getImageData;
@@ -92,8 +99,20 @@ run.onclick = async () => {
         // Check actual scoring inputs after recovery without changing their image path.
         const ref = viewer.reference.bind(viewer), pixels = viewer.pixels.bind(viewer);
         const captured: {view: string; kind: string; bytes: Uint8Array}[] = [];
+        let referenceImage: HTMLImageElement;
+        if (probeReference) HTMLImageElement.prototype.decode = async function () {
+          await decode.call(this); referenceImage = this;
+        };
         viewer.reference = async (...args) => {
           const rgba = await ref(...args);
+          if (probeReference) {
+            const image = referenceImage!;
+            const natural = read(image, image.naturalWidth, image.naturalHeight, false);
+            const cpuNatural = read(image, image.naturalWidth, image.naturalHeight, true);
+            referenceDiagnostics.push({view: args[0].image_name, naturalSize: [image.naturalWidth, image.naturalHeight],
+              scaledSize: [viewer.width, viewer.height], productionHash: await keep(rgba, "production"),
+              naturalHash: await keep(natural.data, "natural"), readFrequentlyNaturalHash: await keep(cpuNatural.data, "natural-read-frequently")});
+          }
           captured.push({view: args[0].image_name, kind: "reference", bytes: new Uint8Array(rgba)}); return rgba;
         };
         viewer.pixels = kind => {
@@ -105,11 +124,12 @@ run.onclick = async () => {
         normal = exportQuality();
         for (const {view, kind, bytes} of captured) inputs.push({view, kind, hash: hashHex(await sha256(bytes))});
         viewer.reference = ref; viewer.pixels = pixels;
+        HTMLImageElement.prototype.decode = decode;
       }
     }
     output.textContent = JSON.stringify({createdAt: new Date().toISOString(), variant: baseline ? "baseline" : "fixed", scene,
       baselineCommit: "870afb8", method: "Hold decoded image completion; observe cancellation for 80ms before releasing, with a late rejection in hidden case. Not a network or cancellation latency benchmark.",
-      records, inputs, normal, errors}, null, 2);
+      records, inputs, normal, ...(probeReference ? {referenceProbeBase: "0344969", referenceDiagnostics} : {}), errors}, null, 2);
   } catch (error) { output.textContent = JSON.stringify({failed: String(error), records, inputs, normal, errors}, null, 2); }
   finally { release(); reveal(); HTMLImageElement.prototype.decode = decode; CanvasRenderingContext2D.prototype.getImageData = getImageData; viewer.dispose(); }
 };

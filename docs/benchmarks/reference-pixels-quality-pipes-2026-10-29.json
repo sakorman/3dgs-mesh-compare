@@ -1,0 +1,222 @@
+{
+  "createdAt": "2026-10-29T06:51:52.578Z",
+  "baseline": "0344969",
+  "scene": "pipes",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+  "method": "Unmodified production reference read first; reuse the same decoded image for natural-size and readFrequently diagnostics. Same rendered pixels scored against both references; full SH3, no LoD, DPR1, serial rendering. No timing comparison.",
+  "records": [
+    {
+      "repeat": 0,
+      "scene": "pipes",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "sourceSha256": "2233fbd3dac8971cdf75fb02b123fe954a7369ce592f2c84ec80401de1138c0b",
+      "width": 768,
+      "height": 505,
+      "productionHash": "31b8f18df8a2dd5d5ce509500ff4b56a3a6878f916deff5e3965bfe0af22ebb5",
+      "naturalHash": "ed34e427e9019c0eedd36f39247b455c738e7de8f9e0de2fcd8606da1a551a42",
+      "readFrequentlyNaturalHash": "50a3343191e42d42111bb7fda16c43cda32c0153f47b131eea7145502d9af012",
+      "readFrequentlyHash": "de8c6be16c0f5a9d3f94f20d59b4ab29ac227fbb47035ee91bc0ffd48789f29c",
+      "afterDiagnosticsHash": "31b8f18df8a2dd5d5ce509500ff4b56a3a6878f916deff5e3965bfe0af22ebb5",
+      "naturalDifference": {
+        "changedChannels": 314457,
+        "maxAbsolute": 1,
+        "meanAbsolute": 0.11407389081073552
+      },
+      "scaledDifference": {
+        "changedChannels": 517698,
+        "maxAbsolute": 9,
+        "meanAbsolute": 0.3623665686881188
+      },
+      "results": [
+        {
+          "kind": "gaussian",
+          "hash": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36",
+          "production": {
+            "psnr": 18.7454079234687,
+            "ssim": 0.7833699625373709,
+            "mae": 23.128159378437843
+          },
+          "readFrequently": {
+            "psnr": 18.81785104698372,
+            "ssim": 0.7831037320229953,
+            "mae": 22.84004830170517
+          }
+        },
+        {
+          "kind": "mesh",
+          "hash": "c3c2144e2ef68b0306e923997f7336302afc5ff7097be8b9a2926b6c5b78cdb9",
+          "production": {
+            "psnr": 16.203956014134363,
+            "ssim": 0.6405673672234332,
+            "mae": 24.89255277090209
+          },
+          "readFrequently": {
+            "psnr": 16.228617812104968,
+            "ssim": 0.6403787963785084,
+            "mae": 24.726761894939493
+          }
+        }
+      ]
+    },
+    {
+      "repeat": 0,
+      "scene": "pipes",
+      "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+      "sourceSha256": "e57f36fbaf8927fd393349aebee486a5521d371a65fb794d2873fba4c0f7ea79",
+      "width": 768,
+      "height": 505,
+      "productionHash": "22989cc5d119703a45c8bcfb905cd08f8210ae04ca8f770bf99d48d292cbde5b",
+      "naturalHash": "d90febde9b643b4412ffe23ac06631e4e1e43fef74ad01acc38d382c044391e7",
+      "readFrequentlyNaturalHash": "d90febde9b643b4412ffe23ac06631e4e1e43fef74ad01acc38d382c044391e7",
+      "readFrequentlyHash": "d28178221654612ddaefd3d10db3630515a366d4031f31c253c3dedd8a3d1bcc",
+      "afterDiagnosticsHash": "22989cc5d119703a45c8bcfb905cd08f8210ae04ca8f770bf99d48d292cbde5b",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      },
+      "scaledDifference": {
+        "changedChannels": 512796,
+        "maxAbsolute": 8,
+        "meanAbsolute": 0.34920456889438944
+      },
+      "results": [
+        {
+          "kind": "gaussian",
+          "hash": "c91b07263481e55ea3f9585a7deadf35d29fea9f3ac96c938275124b58935754",
+          "production": {
+            "psnr": 13.796126352156028,
+            "ssim": 0.6779924558248729,
+            "mae": 43.78421428080308
+          },
+          "readFrequently": {
+            "psnr": 13.847926465120814,
+            "ssim": 0.6789471741748984,
+            "mae": 43.435781937568755
+          }
+        },
+        {
+          "kind": "mesh",
+          "hash": "5cac2f041f2016ab5a86f7db66c4fe0180218f345175fabec76dac67c397008a",
+          "production": {
+            "psnr": 10.705598472595963,
+            "ssim": 0.4452555092821565,
+            "mae": 55.564469884488446
+          },
+          "readFrequently": {
+            "psnr": 10.730329027950473,
+            "ssim": 0.4455844505650803,
+            "mae": 55.364420035753575
+          }
+        }
+      ]
+    },
+    {
+      "repeat": 1,
+      "scene": "pipes",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "sourceSha256": "2233fbd3dac8971cdf75fb02b123fe954a7369ce592f2c84ec80401de1138c0b",
+      "width": 768,
+      "height": 505,
+      "productionHash": "31b8f18df8a2dd5d5ce509500ff4b56a3a6878f916deff5e3965bfe0af22ebb5",
+      "naturalHash": "ed34e427e9019c0eedd36f39247b455c738e7de8f9e0de2fcd8606da1a551a42",
+      "readFrequentlyNaturalHash": "50a3343191e42d42111bb7fda16c43cda32c0153f47b131eea7145502d9af012",
+      "readFrequentlyHash": "de8c6be16c0f5a9d3f94f20d59b4ab29ac227fbb47035ee91bc0ffd48789f29c",
+      "afterDiagnosticsHash": "31b8f18df8a2dd5d5ce509500ff4b56a3a6878f916deff5e3965bfe0af22ebb5",
+      "naturalDifference": {
+        "changedChannels": 314457,
+        "maxAbsolute": 1,
+        "meanAbsolute": 0.11407389081073552
+      },
+      "scaledDifference": {
+        "changedChannels": 517698,
+        "maxAbsolute": 9,
+        "meanAbsolute": 0.3623665686881188
+      },
+      "results": [
+        {
+          "kind": "gaussian",
+          "hash": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36",
+          "production": {
+            "psnr": 18.7454079234687,
+            "ssim": 0.7833699625373709,
+            "mae": 23.128159378437843
+          },
+          "readFrequently": {
+            "psnr": 18.81785104698372,
+            "ssim": 0.7831037320229953,
+            "mae": 22.84004830170517
+          }
+        },
+        {
+          "kind": "mesh",
+          "hash": "c3c2144e2ef68b0306e923997f7336302afc5ff7097be8b9a2926b6c5b78cdb9",
+          "production": {
+            "psnr": 16.203956014134363,
+            "ssim": 0.6405673672234332,
+            "mae": 24.89255277090209
+          },
+          "readFrequently": {
+            "psnr": 16.228617812104968,
+            "ssim": 0.6403787963785084,
+            "mae": 24.726761894939493
+          }
+        }
+      ]
+    },
+    {
+      "repeat": 1,
+      "scene": "pipes",
+      "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+      "sourceSha256": "e57f36fbaf8927fd393349aebee486a5521d371a65fb794d2873fba4c0f7ea79",
+      "width": 768,
+      "height": 505,
+      "productionHash": "22989cc5d119703a45c8bcfb905cd08f8210ae04ca8f770bf99d48d292cbde5b",
+      "naturalHash": "d90febde9b643b4412ffe23ac06631e4e1e43fef74ad01acc38d382c044391e7",
+      "readFrequentlyNaturalHash": "d90febde9b643b4412ffe23ac06631e4e1e43fef74ad01acc38d382c044391e7",
+      "readFrequentlyHash": "d28178221654612ddaefd3d10db3630515a366d4031f31c253c3dedd8a3d1bcc",
+      "afterDiagnosticsHash": "22989cc5d119703a45c8bcfb905cd08f8210ae04ca8f770bf99d48d292cbde5b",
+      "naturalDifference": {
+        "changedChannels": 0,
+        "maxAbsolute": 0,
+        "meanAbsolute": 0
+      },
+      "scaledDifference": {
+        "changedChannels": 512796,
+        "maxAbsolute": 8,
+        "meanAbsolute": 0.34920456889438944
+      },
+      "results": [
+        {
+          "kind": "gaussian",
+          "hash": "c91b07263481e55ea3f9585a7deadf35d29fea9f3ac96c938275124b58935754",
+          "production": {
+            "psnr": 13.796126352156028,
+            "ssim": 0.6779924558248729,
+            "mae": 43.78421428080308
+          },
+          "readFrequently": {
+            "psnr": 13.847926465120814,
+            "ssim": 0.6789471741748984,
+            "mae": 43.435781937568755
+          }
+        },
+        {
+          "kind": "mesh",
+          "hash": "5cac2f041f2016ab5a86f7db66c4fe0180218f345175fabec76dac67c397008a",
+          "production": {
+            "psnr": 10.705598472595963,
+            "ssim": 0.4452555092821565,
+            "mae": 55.564469884488446
+          },
+          "readFrequently": {
+            "psnr": 10.730329027950473,
+            "ssim": 0.4455844505650803,
+            "mae": 55.364420035753575
+          }
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

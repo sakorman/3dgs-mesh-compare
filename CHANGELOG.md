@@ -1,5 +1,12 @@
 # 更新日志
 
+## 2026-10-29 · 参考图像素与评分口径
+
+- 新增原尺寸、缩放参考图及真实评分输入的诊断与 RGBA 导出，见[实验记录](docs/REFERENCE-PIXELS.md)。72 组读回、12 次视角评分和 4 项恢复检查完成，116 项测试、类型检查与构建通过。
+- 再次复现办公室首张参考图的两种状态；原尺寸已有 323,356 个 RGB 通道相差 1，缩放后最大差值为 8，八份模型画面摘要不变。具体解码、颜色转换或缓存原因仍待确认。
+- 暂不采用 `willReadFrequently`：只换参考图读回设置，PSNR / SSIM 最大绝对变化就达到 0.072443dB / 0.00134224，不能当作画质提升；保留原评分管线与全部默认资源。
+- 补充 [Brush 图片加载实现](https://github.com/ArthurBrussee/brush/blob/1388f74c6fe0236f68ee4915564bf00e9d2e3747/crates/brush-dataset/src/load_image.rs)、[相关提交](https://github.com/ArthurBrussee/brush/commit/8b7f5c6c0638892204b540d9aced219f62fc2192)与[质量评价综述](https://arxiv.org/abs/2609.23027)，明确参考取样、稳态缓存和评价协议的边界。
+
 ## 2026-10-29 · 参考照片等待取消
 
 - 修复参考照片解码等待期间取消评测仍锁住控件的问题；取消时解除图片源和监听，迟到完成不再读取无用像素，见[验证记录](docs/IMAGE-DECODE.md)。
