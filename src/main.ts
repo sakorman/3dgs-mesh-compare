@@ -339,7 +339,7 @@ if (isBenchmark) {
         viewer.setView(v);
         await viewer.settle(signal);
         check();
-        const target = await viewer.reference(v);
+        const target = await viewer.reference(v, signal);
         check();
         const gaussian = quality(
           viewer.pixels("gaussian"),

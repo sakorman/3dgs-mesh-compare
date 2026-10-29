@@ -358,3 +358,20 @@ Spark 最新发行仍为 [2.4.0](https://github.com/sparkjsdev/spark/releases/ta
 [作者仓库](https://github.com/emanuele-artioli/MoQSplat/tree/15e02a669456d767abf5d68f9fb1f909f260dde0)最近提交为 2026-09-16 的 `15e02a6`，无 GitHub Release；[pyproject.toml](https://github.com/emanuele-artioli/MoQSplat/blob/15e02a669456d767abf5d68f9fb1f909f260dde0/pyproject.toml)标版本 0.1.0、MIT，但树中未见独立 LICENSE 文件，依赖与发布代码仍需分别核实。已读 [transport/client.py](https://github.com/emanuele-artioli/MoQSplat/blob/15e02a669456d767abf5d68f9fb1f909f260dde0/src/moq3dgs/transport/client.py)：disconnect 取消并等待接收任务，再关闭写入器。请求停止、任务结束和缓存可用是不同状态。
 
 作者环境固定 Python 3.10 / PyTorch 2.5.1 / CUDA 12.1，论文使用 Python gsplat 与定制 moq-lite 服务；不是可直接加入 GitHub Pages 的 WebGL2/WebGPU 模块，未找到已验证 Metal 路径。本项目未安装、复制或测试其实现，也未采纳论文跑分。可行动假设是后续渐进加载必须分别验证不完整层、取消后的迟到内容与重试；当前完整 PLY 保留原状，先记录真实 CDN/缓存证据，不因单次慢加载就迁移传输协议。
+
+
+### 已修复：参考照片的等待与原生解码分离
+
+[参考照片取消实验](IMAGE-DECODE.md)验证了不同生命周期：取消评测后调用方及时结束，移除图片源并不保证原生 decode Promise 立即结束；实际停流 JPEG 在服务器关闭后，原生 Promise 在 150ms 观察点仍为 pending。当前保留成功与失败处理，避免迟到读取和未处理拒绝，不把控件恢复等同底层资源回收，也不新增缓存。
+
+评分输入进一步缩小了既有波动范围：office 第一张参考图经 drawImage 后的 RGBA 摘要变化，全部 12 份重建画面一致；旧版复测也出现相同输入和评分。下一步分别对照原尺寸解码像素、缩放结果与缓存状态，先验证原因，再决定是否固定重采样或缓存参考输入。
+
+### 候选：gsplat 的图片缓存与启动成本
+
+2026-10-29 核对 [gsplat main 512d366](https://github.com/nerfstudio-project/gsplat/commit/512d366b67073d77ca099ede742683c165dfc23b)，提交于 2026-09-19，来自 [#1062](https://github.com/nerfstudio-project/gsplat/pull/1062)。最新 GitHub Release 仍为 [v1.5.3](https://github.com/nerfstudio-project/gsplat/releases/tag/v1.5.3)（2025-07-04），不能将当前 main 的缓存选项归入该旧发行；代码 [LICENSE](https://github.com/nerfstudio-project/gsplat/blob/512d366b67073d77ca099ede742683c165dfc23b/LICENSE)为 Apache-2.0。
+
+已读 [COLMAP Dataset](https://github.com/nerfstudio-project/gsplat/blob/512d366b67073d77ca099ede742683c165dfc23b/examples/datasets/colmap.py)与 [simple_trainer](https://github.com/nerfstudio-project/gsplat/blob/512d366b67073d77ca099ede742683c165dfc23b/examples/simple_trainer.py)：可选 cache_images 默认关闭，训练前用四线程完成读取与去畸变，将解码 dtype 的张量保留于主机内存；拷贝到 GPU 后才转浮点并除 255。只对训练集预载，NCore 路径拒绝该选项。提交报告的稳态步耗时改善伴随每 rank 的预载成本和常驻内存，总运行墙钟未改善；这正是不能只报内层速度的例子，未在本项目复现实验或引用倍数。
+
+[gsplat 论文 v1](https://arxiv.org/abs/2409.06765v1)为 2024-09-10，CC BY 4.0；[第四节](https://arxiv.org/html/2409.06765v1#S4)在相同 ADC 和配置下分别报告画质、内存与训练时间，使用 A100、PyTorch 2.1.2、CUDA 11.8。2026 年提交使用的 8×B200 训练条件与该论文、当前浏览器均不同。当前 main README 要求 PyTorch 2.7+ 并面向 CUDA；这些接口不是 WebGL2/WebGPU 实现，也未提供本项目可复现的 Metal 路径。
+
+可行动假设是参考图缓存只有在重复读取收益覆盖首次解码、失效与常驻内存成本后才值得采用，并需按场景、照片、尺寸与像素口径验证。当前每次评分只读少量留出照片，且已存在参考像素波动，先保持 HTMLImageElement 解码和评分公式，完成输入稳定性诊断；没有移植训练缓存、下载权重或启动 CUDA 任务。

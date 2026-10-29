@@ -8,6 +8,7 @@ import { RenderScheduler } from "./render-scheduler";
 import { settleFrames } from "./settle-frames";
 import { disposeMeshResources } from "./mesh-resources";
 import { LoadScope } from "./load-scope";
+import { decodeImage } from "./decode-image";
 import { LoadClock, type LoadTimings } from "./load-timing";
 import type { Backend, SceneData, View } from "./types";
 export { nextFrame } from "./next-frame";
@@ -314,10 +315,19 @@ export class CompareViewer {
     ctx.drawImage(this.renderers[kind].domElement, 0, 0);
     return ctx.getImageData(0, 0, this.width, this.height).data;
   }
-  async reference(view: View) {
-    const image = new Image();
-    image.src = `${import.meta.env.BASE_URL}scenes/${this.data!.id}/${view.url}`;
-    await image.decode();
+  async reference(view: View, signal?: AbortSignal) {
+    const pending = signal
+      ? AbortSignal.any([signal, this.settleScope.signal])
+      : this.settleScope.signal;
+    pending.throwIfAborted();
+    if (this.disposed || this.lost || !this.data)
+      throw new DOMException("场景已取消或不可用", "AbortError");
+    const image = await decodeImage(
+      new Image(),
+      `${import.meta.env.BASE_URL}scenes/${this.data.id}/${view.url}`,
+      pending,
+    );
+    pending.throwIfAborted();
     const canvas = document.createElement("canvas");
     canvas.width = this.width;
     canvas.height = this.height;
