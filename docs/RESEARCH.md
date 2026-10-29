@@ -375,3 +375,13 @@ Spark 最新发行仍为 [2.4.0](https://github.com/sparkjsdev/spark/releases/ta
 [gsplat 论文 v1](https://arxiv.org/abs/2409.06765v1)为 2024-09-10，CC BY 4.0；[第四节](https://arxiv.org/html/2409.06765v1#S4)在相同 ADC 和配置下分别报告画质、内存与训练时间，使用 A100、PyTorch 2.1.2、CUDA 11.8。2026 年提交使用的 8×B200 训练条件与该论文、当前浏览器均不同。当前 main README 要求 PyTorch 2.7+ 并面向 CUDA；这些接口不是 WebGL2/WebGPU 实现，也未提供本项目可复现的 Metal 路径。
 
 可行动假设是参考图缓存只有在重复读取收益覆盖首次解码、失效与常驻内存成本后才值得采用，并需按场景、照片、尺寸与像素口径验证。当前每次评分只读少量留出照片，且已存在参考像素波动，先保持 HTMLImageElement 解码和评分公式，完成输入稳定性诊断；没有移植训练缓存、下载权重或启动 CUDA 任务。
+
+### 测量参考：参考图管线也是评分协议的一部分
+
+2026-10-29 再查 Brush，main 仍为 [1388f74](https://github.com/ArthurBrussee/brush/commit/1388f74c6fe0236f68ee4915564bf00e9d2e3747)（10-03），最新 Release 仍为 [v0.3.0](https://github.com/ArthurBrussee/brush/releases/tag/v0.3.0)（2025-09-14）。最近影响图片文件的 [#521 / 8b7f5c6](https://github.com/ArthurBrussee/brush/commit/8b7f5c6c0638892204b540d9aced219f62fc2192)（2026-08-17）减少掩码处理与缓存批次复制，在比例不变的 LoD 边界保留加载器；这些是作者实现说明，未在本项目复测。
+
+已读固定 main 版本的 [load_image.rs](https://github.com/ArthurBrussee/brush/blob/1388f74c6fe0236f68ee4915564bf00e9d2e3747/crates/brush-dataset/src/load_image.rs)与 [eval.rs](https://github.com/ArthurBrussee/brush/blob/1388f74c6fe0236f68ee4915564bf00e9d2e3747/crates/brush-train/src/eval.rs)：JPEG 按上限请求缩放解码，必要时再用 Lanczos3 调整尺寸；评价按参考尺寸渲染并将预测 RGB 四舍五入到 8 位。参考重采样、量化与指标计算都是评价链路，不能仅因公式同名就与浏览器结果混算。代码 [Apache-2.0](https://github.com/ArthurBrussee/brush/blob/1388f74c6fe0236f68ee4915564bf00e9d2e3747/LICENSE)；项目为 Burn / WebGPU 兼容技术，提供 macOS 原生与浏览器路径，不要求 CUDA。没有将该 Rust 解码器接入当前 WebGL2 查看器，WebGPU / Metal 上的该版本效果与耗时均未验证。
+
+新读 [Quality Assessment of 3D Gaussian Splatting](https://arxiv.org/abs/2609.23027)（v1，2026-09-19，ICIVC 2026；arXiv 标 CC BY 4.0），[第四、五节](https://arxiv.org/html/2609.23027v1#S4)讨论指标对失真类型和观察协议的依赖，并建议分别说明留出、压力视角、固定轨迹和渲染配置。该文为综述，所读原文未提供新的解码或渲染实现；不将其当作可安装的优化或套用文中引用的跑分。
+
+本项目的[72 组参考读回实验](REFERENCE-PIXELS.md)表明：`willReadFrequently` 不应作为透明优化直接启用；原尺寸读回本身也有变化，尚不能认定只改插值便能消除波动。下一步先固定并校验解码 RGB，再比较取样方案；取样方案改变时标识新的评分协议。生产路径保持原样，未宣称 GPU 或画质提升。

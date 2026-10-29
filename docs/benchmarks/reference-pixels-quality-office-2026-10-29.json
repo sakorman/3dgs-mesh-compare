@@ -1,0 +1,434 @@
+{
+  "createdAt": "2026-10-29T06:53:03.742Z",
+  "baseline": "0344969",
+  "scene": "office",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+  "method": "Unmodified production reference read first; reuse the same decoded image for natural-size and readFrequently diagnostics. Same rendered pixels scored against both references; full SH3, no LoD, DPR1, serial rendering. No timing comparison.",
+  "records": [
+    {
+      "repeat": 0,
+      "scene": "office",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "sourceSha256": "d2570aac393c2428bf238a95d1b42f77893f0fac4c5aff68593fbcd46b9e0157",
+      "width": 768,
+      "height": 500,
+      "productionHash": "5bd1500eb7b6a3f1c1f462c2886e81be55f590d37b4c2ee2221d90d7a5e10b58",
+      "naturalHash": "78ad868aa6bef5a412a4cdb4a44c53f84ae91eaa469ff49229c06f655c243d43",
+      "readFrequentlyNaturalHash": "d7c4fe25073c4cfb36c4741dcd3c4655bbc175127c212a6e5d0b8c5e4b88b1d5",
+      "readFrequentlyHash": "b377910af837d4d772698743ed441ea4a64ffc57f47386edb2e835d48dbf84c7",
+      "afterDiagnosticsHash": "5bd1500eb7b6a3f1c1f462c2886e81be55f590d37b4c2ee2221d90d7a5e10b58",
+      "naturalDifference": {
+        "changedChannels": 323356,
+        "maxAbsolute": 1,
+        "meanAbsolute": 0.11835732524362819
+      },
+      "scaledDifference": {
+        "changedChannels": 488354,
+        "maxAbsolute": 7,
+        "meanAbsolute": 0.3365279947916667
+      },
+      "results": [
+        {
+          "kind": "gaussian",
+          "hash": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3",
+          "production": {
+            "psnr": 20.14224972070788,
+            "ssim": 0.854074841185931,
+            "mae": 19.42663628472222
+          },
+          "readFrequently": {
+            "psnr": 20.15515137090437,
+            "ssim": 0.8527326034224967,
+            "mae": 19.415739583333334
+          }
+        },
+        {
+          "kind": "mesh",
+          "hash": "ac95a13722ceebb9e56bfeb53a925f674a5145242504fb1929e44f4b8b66a4e7",
+          "production": {
+            "psnr": 12.908715161761181,
+            "ssim": 0.5523269728757447,
+            "mae": 43.283671875
+          },
+          "readFrequently": {
+            "psnr": 12.906787463874746,
+            "ssim": 0.5512506248769039,
+            "mae": 43.40134461805555
+          }
+        }
+      ]
+    },
+    {
+      "repeat": 0,
+      "scene": "office",
+      "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+      "sourceSha256": "690d085a3a13741c6c2fab85f2835bdf12860bd50c6e9aec1be8b1835639c026",
+      "width": 768,
+      "height": 500,
+      "productionHash": "431e2a1b7b88753e34a6df5586d233f30711f3e7dc30e9fa79d9782d539abf12",
+      "naturalHash": "87d09da0e2b1f0068e138bb8e152f7473f6339bcc98e1869ab4d2f990a264bbd",
+      "readFrequentlyNaturalHash": "6bceb23eae912079c7deab3eac5f12ecb09cab1907457f2a423ebdb59aceb1da",
+      "readFrequentlyHash": "0cb5341a14fda23a31150895e980fc76fef2f26df2b0e1b64b9664dd6be4ae71",
+      "afterDiagnosticsHash": "431e2a1b7b88753e34a6df5586d233f30711f3e7dc30e9fa79d9782d539abf12",
+      "naturalDifference": {
+        "changedChannels": 223483,
+        "maxAbsolute": 1,
+        "meanAbsolute": 0.08180101843609446
+      },
+      "scaledDifference": {
+        "changedChannels": 407411,
+        "maxAbsolute": 6,
+        "meanAbsolute": 0.26972200520833334
+      },
+      "results": [
+        {
+          "kind": "gaussian",
+          "hash": "8ba6cc5b7af30145763983b06ad0aa80dc911255e25b5d537c68653c14d8c0df",
+          "production": {
+            "psnr": 18.609404955593412,
+            "ssim": 0.9030411354183728,
+            "mae": 24.478438368055556
+          },
+          "readFrequently": {
+            "psnr": 18.660721544707698,
+            "ssim": 0.9029302654913347,
+            "mae": 24.307635416666667
+          }
+        },
+        {
+          "kind": "mesh",
+          "hash": "3af78ee4ba301c23d5ffaf227f2873c64eecec70b5db10e7dbd2fec1ca1573ad",
+          "production": {
+            "psnr": 13.659212822977622,
+            "ssim": 0.7938037629857664,
+            "mae": 35.42440972222222
+          },
+          "readFrequently": {
+            "psnr": 13.669590422596485,
+            "ssim": 0.7931920413427009,
+            "mae": 35.47293836805556
+          }
+        }
+      ]
+    },
+    {
+      "repeat": 0,
+      "scene": "office",
+      "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+      "sourceSha256": "368c59ad872c370c55acb4a15f5a6df891077114f0a5932f61686556231dd766",
+      "width": 768,
+      "height": 500,
+      "productionHash": "fbc00767bbca9de8034d780a332b05ee763dbf3b5d994eca83f6721215a19a61",
+      "naturalHash": "511538f22ec0b8f3874ccb79b468a9abffa27340f6b2a9ba191948f0d579a73f",
+      "readFrequentlyNaturalHash": "83c16235faba2ea4d09e43ca5037a366453b748bfbffb2b3bb43553be23719e3",
+      "readFrequentlyHash": "af40c3bf8524bb964a3f11ef10f59004a8cdca8283718b6b5a27e8a25d3e1f78",
+      "afterDiagnosticsHash": "fbc00767bbca9de8034d780a332b05ee763dbf3b5d994eca83f6721215a19a61",
+      "naturalDifference": {
+        "changedChannels": 313709,
+        "maxAbsolute": 1,
+        "meanAbsolute": 0.11482625386525487
+      },
+      "scaledDifference": {
+        "changedChannels": 519795,
+        "maxAbsolute": 12,
+        "meanAbsolute": 0.36323046875
+      },
+      "results": [
+        {
+          "kind": "gaussian",
+          "hash": "a16ea0b0e57a2be26e2c85b2315a1c0f2ae3d221328451d5e87449829991213f",
+          "production": {
+            "psnr": 15.281057627991563,
+            "ssim": 0.7627602027580822,
+            "mae": 36.04847569444444
+          },
+          "readFrequently": {
+            "psnr": 15.340989952102198,
+            "ssim": 0.7637278537770282,
+            "mae": 35.715494791666664
+          }
+        },
+        {
+          "kind": "mesh",
+          "hash": "e1732f8812ec8de3b4c1560717cf85c1068d7c34ae8f48a7beb9df0354e8112b",
+          "production": {
+            "psnr": 13.199993005936507,
+            "ssim": 0.514409906920705,
+            "mae": 41.8853125
+          },
+          "readFrequently": {
+            "psnr": 13.233238078204884,
+            "ssim": 0.5144919203280042,
+            "mae": 41.66286631944445
+          }
+        }
+      ]
+    },
+    {
+      "repeat": 0,
+      "scene": "office",
+      "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+      "sourceSha256": "dcf7f83660a4ea75b9ce3a1b1a3b2892f8b6d0885229fe309f3b02f434aaf669",
+      "width": 768,
+      "height": 500,
+      "productionHash": "c59de703792bea8b2c8c6696bae1c5ca35a121c0f504c2c8521c5db95262cead",
+      "naturalHash": "03d7f871e5b6be70ea0eb67731bc3cf6cd939367ff4c5c1d086ca873cafebd7b",
+      "readFrequentlyNaturalHash": "6fab1ffa0e00772699fafa2f92240ef2827aa0a6e983ae0380726e50171544ce",
+      "readFrequentlyHash": "49c1d54ef9a38e505c518a0bc701881d7c9bc211b86779d7dfc7f83b4a478d3a",
+      "afterDiagnosticsHash": "c59de703792bea8b2c8c6696bae1c5ca35a121c0f504c2c8521c5db95262cead",
+      "naturalDifference": {
+        "changedChannels": 307431,
+        "maxAbsolute": 1,
+        "meanAbsolute": 0.11252833056128186
+      },
+      "scaledDifference": {
+        "changedChannels": 488307,
+        "maxAbsolute": 10,
+        "meanAbsolute": 0.337232421875
+      },
+      "results": [
+        {
+          "kind": "gaussian",
+          "hash": "7b0bf43e8967c537e2677326b567e2bea9f08162a374fab50489b48e049ed06d",
+          "production": {
+            "psnr": 21.781069172415165,
+            "ssim": 0.8361942484912689,
+            "mae": 15.425102430555556
+          },
+          "readFrequently": {
+            "psnr": 21.782364465508323,
+            "ssim": 0.835164042809185,
+            "mae": 15.43897482638889
+          }
+        },
+        {
+          "kind": "mesh",
+          "hash": "b9b1b565d36a0fa5cca1da62c0a7d0a39726d4431a64239ecae7548eb7e3ea97",
+          "production": {
+            "psnr": 13.618649893923978,
+            "ssim": 0.5806073766403183,
+            "mae": 34.43380555555556
+          },
+          "readFrequently": {
+            "psnr": 13.622945645125444,
+            "ssim": 0.5798108484499518,
+            "mae": 34.495032118055555
+          }
+        }
+      ]
+    },
+    {
+      "repeat": 1,
+      "scene": "office",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "sourceSha256": "d2570aac393c2428bf238a95d1b42f77893f0fac4c5aff68593fbcd46b9e0157",
+      "width": 768,
+      "height": 500,
+      "productionHash": "5bd1500eb7b6a3f1c1f462c2886e81be55f590d37b4c2ee2221d90d7a5e10b58",
+      "naturalHash": "78ad868aa6bef5a412a4cdb4a44c53f84ae91eaa469ff49229c06f655c243d43",
+      "readFrequentlyNaturalHash": "d7c4fe25073c4cfb36c4741dcd3c4655bbc175127c212a6e5d0b8c5e4b88b1d5",
+      "readFrequentlyHash": "b377910af837d4d772698743ed441ea4a64ffc57f47386edb2e835d48dbf84c7",
+      "afterDiagnosticsHash": "5bd1500eb7b6a3f1c1f462c2886e81be55f590d37b4c2ee2221d90d7a5e10b58",
+      "naturalDifference": {
+        "changedChannels": 323356,
+        "maxAbsolute": 1,
+        "meanAbsolute": 0.11835732524362819
+      },
+      "scaledDifference": {
+        "changedChannels": 488354,
+        "maxAbsolute": 7,
+        "meanAbsolute": 0.3365279947916667
+      },
+      "results": [
+        {
+          "kind": "gaussian",
+          "hash": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3",
+          "production": {
+            "psnr": 20.14224972070788,
+            "ssim": 0.854074841185931,
+            "mae": 19.42663628472222
+          },
+          "readFrequently": {
+            "psnr": 20.15515137090437,
+            "ssim": 0.8527326034224967,
+            "mae": 19.415739583333334
+          }
+        },
+        {
+          "kind": "mesh",
+          "hash": "ac95a13722ceebb9e56bfeb53a925f674a5145242504fb1929e44f4b8b66a4e7",
+          "production": {
+            "psnr": 12.908715161761181,
+            "ssim": 0.5523269728757447,
+            "mae": 43.283671875
+          },
+          "readFrequently": {
+            "psnr": 12.906787463874746,
+            "ssim": 0.5512506248769039,
+            "mae": 43.40134461805555
+          }
+        }
+      ]
+    },
+    {
+      "repeat": 1,
+      "scene": "office",
+      "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+      "sourceSha256": "690d085a3a13741c6c2fab85f2835bdf12860bd50c6e9aec1be8b1835639c026",
+      "width": 768,
+      "height": 500,
+      "productionHash": "431e2a1b7b88753e34a6df5586d233f30711f3e7dc30e9fa79d9782d539abf12",
+      "naturalHash": "87d09da0e2b1f0068e138bb8e152f7473f6339bcc98e1869ab4d2f990a264bbd",
+      "readFrequentlyNaturalHash": "6bceb23eae912079c7deab3eac5f12ecb09cab1907457f2a423ebdb59aceb1da",
+      "readFrequentlyHash": "0cb5341a14fda23a31150895e980fc76fef2f26df2b0e1b64b9664dd6be4ae71",
+      "afterDiagnosticsHash": "431e2a1b7b88753e34a6df5586d233f30711f3e7dc30e9fa79d9782d539abf12",
+      "naturalDifference": {
+        "changedChannels": 223483,
+        "maxAbsolute": 1,
+        "meanAbsolute": 0.08180101843609446
+      },
+      "scaledDifference": {
+        "changedChannels": 407411,
+        "maxAbsolute": 6,
+        "meanAbsolute": 0.26972200520833334
+      },
+      "results": [
+        {
+          "kind": "gaussian",
+          "hash": "8ba6cc5b7af30145763983b06ad0aa80dc911255e25b5d537c68653c14d8c0df",
+          "production": {
+            "psnr": 18.609404955593412,
+            "ssim": 0.9030411354183728,
+            "mae": 24.478438368055556
+          },
+          "readFrequently": {
+            "psnr": 18.660721544707698,
+            "ssim": 0.9029302654913347,
+            "mae": 24.307635416666667
+          }
+        },
+        {
+          "kind": "mesh",
+          "hash": "3af78ee4ba301c23d5ffaf227f2873c64eecec70b5db10e7dbd2fec1ca1573ad",
+          "production": {
+            "psnr": 13.659212822977622,
+            "ssim": 0.7938037629857664,
+            "mae": 35.42440972222222
+          },
+          "readFrequently": {
+            "psnr": 13.669590422596485,
+            "ssim": 0.7931920413427009,
+            "mae": 35.47293836805556
+          }
+        }
+      ]
+    },
+    {
+      "repeat": 1,
+      "scene": "office",
+      "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+      "sourceSha256": "368c59ad872c370c55acb4a15f5a6df891077114f0a5932f61686556231dd766",
+      "width": 768,
+      "height": 500,
+      "productionHash": "fbc00767bbca9de8034d780a332b05ee763dbf3b5d994eca83f6721215a19a61",
+      "naturalHash": "511538f22ec0b8f3874ccb79b468a9abffa27340f6b2a9ba191948f0d579a73f",
+      "readFrequentlyNaturalHash": "83c16235faba2ea4d09e43ca5037a366453b748bfbffb2b3bb43553be23719e3",
+      "readFrequentlyHash": "af40c3bf8524bb964a3f11ef10f59004a8cdca8283718b6b5a27e8a25d3e1f78",
+      "afterDiagnosticsHash": "fbc00767bbca9de8034d780a332b05ee763dbf3b5d994eca83f6721215a19a61",
+      "naturalDifference": {
+        "changedChannels": 313709,
+        "maxAbsolute": 1,
+        "meanAbsolute": 0.11482625386525487
+      },
+      "scaledDifference": {
+        "changedChannels": 519795,
+        "maxAbsolute": 12,
+        "meanAbsolute": 0.36323046875
+      },
+      "results": [
+        {
+          "kind": "gaussian",
+          "hash": "a16ea0b0e57a2be26e2c85b2315a1c0f2ae3d221328451d5e87449829991213f",
+          "production": {
+            "psnr": 15.281057627991563,
+            "ssim": 0.7627602027580822,
+            "mae": 36.04847569444444
+          },
+          "readFrequently": {
+            "psnr": 15.340989952102198,
+            "ssim": 0.7637278537770282,
+            "mae": 35.715494791666664
+          }
+        },
+        {
+          "kind": "mesh",
+          "hash": "e1732f8812ec8de3b4c1560717cf85c1068d7c34ae8f48a7beb9df0354e8112b",
+          "production": {
+            "psnr": 13.199993005936507,
+            "ssim": 0.514409906920705,
+            "mae": 41.8853125
+          },
+          "readFrequently": {
+            "psnr": 13.233238078204884,
+            "ssim": 0.5144919203280042,
+            "mae": 41.66286631944445
+          }
+        }
+      ]
+    },
+    {
+      "repeat": 1,
+      "scene": "office",
+      "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+      "sourceSha256": "dcf7f83660a4ea75b9ce3a1b1a3b2892f8b6d0885229fe309f3b02f434aaf669",
+      "width": 768,
+      "height": 500,
+      "productionHash": "c59de703792bea8b2c8c6696bae1c5ca35a121c0f504c2c8521c5db95262cead",
+      "naturalHash": "03d7f871e5b6be70ea0eb67731bc3cf6cd939367ff4c5c1d086ca873cafebd7b",
+      "readFrequentlyNaturalHash": "6fab1ffa0e00772699fafa2f92240ef2827aa0a6e983ae0380726e50171544ce",
+      "readFrequentlyHash": "49c1d54ef9a38e505c518a0bc701881d7c9bc211b86779d7dfc7f83b4a478d3a",
+      "afterDiagnosticsHash": "c59de703792bea8b2c8c6696bae1c5ca35a121c0f504c2c8521c5db95262cead",
+      "naturalDifference": {
+        "changedChannels": 307431,
+        "maxAbsolute": 1,
+        "meanAbsolute": 0.11252833056128186
+      },
+      "scaledDifference": {
+        "changedChannels": 488307,
+        "maxAbsolute": 10,
+        "meanAbsolute": 0.337232421875
+      },
+      "results": [
+        {
+          "kind": "gaussian",
+          "hash": "7b0bf43e8967c537e2677326b567e2bea9f08162a374fab50489b48e049ed06d",
+          "production": {
+            "psnr": 21.781069172415165,
+            "ssim": 0.8361942484912689,
+            "mae": 15.425102430555556
+          },
+          "readFrequently": {
+            "psnr": 21.782364465508323,
+            "ssim": 0.835164042809185,
+            "mae": 15.43897482638889
+          }
+        },
+        {
+          "kind": "mesh",
+          "hash": "b9b1b565d36a0fa5cca1da62c0a7d0a39726d4431a64239ecae7548eb7e3ea97",
+          "production": {
+            "psnr": 13.618649893923978,
+            "ssim": 0.5806073766403183,
+            "mae": 34.43380555555556
+          },
+          "readFrequently": {
+            "psnr": 13.622945645125444,
+            "ssim": 0.5798108484499518,
+            "mae": 34.495032118055555
+          }
+        }
+      ]
+    }
+  ],
+  "errors": []
+}
