@@ -1,7 +1,7 @@
 import { SplatMesh, SplatFileType } from "@sparkjsdev/spark";
 import { CompareViewer } from "../../src/viewer";
 import { quality } from "../../src/metrics";
-import { PairedModelLoader, hashHex, sha256, type PairedSpec, type ModelFormat } from "../helpers/paired-model";
+import { PairedModelLoader, elapsedModelPhases, hashHex, sha256, type PairedSpec, type ModelFormat } from "../helpers/paired-model";
 import type { HttpRecord } from "../helpers/http-model-fixture";
 
 const viewer = new CompareViewer(document.querySelector("#left")!, document.querySelector("#right")!);
@@ -115,7 +115,7 @@ button.onclick = async () => {
           }
           assert(viewer.scenes.gaussian.children.filter(x => x instanceof SplatMesh).length === 1, "Overlapping models");
           samples.push({ scene, cache, index, format, loadMs, settleMs, totalMs, phases: result.phases,
-            otherLoadMs: loadMs - result.phases.reduce((sum, p) => sum + p.ms, 0), network, bodyBytesOffered: bytes });
+            otherLoadMs: loadMs - elapsedModelPhases(result.phases), network, bodyBytesOffered: bytes });
           const row = document.createElement("tr");
           for (const value of [scene, cache, format, loadMs.toFixed(2), settleMs.toFixed(2), totalMs.toFixed(2), bytes]) {
             const cell = document.createElement("td"); cell.textContent = String(value); row.append(cell);
