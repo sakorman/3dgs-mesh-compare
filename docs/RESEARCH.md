@@ -384,4 +384,16 @@ Spark 最新发行仍为 [2.4.0](https://github.com/sparkjsdev/spark/releases/ta
 
 新读 [Quality Assessment of 3D Gaussian Splatting](https://arxiv.org/abs/2609.23027)（v1，2026-09-19，ICIVC 2026；arXiv 标 CC BY 4.0），[第四、五节](https://arxiv.org/html/2609.23027v1#S4)讨论指标对失真类型和观察协议的依赖，并建议分别说明留出、压力视角、固定轨迹和渲染配置。该文为综述，所读原文未提供新的解码或渲染实现；不将其当作可安装的优化或套用文中引用的跑分。
 
-本项目的[72 组参考读回实验](REFERENCE-PIXELS.md)表明：`willReadFrequently` 不应作为透明优化直接启用；原尺寸读回本身也有变化，尚不能认定只改插值便能消除波动。下一步先固定并校验解码 RGB，再比较取样方案；取样方案改变时标识新的评分协议。生产路径保持原样，未宣称 GPU 或画质提升。
+本项目的[72 组参考读回实验](REFERENCE-PIXELS.md)表明：`willReadFrequently` 不应作为透明优化直接启用；原尺寸读回本身也有变化，尚不能认定只改插值便能消除波动。固定并校验解码 RGB 的后续对照见下一节；取样方案改变时标识新的评分协议。生产路径保持原样，未宣称 GPU 或画质提升。
+
+### 候选：固定评价输入与分维度质量检查
+
+[独立解码实验](REFERENCE-DECODE.md)使用 Pillow 11.3.0 / libjpeg-turbo 3.1.1，为六张网页 JPEG 生成固定 RGB 与 PNG。原尺寸 PNG 全部复现该 RGB，默认 Canvas2D 缩放也复现 office 历史恢复状态，但不能消除不同画布设置的重采样差异；文件体积增加 4.02 倍，暂不采用。后续性能实验保留输入摘要，比单独比较小幅 PSNR/SSIM 变化更可核查。
+
+2026-10-29 复核 Brush main 仍为 `1388f74`（2026-10-03，Apache-2.0），最新 Release 为 v0.3.0（2025-09-14）。[decode_jpeg_scaled](https://github.com/ArthurBrussee/brush/blob/1388f74c6fe0236f68ee4915564bf00e9d2e3747/crates/brush-dataset/src/load_image.rs)显式调用 Rust JPEG 解码器并区分 RGB24 / L8，其他像素格式回退；本次独立控制使用另一套 Pillow/libjpeg-turbo 实现，未宣称与 Brush 逐像素相同。Brush 的 WebGPU / macOS 路径此前已记录，本次没有训练或后端迁移。
+
+[原始 3DGS 当前主分支](https://github.com/graphdeco-inria/gaussian-splatting/tree/54c035f7834b564019656c3e3fcc3646292f727d)为 2024-10-30 的 `54c035f`，无 GitHub Release；这是较早的基础实现，不称为新研究。[render.py](https://github.com/graphdeco-inria/gaussian-splatting/blob/54c035f7834b564019656c3e3fcc3646292f727d/render.py)保存参考/渲染 PNG，[metrics.py](https://github.com/graphdeco-inria/gaussian-splatting/blob/54c035f7834b564019656c3e3fcc3646292f727d/metrics.py)用 Pillow 读回并转 CUDA 张量后评分；[LICENSE](https://github.com/graphdeco-inria/gaussian-splatting/blob/54c035f7834b564019656c3e3fcc3646292f727d/LICENSE.md)限制非商业研究与评价，不能当作 MIT 代码复制。这里只参考评价输入落盘的边界，未运行其 CUDA 实现，也没有 WebGL2/WebGPU/Metal 移植结论。
+
+新读 [3DGSI-Assessor v1](https://arxiv.org/abs/2608.03279)（2026-08-04，arXiv 永久非独占许可），[第四、五节](https://arxiv.org/html/2608.03279v1#S4)分别建模整体、几何与颜色质量，并使用参考/渲染图配对。作者方案为 PyTorch / NVIDIA GPU 上的多模态模型评价；不套用其跑分，也不将这种评价器当作渲染加速。
+
+[作者仓库 6e50dad](https://github.com/YukeXing/3DGSI-Assessor/tree/6e50dad6491fcafd2793e76eb30dace3223e55a9)只有 2026-03-04 的初始提交，README 仅标题，另附 Apache-2.0 LICENSE，无发行版、实现、权重或环境说明；仓库更新时间不能当作代码发布日期。因公开实现尚缺，CUDA 依赖和 WebGL2/WebGPU/Metal 适用性无法验证，暂不接入。可行动结论是先保存明确的参考输入与分维度证据，待代码公开再评估成本和是否优于现有图像检查。

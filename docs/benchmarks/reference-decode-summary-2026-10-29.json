@@ -1,0 +1,293 @@
+{
+  "baseline": "08e1507688f85a1abff7d3890dffad5069018ca2",
+  "samples": 72,
+  "pngNaturalMatches": 36,
+  "jpegBytes": 831408,
+  "pngBytes": 3338512,
+  "maxAbsolutePsnr": 0.004373823724339587,
+  "maxAbsoluteSsim": 0.0011023416073614456,
+  "observations": [
+    {
+      "scene": "pipes",
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "pngRatio": 3.8673963798860242,
+      "readback": [
+        {
+          "format": "jpeg",
+          "readFrequently": false,
+          "naturalHashes": [
+            "ed34e427e9019c0eedd36f39247b455c738e7de8f9e0de2fcd8606da1a551a42"
+          ],
+          "scaledHashes": [
+            "31b8f18df8a2dd5d5ce509500ff4b56a3a6878f916deff5e3965bfe0af22ebb5"
+          ]
+        },
+        {
+          "format": "jpeg",
+          "readFrequently": true,
+          "naturalHashes": [
+            "50a3343191e42d42111bb7fda16c43cda32c0153f47b131eea7145502d9af012"
+          ],
+          "scaledHashes": [
+            "de8c6be16c0f5a9d3f94f20d59b4ab29ac227fbb47035ee91bc0ffd48789f29c"
+          ]
+        },
+        {
+          "format": "png",
+          "readFrequently": false,
+          "naturalHashes": [
+            "50a3343191e42d42111bb7fda16c43cda32c0153f47b131eea7145502d9af012"
+          ],
+          "scaledHashes": [
+            "b8748d04a9be5522ae6df0b4b158a9c96efa6e0449a160ddcc295275ef71c120"
+          ]
+        },
+        {
+          "format": "png",
+          "readFrequently": true,
+          "naturalHashes": [
+            "50a3343191e42d42111bb7fda16c43cda32c0153f47b131eea7145502d9af012"
+          ],
+          "scaledHashes": [
+            "de8c6be16c0f5a9d3f94f20d59b4ab29ac227fbb47035ee91bc0ffd48789f29c"
+          ]
+        }
+      ]
+    },
+    {
+      "scene": "pipes",
+      "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+      "pngRatio": 3.993039252028502,
+      "readback": [
+        {
+          "format": "jpeg",
+          "readFrequently": false,
+          "naturalHashes": [
+            "9b8b6445cfccffa1111e51671b81e52e7cd3db2fef306e2f26a402e89edebd1d"
+          ],
+          "scaledHashes": [
+            "a4b39c3eb6a9657796cfaf742e13b8af13a8b9f3128f7054b749dedf1b37873e"
+          ]
+        },
+        {
+          "format": "jpeg",
+          "readFrequently": true,
+          "naturalHashes": [
+            "d90febde9b643b4412ffe23ac06631e4e1e43fef74ad01acc38d382c044391e7"
+          ],
+          "scaledHashes": [
+            "d28178221654612ddaefd3d10db3630515a366d4031f31c253c3dedd8a3d1bcc"
+          ]
+        },
+        {
+          "format": "png",
+          "readFrequently": false,
+          "naturalHashes": [
+            "d90febde9b643b4412ffe23ac06631e4e1e43fef74ad01acc38d382c044391e7"
+          ],
+          "scaledHashes": [
+            "22989cc5d119703a45c8bcfb905cd08f8210ae04ca8f770bf99d48d292cbde5b"
+          ]
+        },
+        {
+          "format": "png",
+          "readFrequently": true,
+          "naturalHashes": [
+            "d90febde9b643b4412ffe23ac06631e4e1e43fef74ad01acc38d382c044391e7"
+          ],
+          "scaledHashes": [
+            "d28178221654612ddaefd3d10db3630515a366d4031f31c253c3dedd8a3d1bcc"
+          ]
+        }
+      ]
+    },
+    {
+      "scene": "office",
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "pngRatio": 3.980750138311014,
+      "readback": [
+        {
+          "format": "jpeg",
+          "readFrequently": false,
+          "naturalHashes": [
+            "78ad868aa6bef5a412a4cdb4a44c53f84ae91eaa469ff49229c06f655c243d43"
+          ],
+          "scaledHashes": [
+            "5bd1500eb7b6a3f1c1f462c2886e81be55f590d37b4c2ee2221d90d7a5e10b58"
+          ]
+        },
+        {
+          "format": "jpeg",
+          "readFrequently": true,
+          "naturalHashes": [
+            "d7c4fe25073c4cfb36c4741dcd3c4655bbc175127c212a6e5d0b8c5e4b88b1d5"
+          ],
+          "scaledHashes": [
+            "b377910af837d4d772698743ed441ea4a64ffc57f47386edb2e835d48dbf84c7"
+          ]
+        },
+        {
+          "format": "png",
+          "readFrequently": false,
+          "naturalHashes": [
+            "d7c4fe25073c4cfb36c4741dcd3c4655bbc175127c212a6e5d0b8c5e4b88b1d5"
+          ],
+          "scaledHashes": [
+            "36ca148fee0bbd6e39082a2f6afb3eb705eea12520aa2c7f8369adef6d0c8337"
+          ]
+        },
+        {
+          "format": "png",
+          "readFrequently": true,
+          "naturalHashes": [
+            "d7c4fe25073c4cfb36c4741dcd3c4655bbc175127c212a6e5d0b8c5e4b88b1d5"
+          ],
+          "scaledHashes": [
+            "b377910af837d4d772698743ed441ea4a64ffc57f47386edb2e835d48dbf84c7"
+          ]
+        }
+      ]
+    },
+    {
+      "scene": "office",
+      "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+      "pngRatio": 4.27605799594798,
+      "readback": [
+        {
+          "format": "jpeg",
+          "readFrequently": false,
+          "naturalHashes": [
+            "87d09da0e2b1f0068e138bb8e152f7473f6339bcc98e1869ab4d2f990a264bbd"
+          ],
+          "scaledHashes": [
+            "431e2a1b7b88753e34a6df5586d233f30711f3e7dc30e9fa79d9782d539abf12"
+          ]
+        },
+        {
+          "format": "jpeg",
+          "readFrequently": true,
+          "naturalHashes": [
+            "6bceb23eae912079c7deab3eac5f12ecb09cab1907457f2a423ebdb59aceb1da"
+          ],
+          "scaledHashes": [
+            "0cb5341a14fda23a31150895e980fc76fef2f26df2b0e1b64b9664dd6be4ae71"
+          ]
+        },
+        {
+          "format": "png",
+          "readFrequently": false,
+          "naturalHashes": [
+            "6bceb23eae912079c7deab3eac5f12ecb09cab1907457f2a423ebdb59aceb1da"
+          ],
+          "scaledHashes": [
+            "1d2546e6001fad94edceebfec9287ad25449d909f06c4a07b14d4af98d58f72f"
+          ]
+        },
+        {
+          "format": "png",
+          "readFrequently": true,
+          "naturalHashes": [
+            "6bceb23eae912079c7deab3eac5f12ecb09cab1907457f2a423ebdb59aceb1da"
+          ],
+          "scaledHashes": [
+            "0cb5341a14fda23a31150895e980fc76fef2f26df2b0e1b64b9664dd6be4ae71"
+          ]
+        }
+      ]
+    },
+    {
+      "scene": "office",
+      "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+      "pngRatio": 4.009713491695891,
+      "readback": [
+        {
+          "format": "jpeg",
+          "readFrequently": false,
+          "naturalHashes": [
+            "511538f22ec0b8f3874ccb79b468a9abffa27340f6b2a9ba191948f0d579a73f"
+          ],
+          "scaledHashes": [
+            "fbc00767bbca9de8034d780a332b05ee763dbf3b5d994eca83f6721215a19a61"
+          ]
+        },
+        {
+          "format": "jpeg",
+          "readFrequently": true,
+          "naturalHashes": [
+            "83c16235faba2ea4d09e43ca5037a366453b748bfbffb2b3bb43553be23719e3"
+          ],
+          "scaledHashes": [
+            "af40c3bf8524bb964a3f11ef10f59004a8cdca8283718b6b5a27e8a25d3e1f78"
+          ]
+        },
+        {
+          "format": "png",
+          "readFrequently": false,
+          "naturalHashes": [
+            "83c16235faba2ea4d09e43ca5037a366453b748bfbffb2b3bb43553be23719e3"
+          ],
+          "scaledHashes": [
+            "d725a4ca106c11d234acb943ecd77dad0860e9cff4f9f5a3b2b790b6f905abe0"
+          ]
+        },
+        {
+          "format": "png",
+          "readFrequently": true,
+          "naturalHashes": [
+            "83c16235faba2ea4d09e43ca5037a366453b748bfbffb2b3bb43553be23719e3"
+          ],
+          "scaledHashes": [
+            "af40c3bf8524bb964a3f11ef10f59004a8cdca8283718b6b5a27e8a25d3e1f78"
+          ]
+        }
+      ]
+    },
+    {
+      "scene": "office",
+      "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+      "pngRatio": 4.090846487570107,
+      "readback": [
+        {
+          "format": "jpeg",
+          "readFrequently": false,
+          "naturalHashes": [
+            "03d7f871e5b6be70ea0eb67731bc3cf6cd939367ff4c5c1d086ca873cafebd7b"
+          ],
+          "scaledHashes": [
+            "c59de703792bea8b2c8c6696bae1c5ca35a121c0f504c2c8521c5db95262cead"
+          ]
+        },
+        {
+          "format": "jpeg",
+          "readFrequently": true,
+          "naturalHashes": [
+            "6fab1ffa0e00772699fafa2f92240ef2827aa0a6e983ae0380726e50171544ce"
+          ],
+          "scaledHashes": [
+            "49c1d54ef9a38e505c518a0bc701881d7c9bc211b86779d7dfc7f83b4a478d3a"
+          ]
+        },
+        {
+          "format": "png",
+          "readFrequently": false,
+          "naturalHashes": [
+            "6fab1ffa0e00772699fafa2f92240ef2827aa0a6e983ae0380726e50171544ce"
+          ],
+          "scaledHashes": [
+            "cfc7c2ffe9da550f5a7efb7cb1fd6f92584e7fe936f693bd1cd388851b78723a"
+          ]
+        },
+        {
+          "format": "png",
+          "readFrequently": true,
+          "naturalHashes": [
+            "6fab1ffa0e00772699fafa2f92240ef2827aa0a6e983ae0380726e50171544ce"
+          ],
+          "scaledHashes": [
+            "49c1d54ef9a38e505c518a0bc701881d7c9bc211b86779d7dfc7f83b4a478d3a"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,244 @@
+{
+  "baseline": "08e1507",
+  "python": "3.12.14",
+  "pillow": "11.3.0",
+  "libjpegApi": "6.2",
+  "libjpegTurbo": "3.1.1",
+  "method": "Decode existing served JPEG with Pillow convert RGB; no resize or additional color transform. PNG is a diagnostic re-encoding of that RGB, not recovered pre-JPEG ground truth.",
+  "records": [
+    {
+      "scene": "pipes",
+      "index": 0,
+      "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "width": 1024,
+      "height": 673,
+      "imageInfoKeys": [
+        "jfif",
+        "jfif_density",
+        "jfif_unit",
+        "jfif_version"
+      ],
+      "sourceUrl": "/scenes/pipes/photos/00.jpg",
+      "sourceSha256": "2f610bed91ee24e9933bdc0f5ab47bb9ec6d8f0110f264e13b30e6c46a51fddd",
+      "sourceBytes": 159332,
+      "png": "pipes-00.png",
+      "pngSha256": "faf1a2f584de29ca2bef876cabd72a1dab7b1d0111263f8435afc9678b7b0344",
+      "pngBytes": 616200,
+      "raw": "pipes-00.rgba",
+      "rgbaSha256": "50a3343191e42d42111bb7fda16c43cda32c0153f47b131eea7145502d9af012",
+      "comparisons": [
+        {
+          "readFrequently": false,
+          "previousHash": "ed34e427e9019c0eedd36f39247b455c738e7de8f9e0de2fcd8606da1a551a42",
+          "changedRGBChannels": 314457,
+          "maxRGBDifference": 1,
+          "meanRGBDifference": 0.15209852108098068,
+          "alphaIdentical": true
+        },
+        {
+          "readFrequently": true,
+          "previousHash": "50a3343191e42d42111bb7fda16c43cda32c0153f47b131eea7145502d9af012",
+          "changedRGBChannels": 0,
+          "maxRGBDifference": 0,
+          "meanRGBDifference": 0.0,
+          "alphaIdentical": true
+        }
+      ]
+    },
+    {
+      "scene": "pipes",
+      "index": 8,
+      "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+      "width": 1024,
+      "height": 673,
+      "imageInfoKeys": [
+        "jfif",
+        "jfif_density",
+        "jfif_unit",
+        "jfif_version"
+      ],
+      "sourceUrl": "/scenes/pipes/photos/08.jpg",
+      "sourceSha256": "7a5b9393eddf21419e39e53957248946848d8d5f25164989c1e1146f3573f398",
+      "sourceBytes": 169953,
+      "png": "pipes-08.png",
+      "pngSha256": "5f462dcf45faf468abe3d354b48ca00a09f3a0dc28ee3587de668a6eacdd0a45",
+      "pngBytes": 678629,
+      "raw": "pipes-08.rgba",
+      "rgbaSha256": "d90febde9b643b4412ffe23ac06631e4e1e43fef74ad01acc38d382c044391e7",
+      "comparisons": [
+        {
+          "readFrequently": false,
+          "previousHash": "9b8b6445cfccffa1111e51671b81e52e7cd3db2fef306e2f26a402e89edebd1d",
+          "changedRGBChannels": 362049,
+          "maxRGBDifference": 1,
+          "meanRGBDifference": 0.17511811617756315,
+          "alphaIdentical": true
+        },
+        {
+          "readFrequently": true,
+          "previousHash": "d90febde9b643b4412ffe23ac06631e4e1e43fef74ad01acc38d382c044391e7",
+          "changedRGBChannels": 0,
+          "maxRGBDifference": 0,
+          "meanRGBDifference": 0.0,
+          "alphaIdentical": true
+        }
+      ]
+    },
+    {
+      "scene": "office",
+      "index": 0,
+      "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+      "width": 1024,
+      "height": 667,
+      "imageInfoKeys": [
+        "jfif",
+        "jfif_density",
+        "jfif_unit",
+        "jfif_version"
+      ],
+      "sourceUrl": "/scenes/office/photos/00.jpg",
+      "sourceSha256": "3b880435a821b04e845f06db167d96a7ec3d117cc4b7ce0010a8942846a67b10",
+      "sourceBytes": 131949,
+      "png": "office-00.png",
+      "pngSha256": "cf8d8daa346473c8aba87ed8d7f3f428ca23d326187b8bb5be78b7e4c231bd36",
+      "pngBytes": 525256,
+      "raw": "office-00.rgba",
+      "rgbaSha256": "d7c4fe25073c4cfb36c4741dcd3c4655bbc175127c212a6e5d0b8c5e4b88b1d5",
+      "comparisons": [
+        {
+          "readFrequently": false,
+          "previousHash": "78ad868aa6bef5a412a4cdb4a44c53f84ae91eaa469ff49229c06f655c243d43",
+          "changedRGBChannels": 323356,
+          "maxRGBDifference": 1,
+          "meanRGBDifference": 0.15780976699150426,
+          "alphaIdentical": true
+        },
+        {
+          "readFrequently": true,
+          "previousHash": "d7c4fe25073c4cfb36c4741dcd3c4655bbc175127c212a6e5d0b8c5e4b88b1d5",
+          "changedRGBChannels": 0,
+          "maxRGBDifference": 0,
+          "meanRGBDifference": 0.0,
+          "alphaIdentical": true
+        }
+      ]
+    },
+    {
+      "scene": "office",
+      "index": 8,
+      "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+      "width": 1024,
+      "height": 667,
+      "imageInfoKeys": [
+        "jfif",
+        "jfif_density",
+        "jfif_unit",
+        "jfif_version"
+      ],
+      "sourceUrl": "/scenes/office/photos/08.jpg",
+      "sourceSha256": "cfbfeef37821292cbeabde3bac4ecf4cee1a7a7133e454731cfeebb9d3f6901b",
+      "sourceBytes": 88351,
+      "png": "office-08.png",
+      "pngSha256": "f23451f9de3c690b829c6895cce752a04f892bc54994af56bcaf6fe4aff7c178",
+      "pngBytes": 377794,
+      "raw": "office-08.rgba",
+      "rgbaSha256": "6bceb23eae912079c7deab3eac5f12ecb09cab1907457f2a423ebdb59aceb1da",
+      "comparisons": [
+        {
+          "readFrequently": false,
+          "previousHash": "87d09da0e2b1f0068e138bb8e152f7473f6339bcc98e1869ab4d2f990a264bbd",
+          "changedRGBChannels": 223483,
+          "maxRGBDifference": 1,
+          "meanRGBDifference": 0.10906802458145927,
+          "alphaIdentical": true
+        },
+        {
+          "readFrequently": true,
+          "previousHash": "6bceb23eae912079c7deab3eac5f12ecb09cab1907457f2a423ebdb59aceb1da",
+          "changedRGBChannels": 0,
+          "maxRGBDifference": 0,
+          "meanRGBDifference": 0.0,
+          "alphaIdentical": true
+        }
+      ]
+    },
+    {
+      "scene": "office",
+      "index": 16,
+      "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+      "width": 1024,
+      "height": 667,
+      "imageInfoKeys": [
+        "jfif",
+        "jfif_density",
+        "jfif_unit",
+        "jfif_version"
+      ],
+      "sourceUrl": "/scenes/office/photos/16.jpg",
+      "sourceSha256": "a1549c57fdf6d7a2cdd77cd2f1000a6683346abbd124d70b18af4f5192d1baad",
+      "sourceBytes": 151130,
+      "png": "office-16.png",
+      "pngSha256": "09f798d585043ae9ad4efa1ce229f3990901937da1be5cfcfbe20a515f1d5044",
+      "pngBytes": 605988,
+      "raw": "office-16.rgba",
+      "rgbaSha256": "83c16235faba2ea4d09e43ca5037a366453b748bfbffb2b3bb43553be23719e3",
+      "comparisons": [
+        {
+          "readFrequently": false,
+          "previousHash": "511538f22ec0b8f3874ccb79b468a9abffa27340f6b2a9ba191948f0d579a73f",
+          "changedRGBChannels": 313709,
+          "maxRGBDifference": 1,
+          "meanRGBDifference": 0.15310167182033982,
+          "alphaIdentical": true
+        },
+        {
+          "readFrequently": true,
+          "previousHash": "83c16235faba2ea4d09e43ca5037a366453b748bfbffb2b3bb43553be23719e3",
+          "changedRGBChannels": 0,
+          "maxRGBDifference": 0,
+          "meanRGBDifference": 0.0,
+          "alphaIdentical": true
+        }
+      ]
+    },
+    {
+      "scene": "office",
+      "index": 24,
+      "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+      "width": 1024,
+      "height": 667,
+      "imageInfoKeys": [
+        "jfif",
+        "jfif_density",
+        "jfif_unit",
+        "jfif_version"
+      ],
+      "sourceUrl": "/scenes/office/photos/24.jpg",
+      "sourceSha256": "02fdca4cb6325cfdb49bec915fd57116274eb47907ea66d8f7ed1b74c43bb116",
+      "sourceBytes": 130693,
+      "png": "office-24.png",
+      "pngSha256": "ac3c90dd24b1d8a1f144a512a34cc90018098a28b20e3b2e47b120198242fedc",
+      "pngBytes": 534645,
+      "raw": "office-24.rgba",
+      "rgbaSha256": "6fab1ffa0e00772699fafa2f92240ef2827aa0a6e983ae0380726e50171544ce",
+      "comparisons": [
+        {
+          "readFrequently": false,
+          "previousHash": "03d7f871e5b6be70ea0eb67731bc3cf6cd939367ff4c5c1d086ca873cafebd7b",
+          "changedRGBChannels": 307431,
+          "maxRGBDifference": 1,
+          "meanRGBDifference": 0.15003777408170915,
+          "alphaIdentical": true
+        },
+        {
+          "readFrequently": true,
+          "previousHash": "6fab1ffa0e00772699fafa2f92240ef2827aa0a6e983ae0380726e50171544ce",
+          "changedRGBChannels": 0,
+          "maxRGBDifference": 0,
+          "meanRGBDifference": 0.0,
+          "alphaIdentical": true
+        }
+      ]
+    }
+  ]
+}
