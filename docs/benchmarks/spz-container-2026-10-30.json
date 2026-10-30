@@ -1,0 +1,1186 @@
+{
+  "reports": [
+    {
+      "createdAt": "2026-10-30T07:02:06.968Z",
+      "baseline": "0f9a9c1",
+      "scene": "pipes",
+      "spark": "2.4.0",
+      "three": "0.180.0",
+      "environment": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+        "visibility": []
+      },
+      "manifest": {
+        "createdAt": "2026-10-30T07:00:14.106Z",
+        "node": "v20.20.2",
+        "zlib": "1.3.1-e00f703",
+        "sourceReport": "docs/benchmarks/spz-alpha16-2026-10-27.json",
+        "gzipLevel": 0,
+        "assets": [
+          {
+            "scene": "pipes",
+            "count": 300000,
+            "rawBytes": 19500016,
+            "rawSha256": "7a479e277702a21f22838822adbda792cb716df8e1ee8247053be558a4e78b1b",
+            "alphaPayloadSha256": "1816f3b64edb60133cfdade3f1c923c0be4994f899d4a5b870ed0474fa26dce3",
+            "variants": [
+              {
+                "name": "original",
+                "modelUrl": "/.qa/spz-container/pipes-original.spz",
+                "alphaUrl": "/.qa/spz-container/pipes-original.ap16",
+                "modelBytes": 12545116,
+                "modelSha256": "4d86d47f541a66d4724525125e698b35706fdf4d42d844710664e96c9a14b87c",
+                "alphaSha256": "92764f5dd6325fd9bc4ca6f96ed7d50fe31fc026e6ef11dd907ca8f455a129e8"
+              },
+              {
+                "name": "stored",
+                "modelUrl": "/.qa/spz-container/pipes-stored.spz",
+                "alphaUrl": "/.qa/spz-container/pipes-stored.ap16",
+                "modelBytes": 19503009,
+                "modelSha256": "9e983f9fd1fbfe3a2a2d00e41c3272908a37b2b78aaf96405dd486182ba7b769",
+                "alphaSha256": "914cd53c64316d828be48bd66d2d0908def3c50331c848ccf15d27290815dec1"
+              }
+            ]
+          },
+          {
+            "scene": "office",
+            "count": 231428,
+            "rawBytes": 15042836,
+            "rawSha256": "970ada5ee3b0c30c0a7bf86a185322e15dfdf58513d5a08474c4aa9c1645893e",
+            "alphaPayloadSha256": "4eb0f8972665a7fe02b68fa766c7038b17e55706c88de7645607535f994dcc05",
+            "variants": [
+              {
+                "name": "original",
+                "modelUrl": "/.qa/spz-container/office-original.spz",
+                "alphaUrl": "/.qa/spz-container/office-original.ap16",
+                "modelBytes": 8927279,
+                "modelSha256": "e77b9eccc5dce1a72b48c96bddabbc0aa0dc6bbbb2d8520cbd1ca5166e02768d",
+                "alphaSha256": "9c96203b9727bdb1ccb7ed705a0f84ee7a8691cdeabdfe32c3d5b06e2918b8e4"
+              },
+              {
+                "name": "stored",
+                "modelUrl": "/.qa/spz-container/office-stored.spz",
+                "alphaUrl": "/.qa/spz-container/office-stored.ap16",
+                "modelBytes": 15045149,
+                "modelSha256": "1e9c6d8b13b40db4b9e89d381dd9411531c981d5fcd814b77c4c762e5659f554",
+                "alphaSha256": "3283858e97184a062ed8a1e20972d8ce942a06d1bc29fff14415a1c8b748784d"
+              }
+            ]
+          }
+        ]
+      },
+      "asset": {
+        "scene": "pipes",
+        "count": 300000,
+        "rawBytes": 19500016,
+        "rawSha256": "7a479e277702a21f22838822adbda792cb716df8e1ee8247053be558a4e78b1b",
+        "alphaPayloadSha256": "1816f3b64edb60133cfdade3f1c923c0be4994f899d4a5b870ed0474fa26dce3",
+        "variants": [
+          {
+            "name": "original",
+            "modelUrl": "/.qa/spz-container/pipes-original.spz",
+            "alphaUrl": "/.qa/spz-container/pipes-original.ap16",
+            "modelBytes": 12545116,
+            "modelSha256": "4d86d47f541a66d4724525125e698b35706fdf4d42d844710664e96c9a14b87c",
+            "alphaSha256": "92764f5dd6325fd9bc4ca6f96ed7d50fe31fc026e6ef11dd907ca8f455a129e8"
+          },
+          {
+            "name": "stored",
+            "modelUrl": "/.qa/spz-container/pipes-stored.spz",
+            "alphaUrl": "/.qa/spz-container/pipes-stored.ap16",
+            "modelBytes": 19503009,
+            "modelSha256": "9e983f9fd1fbfe3a2a2d00e41c3272908a37b2b78aaf96405dd486182ba7b769",
+            "alphaSha256": "914cd53c64316d828be48bd66d2d0908def3c50331c848ccf15d27290815dec1"
+          }
+        ]
+      },
+      "resolution": [
+        768,
+        505
+      ],
+      "samples": [
+        {
+          "index": 0,
+          "variant": "original",
+          "warmup": true,
+          "startMs": 7628.200000286102,
+          "initializeMs": 180.2999997138977,
+          "prepareMs": 1.700000286102295,
+          "settleMs": 74,
+          "totalMs": 256,
+          "newWorkers": 2
+        },
+        {
+          "index": 1,
+          "variant": "stored",
+          "warmup": true,
+          "startMs": 7942.10000038147,
+          "initializeMs": 103.89999961853027,
+          "prepareMs": 2,
+          "settleMs": 62,
+          "totalMs": 167.89999961853027,
+          "newWorkers": 0
+        },
+        {
+          "index": 2,
+          "variant": "original",
+          "warmup": false,
+          "startMs": 8164.700000286102,
+          "initializeMs": 148.90000009536743,
+          "prepareMs": 0.5,
+          "settleMs": 54.5,
+          "totalMs": 203.90000009536743,
+          "newWorkers": 0
+        },
+        {
+          "index": 3,
+          "variant": "stored",
+          "warmup": false,
+          "startMs": 8424.5,
+          "initializeMs": 102.40000009536743,
+          "prepareMs": 1.0999999046325684,
+          "settleMs": 57.10000038146973,
+          "totalMs": 160.60000038146973,
+          "newWorkers": 0
+        },
+        {
+          "index": 4,
+          "variant": "stored",
+          "warmup": false,
+          "startMs": 8641.5,
+          "initializeMs": 110.40000009536743,
+          "prepareMs": 1.4000000953674316,
+          "settleMs": 56.80000019073486,
+          "totalMs": 168.60000038146973,
+          "newWorkers": 0
+        },
+        {
+          "index": 5,
+          "variant": "original",
+          "warmup": false,
+          "startMs": 8865.800000190735,
+          "initializeMs": 155.09999990463257,
+          "prepareMs": 0.7000002861022949,
+          "settleMs": 55.09999990463257,
+          "totalMs": 210.90000009536743,
+          "newWorkers": 0
+        },
+        {
+          "index": 6,
+          "variant": "original",
+          "warmup": false,
+          "startMs": 9132.400000095367,
+          "initializeMs": 152,
+          "prepareMs": 0.5,
+          "settleMs": 50,
+          "totalMs": 202.5,
+          "newWorkers": 0
+        },
+        {
+          "index": 7,
+          "variant": "stored",
+          "warmup": false,
+          "startMs": 9390.900000095367,
+          "initializeMs": 107.40000009536743,
+          "prepareMs": 0.5999999046325684,
+          "settleMs": 61,
+          "totalMs": 169,
+          "newWorkers": 0
+        },
+        {
+          "index": 8,
+          "variant": "stored",
+          "warmup": false,
+          "startMs": 9616.200000286102,
+          "initializeMs": 103.59999990463257,
+          "prepareMs": 0.5,
+          "settleMs": 56.19999980926514,
+          "totalMs": 160.2999997138977,
+          "newWorkers": 0
+        },
+        {
+          "index": 9,
+          "variant": "original",
+          "warmup": false,
+          "startMs": 9831.700000286102,
+          "initializeMs": 153.7999997138977,
+          "prepareMs": 0.6000003814697266,
+          "settleMs": 57.19999980926514,
+          "totalMs": 211.59999990463257,
+          "newWorkers": 0
+        },
+        {
+          "index": 10,
+          "variant": "original",
+          "warmup": false,
+          "startMs": 10099.10000038147,
+          "initializeMs": 158,
+          "prepareMs": 0.5999999046325684,
+          "settleMs": 52.299999713897705,
+          "totalMs": 210.89999961853027,
+          "newWorkers": 0
+        },
+        {
+          "index": 11,
+          "variant": "stored",
+          "warmup": false,
+          "startMs": 10366.10000038147,
+          "initializeMs": 107.89999961853027,
+          "prepareMs": 0.5,
+          "settleMs": 51.200000286102295,
+          "totalMs": 159.59999990463257,
+          "newWorkers": 0
+        },
+        {
+          "index": 12,
+          "variant": "stored",
+          "warmup": false,
+          "startMs": 10583.10000038147,
+          "initializeMs": 104.19999980926514,
+          "prepareMs": 0.5,
+          "settleMs": 63.69999980926514,
+          "totalMs": 168.39999961853027,
+          "newWorkers": 0
+        },
+        {
+          "index": 13,
+          "variant": "original",
+          "warmup": false,
+          "startMs": 10806.900000095367,
+          "initializeMs": 152.2000002861023,
+          "prepareMs": 0.5999999046325684,
+          "settleMs": 58.5,
+          "totalMs": 211.30000019073486,
+          "newWorkers": 0
+        },
+        {
+          "index": 14,
+          "variant": "original",
+          "warmup": false,
+          "startMs": 11074,
+          "initializeMs": 152.7000002861023,
+          "prepareMs": 0.5,
+          "settleMs": 57.69999980926514,
+          "totalMs": 210.90000009536743,
+          "newWorkers": 0
+        },
+        {
+          "index": 15,
+          "variant": "stored",
+          "warmup": false,
+          "startMs": 11342.10000038147,
+          "initializeMs": 110,
+          "prepareMs": 0.5,
+          "settleMs": 57.5,
+          "totalMs": 168,
+          "newWorkers": 0
+        },
+        {
+          "index": 16,
+          "variant": "stored",
+          "warmup": false,
+          "startMs": 11565.400000095367,
+          "initializeMs": 104.2000002861023,
+          "prepareMs": 0.5,
+          "settleMs": 48.19999980926514,
+          "totalMs": 152.90000009536743,
+          "newWorkers": 0
+        },
+        {
+          "index": 17,
+          "variant": "original",
+          "warmup": false,
+          "startMs": 11942.200000286102,
+          "initializeMs": 155.5,
+          "prepareMs": 0.5999999046325684,
+          "settleMs": 53.30000019073486,
+          "totalMs": 209.40000009536743,
+          "newWorkers": 0
+        }
+      ],
+      "controls": [
+        {
+          "index": 0,
+          "variant": "original",
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac",
+          "matchesPrevious": true
+        },
+        {
+          "index": 1,
+          "variant": "stored",
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac",
+          "matchesPrevious": true
+        },
+        {
+          "index": 2,
+          "variant": "original",
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac",
+          "matchesPrevious": true
+        },
+        {
+          "index": 3,
+          "variant": "stored",
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac",
+          "matchesPrevious": true
+        },
+        {
+          "index": 4,
+          "variant": "stored",
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac",
+          "matchesPrevious": true
+        },
+        {
+          "index": 5,
+          "variant": "original",
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac",
+          "matchesPrevious": true
+        },
+        {
+          "index": 6,
+          "variant": "original",
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac",
+          "matchesPrevious": true
+        },
+        {
+          "index": 7,
+          "variant": "stored",
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac",
+          "matchesPrevious": true
+        },
+        {
+          "index": 8,
+          "variant": "stored",
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac",
+          "matchesPrevious": true
+        },
+        {
+          "index": 9,
+          "variant": "original",
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac",
+          "matchesPrevious": true
+        },
+        {
+          "index": 10,
+          "variant": "original",
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac",
+          "matchesPrevious": true
+        },
+        {
+          "index": 11,
+          "variant": "stored",
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac",
+          "matchesPrevious": true
+        },
+        {
+          "index": 12,
+          "variant": "stored",
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac",
+          "matchesPrevious": true
+        },
+        {
+          "index": 13,
+          "variant": "original",
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac",
+          "matchesPrevious": true
+        },
+        {
+          "index": 14,
+          "variant": "original",
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac",
+          "matchesPrevious": true
+        },
+        {
+          "index": 15,
+          "variant": "stored",
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac",
+          "matchesPrevious": true
+        },
+        {
+          "index": 16,
+          "variant": "stored",
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac",
+          "matchesPrevious": true
+        },
+        {
+          "index": 16,
+          "variant": "stored",
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": -0.08,
+          "hash": "27c033857c6e5c988d9dff5026de99c326a3dfee995bef663c7d2452462f4d9e",
+          "matchesPrevious": true
+        },
+        {
+          "index": 16,
+          "variant": "stored",
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0.08,
+          "hash": "0cc73a81c589f1fdb7e8df11828d3217eaaaa03d4450392112f3e209f474be32",
+          "matchesPrevious": true
+        },
+        {
+          "index": 16,
+          "variant": "stored",
+          "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+          "yaw": 0,
+          "hash": "b64e381af290a4e4a4b4492326c3eef3c858d0fa8771ea4a5712f8e17c6a8f86",
+          "matchesPrevious": true
+        },
+        {
+          "index": 17,
+          "variant": "original",
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac",
+          "matchesPrevious": true
+        },
+        {
+          "index": 17,
+          "variant": "original",
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": -0.08,
+          "hash": "27c033857c6e5c988d9dff5026de99c326a3dfee995bef663c7d2452462f4d9e",
+          "matchesPrevious": true
+        },
+        {
+          "index": 17,
+          "variant": "original",
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0.08,
+          "hash": "0cc73a81c589f1fdb7e8df11828d3217eaaaa03d4450392112f3e209f474be32",
+          "matchesPrevious": true
+        },
+        {
+          "index": 17,
+          "variant": "original",
+          "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+          "yaw": 0,
+          "hash": "b64e381af290a4e4a4b4492326c3eef3c858d0fa8771ea4a5712f8e17c6a8f86",
+          "matchesPrevious": true
+        }
+      ],
+      "workers": [
+        {
+          "createdMs": 7629.300000190735
+        },
+        {
+          "createdMs": 7850.10000038147,
+          "terminatedMs": 12383.800000190735
+        }
+      ],
+      "disposedModels": 18,
+      "errors": [],
+      "method": "Preloaded and hash-checked inputs; identical decompressed SPZ and AP16 payload, independently bound sidecars. One warmup per variant, four serial ABBA groups, same viewer/worker pool, fresh models. Copy outside timing. initialize includes Worker transfer, gzip and attribute conversion; total ends after settle/draw submission, not presentation or GPU timing. Network, cold runtime, peak memory and native decompression speed not measured.",
+      "pairedBlocks": [
+        {
+          "initializeMs": 45.59999990463257,
+          "totalMs": 42.799999713897705
+        },
+        {
+          "initializeMs": 47.39999985694885,
+          "totalMs": 42.40000009536743
+        },
+        {
+          "initializeMs": 49.05000042915344,
+          "totalMs": 47.10000014305115
+        },
+        {
+          "initializeMs": 47.0,
+          "totalMs": 49.700000047683716
+        }
+      ]
+    },
+    {
+      "createdAt": "2026-10-30T07:02:43.569Z",
+      "baseline": "0f9a9c1",
+      "scene": "office",
+      "spark": "2.4.0",
+      "three": "0.180.0",
+      "environment": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+        "visibility": []
+      },
+      "manifest": {
+        "createdAt": "2026-10-30T07:00:14.106Z",
+        "node": "v20.20.2",
+        "zlib": "1.3.1-e00f703",
+        "sourceReport": "docs/benchmarks/spz-alpha16-2026-10-27.json",
+        "gzipLevel": 0,
+        "assets": [
+          {
+            "scene": "pipes",
+            "count": 300000,
+            "rawBytes": 19500016,
+            "rawSha256": "7a479e277702a21f22838822adbda792cb716df8e1ee8247053be558a4e78b1b",
+            "alphaPayloadSha256": "1816f3b64edb60133cfdade3f1c923c0be4994f899d4a5b870ed0474fa26dce3",
+            "variants": [
+              {
+                "name": "original",
+                "modelUrl": "/.qa/spz-container/pipes-original.spz",
+                "alphaUrl": "/.qa/spz-container/pipes-original.ap16",
+                "modelBytes": 12545116,
+                "modelSha256": "4d86d47f541a66d4724525125e698b35706fdf4d42d844710664e96c9a14b87c",
+                "alphaSha256": "92764f5dd6325fd9bc4ca6f96ed7d50fe31fc026e6ef11dd907ca8f455a129e8"
+              },
+              {
+                "name": "stored",
+                "modelUrl": "/.qa/spz-container/pipes-stored.spz",
+                "alphaUrl": "/.qa/spz-container/pipes-stored.ap16",
+                "modelBytes": 19503009,
+                "modelSha256": "9e983f9fd1fbfe3a2a2d00e41c3272908a37b2b78aaf96405dd486182ba7b769",
+                "alphaSha256": "914cd53c64316d828be48bd66d2d0908def3c50331c848ccf15d27290815dec1"
+              }
+            ]
+          },
+          {
+            "scene": "office",
+            "count": 231428,
+            "rawBytes": 15042836,
+            "rawSha256": "970ada5ee3b0c30c0a7bf86a185322e15dfdf58513d5a08474c4aa9c1645893e",
+            "alphaPayloadSha256": "4eb0f8972665a7fe02b68fa766c7038b17e55706c88de7645607535f994dcc05",
+            "variants": [
+              {
+                "name": "original",
+                "modelUrl": "/.qa/spz-container/office-original.spz",
+                "alphaUrl": "/.qa/spz-container/office-original.ap16",
+                "modelBytes": 8927279,
+                "modelSha256": "e77b9eccc5dce1a72b48c96bddabbc0aa0dc6bbbb2d8520cbd1ca5166e02768d",
+                "alphaSha256": "9c96203b9727bdb1ccb7ed705a0f84ee7a8691cdeabdfe32c3d5b06e2918b8e4"
+              },
+              {
+                "name": "stored",
+                "modelUrl": "/.qa/spz-container/office-stored.spz",
+                "alphaUrl": "/.qa/spz-container/office-stored.ap16",
+                "modelBytes": 15045149,
+                "modelSha256": "1e9c6d8b13b40db4b9e89d381dd9411531c981d5fcd814b77c4c762e5659f554",
+                "alphaSha256": "3283858e97184a062ed8a1e20972d8ce942a06d1bc29fff14415a1c8b748784d"
+              }
+            ]
+          }
+        ]
+      },
+      "asset": {
+        "scene": "office",
+        "count": 231428,
+        "rawBytes": 15042836,
+        "rawSha256": "970ada5ee3b0c30c0a7bf86a185322e15dfdf58513d5a08474c4aa9c1645893e",
+        "alphaPayloadSha256": "4eb0f8972665a7fe02b68fa766c7038b17e55706c88de7645607535f994dcc05",
+        "variants": [
+          {
+            "name": "original",
+            "modelUrl": "/.qa/spz-container/office-original.spz",
+            "alphaUrl": "/.qa/spz-container/office-original.ap16",
+            "modelBytes": 8927279,
+            "modelSha256": "e77b9eccc5dce1a72b48c96bddabbc0aa0dc6bbbb2d8520cbd1ca5166e02768d",
+            "alphaSha256": "9c96203b9727bdb1ccb7ed705a0f84ee7a8691cdeabdfe32c3d5b06e2918b8e4"
+          },
+          {
+            "name": "stored",
+            "modelUrl": "/.qa/spz-container/office-stored.spz",
+            "alphaUrl": "/.qa/spz-container/office-stored.ap16",
+            "modelBytes": 15045149,
+            "modelSha256": "1e9c6d8b13b40db4b9e89d381dd9411531c981d5fcd814b77c4c762e5659f554",
+            "alphaSha256": "3283858e97184a062ed8a1e20972d8ce942a06d1bc29fff14415a1c8b748784d"
+          }
+        ]
+      },
+      "resolution": [
+        768,
+        500
+      ],
+      "samples": [
+        {
+          "index": 0,
+          "variant": "original",
+          "warmup": true,
+          "startMs": 5167.599999904633,
+          "initializeMs": 141.5,
+          "prepareMs": 2.3000001907348633,
+          "settleMs": 67.5,
+          "totalMs": 211.30000019073486,
+          "newWorkers": 2
+        },
+        {
+          "index": 1,
+          "variant": "stored",
+          "warmup": true,
+          "startMs": 5434.099999904633,
+          "initializeMs": 83.80000019073486,
+          "prepareMs": 1,
+          "settleMs": 59.80000019073486,
+          "totalMs": 144.60000038146973,
+          "newWorkers": 0
+        },
+        {
+          "index": 2,
+          "variant": "original",
+          "warmup": false,
+          "startMs": 5633.400000095367,
+          "initializeMs": 121.5,
+          "prepareMs": 0.5,
+          "settleMs": 48.09999990463257,
+          "totalMs": 170.09999990463257,
+          "newWorkers": 0
+        },
+        {
+          "index": 3,
+          "variant": "stored",
+          "warmup": false,
+          "startMs": 5858.099999904633,
+          "initializeMs": 84.5,
+          "prepareMs": 0.40000009536743164,
+          "settleMs": 52.09999990463257,
+          "totalMs": 137,
+          "newWorkers": 0
+        },
+        {
+          "index": 4,
+          "variant": "stored",
+          "warmup": false,
+          "startMs": 6049.200000286102,
+          "initializeMs": 82.69999980926514,
+          "prepareMs": 0.40000009536743164,
+          "settleMs": 46.09999990463257,
+          "totalMs": 129.19999980926514,
+          "newWorkers": 0
+        },
+        {
+          "index": 5,
+          "variant": "original",
+          "warmup": false,
+          "startMs": 6233.099999904633,
+          "initializeMs": 140.40000009536743,
+          "prepareMs": 0.5,
+          "settleMs": 54.59999990463257,
+          "totalMs": 195.5,
+          "newWorkers": 0
+        },
+        {
+          "index": 6,
+          "variant": "original",
+          "warmup": false,
+          "startMs": 6483.200000286102,
+          "initializeMs": 124.59999990463257,
+          "prepareMs": 0.2999997138977051,
+          "settleMs": 53.80000019073486,
+          "totalMs": 178.69999980926514,
+          "newWorkers": 0
+        },
+        {
+          "index": 7,
+          "variant": "stored",
+          "warmup": false,
+          "startMs": 6716.400000095367,
+          "initializeMs": 91.19999980926514,
+          "prepareMs": 0.40000009536743164,
+          "settleMs": 54.09999990463257,
+          "totalMs": 145.69999980926514,
+          "newWorkers": 0
+        },
+        {
+          "index": 8,
+          "variant": "stored",
+          "warmup": false,
+          "startMs": 6916.200000286102,
+          "initializeMs": 86,
+          "prepareMs": 0.2999997138977051,
+          "settleMs": 51,
+          "totalMs": 137.2999997138977,
+          "newWorkers": 0
+        },
+        {
+          "index": 9,
+          "variant": "original",
+          "warmup": false,
+          "startMs": 7107.599999904633,
+          "initializeMs": 118.80000019073486,
+          "prepareMs": 0.5999999046325684,
+          "settleMs": 60,
+          "totalMs": 179.40000009536743,
+          "newWorkers": 0
+        },
+        {
+          "index": 10,
+          "variant": "original",
+          "warmup": false,
+          "startMs": 7340.400000095367,
+          "initializeMs": 116.5,
+          "prepareMs": 0.5,
+          "settleMs": 46.19999980926514,
+          "totalMs": 163.19999980926514,
+          "newWorkers": 0
+        },
+        {
+          "index": 11,
+          "variant": "stored",
+          "warmup": false,
+          "startMs": 7557.900000095367,
+          "initializeMs": 80.5,
+          "prepareMs": 0.40000009536743164,
+          "settleMs": 48,
+          "totalMs": 128.90000009536743,
+          "newWorkers": 0
+        },
+        {
+          "index": 12,
+          "variant": "stored",
+          "warmup": false,
+          "startMs": 7741.5,
+          "initializeMs": 81.09999990463257,
+          "prepareMs": 0.40000009536743164,
+          "settleMs": 47.30000019073486,
+          "totalMs": 128.80000019073486,
+          "newWorkers": 0
+        },
+        {
+          "index": 13,
+          "variant": "original",
+          "warmup": false,
+          "startMs": 7923.800000190735,
+          "initializeMs": 115.5,
+          "prepareMs": 0.5,
+          "settleMs": 52.90000009536743,
+          "totalMs": 168.90000009536743,
+          "newWorkers": 0
+        },
+        {
+          "index": 14,
+          "variant": "original",
+          "warmup": false,
+          "startMs": 8145.200000286102,
+          "initializeMs": 118,
+          "prepareMs": 0.5,
+          "settleMs": 51.89999961853027,
+          "totalMs": 170.39999961853027,
+          "newWorkers": 0
+        },
+        {
+          "index": 15,
+          "variant": "stored",
+          "warmup": false,
+          "startMs": 8370.800000190735,
+          "initializeMs": 80,
+          "prepareMs": 0.40000009536743164,
+          "settleMs": 48,
+          "totalMs": 128.40000009536743,
+          "newWorkers": 0
+        },
+        {
+          "index": 16,
+          "variant": "stored",
+          "warmup": false,
+          "startMs": 8553.599999904633,
+          "initializeMs": 81.90000009536743,
+          "prepareMs": 0.40000009536743164,
+          "settleMs": 46.69999980926514,
+          "totalMs": 129,
+          "newWorkers": 0
+        },
+        {
+          "index": 17,
+          "variant": "original",
+          "warmup": false,
+          "startMs": 8995.800000190735,
+          "initializeMs": 144.40000009536743,
+          "prepareMs": 0.39999961853027344,
+          "settleMs": 49.5,
+          "totalMs": 194.2999997138977,
+          "newWorkers": 0
+        }
+      ],
+      "controls": [
+        {
+          "index": 0,
+          "variant": "original",
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037",
+          "matchesPrevious": true
+        },
+        {
+          "index": 1,
+          "variant": "stored",
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037",
+          "matchesPrevious": true
+        },
+        {
+          "index": 2,
+          "variant": "original",
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037",
+          "matchesPrevious": true
+        },
+        {
+          "index": 3,
+          "variant": "stored",
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037",
+          "matchesPrevious": true
+        },
+        {
+          "index": 4,
+          "variant": "stored",
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037",
+          "matchesPrevious": true
+        },
+        {
+          "index": 5,
+          "variant": "original",
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037",
+          "matchesPrevious": true
+        },
+        {
+          "index": 6,
+          "variant": "original",
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037",
+          "matchesPrevious": true
+        },
+        {
+          "index": 7,
+          "variant": "stored",
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037",
+          "matchesPrevious": true
+        },
+        {
+          "index": 8,
+          "variant": "stored",
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037",
+          "matchesPrevious": true
+        },
+        {
+          "index": 9,
+          "variant": "original",
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037",
+          "matchesPrevious": true
+        },
+        {
+          "index": 10,
+          "variant": "original",
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037",
+          "matchesPrevious": true
+        },
+        {
+          "index": 11,
+          "variant": "stored",
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037",
+          "matchesPrevious": true
+        },
+        {
+          "index": 12,
+          "variant": "stored",
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037",
+          "matchesPrevious": true
+        },
+        {
+          "index": 13,
+          "variant": "original",
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037",
+          "matchesPrevious": true
+        },
+        {
+          "index": 14,
+          "variant": "original",
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037",
+          "matchesPrevious": true
+        },
+        {
+          "index": 15,
+          "variant": "stored",
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037",
+          "matchesPrevious": true
+        },
+        {
+          "index": 16,
+          "variant": "stored",
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037",
+          "matchesPrevious": true
+        },
+        {
+          "index": 16,
+          "variant": "stored",
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": -0.08,
+          "hash": "0ed08cb6838ef35ad8af114b626b17bea3c121abdf3b96c6ba71681530a7bddb",
+          "matchesPrevious": true
+        },
+        {
+          "index": 16,
+          "variant": "stored",
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0.08,
+          "hash": "4b9de22ffea3b49f8e7048f5d8cfdaed9edb0ad6eba753cb4e66b8863b9011ff",
+          "matchesPrevious": true
+        },
+        {
+          "index": 16,
+          "variant": "stored",
+          "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+          "yaw": 0,
+          "hash": "72e55dde0896b725aaacf7bea3dd29a4ca91119bc5d5b18baec3b69ec1677363",
+          "matchesPrevious": true
+        },
+        {
+          "index": 16,
+          "variant": "stored",
+          "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+          "yaw": 0,
+          "hash": "c98e4b3f25af58e5672a1f45277c8eaceebab7cab615ba4d58b418cbd3a7ff6e",
+          "matchesPrevious": true
+        },
+        {
+          "index": 16,
+          "variant": "stored",
+          "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+          "yaw": 0,
+          "hash": "37b646ef7fde599a1c1ae5beec9ac1c23924b787b21f2e776d60410415ebd7d5",
+          "matchesPrevious": true
+        },
+        {
+          "index": 17,
+          "variant": "original",
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037",
+          "matchesPrevious": true
+        },
+        {
+          "index": 17,
+          "variant": "original",
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": -0.08,
+          "hash": "0ed08cb6838ef35ad8af114b626b17bea3c121abdf3b96c6ba71681530a7bddb",
+          "matchesPrevious": true
+        },
+        {
+          "index": 17,
+          "variant": "original",
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0.08,
+          "hash": "4b9de22ffea3b49f8e7048f5d8cfdaed9edb0ad6eba753cb4e66b8863b9011ff",
+          "matchesPrevious": true
+        },
+        {
+          "index": 17,
+          "variant": "original",
+          "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+          "yaw": 0,
+          "hash": "72e55dde0896b725aaacf7bea3dd29a4ca91119bc5d5b18baec3b69ec1677363",
+          "matchesPrevious": true
+        },
+        {
+          "index": 17,
+          "variant": "original",
+          "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+          "yaw": 0,
+          "hash": "c98e4b3f25af58e5672a1f45277c8eaceebab7cab615ba4d58b418cbd3a7ff6e",
+          "matchesPrevious": true
+        },
+        {
+          "index": 17,
+          "variant": "original",
+          "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+          "yaw": 0,
+          "hash": "37b646ef7fde599a1c1ae5beec9ac1c23924b787b21f2e776d60410415ebd7d5",
+          "matchesPrevious": true
+        }
+      ],
+      "workers": [
+        {
+          "createdMs": 5168.099999904633
+        },
+        {
+          "createdMs": 5342.200000286102,
+          "terminatedMs": 9503.800000190735
+        }
+      ],
+      "disposedModels": 18,
+      "errors": [],
+      "method": "Preloaded and hash-checked inputs; identical decompressed SPZ and AP16 payload, independently bound sidecars. One warmup per variant, four serial ABBA groups, same viewer/worker pool, fresh models. Copy outside timing. initialize includes Worker transfer, gzip and attribute conversion; total ends after settle/draw submission, not presentation or GPU timing. Network, cold runtime, peak memory and native decompression speed not measured.",
+      "pairedBlocks": [
+        {
+          "initializeMs": 47.35000014305115,
+          "totalMs": 49.700000047683716
+        },
+        {
+          "initializeMs": 33.10000014305115,
+          "totalMs": 37.55000019073486
+        },
+        {
+          "initializeMs": 35.200000047683716,
+          "totalMs": 37.19999980926514
+        },
+        {
+          "initializeMs": 50.25,
+          "totalMs": 53.64999961853027
+        }
+      ]
+    }
+  ],
+  "summary": [
+    {
+      "scene": "pipes",
+      "variant": "original",
+      "n": 8,
+      "initializeMs": {
+        "median": 153.25,
+        "min": 148.90000009536743,
+        "max": 158
+      },
+      "prepareMs": {
+        "median": 0.5999999046325684,
+        "min": 0.5,
+        "max": 0.7000002861022949
+      },
+      "settleMs": {
+        "median": 54.799999952316284,
+        "min": 50,
+        "max": 58.5
+      },
+      "totalMs": {
+        "median": 210.89999985694885,
+        "min": 202.5,
+        "max": 211.59999990463257
+      }
+    },
+    {
+      "scene": "pipes",
+      "variant": "stored",
+      "n": 8,
+      "initializeMs": {
+        "median": 105.80000019073486,
+        "min": 102.40000009536743,
+        "max": 110.40000009536743
+      },
+      "prepareMs": {
+        "median": 0.5,
+        "min": 0.5,
+        "max": 1.4000000953674316
+      },
+      "settleMs": {
+        "median": 56.950000286102295,
+        "min": 48.19999980926514,
+        "max": 63.69999980926514
+      },
+      "totalMs": {
+        "median": 164.30000019073486,
+        "min": 152.90000009536743,
+        "max": 169
+      }
+    },
+    {
+      "scene": "office",
+      "variant": "original",
+      "n": 8,
+      "initializeMs": {
+        "median": 120.15000009536743,
+        "min": 115.5,
+        "max": 144.40000009536743
+      },
+      "prepareMs": {
+        "median": 0.5,
+        "min": 0.2999997138977051,
+        "max": 0.5999999046325684
+      },
+      "settleMs": {
+        "median": 52.39999985694885,
+        "min": 46.19999980926514,
+        "max": 60
+      },
+      "totalMs": {
+        "median": 174.5499997138977,
+        "min": 163.19999980926514,
+        "max": 195.5
+      }
+    },
+    {
+      "scene": "office",
+      "variant": "stored",
+      "n": 8,
+      "initializeMs": {
+        "median": 82.29999995231628,
+        "min": 80,
+        "max": 91.19999980926514
+      },
+      "prepareMs": {
+        "median": 0.40000009536743164,
+        "min": 0.2999997138977051,
+        "max": 0.40000009536743164
+      },
+      "settleMs": {
+        "median": 48.0,
+        "min": 46.09999990463257,
+        "max": 54.09999990463257
+      },
+      "totalMs": {
+        "median": 129.09999990463257,
+        "min": 128.40000009536743,
+        "max": 145.69999980926514
+      }
+    }
+  ]
+}

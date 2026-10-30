@@ -456,3 +456,17 @@ Spark 最新发行仍为 [2.4.0](https://github.com/sparkjsdev/spark/releases/ta
 [作者代码](https://github.com/websplatter/WebSplatter/tree/16bb06e86b8fb12193d4bb4cd2b0b3d4f3ab62be) main 为 `16bb06e`（2026-08-29，合入调试交互变更），最新 Release 1.0.0 发布于 2026-08-10，无发行说明正文。[LICENSE](https://github.com/websplatter/WebSplatter/blob/16bb06e86b8fb12193d4bb4cd2b0b3d4f3ab62be/LICENSE) 为 MIT，保留其 shrekshao 版权。阅读 [gaussian-renderer.ts](https://github.com/websplatter/WebSplatter/blob/16bb06e86b8fb12193d4bb4cd2b0b3d4f3ab62be/src/gaussian-renderer.ts) 的 `readPerfMetrics`：仅在 timestamp-query 可用时读取，使用查询环形缓冲，等待提交完成与异步映射，剔除缺写或逆序的阶段时间戳后统计。这是 WebGPU / WGSL 实现；不能直接接入当前 Spark WebGL2 计时，亦非原生 Metal 或 CUDA 模块，未在本机验证其跨后端收益。
 
 采用：按 [WebGL 扩展规范](https://registry.khronos.org/webgl/extensions/EXT_disjoint_timer_query_webgl2/)把当前活动查询与待结果查询一起清理；分配失败留空，不伪造零耗时。待验证：未来增加 WebGPU 候选时，分别记录阶段 GPU 时间、异步排序、CPU 提交和呈现等待，并检查能力缺失、失效查询与失败重试。此处没有移植上游代码或沿用论文速度倍数。
+
+### 已验证：SPZ 容器成本与图像编码候选
+
+2026-10-30 复核 [Spark main / v2.4.0](https://github.com/sparkjsdev/spark/releases/tag/v2.4.0)仍为 `ffe210d`（2026-10-20，MIT）；SPZ 文件最近实现变更为 2026-10-16 的 [538ed22 / #485](https://github.com/sparkjsdev/spark/commit/538ed2201cdbb902064ba3af50dea5906383f00a)。阅读[固定版本解码器](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/rust/spark-lib/src/spz.rs)：gzip v1–v3 分块展开并消费属性，裸 NGSP 为另一条 v4 路径。当前依赖已包含 flate2，不再重复升级。
+
+[相同属性的容器实验](SPZ-CONTAINER.md)使用原 gzip 与 level 0 stored gzip，展开摘要、点序与 AP16 值序列完全相同。32 个正式样本支持容器路径存在可优化成本，52 次画面一致；文件增大，且传递、分块和分配也改变，暂不发布 stored 格式或把差值当作纯 inflate 时间。WebGL2/WASM 经 ANGLE Metal 验证；原生 Metal、WebGPU、CUDA 和峰值内存未测。
+
+新读 [KISS-GS v1](https://arxiv.org/html/2608.26948v1#S3.SS5)（2026-08-27，ECCV 2026，arXiv 永久非独占分发许可），重点是 §3.5、§6.1、§6.9。它把裁减、图像编码和微调分开；SOG-XT 的图像解码之后仍需属性重建、SH 码本查表和有效点筛选。论文的 CPU Python 解码计时含文件读取、不含 PLY 写出，不能当作浏览器首帧或本项目收益。
+
+[作者下载脚本](https://fraunhoferhhi.github.io/KISS-GS/decode_sogxt.py)已读：NumPy/Pillow/PyYAML 在 CPU 上读 WebP、恢复属性并写标准 PLY，无 CUDA 调用；它不是可直接导入 Spark 的 WebGL2/WebGPU 模块。现有数据会重新量化，后续须独立验证 PSNR/SSIM、字节数与总转换成本，未运行编码、移植脚本或套用论文压缩率。
+
+公开代码状态需分开看：[项目仓库 main 24e78b5](https://github.com/fraunhoferhhi/KISS-GS/tree/24e78b5c29f32a70a7802cc5dd0ada15e70bb6b0)（2026-08-27）仅说明页面源码内部维护，gh-pages 承载构建产物，无 Release 或根许可证；主页顶部仍写“Code (coming soon)”。页面底部链接 [ffsplat](https://github.com/w-m/ffsplat/tree/3fb6444c5faed6de9aa55fa2313df6c2a4104193)，其公开 main 停在 2025-07-10 的 `3fb6444`，无 Release、根许可证 Apache-2.0；[README](https://github.com/w-m/ffsplat/blob/3fb6444c5faed6de9aa55fa2313df6c2a4104193/README.md)的完整工具要求 CUDA 12.x，[SceneDecoder](https://github.com/w-m/ffsplat/blob/3fb6444c5faed6de9aa55fa2313df6c2a4104193/src/ffsplat/coding/scene_decoder.py)按清单执行转换。不能由旧仓库许可或页面演示推定独立脚本许可、2026 论文完整实现及 WebGL2/WebGPU/Metal 训练适配；本项目只记录原链接，没有复制代码。
+
+下一步优先验证现有 SPZ 的解压/转换边界和内存，图像容器列为后续研究。即便浏览器自带图像解码，也需算上反量化、码本展开和 GPU 上传，不预设更低首帧等待。
