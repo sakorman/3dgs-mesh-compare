@@ -1,0 +1,496 @@
+{
+  "baseline": {
+    "createdAt": "2026-10-30T02:57:08.530Z",
+    "variant": "baseline",
+    "baselineCommit": "6dd9941fed6d8c7700027ba8a0597cdbdd61e37f",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+    "method": "Real WebGL2 and unchanged full-SH3 models at 768px. Controlled throw after the second measured draw; native CURRENT_QUERY and retry beginQuery checked before fixture cleanup. Query counts cover application allocations, not GPU memory. Timing values are diagnostics, not speed comparisons.",
+    "records": [
+      {
+        "scene": "pipes",
+        "failedKind": "gaussian",
+        "rejected": true,
+        "activeAtFailure": true,
+        "activeAfter": true,
+        "remaining": 1,
+        "allocated": 2,
+        "deleted": 1,
+        "glError": 0,
+        "retryBeginError": 1282,
+        "probeStarted": false
+      },
+      {
+        "scene": "pipes",
+        "failedKind": "mesh",
+        "rejected": true,
+        "activeAtFailure": true,
+        "activeAfter": true,
+        "remaining": 1,
+        "allocated": 2,
+        "deleted": 1,
+        "glError": 0,
+        "retryBeginError": 1282,
+        "probeStarted": false
+      },
+      {
+        "scene": "office",
+        "failedKind": "gaussian",
+        "rejected": true,
+        "activeAtFailure": true,
+        "activeAfter": true,
+        "remaining": 1,
+        "allocated": 2,
+        "deleted": 1,
+        "glError": 0,
+        "retryBeginError": 1282,
+        "probeStarted": false
+      },
+      {
+        "scene": "office",
+        "failedKind": "mesh",
+        "rejected": true,
+        "activeAtFailure": true,
+        "activeAfter": true,
+        "remaining": 1,
+        "allocated": 2,
+        "deleted": 1,
+        "glError": 0,
+        "retryBeginError": 1282,
+        "probeStarted": false
+      }
+    ],
+    "retries": [],
+    "pixels": [
+      {
+        "scene": "pipes",
+        "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+        "kind": "gaussian",
+        "hash": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36",
+        "afterHash": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36",
+        "matches": true
+      },
+      {
+        "scene": "pipes",
+        "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+        "kind": "mesh",
+        "hash": "c3c2144e2ef68b0306e923997f7336302afc5ff7097be8b9a2926b6c5b78cdb9",
+        "afterHash": "c3c2144e2ef68b0306e923997f7336302afc5ff7097be8b9a2926b6c5b78cdb9",
+        "matches": true
+      },
+      {
+        "scene": "pipes",
+        "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+        "kind": "gaussian",
+        "hash": "c91b07263481e55ea3f9585a7deadf35d29fea9f3ac96c938275124b58935754",
+        "afterHash": "c91b07263481e55ea3f9585a7deadf35d29fea9f3ac96c938275124b58935754",
+        "matches": true
+      },
+      {
+        "scene": "pipes",
+        "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+        "kind": "mesh",
+        "hash": "5cac2f041f2016ab5a86f7db66c4fe0180218f345175fabec76dac67c397008a",
+        "afterHash": "5cac2f041f2016ab5a86f7db66c4fe0180218f345175fabec76dac67c397008a",
+        "matches": true
+      },
+      {
+        "scene": "office",
+        "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+        "kind": "gaussian",
+        "hash": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3",
+        "afterHash": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3",
+        "matches": true
+      },
+      {
+        "scene": "office",
+        "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+        "kind": "mesh",
+        "hash": "ac95a13722ceebb9e56bfeb53a925f674a5145242504fb1929e44f4b8b66a4e7",
+        "afterHash": "ac95a13722ceebb9e56bfeb53a925f674a5145242504fb1929e44f4b8b66a4e7",
+        "matches": true
+      },
+      {
+        "scene": "office",
+        "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+        "kind": "gaussian",
+        "hash": "8ba6cc5b7af30145763983b06ad0aa80dc911255e25b5d537c68653c14d8c0df",
+        "afterHash": "8ba6cc5b7af30145763983b06ad0aa80dc911255e25b5d537c68653c14d8c0df",
+        "matches": true
+      },
+      {
+        "scene": "office",
+        "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+        "kind": "mesh",
+        "hash": "3af78ee4ba301c23d5ffaf227f2873c64eecec70b5db10e7dbd2fec1ca1573ad",
+        "afterHash": "3af78ee4ba301c23d5ffaf227f2873c64eecec70b5db10e7dbd2fec1ca1573ad",
+        "matches": true
+      },
+      {
+        "scene": "office",
+        "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+        "kind": "gaussian",
+        "hash": "a16ea0b0e57a2be26e2c85b2315a1c0f2ae3d221328451d5e87449829991213f",
+        "afterHash": "a16ea0b0e57a2be26e2c85b2315a1c0f2ae3d221328451d5e87449829991213f",
+        "matches": true
+      },
+      {
+        "scene": "office",
+        "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+        "kind": "mesh",
+        "hash": "e1732f8812ec8de3b4c1560717cf85c1068d7c34ae8f48a7beb9df0354e8112b",
+        "afterHash": "e1732f8812ec8de3b4c1560717cf85c1068d7c34ae8f48a7beb9df0354e8112b",
+        "matches": true
+      },
+      {
+        "scene": "office",
+        "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+        "kind": "gaussian",
+        "hash": "7b0bf43e8967c537e2677326b567e2bea9f08162a374fab50489b48e049ed06d",
+        "afterHash": "7b0bf43e8967c537e2677326b567e2bea9f08162a374fab50489b48e049ed06d",
+        "matches": true
+      },
+      {
+        "scene": "office",
+        "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+        "kind": "mesh",
+        "hash": "b9b1b565d36a0fa5cca1da62c0a7d0a39726d4431a64239ecae7548eb7e3ea97",
+        "afterHash": "b9b1b565d36a0fa5cca1da62c0a7d0a39726d4431a64239ecae7548eb7e3ea97",
+        "matches": true
+      }
+    ],
+    "errors": []
+  },
+  "fixed": {
+    "createdAt": "2026-10-30T02:58:30.728Z",
+    "variant": "fixed",
+    "baselineCommit": "6dd9941fed6d8c7700027ba8a0597cdbdd61e37f",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+    "method": "Real WebGL2 and unchanged full-SH3 models at 768px. Controlled throw after the second measured draw; native CURRENT_QUERY and retry beginQuery checked before fixture cleanup. Query counts cover application allocations, not GPU memory. Timing values are diagnostics, not speed comparisons.",
+    "records": [
+      {
+        "scene": "pipes",
+        "failedKind": "gaussian",
+        "rejected": true,
+        "activeAtFailure": true,
+        "activeAfter": false,
+        "remaining": 0,
+        "allocated": 2,
+        "deleted": 2,
+        "glError": 0,
+        "retryBeginError": 0,
+        "probeStarted": true
+      },
+      {
+        "scene": "pipes",
+        "failedKind": "mesh",
+        "rejected": true,
+        "activeAtFailure": true,
+        "activeAfter": false,
+        "remaining": 0,
+        "allocated": 2,
+        "deleted": 2,
+        "glError": 0,
+        "retryBeginError": 0,
+        "probeStarted": true
+      },
+      {
+        "scene": "office",
+        "failedKind": "gaussian",
+        "rejected": true,
+        "activeAtFailure": true,
+        "activeAfter": false,
+        "remaining": 0,
+        "allocated": 2,
+        "deleted": 2,
+        "glError": 0,
+        "retryBeginError": 0,
+        "probeStarted": true
+      },
+      {
+        "scene": "office",
+        "failedKind": "mesh",
+        "rejected": true,
+        "activeAtFailure": true,
+        "activeAfter": false,
+        "remaining": 0,
+        "allocated": 2,
+        "deleted": 2,
+        "glError": 0,
+        "retryBeginError": 0,
+        "probeStarted": true
+      }
+    ],
+    "retries": [
+      {
+        "scene": "pipes",
+        "skipAllocation": false,
+        "samples": [
+          {
+            "kind": "gaussian",
+            "count": 160,
+            "gpuSamples": 160,
+            "firstGpuMs": 5.2155
+          },
+          {
+            "kind": "mesh",
+            "count": 160,
+            "gpuSamples": 160,
+            "firstGpuMs": 0.340541
+          }
+        ],
+        "disjoint": {
+          "gaussian": false,
+          "mesh": false
+        },
+        "resources": [
+          {
+            "kind": "gaussian",
+            "active": false,
+            "remaining": 0,
+            "glError": 0,
+            "created": 203,
+            "deleted": 203
+          },
+          {
+            "kind": "mesh",
+            "active": false,
+            "remaining": 0,
+            "glError": 0,
+            "created": 163,
+            "deleted": 163
+          }
+        ]
+      },
+      {
+        "scene": "pipes",
+        "skipAllocation": true,
+        "samples": [
+          {
+            "kind": "gaussian",
+            "count": 160,
+            "gpuSamples": 159,
+            "firstGpuMs": null
+          },
+          {
+            "kind": "mesh",
+            "count": 160,
+            "gpuSamples": 160,
+            "firstGpuMs": 0.270791
+          }
+        ],
+        "disjoint": {
+          "gaussian": false,
+          "mesh": false
+        },
+        "resources": [
+          {
+            "kind": "gaussian",
+            "active": false,
+            "remaining": 0,
+            "glError": 0,
+            "created": 362,
+            "deleted": 362
+          },
+          {
+            "kind": "mesh",
+            "active": false,
+            "remaining": 0,
+            "glError": 0,
+            "created": 323,
+            "deleted": 323
+          }
+        ]
+      },
+      {
+        "scene": "office",
+        "skipAllocation": false,
+        "samples": [
+          {
+            "kind": "gaussian",
+            "count": 160,
+            "gpuSamples": 160,
+            "firstGpuMs": 4.526583
+          },
+          {
+            "kind": "mesh",
+            "count": 160,
+            "gpuSamples": 160,
+            "firstGpuMs": 0.411124
+          }
+        ],
+        "disjoint": {
+          "gaussian": false,
+          "mesh": false
+        },
+        "resources": [
+          {
+            "kind": "gaussian",
+            "active": false,
+            "remaining": 0,
+            "glError": 0,
+            "created": 565,
+            "deleted": 565
+          },
+          {
+            "kind": "mesh",
+            "active": false,
+            "remaining": 0,
+            "glError": 0,
+            "created": 486,
+            "deleted": 486
+          }
+        ]
+      },
+      {
+        "scene": "office",
+        "skipAllocation": true,
+        "samples": [
+          {
+            "kind": "gaussian",
+            "count": 160,
+            "gpuSamples": 159,
+            "firstGpuMs": null
+          },
+          {
+            "kind": "mesh",
+            "count": 160,
+            "gpuSamples": 160,
+            "firstGpuMs": 0.455708
+          }
+        ],
+        "disjoint": {
+          "gaussian": false,
+          "mesh": false
+        },
+        "resources": [
+          {
+            "kind": "gaussian",
+            "active": false,
+            "remaining": 0,
+            "glError": 0,
+            "created": 724,
+            "deleted": 724
+          },
+          {
+            "kind": "mesh",
+            "active": false,
+            "remaining": 0,
+            "glError": 0,
+            "created": 646,
+            "deleted": 646
+          }
+        ]
+      }
+    ],
+    "pixels": [
+      {
+        "scene": "pipes",
+        "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+        "kind": "gaussian",
+        "hash": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36",
+        "afterHash": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36",
+        "matches": true
+      },
+      {
+        "scene": "pipes",
+        "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+        "kind": "mesh",
+        "hash": "c3c2144e2ef68b0306e923997f7336302afc5ff7097be8b9a2926b6c5b78cdb9",
+        "afterHash": "c3c2144e2ef68b0306e923997f7336302afc5ff7097be8b9a2926b6c5b78cdb9",
+        "matches": true
+      },
+      {
+        "scene": "pipes",
+        "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+        "kind": "gaussian",
+        "hash": "c91b07263481e55ea3f9585a7deadf35d29fea9f3ac96c938275124b58935754",
+        "afterHash": "c91b07263481e55ea3f9585a7deadf35d29fea9f3ac96c938275124b58935754",
+        "matches": true
+      },
+      {
+        "scene": "pipes",
+        "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+        "kind": "mesh",
+        "hash": "5cac2f041f2016ab5a86f7db66c4fe0180218f345175fabec76dac67c397008a",
+        "afterHash": "5cac2f041f2016ab5a86f7db66c4fe0180218f345175fabec76dac67c397008a",
+        "matches": true
+      },
+      {
+        "scene": "office",
+        "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+        "kind": "gaussian",
+        "hash": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3",
+        "afterHash": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3",
+        "matches": true
+      },
+      {
+        "scene": "office",
+        "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+        "kind": "mesh",
+        "hash": "ac95a13722ceebb9e56bfeb53a925f674a5145242504fb1929e44f4b8b66a4e7",
+        "afterHash": "ac95a13722ceebb9e56bfeb53a925f674a5145242504fb1929e44f4b8b66a4e7",
+        "matches": true
+      },
+      {
+        "scene": "office",
+        "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+        "kind": "gaussian",
+        "hash": "8ba6cc5b7af30145763983b06ad0aa80dc911255e25b5d537c68653c14d8c0df",
+        "afterHash": "8ba6cc5b7af30145763983b06ad0aa80dc911255e25b5d537c68653c14d8c0df",
+        "matches": true
+      },
+      {
+        "scene": "office",
+        "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+        "kind": "mesh",
+        "hash": "3af78ee4ba301c23d5ffaf227f2873c64eecec70b5db10e7dbd2fec1ca1573ad",
+        "afterHash": "3af78ee4ba301c23d5ffaf227f2873c64eecec70b5db10e7dbd2fec1ca1573ad",
+        "matches": true
+      },
+      {
+        "scene": "office",
+        "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+        "kind": "gaussian",
+        "hash": "a16ea0b0e57a2be26e2c85b2315a1c0f2ae3d221328451d5e87449829991213f",
+        "afterHash": "a16ea0b0e57a2be26e2c85b2315a1c0f2ae3d221328451d5e87449829991213f",
+        "matches": true
+      },
+      {
+        "scene": "office",
+        "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+        "kind": "mesh",
+        "hash": "e1732f8812ec8de3b4c1560717cf85c1068d7c34ae8f48a7beb9df0354e8112b",
+        "afterHash": "e1732f8812ec8de3b4c1560717cf85c1068d7c34ae8f48a7beb9df0354e8112b",
+        "matches": true
+      },
+      {
+        "scene": "office",
+        "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+        "kind": "gaussian",
+        "hash": "7b0bf43e8967c537e2677326b567e2bea9f08162a374fab50489b48e049ed06d",
+        "afterHash": "7b0bf43e8967c537e2677326b567e2bea9f08162a374fab50489b48e049ed06d",
+        "matches": true
+      },
+      {
+        "scene": "office",
+        "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+        "kind": "mesh",
+        "hash": "b9b1b565d36a0fa5cca1da62c0a7d0a39726d4431a64239ecae7548eb7e3ea97",
+        "afterHash": "b9b1b565d36a0fa5cca1da62c0a7d0a39726d4431a64239ecae7548eb7e3ea97",
+        "matches": true
+      }
+    ],
+    "errors": []
+  },
+  "baselinePixelComparison": {
+    "count": 12,
+    "allMatch": true
+  },
+  "sourceSha256": {
+    "src/benchmark.ts": "2e48f415c521653270afc7e6ff70c7d482c158eb8d7079392a186fff82b4ac1b",
+    "tests/benchmark-cancel.test.ts": "321529960ebb0c459a6297cc9a7bd2446f7a9a781e5961f1eb0f0b6a819a209e",
+    "tests/browser/benchmark-query.ts": "c759461f657fd5fba3088518c0c60a4b4429d8aec7c341f30add291c262aa646",
+    "tests/browser/benchmark-query.html": "d04232d20994bed5148bfdbf944726155308f1e5beb27821a38a93f539765947",
+    ".qa/benchmark-query/benchmark-before.ts": "1f10da3d984442b2e2f2804b7ab10075272b611141a8052245c7e9cb221a5dc9"
+  }
+}

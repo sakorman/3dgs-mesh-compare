@@ -8,19 +8,23 @@ class GpuTimer {
   ext: TimerExt | null;
   pending: { q: WebGLQuery; sample: Sample }[] = [];
   disjoint = false;
+  private active: WebGLQuery | null = null;
   constructor(viewer: CompareViewer, kind: Backend) {
     this.gl = viewer.renderers[kind].getContext() as WebGL2RenderingContext;
     this.ext = this.gl.getExtension("EXT_disjoint_timer_query_webgl2");
   }
   begin() {
     if (!this.ext || this.disjoint || this.pending.length > 32) return null;
-    const q = this.gl.createQuery()!;
+    const q = this.gl.createQuery();
+    if (!q) return null;
     this.gl.beginQuery(this.ext.TIME_ELAPSED_EXT, q);
+    this.active = q;
     return q;
   }
   end(q: WebGLQuery | null, sample: Sample) {
     if (q && this.ext) {
       this.gl.endQuery(this.ext.TIME_ELAPSED_EXT);
+      this.active = null;
       this.pending.push({ q, sample });
     }
   }
@@ -37,6 +41,12 @@ class GpuTimer {
     });
   }
   dispose() {
+    // A failed draw has no sample, but its open query still belongs to this timer.
+    if (this.active && this.ext) {
+      this.gl.endQuery(this.ext.TIME_ELAPSED_EXT);
+      this.gl.deleteQuery(this.active);
+      this.active = null;
+    }
     this.pending.forEach(({ q }) => this.gl.deleteQuery(q));
     this.pending = [];
   }
