@@ -470,3 +470,15 @@ Spark 最新发行仍为 [2.4.0](https://github.com/sparkjsdev/spark/releases/ta
 公开代码状态需分开看：[项目仓库 main 24e78b5](https://github.com/fraunhoferhhi/KISS-GS/tree/24e78b5c29f32a70a7802cc5dd0ada15e70bb6b0)（2026-08-27）仅说明页面源码内部维护，gh-pages 承载构建产物，无 Release 或根许可证；主页顶部仍写“Code (coming soon)”。页面底部链接 [ffsplat](https://github.com/w-m/ffsplat/tree/3fb6444c5faed6de9aa55fa2313df6c2a4104193)，其公开 main 停在 2025-07-10 的 `3fb6444`，无 Release、根许可证 Apache-2.0；[README](https://github.com/w-m/ffsplat/blob/3fb6444c5faed6de9aa55fa2313df6c2a4104193/README.md)的完整工具要求 CUDA 12.x，[SceneDecoder](https://github.com/w-m/ffsplat/blob/3fb6444c5faed6de9aa55fa2313df6c2a4104193/src/ffsplat/coding/scene_decoder.py)按清单执行转换。不能由旧仓库许可或页面演示推定独立脚本许可、2026 论文完整实现及 WebGL2/WebGPU/Metal 训练适配；本项目只记录原链接，没有复制代码。
 
 下一步优先验证现有 SPZ 的解压/转换边界和内存，图像容器列为后续研究。即便浏览器自带图像解码，也需算上反量化、码本展开和 GPU 上传，不预设更低首帧等待。
+
+### 暂不采用：SPZ v4 在当前解码器中的初始化表现
+
+2026-10-30 阅读 Niantic 的 [SPZ 4 发布说明](https://www.nianticspatial.com/blog/spz4)（2026-05-05）及最新 [库版本 v3.0.0](https://github.com/nianticlabs/spz/releases/tag/v3.0.0)（同日发布）：**库版本 3.0.0 与文件格式 v4 是不同编号**。ZSTD 多流改动 [#73](https://github.com/nianticlabs/spz/pull/73) 于 2026-04-29 合入。当前 main [affd0ec](https://github.com/nianticlabs/spz/commit/affd0ecea7fbb4c265ee119475af7ee5b2997482)（2026-08-05）最近修正大模型 PLY 写出溢出与分块，不是新的浏览器解压加速；根 [LICENSE](https://github.com/nianticlabs/spz/blob/affd0ecea7fbb4c265ee119475af7ee5b2997482/LICENSE) 为 MIT，Niantic Labs 版权所有。
+
+[作者实现 load-spz.cc](https://github.com/nianticlabs/spz/blob/affd0ecea7fbb4c265ee119475af7ee5b2997482/src/cc/load-spz.cc)采用 32 字节头、流目录与独立属性压缩流，默认压缩级别为 12。原生 C++ 解压通过并行任务直接写各属性目标；Emscripten 分支仍按流串行调用 ZSTD_decompress，并明确留下并行后续事项。因此不能把原生多线程数据等同于浏览器 WASM 表现。[公开构建说明](https://github.com/nianticlabs/spz/blob/affd0ecea7fbb4c265ee119475af7ee5b2997482/README.md)使用 CPU 上的 C++ / libz / libzstd，支持 Emscripten；这是 codec，不是 WebGL2/WebGPU/Metal/CUDA 渲染后端。
+
+Spark main 仍为 2026-10-20 的 [ffe210d / v2.4.0](https://github.com/sparkjsdev/spark/releases/tag/v2.4.0)，MIT；v4 读取 [#484](https://github.com/sparkjsdev/spark/pull/484) 于 2026-10-15 合入。[固定版本 spz.rs](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/rust/spark-lib/src/spz.rs)先等完整 v4 输入，以 ruzstd 逐流追加到统一缓冲，再消费属性并移除已读字节；不是上游 C++ 并行直写路径。这些区别可用于后续剖析，但尚未证明哪个步骤主导本项目慢值。本次只验证现有 WebGL2/WASM，经 ANGLE Metal 执行，未测试原生 C++、C++ WASM、WebGPU 或 CUDA 性能。
+
+[同属性实验](SPZ-V4.md)用系统 Zstandard 1.5.7、level 12、单线程生成六个独立帧，逐段回读校验，并把 AP16 副本重新绑定到实际 v4 文件。没有复用 Niantic 编码器或改变 SH、点序、量化和坐标。32 个正式样本中，v4 文件减少 8.8% / 10.2%，初始化中位数反而增加 16.95 / 10.80ms；36 组解码属性与 52 次 RGBA 对照均一致。暂不采用为初始化优化，不据此否定弱网络端到端收益；下载、冷运行时、峰值内存和其它解码器仍未测。
+
+重新阅读 [KISS-GS v1 §3.5、§6.1](https://arxiv.org/html/2608.26948v1#S3.SS5)（2026-08-27，ECCV 2026，arXiv 永久非独占分发许可）：SOG-XT 包含位置重新量化、SH 码本及图像编码，不能视作本实验这种属性字节不变的容器转换。论文 CPU 解码计时含读取、不含 PLY 写出，并另有慢样本剔除协议；本实验保留全部八个正式样本，不能直接合并时间或套用论文速度。独立脚本与完整实现的公开代码、许可限制仍见上一节，未复制算法或改训练。后续优先取得解压/属性消费的分段证据，涉及加载接入时再验证网络、取消、回退及峰值缓冲。

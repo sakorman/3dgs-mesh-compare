@@ -1,0 +1,8 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8">
+<title>SPZ v3 / v4 对照</title>
+<style>body{font:16px system-ui;margin:24px}canvas{max-width:100%}#left{width:768px}#right{display:none}pre{white-space:pre-wrap}#gallery{display:flex;gap:16px}figure{margin:0}img{width:384px}</style>
+<h1>SPZ v3 / v4 对照</h1>
+<p>gzip / ZSTD 包含相同属性字节。预加载并核验后，先预热，再串行执行四组 ABBA；初始化和稳定等待分别记录。</p>
+<button id="run">运行 v3 / v4 对照</button><p id="status">Ready</p>
+<div id="gallery"></div><div id="left"></div><div id="right"></div><pre id="result"></pre>
+<script type="module" src="./spz-v4.ts"></script>
