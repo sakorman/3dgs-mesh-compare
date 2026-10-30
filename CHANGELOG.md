@@ -1,5 +1,12 @@
 # 更新日志
 
+## 2026-10-30 · 上下文丢失后的刷新与释放
+
+- 修复显卡上下文丢失后仍可切换场景、迟到回调覆盖故障提示的问题；统一释放查看器、清空失效结果，并提供可点击的“刷新页面”。
+- 六项真实 WebGL 丢失基线均复现问题，修复后全部通过；排序 Worker 终止、模型移除，12 份留出画面摘要不变，见[验证与截图](docs/CONTEXT-LOSS.md)。
+- 窄屏检查和两次刷新恢复通过，刷新后完成各 160 帧性能采样及留出画质导出；136 项测试、类型检查与构建通过。自然 GPU 故障和原地恢复尚未验证。
+- 参考 [Spark 释放后异步错误处理](https://github.com/sparkjsdev/spark/pull/476)、[WebGL 规范](https://registry.khronos.org/webgl/extensions/WEBGL_lose_context/)及 [WebSplatter 论文](https://arxiv.org/abs/2602.03207)，将资源释放、页面可恢复性与速度指标分开验证。
+
 ## 2026-10-30 · SPZ v4 同属性对照
 
 - 新增独立 v4 ZSTD 候选，保持六段属性字节和 AP16 值不变，校验目录边界与文件绑定，详见[耗时、体积与截图](docs/SPZ-V4.md)。

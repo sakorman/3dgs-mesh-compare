@@ -51,7 +51,9 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
 const $ = <T extends HTMLElement = HTMLElement>(id: string) =>
   document.getElementById(id) as T;
 const button = (id: string) => $<HTMLButtonElement>(id);
+let viewerError: string | undefined;
 const status = (s: string, error = false) => {
+  if (viewerError) { s = viewerError; error = true; }
   $("status").textContent = s;
   $("status").classList.toggle("error", error);
 };
@@ -89,6 +91,7 @@ const controlIds = [
   ...(isBenchmark ? ["quality", "bench"] : []),
 ];
 function lock(value: boolean) {
+  value ||= !!viewer?.lost || !!viewer?.disposed;
   for (const id of controlIds) button(id).disabled = value || !ready;
   $<HTMLSelectElement>("view").disabled = value || !ready;
   if (isBenchmark) $<HTMLSelectElement>("resolution").disabled = value;
@@ -177,6 +180,7 @@ function selectView(index: number) {
   }
 }
 async function loadScene(id: string) {
+  if (viewer.lost || viewer.disposed) return;
   const request = ++loadRequest;
   loading = true;
   sceneId = id;
@@ -421,7 +425,10 @@ button("cancel").onclick = () => {
   lock(false);
   status("加载已取消，可重新加载或选择其他场景。");
 };
-button("retry").onclick = () => loadScene(sceneId);
+button("retry").onclick = () => {
+  if (viewer.lost) window.location.reload();
+  else void loadScene(sceneId);
+};
 button("orbit").onclick = () => {
   setOrbit(!orbit);
   status(
@@ -506,10 +513,18 @@ try {
   viewer = new CompareViewer($("gs-surface"), $("mesh-surface"));
   viewer.onProgress = status;
   viewer.onError = (s) => {
+    // Invalidate completions before aborting; their catch/finally must not revive the page.
+    viewerError = s;
+    ++loadRequest;
+    loading = false;
     controller?.abort();
     ready = false;
+    clearResults();
     showLoadTimings();
-    lock(false);
+    button("cancel").hidden = true;
+    button("retry").textContent = "刷新页面";
+    button("retry").hidden = false;
+    lock(true);
     status(s, true);
   };
   bindPageLifecycle({
