@@ -1,0 +1,3888 @@
+{
+  "baselineCommit": "ae2ead8",
+  "baseline": [
+    {
+      "createdAt": "2026-10-30T14:54:09.127Z",
+      "baselineCommit": "ae2ead8",
+      "variant": "baseline",
+      "scene": "pipes",
+      "stage": "ready",
+      "backend": "gaussian",
+      "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+      "passed": false,
+      "qualityPublishedBeforeLoss": false,
+      "before": {
+        "status": "显卡上下文丢失，请刷新页面重新加载。",
+        "scenesDisabled": false,
+        "viewDisabled": true,
+        "resolutionDisabled": false,
+        "qualityDisabled": true,
+        "benchmarkDisabled": true,
+        "exportDisabled": true,
+        "cancelHidden": true,
+        "retryVisible": false,
+        "retryLabel": "重新加载",
+        "loadReportHidden": true,
+        "qualityReportHidden": true,
+        "qualityCleared": true,
+        "lost": true,
+        "playing": false,
+        "traceAbsent": true,
+        "modelsDetached": true
+      },
+      "after": {
+        "status": "显卡上下文丢失，请刷新页面重新加载。",
+        "scenesDisabled": false,
+        "viewDisabled": true,
+        "resolutionDisabled": false,
+        "qualityDisabled": true,
+        "benchmarkDisabled": true,
+        "exportDisabled": true,
+        "cancelHidden": true,
+        "retryVisible": false,
+        "retryLabel": "重新加载",
+        "loadReportHidden": true,
+        "qualityReportHidden": true,
+        "qualityCleared": true,
+        "lost": true,
+        "playing": false,
+        "traceAbsent": true,
+        "modelsDetached": true
+      },
+      "attemptedSceneSwitch": {
+        "extraLoads": 1,
+        "state": {
+          "status": "正在加载照片与真实三维模型…",
+          "scenesDisabled": false,
+          "viewDisabled": true,
+          "resolutionDisabled": false,
+          "qualityDisabled": true,
+          "benchmarkDisabled": true,
+          "exportDisabled": true,
+          "cancelHidden": true,
+          "retryVisible": false,
+          "retryLabel": "重新加载",
+          "loadReportHidden": true,
+          "qualityReportHidden": true,
+          "qualityCleared": true,
+          "lost": true,
+          "playing": false,
+          "traceAbsent": true,
+          "modelsDetached": true
+        }
+      },
+      "pixels": [
+        {
+          "scene": "pipes",
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "kind": "gaussian",
+          "hash": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36",
+          "matchesPrevious": true
+        },
+        {
+          "scene": "pipes",
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "kind": "mesh",
+          "hash": "c3c2144e2ef68b0306e923997f7336302afc5ff7097be8b9a2926b6c5b78cdb9",
+          "matchesPrevious": true
+        },
+        {
+          "scene": "pipes",
+          "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+          "kind": "gaussian",
+          "hash": "c91b07263481e55ea3f9585a7deadf35d29fea9f3ac96c938275124b58935754",
+          "matchesPrevious": true
+        },
+        {
+          "scene": "pipes",
+          "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+          "kind": "mesh",
+          "hash": "5cac2f041f2016ab5a86f7db66c4fe0180218f345175fabec76dac67c397008a",
+          "matchesPrevious": true
+        }
+      ],
+      "errors": [],
+      "method": "Real WEBGL_lose_context event, delayed metadata/settle completions, 80ms observation before/after release. Full-size held-out pixels checked in ready cases. Not natural GPU fault, restoration or performance measurement."
+    },
+    {
+      "createdAt": "2026-10-30T14:54:20.657Z",
+      "baselineCommit": "ae2ead8",
+      "variant": "baseline",
+      "scene": "office",
+      "stage": "quality-restore",
+      "backend": "mesh",
+      "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+      "passed": false,
+      "qualityPublishedBeforeLoss": true,
+      "before": {
+        "status": "显卡上下文丢失，请刷新页面重新加载。",
+        "scenesDisabled": false,
+        "viewDisabled": true,
+        "resolutionDisabled": false,
+        "qualityDisabled": true,
+        "benchmarkDisabled": true,
+        "exportDisabled": true,
+        "cancelHidden": false,
+        "retryVisible": false,
+        "retryLabel": "重新加载",
+        "loadReportHidden": true,
+        "qualityReportHidden": false,
+        "qualityCleared": false,
+        "lost": true,
+        "playing": false,
+        "traceAbsent": true,
+        "modelsDetached": true
+      },
+      "after": {
+        "status": "评测已取消",
+        "scenesDisabled": true,
+        "viewDisabled": true,
+        "resolutionDisabled": true,
+        "qualityDisabled": true,
+        "benchmarkDisabled": true,
+        "exportDisabled": true,
+        "cancelHidden": true,
+        "retryVisible": false,
+        "retryLabel": "重新加载",
+        "loadReportHidden": true,
+        "qualityReportHidden": true,
+        "qualityCleared": true,
+        "lost": true,
+        "playing": false,
+        "traceAbsent": true,
+        "modelsDetached": true
+      },
+      "attemptedSceneSwitch": {
+        "extraLoads": 0,
+        "state": {
+          "status": "评测已取消",
+          "scenesDisabled": true,
+          "viewDisabled": true,
+          "resolutionDisabled": true,
+          "qualityDisabled": true,
+          "benchmarkDisabled": true,
+          "exportDisabled": true,
+          "cancelHidden": true,
+          "retryVisible": false,
+          "retryLabel": "重新加载",
+          "loadReportHidden": true,
+          "qualityReportHidden": true,
+          "qualityCleared": true,
+          "lost": true,
+          "playing": false,
+          "traceAbsent": true,
+          "modelsDetached": true
+        }
+      },
+      "pixels": [],
+      "errors": [],
+      "method": "Real WEBGL_lose_context event, delayed metadata/settle completions, 80ms observation before/after release. Full-size held-out pixels checked in ready cases. Not natural GPU fault, restoration or performance measurement."
+    },
+    {
+      "createdAt": "2026-10-30T14:54:35.800Z",
+      "baselineCommit": "ae2ead8",
+      "variant": "baseline",
+      "scene": "pipes",
+      "stage": "metadata",
+      "backend": "gaussian",
+      "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+      "passed": false,
+      "qualityPublishedBeforeLoss": false,
+      "before": {
+        "status": "显卡上下文丢失，请刷新页面重新加载。",
+        "scenesDisabled": false,
+        "viewDisabled": true,
+        "resolutionDisabled": false,
+        "qualityDisabled": true,
+        "benchmarkDisabled": true,
+        "exportDisabled": true,
+        "cancelHidden": false,
+        "retryVisible": false,
+        "retryLabel": "重新加载",
+        "loadReportHidden": true,
+        "qualityReportHidden": true,
+        "qualityCleared": true,
+        "lost": true,
+        "playing": false,
+        "traceAbsent": true,
+        "modelsDetached": true
+      },
+      "after": {
+        "status": "显卡上下文丢失，请刷新页面重新加载。",
+        "scenesDisabled": false,
+        "viewDisabled": true,
+        "resolutionDisabled": false,
+        "qualityDisabled": true,
+        "benchmarkDisabled": true,
+        "exportDisabled": true,
+        "cancelHidden": true,
+        "retryVisible": false,
+        "retryLabel": "重新加载",
+        "loadReportHidden": true,
+        "qualityReportHidden": true,
+        "qualityCleared": true,
+        "lost": true,
+        "playing": false,
+        "traceAbsent": true,
+        "modelsDetached": true
+      },
+      "attemptedSceneSwitch": {
+        "extraLoads": 1,
+        "state": {
+          "status": "正在加载照片与真实三维模型…",
+          "scenesDisabled": false,
+          "viewDisabled": true,
+          "resolutionDisabled": false,
+          "qualityDisabled": true,
+          "benchmarkDisabled": true,
+          "exportDisabled": true,
+          "cancelHidden": true,
+          "retryVisible": false,
+          "retryLabel": "重新加载",
+          "loadReportHidden": true,
+          "qualityReportHidden": true,
+          "qualityCleared": true,
+          "lost": true,
+          "playing": false,
+          "traceAbsent": true,
+          "modelsDetached": true
+        }
+      },
+      "pixels": [],
+      "errors": [],
+      "method": "Real WEBGL_lose_context event, delayed metadata/settle completions, 80ms observation before/after release. Full-size held-out pixels checked in ready cases. Not natural GPU fault, restoration or performance measurement."
+    },
+    {
+      "createdAt": "2026-10-30T14:55:18.916Z",
+      "baselineCommit": "ae2ead8",
+      "variant": "baseline",
+      "scene": "office",
+      "stage": "ready",
+      "backend": "mesh",
+      "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+      "passed": false,
+      "qualityPublishedBeforeLoss": false,
+      "before": {
+        "status": "显卡上下文丢失，请刷新页面重新加载。",
+        "scenesDisabled": false,
+        "viewDisabled": true,
+        "resolutionDisabled": false,
+        "qualityDisabled": true,
+        "benchmarkDisabled": true,
+        "exportDisabled": true,
+        "cancelHidden": true,
+        "retryVisible": false,
+        "retryLabel": "重新加载",
+        "loadReportHidden": true,
+        "qualityReportHidden": true,
+        "qualityCleared": true,
+        "lost": true,
+        "playing": false,
+        "traceAbsent": true,
+        "modelsDetached": true
+      },
+      "after": {
+        "status": "显卡上下文丢失，请刷新页面重新加载。",
+        "scenesDisabled": false,
+        "viewDisabled": true,
+        "resolutionDisabled": false,
+        "qualityDisabled": true,
+        "benchmarkDisabled": true,
+        "exportDisabled": true,
+        "cancelHidden": true,
+        "retryVisible": false,
+        "retryLabel": "重新加载",
+        "loadReportHidden": true,
+        "qualityReportHidden": true,
+        "qualityCleared": true,
+        "lost": true,
+        "playing": false,
+        "traceAbsent": true,
+        "modelsDetached": true
+      },
+      "attemptedSceneSwitch": {
+        "extraLoads": 1,
+        "state": {
+          "status": "正在加载照片与真实三维模型…",
+          "scenesDisabled": false,
+          "viewDisabled": true,
+          "resolutionDisabled": false,
+          "qualityDisabled": true,
+          "benchmarkDisabled": true,
+          "exportDisabled": true,
+          "cancelHidden": true,
+          "retryVisible": false,
+          "retryLabel": "重新加载",
+          "loadReportHidden": true,
+          "qualityReportHidden": true,
+          "qualityCleared": true,
+          "lost": true,
+          "playing": false,
+          "traceAbsent": true,
+          "modelsDetached": true
+        }
+      },
+      "pixels": [
+        {
+          "scene": "office",
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "kind": "gaussian",
+          "hash": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3",
+          "matchesPrevious": true
+        },
+        {
+          "scene": "office",
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "kind": "mesh",
+          "hash": "ac95a13722ceebb9e56bfeb53a925f674a5145242504fb1929e44f4b8b66a4e7",
+          "matchesPrevious": true
+        },
+        {
+          "scene": "office",
+          "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+          "kind": "gaussian",
+          "hash": "8ba6cc5b7af30145763983b06ad0aa80dc911255e25b5d537c68653c14d8c0df",
+          "matchesPrevious": true
+        },
+        {
+          "scene": "office",
+          "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+          "kind": "mesh",
+          "hash": "3af78ee4ba301c23d5ffaf227f2873c64eecec70b5db10e7dbd2fec1ca1573ad",
+          "matchesPrevious": true
+        },
+        {
+          "scene": "office",
+          "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+          "kind": "gaussian",
+          "hash": "a16ea0b0e57a2be26e2c85b2315a1c0f2ae3d221328451d5e87449829991213f",
+          "matchesPrevious": true
+        },
+        {
+          "scene": "office",
+          "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+          "kind": "mesh",
+          "hash": "e1732f8812ec8de3b4c1560717cf85c1068d7c34ae8f48a7beb9df0354e8112b",
+          "matchesPrevious": true
+        },
+        {
+          "scene": "office",
+          "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+          "kind": "gaussian",
+          "hash": "7b0bf43e8967c537e2677326b567e2bea9f08162a374fab50489b48e049ed06d",
+          "matchesPrevious": true
+        },
+        {
+          "scene": "office",
+          "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+          "kind": "mesh",
+          "hash": "b9b1b565d36a0fa5cca1da62c0a7d0a39726d4431a64239ecae7548eb7e3ea97",
+          "matchesPrevious": true
+        }
+      ],
+      "errors": [],
+      "method": "Real WEBGL_lose_context event, delayed metadata/settle completions, 80ms observation before/after release. Full-size held-out pixels checked in ready cases. Not natural GPU fault, restoration or performance measurement."
+    },
+    {
+      "createdAt": "2026-10-30T14:55:20.701Z",
+      "baselineCommit": "ae2ead8",
+      "variant": "baseline",
+      "scene": "office",
+      "stage": "settle",
+      "backend": "mesh",
+      "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+      "passed": false,
+      "qualityPublishedBeforeLoss": false,
+      "before": {
+        "status": "显卡上下文丢失，请刷新页面重新加载。",
+        "scenesDisabled": false,
+        "viewDisabled": true,
+        "resolutionDisabled": false,
+        "qualityDisabled": true,
+        "benchmarkDisabled": true,
+        "exportDisabled": true,
+        "cancelHidden": false,
+        "retryVisible": false,
+        "retryLabel": "重新加载",
+        "loadReportHidden": true,
+        "qualityReportHidden": true,
+        "qualityCleared": true,
+        "lost": true,
+        "playing": false,
+        "traceAbsent": true,
+        "modelsDetached": true
+      },
+      "after": {
+        "status": "显卡上下文丢失，请刷新页面重新加载。",
+        "scenesDisabled": false,
+        "viewDisabled": true,
+        "resolutionDisabled": false,
+        "qualityDisabled": true,
+        "benchmarkDisabled": true,
+        "exportDisabled": true,
+        "cancelHidden": true,
+        "retryVisible": false,
+        "retryLabel": "重新加载",
+        "loadReportHidden": true,
+        "qualityReportHidden": true,
+        "qualityCleared": true,
+        "lost": true,
+        "playing": false,
+        "traceAbsent": true,
+        "modelsDetached": true
+      },
+      "attemptedSceneSwitch": {
+        "extraLoads": 1,
+        "state": {
+          "status": "正在加载照片与真实三维模型…",
+          "scenesDisabled": false,
+          "viewDisabled": true,
+          "resolutionDisabled": false,
+          "qualityDisabled": true,
+          "benchmarkDisabled": true,
+          "exportDisabled": true,
+          "cancelHidden": true,
+          "retryVisible": false,
+          "retryLabel": "重新加载",
+          "loadReportHidden": true,
+          "qualityReportHidden": true,
+          "qualityCleared": true,
+          "lost": true,
+          "playing": false,
+          "traceAbsent": true,
+          "modelsDetached": true
+        }
+      },
+      "pixels": [],
+      "errors": [],
+      "method": "Real WEBGL_lose_context event, delayed metadata/settle completions, 80ms observation before/after release. Full-size held-out pixels checked in ready cases. Not natural GPU fault, restoration or performance measurement."
+    },
+    {
+      "createdAt": "2026-10-30T14:55:21.603Z",
+      "baselineCommit": "ae2ead8",
+      "variant": "baseline",
+      "scene": "pipes",
+      "stage": "benchmark",
+      "backend": "gaussian",
+      "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+      "passed": false,
+      "qualityPublishedBeforeLoss": false,
+      "before": {
+        "status": "测试已取消",
+        "scenesDisabled": true,
+        "viewDisabled": true,
+        "resolutionDisabled": true,
+        "qualityDisabled": true,
+        "benchmarkDisabled": true,
+        "exportDisabled": true,
+        "cancelHidden": true,
+        "retryVisible": false,
+        "retryLabel": "重新加载",
+        "loadReportHidden": true,
+        "qualityReportHidden": true,
+        "qualityCleared": true,
+        "lost": true,
+        "playing": false,
+        "traceAbsent": true,
+        "modelsDetached": true
+      },
+      "after": {
+        "status": "测试已取消",
+        "scenesDisabled": true,
+        "viewDisabled": true,
+        "resolutionDisabled": true,
+        "qualityDisabled": true,
+        "benchmarkDisabled": true,
+        "exportDisabled": true,
+        "cancelHidden": true,
+        "retryVisible": false,
+        "retryLabel": "重新加载",
+        "loadReportHidden": true,
+        "qualityReportHidden": true,
+        "qualityCleared": true,
+        "lost": true,
+        "playing": false,
+        "traceAbsent": true,
+        "modelsDetached": true
+      },
+      "attemptedSceneSwitch": {
+        "extraLoads": 0,
+        "state": {
+          "status": "测试已取消",
+          "scenesDisabled": true,
+          "viewDisabled": true,
+          "resolutionDisabled": true,
+          "qualityDisabled": true,
+          "benchmarkDisabled": true,
+          "exportDisabled": true,
+          "cancelHidden": true,
+          "retryVisible": false,
+          "retryLabel": "重新加载",
+          "loadReportHidden": true,
+          "qualityReportHidden": true,
+          "qualityCleared": true,
+          "lost": true,
+          "playing": false,
+          "traceAbsent": true,
+          "modelsDetached": true
+        }
+      },
+      "pixels": [],
+      "errors": [],
+      "method": "Real WEBGL_lose_context event, delayed metadata/settle completions, 80ms observation before/after release. Full-size held-out pixels checked in ready cases. Not natural GPU fault, restoration or performance measurement."
+    }
+  ],
+  "fixed": [
+    {
+      "createdAt": "2026-10-30T14:56:30.499Z",
+      "baselineCommit": "ae2ead8",
+      "variant": "fixed",
+      "scene": "pipes",
+      "stage": "ready",
+      "backend": "gaussian",
+      "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+      "passed": true,
+      "qualityPublishedBeforeLoss": false,
+      "before": {
+        "status": "显卡上下文丢失，请刷新页面重新加载。",
+        "scenesDisabled": true,
+        "viewDisabled": true,
+        "resolutionDisabled": true,
+        "qualityDisabled": true,
+        "benchmarkDisabled": true,
+        "exportDisabled": true,
+        "cancelHidden": true,
+        "retryVisible": true,
+        "retryLabel": "刷新页面",
+        "loadReportHidden": true,
+        "qualityReportHidden": true,
+        "qualityCleared": true,
+        "lost": true,
+        "disposed": true,
+        "playing": false,
+        "traceAbsent": true,
+        "workersCreated": 2,
+        "workersTerminated": 1,
+        "modelsDetached": true
+      },
+      "after": {
+        "status": "显卡上下文丢失，请刷新页面重新加载。",
+        "scenesDisabled": true,
+        "viewDisabled": true,
+        "resolutionDisabled": true,
+        "qualityDisabled": true,
+        "benchmarkDisabled": true,
+        "exportDisabled": true,
+        "cancelHidden": true,
+        "retryVisible": true,
+        "retryLabel": "刷新页面",
+        "loadReportHidden": true,
+        "qualityReportHidden": true,
+        "qualityCleared": true,
+        "lost": true,
+        "disposed": true,
+        "playing": false,
+        "traceAbsent": true,
+        "workersCreated": 2,
+        "workersTerminated": 1,
+        "modelsDetached": true
+      },
+      "attemptedSceneSwitch": {
+        "extraLoads": 0,
+        "state": {
+          "status": "显卡上下文丢失，请刷新页面重新加载。",
+          "scenesDisabled": true,
+          "viewDisabled": true,
+          "resolutionDisabled": true,
+          "qualityDisabled": true,
+          "benchmarkDisabled": true,
+          "exportDisabled": true,
+          "cancelHidden": true,
+          "retryVisible": true,
+          "retryLabel": "刷新页面",
+          "loadReportHidden": true,
+          "qualityReportHidden": true,
+          "qualityCleared": true,
+          "lost": true,
+          "disposed": true,
+          "playing": false,
+          "traceAbsent": true,
+          "workersCreated": 2,
+          "workersTerminated": 1,
+          "modelsDetached": true
+        }
+      },
+      "pixels": [
+        {
+          "scene": "pipes",
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "kind": "gaussian",
+          "hash": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36",
+          "matchesPrevious": true
+        },
+        {
+          "scene": "pipes",
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "kind": "mesh",
+          "hash": "c3c2144e2ef68b0306e923997f7336302afc5ff7097be8b9a2926b6c5b78cdb9",
+          "matchesPrevious": true
+        },
+        {
+          "scene": "pipes",
+          "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+          "kind": "gaussian",
+          "hash": "c91b07263481e55ea3f9585a7deadf35d29fea9f3ac96c938275124b58935754",
+          "matchesPrevious": true
+        },
+        {
+          "scene": "pipes",
+          "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+          "kind": "mesh",
+          "hash": "5cac2f041f2016ab5a86f7db66c4fe0180218f345175fabec76dac67c397008a",
+          "matchesPrevious": true
+        }
+      ],
+      "errors": [],
+      "method": "Real WEBGL_lose_context event, delayed metadata/settle completions, 80ms observation before/after release. Full-size held-out pixels checked in ready cases. Not natural GPU fault, restoration or performance measurement."
+    },
+    {
+      "createdAt": "2026-10-30T14:57:21.263Z",
+      "baselineCommit": "ae2ead8",
+      "variant": "fixed",
+      "scene": "office",
+      "stage": "ready",
+      "backend": "mesh",
+      "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+      "passed": true,
+      "qualityPublishedBeforeLoss": false,
+      "before": {
+        "status": "显卡上下文丢失，请刷新页面重新加载。",
+        "scenesDisabled": true,
+        "viewDisabled": true,
+        "resolutionDisabled": true,
+        "qualityDisabled": true,
+        "benchmarkDisabled": true,
+        "exportDisabled": true,
+        "cancelHidden": true,
+        "retryVisible": true,
+        "retryLabel": "刷新页面",
+        "loadReportHidden": true,
+        "qualityReportHidden": true,
+        "qualityCleared": true,
+        "lost": true,
+        "disposed": true,
+        "playing": false,
+        "traceAbsent": true,
+        "workersCreated": 2,
+        "workersTerminated": 1,
+        "modelsDetached": true
+      },
+      "after": {
+        "status": "显卡上下文丢失，请刷新页面重新加载。",
+        "scenesDisabled": true,
+        "viewDisabled": true,
+        "resolutionDisabled": true,
+        "qualityDisabled": true,
+        "benchmarkDisabled": true,
+        "exportDisabled": true,
+        "cancelHidden": true,
+        "retryVisible": true,
+        "retryLabel": "刷新页面",
+        "loadReportHidden": true,
+        "qualityReportHidden": true,
+        "qualityCleared": true,
+        "lost": true,
+        "disposed": true,
+        "playing": false,
+        "traceAbsent": true,
+        "workersCreated": 2,
+        "workersTerminated": 1,
+        "modelsDetached": true
+      },
+      "attemptedSceneSwitch": {
+        "extraLoads": 0,
+        "state": {
+          "status": "显卡上下文丢失，请刷新页面重新加载。",
+          "scenesDisabled": true,
+          "viewDisabled": true,
+          "resolutionDisabled": true,
+          "qualityDisabled": true,
+          "benchmarkDisabled": true,
+          "exportDisabled": true,
+          "cancelHidden": true,
+          "retryVisible": true,
+          "retryLabel": "刷新页面",
+          "loadReportHidden": true,
+          "qualityReportHidden": true,
+          "qualityCleared": true,
+          "lost": true,
+          "disposed": true,
+          "playing": false,
+          "traceAbsent": true,
+          "workersCreated": 2,
+          "workersTerminated": 1,
+          "modelsDetached": true
+        }
+      },
+      "pixels": [
+        {
+          "scene": "office",
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "kind": "gaussian",
+          "hash": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3",
+          "matchesPrevious": true
+        },
+        {
+          "scene": "office",
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "kind": "mesh",
+          "hash": "ac95a13722ceebb9e56bfeb53a925f674a5145242504fb1929e44f4b8b66a4e7",
+          "matchesPrevious": true
+        },
+        {
+          "scene": "office",
+          "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+          "kind": "gaussian",
+          "hash": "8ba6cc5b7af30145763983b06ad0aa80dc911255e25b5d537c68653c14d8c0df",
+          "matchesPrevious": true
+        },
+        {
+          "scene": "office",
+          "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+          "kind": "mesh",
+          "hash": "3af78ee4ba301c23d5ffaf227f2873c64eecec70b5db10e7dbd2fec1ca1573ad",
+          "matchesPrevious": true
+        },
+        {
+          "scene": "office",
+          "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+          "kind": "gaussian",
+          "hash": "a16ea0b0e57a2be26e2c85b2315a1c0f2ae3d221328451d5e87449829991213f",
+          "matchesPrevious": true
+        },
+        {
+          "scene": "office",
+          "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+          "kind": "mesh",
+          "hash": "e1732f8812ec8de3b4c1560717cf85c1068d7c34ae8f48a7beb9df0354e8112b",
+          "matchesPrevious": true
+        },
+        {
+          "scene": "office",
+          "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+          "kind": "gaussian",
+          "hash": "7b0bf43e8967c537e2677326b567e2bea9f08162a374fab50489b48e049ed06d",
+          "matchesPrevious": true
+        },
+        {
+          "scene": "office",
+          "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+          "kind": "mesh",
+          "hash": "b9b1b565d36a0fa5cca1da62c0a7d0a39726d4431a64239ecae7548eb7e3ea97",
+          "matchesPrevious": true
+        }
+      ],
+      "errors": [],
+      "method": "Real WEBGL_lose_context event, delayed metadata/settle completions, 80ms observation before/after release. Full-size held-out pixels checked in ready cases. Not natural GPU fault, restoration or performance measurement."
+    },
+    {
+      "createdAt": "2026-10-30T14:57:22.403Z",
+      "baselineCommit": "ae2ead8",
+      "variant": "fixed",
+      "scene": "pipes",
+      "stage": "metadata",
+      "backend": "gaussian",
+      "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+      "passed": true,
+      "qualityPublishedBeforeLoss": false,
+      "before": {
+        "status": "显卡上下文丢失，请刷新页面重新加载。",
+        "scenesDisabled": true,
+        "viewDisabled": true,
+        "resolutionDisabled": true,
+        "qualityDisabled": true,
+        "benchmarkDisabled": true,
+        "exportDisabled": true,
+        "cancelHidden": true,
+        "retryVisible": true,
+        "retryLabel": "刷新页面",
+        "loadReportHidden": true,
+        "qualityReportHidden": true,
+        "qualityCleared": true,
+        "lost": true,
+        "disposed": true,
+        "playing": false,
+        "traceAbsent": true,
+        "workersCreated": 2,
+        "workersTerminated": 1,
+        "modelsDetached": true
+      },
+      "after": {
+        "status": "显卡上下文丢失，请刷新页面重新加载。",
+        "scenesDisabled": true,
+        "viewDisabled": true,
+        "resolutionDisabled": true,
+        "qualityDisabled": true,
+        "benchmarkDisabled": true,
+        "exportDisabled": true,
+        "cancelHidden": true,
+        "retryVisible": true,
+        "retryLabel": "刷新页面",
+        "loadReportHidden": true,
+        "qualityReportHidden": true,
+        "qualityCleared": true,
+        "lost": true,
+        "disposed": true,
+        "playing": false,
+        "traceAbsent": true,
+        "workersCreated": 2,
+        "workersTerminated": 1,
+        "modelsDetached": true
+      },
+      "attemptedSceneSwitch": {
+        "extraLoads": 0,
+        "state": {
+          "status": "显卡上下文丢失，请刷新页面重新加载。",
+          "scenesDisabled": true,
+          "viewDisabled": true,
+          "resolutionDisabled": true,
+          "qualityDisabled": true,
+          "benchmarkDisabled": true,
+          "exportDisabled": true,
+          "cancelHidden": true,
+          "retryVisible": true,
+          "retryLabel": "刷新页面",
+          "loadReportHidden": true,
+          "qualityReportHidden": true,
+          "qualityCleared": true,
+          "lost": true,
+          "disposed": true,
+          "playing": false,
+          "traceAbsent": true,
+          "workersCreated": 2,
+          "workersTerminated": 1,
+          "modelsDetached": true
+        }
+      },
+      "pixels": [],
+      "errors": [],
+      "method": "Real WEBGL_lose_context event, delayed metadata/settle completions, 80ms observation before/after release. Full-size held-out pixels checked in ready cases. Not natural GPU fault, restoration or performance measurement."
+    },
+    {
+      "createdAt": "2026-10-30T14:57:24.015Z",
+      "baselineCommit": "ae2ead8",
+      "variant": "fixed",
+      "scene": "office",
+      "stage": "settle",
+      "backend": "mesh",
+      "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+      "passed": true,
+      "qualityPublishedBeforeLoss": false,
+      "before": {
+        "status": "显卡上下文丢失，请刷新页面重新加载。",
+        "scenesDisabled": true,
+        "viewDisabled": true,
+        "resolutionDisabled": true,
+        "qualityDisabled": true,
+        "benchmarkDisabled": true,
+        "exportDisabled": true,
+        "cancelHidden": true,
+        "retryVisible": true,
+        "retryLabel": "刷新页面",
+        "loadReportHidden": true,
+        "qualityReportHidden": true,
+        "qualityCleared": true,
+        "lost": true,
+        "disposed": true,
+        "playing": false,
+        "traceAbsent": true,
+        "workersCreated": 2,
+        "workersTerminated": 1,
+        "modelsDetached": true
+      },
+      "after": {
+        "status": "显卡上下文丢失，请刷新页面重新加载。",
+        "scenesDisabled": true,
+        "viewDisabled": true,
+        "resolutionDisabled": true,
+        "qualityDisabled": true,
+        "benchmarkDisabled": true,
+        "exportDisabled": true,
+        "cancelHidden": true,
+        "retryVisible": true,
+        "retryLabel": "刷新页面",
+        "loadReportHidden": true,
+        "qualityReportHidden": true,
+        "qualityCleared": true,
+        "lost": true,
+        "disposed": true,
+        "playing": false,
+        "traceAbsent": true,
+        "workersCreated": 2,
+        "workersTerminated": 1,
+        "modelsDetached": true
+      },
+      "attemptedSceneSwitch": {
+        "extraLoads": 0,
+        "state": {
+          "status": "显卡上下文丢失，请刷新页面重新加载。",
+          "scenesDisabled": true,
+          "viewDisabled": true,
+          "resolutionDisabled": true,
+          "qualityDisabled": true,
+          "benchmarkDisabled": true,
+          "exportDisabled": true,
+          "cancelHidden": true,
+          "retryVisible": true,
+          "retryLabel": "刷新页面",
+          "loadReportHidden": true,
+          "qualityReportHidden": true,
+          "qualityCleared": true,
+          "lost": true,
+          "disposed": true,
+          "playing": false,
+          "traceAbsent": true,
+          "workersCreated": 2,
+          "workersTerminated": 1,
+          "modelsDetached": true
+        }
+      },
+      "pixels": [],
+      "errors": [],
+      "method": "Real WEBGL_lose_context event, delayed metadata/settle completions, 80ms observation before/after release. Full-size held-out pixels checked in ready cases. Not natural GPU fault, restoration or performance measurement."
+    },
+    {
+      "createdAt": "2026-10-30T14:57:25.088Z",
+      "baselineCommit": "ae2ead8",
+      "variant": "fixed",
+      "scene": "pipes",
+      "stage": "benchmark",
+      "backend": "gaussian",
+      "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+      "passed": true,
+      "qualityPublishedBeforeLoss": false,
+      "before": {
+        "status": "显卡上下文丢失，请刷新页面重新加载。",
+        "scenesDisabled": true,
+        "viewDisabled": true,
+        "resolutionDisabled": true,
+        "qualityDisabled": true,
+        "benchmarkDisabled": true,
+        "exportDisabled": true,
+        "cancelHidden": true,
+        "retryVisible": true,
+        "retryLabel": "刷新页面",
+        "loadReportHidden": true,
+        "qualityReportHidden": true,
+        "qualityCleared": true,
+        "lost": true,
+        "disposed": true,
+        "playing": false,
+        "traceAbsent": true,
+        "workersCreated": 2,
+        "workersTerminated": 1,
+        "modelsDetached": true
+      },
+      "after": {
+        "status": "显卡上下文丢失，请刷新页面重新加载。",
+        "scenesDisabled": true,
+        "viewDisabled": true,
+        "resolutionDisabled": true,
+        "qualityDisabled": true,
+        "benchmarkDisabled": true,
+        "exportDisabled": true,
+        "cancelHidden": true,
+        "retryVisible": true,
+        "retryLabel": "刷新页面",
+        "loadReportHidden": true,
+        "qualityReportHidden": true,
+        "qualityCleared": true,
+        "lost": true,
+        "disposed": true,
+        "playing": false,
+        "traceAbsent": true,
+        "workersCreated": 2,
+        "workersTerminated": 1,
+        "modelsDetached": true
+      },
+      "attemptedSceneSwitch": {
+        "extraLoads": 0,
+        "state": {
+          "status": "显卡上下文丢失，请刷新页面重新加载。",
+          "scenesDisabled": true,
+          "viewDisabled": true,
+          "resolutionDisabled": true,
+          "qualityDisabled": true,
+          "benchmarkDisabled": true,
+          "exportDisabled": true,
+          "cancelHidden": true,
+          "retryVisible": true,
+          "retryLabel": "刷新页面",
+          "loadReportHidden": true,
+          "qualityReportHidden": true,
+          "qualityCleared": true,
+          "lost": true,
+          "disposed": true,
+          "playing": false,
+          "traceAbsent": true,
+          "workersCreated": 2,
+          "workersTerminated": 1,
+          "modelsDetached": true
+        }
+      },
+      "pixels": [],
+      "errors": [],
+      "method": "Real WEBGL_lose_context event, delayed metadata/settle completions, 80ms observation before/after release. Full-size held-out pixels checked in ready cases. Not natural GPU fault, restoration or performance measurement."
+    },
+    {
+      "createdAt": "2026-10-30T14:57:27.453Z",
+      "baselineCommit": "ae2ead8",
+      "variant": "fixed",
+      "scene": "office",
+      "stage": "quality-restore",
+      "backend": "mesh",
+      "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+      "passed": true,
+      "qualityPublishedBeforeLoss": true,
+      "before": {
+        "status": "显卡上下文丢失，请刷新页面重新加载。",
+        "scenesDisabled": true,
+        "viewDisabled": true,
+        "resolutionDisabled": true,
+        "qualityDisabled": true,
+        "benchmarkDisabled": true,
+        "exportDisabled": true,
+        "cancelHidden": true,
+        "retryVisible": true,
+        "retryLabel": "刷新页面",
+        "loadReportHidden": true,
+        "qualityReportHidden": true,
+        "qualityCleared": true,
+        "lost": true,
+        "disposed": true,
+        "playing": false,
+        "traceAbsent": true,
+        "workersCreated": 2,
+        "workersTerminated": 1,
+        "modelsDetached": true
+      },
+      "after": {
+        "status": "显卡上下文丢失，请刷新页面重新加载。",
+        "scenesDisabled": true,
+        "viewDisabled": true,
+        "resolutionDisabled": true,
+        "qualityDisabled": true,
+        "benchmarkDisabled": true,
+        "exportDisabled": true,
+        "cancelHidden": true,
+        "retryVisible": true,
+        "retryLabel": "刷新页面",
+        "loadReportHidden": true,
+        "qualityReportHidden": true,
+        "qualityCleared": true,
+        "lost": true,
+        "disposed": true,
+        "playing": false,
+        "traceAbsent": true,
+        "workersCreated": 2,
+        "workersTerminated": 1,
+        "modelsDetached": true
+      },
+      "attemptedSceneSwitch": {
+        "extraLoads": 0,
+        "state": {
+          "status": "显卡上下文丢失，请刷新页面重新加载。",
+          "scenesDisabled": true,
+          "viewDisabled": true,
+          "resolutionDisabled": true,
+          "qualityDisabled": true,
+          "benchmarkDisabled": true,
+          "exportDisabled": true,
+          "cancelHidden": true,
+          "retryVisible": true,
+          "retryLabel": "刷新页面",
+          "loadReportHidden": true,
+          "qualityReportHidden": true,
+          "qualityCleared": true,
+          "lost": true,
+          "disposed": true,
+          "playing": false,
+          "traceAbsent": true,
+          "workersCreated": 2,
+          "workersTerminated": 1,
+          "modelsDetached": true
+        }
+      },
+      "pixels": [],
+      "errors": [],
+      "method": "Real WEBGL_lose_context event, delayed metadata/settle completions, 80ms observation before/after release. Full-size held-out pixels checked in ready cases. Not natural GPU fault, restoration or performance measurement."
+    }
+  ],
+  "narrow": {
+    "viewport": [
+      390,
+      844
+    ],
+    "result": {
+      "createdAt": "2026-10-30T14:59:47.810Z",
+      "baselineCommit": "ae2ead8",
+      "variant": "fixed",
+      "scene": "office",
+      "stage": "ready",
+      "backend": "mesh",
+      "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+      "passed": true,
+      "qualityPublishedBeforeLoss": false,
+      "before": {
+        "status": "显卡上下文丢失，请刷新页面重新加载。",
+        "scenesDisabled": true,
+        "viewDisabled": true,
+        "resolutionDisabled": true,
+        "qualityDisabled": true,
+        "benchmarkDisabled": true,
+        "exportDisabled": true,
+        "cancelHidden": true,
+        "retryVisible": true,
+        "retryLabel": "刷新页面",
+        "loadReportHidden": true,
+        "qualityReportHidden": true,
+        "qualityCleared": true,
+        "lost": true,
+        "disposed": true,
+        "playing": false,
+        "traceAbsent": true,
+        "workersCreated": 2,
+        "workersTerminated": 1,
+        "modelsDetached": true
+      },
+      "after": {
+        "status": "显卡上下文丢失，请刷新页面重新加载。",
+        "scenesDisabled": true,
+        "viewDisabled": true,
+        "resolutionDisabled": true,
+        "qualityDisabled": true,
+        "benchmarkDisabled": true,
+        "exportDisabled": true,
+        "cancelHidden": true,
+        "retryVisible": true,
+        "retryLabel": "刷新页面",
+        "loadReportHidden": true,
+        "qualityReportHidden": true,
+        "qualityCleared": true,
+        "lost": true,
+        "disposed": true,
+        "playing": false,
+        "traceAbsent": true,
+        "workersCreated": 2,
+        "workersTerminated": 1,
+        "modelsDetached": true
+      },
+      "attemptedSceneSwitch": {
+        "extraLoads": 0,
+        "state": {
+          "status": "显卡上下文丢失，请刷新页面重新加载。",
+          "scenesDisabled": true,
+          "viewDisabled": true,
+          "resolutionDisabled": true,
+          "qualityDisabled": true,
+          "benchmarkDisabled": true,
+          "exportDisabled": true,
+          "cancelHidden": true,
+          "retryVisible": true,
+          "retryLabel": "刷新页面",
+          "loadReportHidden": true,
+          "qualityReportHidden": true,
+          "qualityCleared": true,
+          "lost": true,
+          "disposed": true,
+          "playing": false,
+          "traceAbsent": true,
+          "workersCreated": 2,
+          "workersTerminated": 1,
+          "modelsDetached": true
+        }
+      },
+      "pixels": [
+        {
+          "scene": "office",
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "kind": "gaussian",
+          "hash": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3",
+          "matchesPrevious": true
+        },
+        {
+          "scene": "office",
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "kind": "mesh",
+          "hash": "ac95a13722ceebb9e56bfeb53a925f674a5145242504fb1929e44f4b8b66a4e7",
+          "matchesPrevious": true
+        },
+        {
+          "scene": "office",
+          "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+          "kind": "gaussian",
+          "hash": "8ba6cc5b7af30145763983b06ad0aa80dc911255e25b5d537c68653c14d8c0df",
+          "matchesPrevious": true
+        },
+        {
+          "scene": "office",
+          "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+          "kind": "mesh",
+          "hash": "3af78ee4ba301c23d5ffaf227f2873c64eecec70b5db10e7dbd2fec1ca1573ad",
+          "matchesPrevious": true
+        },
+        {
+          "scene": "office",
+          "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+          "kind": "gaussian",
+          "hash": "a16ea0b0e57a2be26e2c85b2315a1c0f2ae3d221328451d5e87449829991213f",
+          "matchesPrevious": true
+        },
+        {
+          "scene": "office",
+          "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+          "kind": "mesh",
+          "hash": "e1732f8812ec8de3b4c1560717cf85c1068d7c34ae8f48a7beb9df0354e8112b",
+          "matchesPrevious": true
+        },
+        {
+          "scene": "office",
+          "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+          "kind": "gaussian",
+          "hash": "7b0bf43e8967c537e2677326b567e2bea9f08162a374fab50489b48e049ed06d",
+          "matchesPrevious": true
+        },
+        {
+          "scene": "office",
+          "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+          "kind": "mesh",
+          "hash": "b9b1b565d36a0fa5cca1da62c0a7d0a39726d4431a64239ecae7548eb7e3ea97",
+          "matchesPrevious": true
+        }
+      ],
+      "errors": [],
+      "method": "Real WEBGL_lose_context event, delayed metadata/settle completions, 80ms observation before/after release. Full-size held-out pixels checked in ready cases. Not natural GPU fault, restoration or performance measurement."
+    }
+  },
+  "reloads": [
+    {
+      "source": "pipes/ready/gaussian",
+      "status": "加载完成，可切换照片或自由查看。",
+      "qualityEnabled": true,
+      "reloadHidden": true
+    },
+    {
+      "source": "office/quality-restore/mesh",
+      "status": "加载完成，可切换照片或自由查看。",
+      "qualityEnabled": true,
+      "reloadHidden": true
+    }
+  ],
+  "normalAfterReload": {
+    "schemaVersion": 1,
+    "createdAt": "2026-10-30T14:59:16.780Z",
+    "scene": "pipes",
+    "source": {
+      "repository": "https://github.com/sakorman/web-scan",
+      "job": "82acea65e9874f64806815a592015dec",
+      "dataset": "ETH3D pipes",
+      "url": "https://www.eth3d.net/datasets",
+      "authors": "Schöps et al., CVPR 2017",
+      "license": "CC BY-NC-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+    },
+    "models": {
+      "gaussian": {
+        "url": "gaussians.ply.gz",
+        "count": 300000,
+        "bytes": 64843796,
+        "decodedBytes": 70801551,
+        "sha256": "55b311c225e5ac53a2e2c3d6e2fa2cafd228dd16c7d5d6ac56daaf9efbf76734",
+        "engine": "Brush 0.3.0 / SH3",
+        "steps": 10000,
+        "resolution": 1024,
+        "seconds": 503.2415,
+        "timingSource": "web-scan historical run; not contemporaneous with Mesh reconstruction"
+      },
+      "mesh": {
+        "url": "mesh.glb",
+        "vertices": 202308,
+        "triangles": 67436,
+        "bytes": 6230620,
+        "sha256": "c9f765c29b6c96d7dd5503c9e7d40c68c733c0aeaa12a9b47e30f143be2090ff",
+        "engine": "OpenCV StereoSGBM + Open3D Poisson + visibility-aware photo textures",
+        "resolution": 1024,
+        "stride": 3,
+        "seconds": 2.7239,
+        "pairs": [
+          {
+            "left": "0001-3bd4aab61a0f4ef49b7d15887e3009f0.jpg",
+            "right": "0010-0f1fb912d39a40a394132f375860801a.jpg",
+            "triangles": 19663,
+            "validGridFraction": 0.1829
+          },
+          {
+            "left": "0002-e233195e3dbc4611addfd64aae44e368.jpg",
+            "right": "0011-3d134e2c8a1041ffba6c960cedd4bff4.jpg",
+            "triangles": 10063,
+            "validGridFraction": 0.1048
+          },
+          {
+            "left": "0003-05d89188e5f947508bbf9ea5865c048d.jpg",
+            "right": "0004-594f972d13494a62b0d4901e5b11ab54.jpg",
+            "triangles": 2966,
+            "validGridFraction": 0.0493
+          },
+          {
+            "left": "0004-594f972d13494a62b0d4901e5b11ab54.jpg",
+            "right": "0003-05d89188e5f947508bbf9ea5865c048d.jpg",
+            "triangles": 2690,
+            "validGridFraction": 0.0502
+          },
+          {
+            "left": "0005-f4a8a0db445c4b6c89006e1e2d672470.jpg",
+            "right": "0006-7a54bfe5d1e342a5ab1665d89f3912d2.jpg",
+            "triangles": 7733,
+            "validGridFraction": 0.0862
+          },
+          {
+            "left": "0006-7a54bfe5d1e342a5ab1665d89f3912d2.jpg",
+            "right": "0007-ca47db4f1c3c49c5841b81b913d2d369.jpg",
+            "triangles": 2475,
+            "validGridFraction": 0.0362
+          },
+          {
+            "left": "0007-ca47db4f1c3c49c5841b81b913d2d369.jpg",
+            "right": "0006-7a54bfe5d1e342a5ab1665d89f3912d2.jpg",
+            "triangles": 2661,
+            "validGridFraction": 0.0393
+          },
+          {
+            "left": "0009-5164518d9d5944b8acb0d080300994a4.jpg",
+            "right": "0001-3bd4aab61a0f4ef49b7d15887e3009f0.jpg",
+            "triangles": 4411,
+            "validGridFraction": 0.065
+          },
+          {
+            "left": "0010-0f1fb912d39a40a394132f375860801a.jpg",
+            "right": "0001-3bd4aab61a0f4ef49b7d15887e3009f0.jpg",
+            "triangles": 18356,
+            "validGridFraction": 0.1722
+          },
+          {
+            "left": "0011-3d134e2c8a1041ffba6c960cedd4bff4.jpg",
+            "right": "0002-e233195e3dbc4611addfd64aae44e368.jpg",
+            "triangles": 10268,
+            "validGridFraction": 0.106
+          },
+          {
+            "left": "0012-f7e6845d614041fc831b58622c0aea27.jpg",
+            "right": "0013-2feee0ed58e04170a5c537967a6dcbdd.jpg",
+            "triangles": 2257,
+            "validGridFraction": 0.0383
+          },
+          {
+            "left": "0013-2feee0ed58e04170a5c537967a6dcbdd.jpg",
+            "right": "0012-f7e6845d614041fc831b58622c0aea27.jpg",
+            "triangles": 1828,
+            "validGridFraction": 0.0337
+          }
+        ],
+        "fusion": {
+          "method": "Screened Poisson",
+          "open3d": "0.19.0",
+          "depth": 9,
+          "voxelSize": 0.003,
+          "densityTrimQuantile": 0.01,
+          "pointCount": 34353,
+          "preVisibilityTriangles": 119648,
+          "texturing": "per-face best visible training camera; ray depth test",
+          "textureBlending": false
+        },
+        "settings": {
+          "blockSize": 5,
+          "uniquenessRatio": 8,
+          "leftRightTolerance": 1.5,
+          "photometricTolerance": 40,
+          "maxRelativeEdge": 0.07,
+          "threads": 4
+        },
+        "hardware": "macOS-26.5.1-arm64-arm-64bit"
+      }
+    },
+    "camera": {
+      "index": 0,
+      "view": [
+        [
+          0.9340856075286865,
+          -0.01035580039024353,
+          -0.35689887404441833,
+          0.02994745597243309
+        ],
+        [
+          -0.025487083941698074,
+          0.9950954914093018,
+          -0.09557925909757614,
+          -0.20999792218208313
+        ],
+        [
+          0.3561382293701172,
+          0.09837552905082703,
+          0.9292404651641846,
+          0.6255115270614624
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "K": [
+        [
+          561.9615723783817,
+          0,
+          512
+        ],
+        [
+          0,
+          562.2268041980212,
+          336.5
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "width": 1024,
+      "height": 673,
+      "image_name": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "url": "photos/00.jpg",
+      "heldOut": true,
+      "sha256": "2233fbd3dac8971cdf75fb02b123fe954a7369ce592f2c84ec80401de1138c0b"
+    },
+    "environment": {
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+      "hardwareConcurrency": 10,
+      "screenRefreshRate": "unknown",
+      "devicePixelRatio": 2,
+      "drawingPixelRatio": 1
+    },
+    "performance": {
+      "gaussian": {
+        "cpuMedian": 0.19999980926513672,
+        "cpuP95": 0.3000001907348633,
+        "frameMedian": 8.300000000000125,
+        "fps": 120.06603631997599,
+        "gpuMedian": 5.264687,
+        "samples": [
+          {
+            "cpuMs": 0,
+            "intervalMs": 8.399999999999977,
+            "gpuMs": 5.433166,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0,
+            "intervalMs": 8.299999999999955,
+            "gpuMs": 5.382,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0,
+            "intervalMs": 8.400000000000091,
+            "gpuMs": 5.273999,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.199999999999932,
+            "gpuMs": 5.382166,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 7.800000000000068,
+            "gpuMs": 5.179791,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0,
+            "intervalMs": 9.099999999999909,
+            "gpuMs": 5.266875,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 8.100000000000023,
+            "gpuMs": 5.435124,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.10000038146972656,
+            "intervalMs": 8.399999999999977,
+            "gpuMs": 5.216458,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 8.400000000000091,
+            "gpuMs": 5.421416,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 8.199999999999932,
+            "gpuMs": 5.240791,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0,
+            "intervalMs": 8.399999999999977,
+            "gpuMs": 5.465333,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 8.300000000000068,
+            "gpuMs": 5.194874,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 8.399999999999977,
+            "gpuMs": 5.479082,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.10000038146972656,
+            "intervalMs": 8.299999999999955,
+            "gpuMs": 5.194208,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 8.300000000000068,
+            "gpuMs": 5.537874,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 8.199999999999932,
+            "gpuMs": 5.260874,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 6.900000000000091,
+            "gpuMs": 5.335124,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0,
+            "intervalMs": 9.099999999999909,
+            "gpuMs": 5.199625,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0,
+            "intervalMs": 9.100000000000023,
+            "gpuMs": 5.441499,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 8.399999999999977,
+            "gpuMs": 5.439625,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.10000038146972656,
+            "intervalMs": 7.600000000000023,
+            "gpuMs": 5.331499,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.20000028610229492,
+            "intervalMs": 7.899999999999977,
+            "gpuMs": 5.179458,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 9.400000000000091,
+            "gpuMs": 5.19475,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.5,
+            "intervalMs": 7.7999999999999545,
+            "gpuMs": 5.399083,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.2999997138977051,
+            "intervalMs": 9,
+            "gpuMs": 5.253749,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 8.200000000000045,
+            "gpuMs": 5.33575,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.2999997138977051,
+            "intervalMs": 8.5,
+            "gpuMs": 5.194291,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 8.199999999999932,
+            "gpuMs": 5.223791,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.10000038146972656,
+            "intervalMs": 8.399999999999977,
+            "gpuMs": 5.436125,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 8.300000000000068,
+            "gpuMs": 5.416083,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.399999999999977,
+            "gpuMs": 5.234083,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.20000028610229492,
+            "intervalMs": 8.299999999999955,
+            "gpuMs": 5.259916,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.100000000000023,
+            "gpuMs": 5.160041,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.20000028610229492,
+            "intervalMs": 8.399999999999977,
+            "gpuMs": 5.177291,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0,
+            "intervalMs": 8.5,
+            "gpuMs": 5.186999,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 8.300000000000068,
+            "gpuMs": 5.214041,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 8.300000000000068,
+            "gpuMs": 5.178916,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0,
+            "intervalMs": 6.7999999999999545,
+            "gpuMs": 5.222708,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 10.200000000000045,
+            "gpuMs": 5.2045,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0,
+            "intervalMs": 8,
+            "gpuMs": 5.202916,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.2999997138977051,
+            "intervalMs": 8.300000000000182,
+            "gpuMs": 5.393375,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.400000000000091,
+            "gpuMs": 5.2065,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.20000028610229492,
+            "intervalMs": 8.299999999999727,
+            "gpuMs": 5.350375,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.300000000000182,
+            "gpuMs": 5.202124,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.400000000000091,
+            "gpuMs": 5.360333,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.20000028610229492,
+            "intervalMs": 8.299999999999727,
+            "gpuMs": 5.255625,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 8.400000000000091,
+            "gpuMs": 5.367291,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 7.900000000000091,
+            "gpuMs": 5.306125,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.099999999999909,
+            "gpuMs": 5.216124,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 9.099999999999909,
+            "gpuMs": 5.374583,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 6.700000000000273,
+            "gpuMs": 5.285375,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.10000038146972656,
+            "intervalMs": 10.199999999999818,
+            "gpuMs": 5.193999,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 7.900000000000091,
+            "gpuMs": 5.336,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.400000000000091,
+            "gpuMs": 5.19475,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.20000028610229492,
+            "intervalMs": 8,
+            "gpuMs": 5.501208,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.20000028610229492,
+            "intervalMs": 8.699999999999818,
+            "gpuMs": 5.205083,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.300000000000182,
+            "gpuMs": 5.583041,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 8.099999999999909,
+            "gpuMs": 5.220291,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.5,
+            "gpuMs": 5.442791,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.099999999999909,
+            "gpuMs": 5.238999,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.300000000000182,
+            "gpuMs": 5.306249,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.10000038146972656,
+            "intervalMs": 8.699999999999818,
+            "gpuMs": 5.217874,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.2999997138977051,
+            "intervalMs": 8.300000000000182,
+            "gpuMs": 5.320374,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.20000028610229492,
+            "intervalMs": 7.599999999999909,
+            "gpuMs": 5.280875,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 8.099999999999909,
+            "gpuMs": 5.182041,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.2999997138977051,
+            "intervalMs": 8.800000000000182,
+            "gpuMs": 5.333458,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 9,
+            "gpuMs": 5.290041,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.20000028610229492,
+            "intervalMs": 7.699999999999818,
+            "gpuMs": 5.298291,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 8.900000000000091,
+            "gpuMs": 5.148791,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.2999997138977051,
+            "intervalMs": 8.199999999999818,
+            "gpuMs": 5.347583,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.400000000000091,
+            "gpuMs": 5.21125,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 7.099999999999909,
+            "gpuMs": 5.34,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 8.900000000000091,
+            "gpuMs": 5.20975,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 9.099999999999909,
+            "gpuMs": 5.274666,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 7.200000000000273,
+            "gpuMs": 5.324,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.2999997138977051,
+            "intervalMs": 8.799999999999727,
+            "gpuMs": 5.219916,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 8.900000000000091,
+            "gpuMs": 5.328,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 7.300000000000182,
+            "gpuMs": 5.306666,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.20000028610229492,
+            "intervalMs": 8.199999999999818,
+            "gpuMs": 5.227874,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 9.699999999999818,
+            "gpuMs": 5.374208,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.20000028610229492,
+            "intervalMs": 8.299999999999727,
+            "gpuMs": 5.405041,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 7.400000000000091,
+            "gpuMs": 5.179916,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 8.5,
+            "gpuMs": 5.23925,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.2999997138977051,
+            "intervalMs": 9.199999999999818,
+            "gpuMs": 5.474583,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.10000038146972656,
+            "intervalMs": 8.200000000000273,
+            "gpuMs": 5.463208,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 8.400000000000091,
+            "gpuMs": 5.280124,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 8.299999999999727,
+            "gpuMs": 5.265999,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8,
+            "gpuMs": 5.213832,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.20000028610229492,
+            "intervalMs": 8.099999999999909,
+            "gpuMs": 5.218208,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.20000028610229492,
+            "intervalMs": 8.700000000000273,
+            "gpuMs": 5.348749,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 7.5,
+            "gpuMs": 5.368416,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 9.599999999999909,
+            "gpuMs": 5.231749,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8,
+            "gpuMs": 5.318583,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.5,
+            "gpuMs": 5.230499,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 8.300000000000182,
+            "gpuMs": 5.475083,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.20000028610229492,
+            "intervalMs": 7.199999999999818,
+            "gpuMs": 5.189791,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 9.400000000000091,
+            "gpuMs": 5.263375,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 7,
+            "gpuMs": 5.3975,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 8.900000000000091,
+            "gpuMs": 5.167792,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 9.299999999999727,
+            "gpuMs": 5.288749,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 8.099999999999909,
+            "gpuMs": 5.306041,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 8.400000000000091,
+            "gpuMs": 5.167749,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 8.300000000000182,
+            "gpuMs": 5.3755,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.400000000000091,
+            "gpuMs": 5.170624,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 7.399999999999636,
+            "gpuMs": 5.365625,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 9.5,
+            "gpuMs": 5.184999,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.40000009536743164,
+            "intervalMs": 8,
+            "gpuMs": 5.386791,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.10000038146972656,
+            "intervalMs": 7.800000000000182,
+            "gpuMs": 5.161541,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.2999997138977051,
+            "intervalMs": 7.699999999999818,
+            "gpuMs": 5.220041,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 9.900000000000091,
+            "gpuMs": 5.149125,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 7.900000000000091,
+            "gpuMs": 5.260166,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.2999997138977051,
+            "intervalMs": 8.400000000000091,
+            "gpuMs": 5.271333,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.400000000000091,
+            "gpuMs": 5.394875,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.10000038146972656,
+            "intervalMs": 7.099999999999909,
+            "gpuMs": 5.2335,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 9.599999999999909,
+            "gpuMs": 5.185999,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.300000000000182,
+            "gpuMs": 5.459582,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 8.399999999999636,
+            "gpuMs": 5.230625,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 8.200000000000273,
+            "gpuMs": 5.437333,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0,
+            "intervalMs": 8.400000000000091,
+            "gpuMs": 5.232874,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0,
+            "intervalMs": 8.199999999999818,
+            "gpuMs": 5.413374,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.20000028610229492,
+            "intervalMs": 7.399999999999636,
+            "gpuMs": 5.352375,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.20000028610229492,
+            "intervalMs": 9.700000000000273,
+            "gpuMs": 5.243916,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 8.299999999999727,
+            "gpuMs": 5.330958,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.20000028610229492,
+            "intervalMs": 8.400000000000091,
+            "gpuMs": 5.181374,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.300000000000182,
+            "gpuMs": 5.386,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.400000000000091,
+            "gpuMs": 5.431124,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.20000028610229492,
+            "intervalMs": 8.299999999999727,
+            "gpuMs": 5.193874,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.200000000000273,
+            "gpuMs": 5.38275,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.20000028610229492,
+            "intervalMs": 7.699999999999818,
+            "gpuMs": 5.247125,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 9.400000000000091,
+            "gpuMs": 5.1925,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.2999997138977051,
+            "intervalMs": 8,
+            "gpuMs": 5.363208,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 6.900000000000091,
+            "gpuMs": 5.250749,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 10.099999999999909,
+            "gpuMs": 5.155708,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 7.099999999999909,
+            "gpuMs": 5.403874,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 9.5,
+            "gpuMs": 5.211624,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.40000009536743164,
+            "intervalMs": 6.699999999999818,
+            "gpuMs": 5.366708,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 9.800000000000182,
+            "gpuMs": 5.25775,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.199999999999818,
+            "gpuMs": 5.270624,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.10000038146972656,
+            "intervalMs": 7.400000000000091,
+            "gpuMs": 5.205874,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 7.900000000000091,
+            "gpuMs": 5.183791,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 10.099999999999909,
+            "gpuMs": 5.3725,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 7.900000000000091,
+            "gpuMs": 5.349833,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0,
+            "intervalMs": 8.400000000000091,
+            "gpuMs": 5.212,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.299999999999727,
+            "gpuMs": 5.243499,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.20000028610229492,
+            "intervalMs": 8.400000000000091,
+            "gpuMs": 5.273083,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.300000000000182,
+            "gpuMs": 5.185749,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 7.400000000000091,
+            "gpuMs": 5.18275,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.10000038146972656,
+            "intervalMs": 8.199999999999818,
+            "gpuMs": 5.126625,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 8,
+            "gpuMs": 5.280958,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 10.099999999999909,
+            "gpuMs": 5.198624,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 7.900000000000091,
+            "gpuMs": 5.2755,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 8.5,
+            "gpuMs": 5.141749,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 8.300000000000182,
+            "gpuMs": 5.402916,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.10000038146972656,
+            "intervalMs": 8.299999999999727,
+            "gpuMs": 5.222541,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.299999999999727,
+            "gpuMs": 5.337583,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.400000000000546,
+            "gpuMs": 5.216208,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.20000028610229492,
+            "intervalMs": 7.699999999999818,
+            "gpuMs": 5.368291,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 9.100000000000364,
+            "gpuMs": 5.139,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 6.799999999999272,
+            "gpuMs": 5.436666,
+            "draws": 1,
+            "triangles": 600000
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 8.400000000000546,
+            "gpuMs": 5.176875,
+            "draws": 1,
+            "triangles": 600000
+          }
+        ]
+      },
+      "mesh": {
+        "cpuMedian": 0.2999997138977051,
+        "cpuP95": 0.40000009536743164,
+        "frameMedian": 8.299999999999955,
+        "fps": 119.68880909634952,
+        "gpuMedian": 0.40318750000000003,
+        "samples": [
+          {
+            "cpuMs": 0,
+            "intervalMs": 8.400000000000091,
+            "gpuMs": 0.192374,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 8.299999999999955,
+            "gpuMs": 0.194791,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.10000038146972656,
+            "intervalMs": 7,
+            "gpuMs": 0.248333,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 9.900000000000091,
+            "gpuMs": 0.240125,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.10000038146972656,
+            "intervalMs": 6.7999999999999545,
+            "gpuMs": 0.293875,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 9.899999999999864,
+            "gpuMs": 0.265375,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 8,
+            "gpuMs": 0.22925,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0,
+            "intervalMs": 8.400000000000091,
+            "gpuMs": 0.327333,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.20000028610229492,
+            "intervalMs": 8.299999999999955,
+            "gpuMs": 0.345499,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.20000028610229492,
+            "intervalMs": 8.400000000000091,
+            "gpuMs": 0.307624,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.299999999999955,
+            "gpuMs": 0.400416,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0,
+            "intervalMs": 8.299999999999955,
+            "gpuMs": 0.431791,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0,
+            "intervalMs": 8.299999999999955,
+            "gpuMs": 0.424374,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.300000000000182,
+            "gpuMs": 0.488374,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.20000028610229492,
+            "intervalMs": 8.399999999999864,
+            "gpuMs": 0.479875,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 7.900000000000091,
+            "gpuMs": 0.505208,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 8.799999999999955,
+            "gpuMs": 0.526874,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 8.299999999999955,
+            "gpuMs": 0.45425,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 7.7000000000000455,
+            "gpuMs": 0.467999,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.10000038146972656,
+            "intervalMs": 9.099999999999909,
+            "gpuMs": 0.5605,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.100000000000136,
+            "gpuMs": 0.547874,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.40000009536743164,
+            "intervalMs": 7.599999999999909,
+            "gpuMs": 0.409999,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.2999997138977051,
+            "intervalMs": 9.299999999999955,
+            "gpuMs": 0.53975,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 8.200000000000045,
+            "gpuMs": 0.366166,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.2999997138977051,
+            "intervalMs": 8.299999999999955,
+            "gpuMs": 0.346208,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.400000000000091,
+            "gpuMs": 0.565583,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 8.299999999999955,
+            "gpuMs": 0.545041,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 8.299999999999955,
+            "gpuMs": 0.528624,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0,
+            "intervalMs": 8.400000000000091,
+            "gpuMs": 0.535208,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0,
+            "intervalMs": 8.299999999999955,
+            "gpuMs": 0.575999,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0,
+            "intervalMs": 8.299999999999955,
+            "gpuMs": 0.543291,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 8.300000000000182,
+            "gpuMs": 0.435375,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 8.399999999999864,
+            "gpuMs": 0.618166,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.20000028610229492,
+            "intervalMs": 8.299999999999955,
+            "gpuMs": 0.580499,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0,
+            "intervalMs": 8.400000000000091,
+            "gpuMs": 0.591999,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 8.299999999999955,
+            "gpuMs": 0.44575,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.2999997138977051,
+            "intervalMs": 8.299999999999955,
+            "gpuMs": 0.438124,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.2999997138977051,
+            "intervalMs": 8.400000000000091,
+            "gpuMs": 0.33825,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.299999999999955,
+            "gpuMs": 0.374875,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.2999997138977051,
+            "intervalMs": 8.299999999999955,
+            "gpuMs": 0.53275,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 10.100000000000136,
+            "gpuMs": 0.65075,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.40000009536743164,
+            "intervalMs": 7.399999999999864,
+            "gpuMs": 0.613833,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.20000028610229492,
+            "intervalMs": 9,
+            "gpuMs": 0.553083,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.40000009536743164,
+            "intervalMs": 8.200000000000045,
+            "gpuMs": 0.523999,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.2999997138977051,
+            "intervalMs": 7.900000000000091,
+            "gpuMs": 0.519083,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.2999997138977051,
+            "intervalMs": 8.700000000000045,
+            "gpuMs": 0.602249,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 8.399999999999864,
+            "gpuMs": 0.678875,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 8.299999999999955,
+            "gpuMs": 0.663875,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.40000009536743164,
+            "intervalMs": 8.300000000000182,
+            "gpuMs": 0.58125,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 8,
+            "gpuMs": 0.540583,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.2999997138977051,
+            "intervalMs": 8.899999999999864,
+            "gpuMs": 0.564749,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.20000028610229492,
+            "intervalMs": 7.600000000000136,
+            "gpuMs": 0.701333,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 8.799999999999955,
+            "gpuMs": 0.544624,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.10000038146972656,
+            "intervalMs": 8.399999999999864,
+            "gpuMs": 0.354041,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 8.300000000000182,
+            "gpuMs": 0.495749,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 8.399999999999864,
+            "gpuMs": 0.657083,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.2999997138977051,
+            "intervalMs": 7.2000000000000455,
+            "gpuMs": 0.536999,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 9.700000000000045,
+            "gpuMs": 0.3515,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 8,
+            "gpuMs": 0.344958,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 8.399999999999864,
+            "gpuMs": 0.617625,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 7.5,
+            "gpuMs": 0.545749,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 9.200000000000045,
+            "gpuMs": 0.446,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.2999997138977051,
+            "intervalMs": 8.100000000000136,
+            "gpuMs": 0.4395,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.699999999999818,
+            "gpuMs": 0.359208,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.2999997138977051,
+            "intervalMs": 8.100000000000136,
+            "gpuMs": 0.389083,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 7.099999999999909,
+            "gpuMs": 0.358583,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.20000028610229492,
+            "intervalMs": 9.5,
+            "gpuMs": 0.373541,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 8.600000000000136,
+            "gpuMs": 0.374208,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.2999997138977051,
+            "intervalMs": 7.899999999999864,
+            "gpuMs": 0.491458,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.39999961853027344,
+            "intervalMs": 8.400000000000091,
+            "gpuMs": 0.565541,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.40000009536743164,
+            "intervalMs": 8.599999999999909,
+            "gpuMs": 0.629874,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 8.299999999999955,
+            "gpuMs": 0.375249,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.20000028610229492,
+            "intervalMs": 8.300000000000182,
+            "gpuMs": 0.371,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.399999999999864,
+            "gpuMs": 0.3525,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 8.299999999999955,
+            "gpuMs": 0.473333,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.40000009536743164,
+            "intervalMs": 8.400000000000091,
+            "gpuMs": 0.574458,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 7.099999999999909,
+            "gpuMs": 0.534874,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 9.600000000000136,
+            "gpuMs": 0.381416,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.20000028610229492,
+            "intervalMs": 8.299999999999955,
+            "gpuMs": 0.369708,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.2999997138977051,
+            "intervalMs": 8.299999999999955,
+            "gpuMs": 0.367375,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.299999999999727,
+            "gpuMs": 0.345833,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 8.200000000000273,
+            "gpuMs": 0.277874,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 9.900000000000091,
+            "gpuMs": 0.291208,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 6.399999999999636,
+            "gpuMs": 0.317666,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 10.300000000000182,
+            "gpuMs": 0.334375,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 7.900000000000091,
+            "gpuMs": 0.552541,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.400000000000091,
+            "gpuMs": 0.315583,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.40000009536743164,
+            "intervalMs": 8.299999999999727,
+            "gpuMs": 0.257541,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.40000009536743164,
+            "intervalMs": 7,
+            "gpuMs": 0.327666,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.40000009536743164,
+            "intervalMs": 8,
+            "gpuMs": 0.389375,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 9.200000000000273,
+            "gpuMs": 0.290958,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 7.699999999999818,
+            "gpuMs": 0.403375,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 10.199999999999818,
+            "gpuMs": 0.396416,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.09999990463256836,
+            "intervalMs": 7.800000000000182,
+            "gpuMs": 0.240083,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.400000000000091,
+            "gpuMs": 0.269208,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.400000000000091,
+            "gpuMs": 0.3045,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.20000028610229492,
+            "intervalMs": 8.399999999999636,
+            "gpuMs": 0.327833,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 8.200000000000273,
+            "gpuMs": 0.244708,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.2999997138977051,
+            "intervalMs": 8.400000000000091,
+            "gpuMs": 0.3005,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.5,
+            "intervalMs": 8.299999999999727,
+            "gpuMs": 0.417583,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 8.300000000000182,
+            "gpuMs": 0.45525,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.40000009536743164,
+            "intervalMs": 8,
+            "gpuMs": 0.297874,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.40000009536743164,
+            "intervalMs": 8.699999999999818,
+            "gpuMs": 0.387749,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 6.900000000000091,
+            "gpuMs": 0.574249,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 10.199999999999818,
+            "gpuMs": 0.524875,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.20000028610229492,
+            "intervalMs": 7.900000000000091,
+            "gpuMs": 0.296125,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 6.900000000000091,
+            "gpuMs": 0.390166,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.599999999999909,
+            "gpuMs": 0.369541,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.2999997138977051,
+            "intervalMs": 9.5,
+            "gpuMs": 0.371041,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.300000000000182,
+            "gpuMs": 0.359625,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 8.299999999999727,
+            "gpuMs": 0.593166,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 8.400000000000091,
+            "gpuMs": 0.577124,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.20000028610229492,
+            "intervalMs": 8.400000000000091,
+            "gpuMs": 0.367124,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.39999961853027344,
+            "intervalMs": 8.199999999999818,
+            "gpuMs": 0.514375,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.20000028610229492,
+            "intervalMs": 6.900000000000091,
+            "gpuMs": 0.354416,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 10.200000000000273,
+            "gpuMs": 0.411166,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.20000028610229492,
+            "intervalMs": 7.899999999999636,
+            "gpuMs": 0.384374,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.10000038146972656,
+            "intervalMs": 7.400000000000091,
+            "gpuMs": 0.377333,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 9.599999999999909,
+            "gpuMs": 0.380499,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.20000028610229492,
+            "intervalMs": 8,
+            "gpuMs": 0.504374,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.40000009536743164,
+            "intervalMs": 9.400000000000091,
+            "gpuMs": 0.5235,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 8.400000000000091,
+            "gpuMs": 0.559124,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.39999961853027344,
+            "intervalMs": 8.299999999999727,
+            "gpuMs": 0.597666,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.40000009536743164,
+            "intervalMs": 8.300000000000182,
+            "gpuMs": 0.566791,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 7.599999999999909,
+            "gpuMs": 0.557416,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 8.699999999999818,
+            "gpuMs": 0.578499,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.40000009536743164,
+            "intervalMs": 8.800000000000182,
+            "gpuMs": 0.376,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 6.699999999999818,
+            "gpuMs": 0.391291,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.20000028610229492,
+            "intervalMs": 10.300000000000182,
+            "gpuMs": 0.38475,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.2999997138977051,
+            "intervalMs": 7.800000000000182,
+            "gpuMs": 0.369624,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.2999997138977051,
+            "intervalMs": 8.5,
+            "gpuMs": 0.383874,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.399999999999636,
+            "gpuMs": 0.360375,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 8.200000000000273,
+            "gpuMs": 0.364166,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.40000009536743164,
+            "intervalMs": 8.400000000000091,
+            "gpuMs": 0.595916,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.39999961853027344,
+            "intervalMs": 7.099999999999909,
+            "gpuMs": 0.575083,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.2999997138977051,
+            "intervalMs": 9.900000000000091,
+            "gpuMs": 0.647375,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.2999997138977051,
+            "intervalMs": 6.399999999999636,
+            "gpuMs": 0.535541,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 10.300000000000182,
+            "gpuMs": 0.544041,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.2999997138977051,
+            "intervalMs": 7.900000000000091,
+            "gpuMs": 0.4175,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 6.799999999999727,
+            "gpuMs": 0.403,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 10.200000000000273,
+            "gpuMs": 0.376875,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8,
+            "gpuMs": 0.371541,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.400000000000091,
+            "gpuMs": 0.365375,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.2999997138977051,
+            "intervalMs": 8.299999999999727,
+            "gpuMs": 0.393458,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 8.400000000000091,
+            "gpuMs": 0.486625,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.40000009536743164,
+            "intervalMs": 8.199999999999818,
+            "gpuMs": 0.372291,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 7.700000000000273,
+            "gpuMs": 0.360083,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 9,
+            "gpuMs": 0.407124,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.39999961853027344,
+            "intervalMs": 7.5,
+            "gpuMs": 0.687249,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.40000009536743164,
+            "intervalMs": 9.400000000000091,
+            "gpuMs": 0.353166,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 8.099999999999909,
+            "gpuMs": 0.452124,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.39999961853027344,
+            "intervalMs": 7.799999999999727,
+            "gpuMs": 0.663624,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.2999997138977051,
+            "intervalMs": 9.100000000000364,
+            "gpuMs": 0.364916,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.20000028610229492,
+            "intervalMs": 7,
+            "gpuMs": 0.36025,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.10000038146972656,
+            "intervalMs": 9.099999999999909,
+            "gpuMs": 0.4525,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.2999997138977051,
+            "intervalMs": 7.199999999999818,
+            "gpuMs": 0.399291,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.40000009536743164,
+            "intervalMs": 8.599999999999909,
+            "gpuMs": 0.358249,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.20000028610229492,
+            "intervalMs": 9.900000000000091,
+            "gpuMs": 0.344958,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.3000001907348633,
+            "intervalMs": 7.900000000000091,
+            "gpuMs": 0.356541,
+            "draws": 12,
+            "triangles": 67436
+          },
+          {
+            "cpuMs": 0.19999980926513672,
+            "intervalMs": 8.5,
+            "gpuMs": 0.36575,
+            "draws": 12,
+            "triangles": 67436
+          }
+        ]
+      },
+      "protocol": {
+        "order": [
+          [
+            "gaussian",
+            "mesh"
+          ],
+          [
+            "mesh",
+            "gaussian"
+          ],
+          [
+            "gaussian",
+            "mesh"
+          ],
+          [
+            "mesh",
+            "gaussian"
+          ]
+        ],
+        "warmup": 12,
+        "samplesPerRound": 40,
+        "camera": "static calibrated photo; sort settled",
+        "resolution": [
+          768,
+          505
+        ],
+        "devicePixelRatio": 1,
+        "antialias": false,
+        "background": "#000000",
+        "gpuDisjoint": {
+          "gaussian": false,
+          "mesh": false
+        },
+        "note": "Main-thread submit CPU excludes asynchronous sort worker. FPS is refresh-rate limited. No moving-camera benchmark."
+      }
+    },
+    "loading": {
+      "schemaVersion": 1,
+      "scene": "pipes",
+      "createdAt": "2026-10-30T14:58:11.277Z",
+      "totalMs": 455.80000019073486,
+      "spans": [
+        {
+          "stage": "metadata",
+          "startMs": 0,
+          "endMs": 2.6000003814697266,
+          "durationMs": 2.6000003814697266
+        },
+        {
+          "stage": "gaussianReadDecode",
+          "startMs": 7.100000381469727,
+          "endMs": 227.10000038146973,
+          "durationMs": 220
+        },
+        {
+          "stage": "meshRead",
+          "startMs": 7.200000286102295,
+          "endMs": 20.200000286102295,
+          "durationMs": 13
+        },
+        {
+          "stage": "meshParse",
+          "startMs": 20.200000286102295,
+          "endMs": 30.200000286102295,
+          "durationMs": 10
+        },
+        {
+          "stage": "gaussianInitialize",
+          "startMs": 227.2000002861023,
+          "endMs": 350.6000003814697,
+          "durationMs": 123.40000009536743
+        },
+        {
+          "stage": "settle",
+          "startMs": 350.6000003814697,
+          "endMs": 455.80000019073486,
+          "durationMs": 105.19999980926514
+        }
+      ],
+      "resolution": [
+        768,
+        505
+      ],
+      "camera": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+      "visibility": "foreground",
+      "cache": "uncontrolled",
+      "scope": "scene-load-to-settled-submission",
+      "execution": "parallel-model-loading"
+    },
+    "quality": {
+      "resolution": [
+        768,
+        505
+      ],
+      "views": [
+        {
+          "index": 0,
+          "name": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "gaussian": {
+            "psnr": 18.7454079234687,
+            "ssim": 0.7833699625373709,
+            "mae": 23.128159378437843
+          },
+          "mesh": {
+            "psnr": 16.203956014134363,
+            "ssim": 0.6405673672234332,
+            "mae": 24.89255277090209
+          }
+        },
+        {
+          "index": 8,
+          "name": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+          "gaussian": {
+            "psnr": 13.792416915886214,
+            "ssim": 0.6784728649187745,
+            "mae": 43.79629228547855
+          },
+          "mesh": {
+            "psnr": 10.703182508757498,
+            "ssim": 0.44565281751496727,
+            "mae": 55.57786286441144
+          }
+        }
+      ],
+      "averages": {
+        "gaussian": {
+          "psnr": 16.268912419677456,
+          "ssim": 0.7309214137280726,
+          "mae": 33.46222583195819
+        },
+        "mesh": {
+          "psnr": 13.453569261445931,
+          "ssim": 0.5431100923692003,
+          "mae": 40.235207817656764
+        }
+      }
+    },
+    "limitations": [
+      "Lightweight CPU stereo baseline, not a tuned COLMAP PatchMatch/OpenMVS pipeline.",
+      "Poisson fills gaps without observed geometry; textures may have seams. No global texture blending.",
+      "Shared SfM uses evaluation photos; this is not end-to-end unseen-camera evaluation.",
+      "Historical GPU training and current CPU reconstruction times are not a controlled speed comparison."
+    ]
+  }
+}

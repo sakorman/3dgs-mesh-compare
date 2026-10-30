@@ -60,11 +60,10 @@ export class CompareViewer {
       parent.prepend(r.domElement);
       r.domElement.addEventListener("webglcontextlost", (e) => {
         e.preventDefault();
+        if (this.disposed) return;
         this.lost = true;
-        this.playing = false;
-        this.currentLoad?.cancel();
-        this.settleScope.abort();
-        this.loadTimings = undefined;
+        // Recovery creates a fresh page; stop pending work and release this viewer.
+        this.dispose();
         this.onError("显卡上下文丢失，请刷新页面重新加载。");
       });
       return r;

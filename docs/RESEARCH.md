@@ -482,3 +482,13 @@ Spark main 仍为 2026-10-20 的 [ffe210d / v2.4.0](https://github.com/sparkjsde
 [同属性实验](SPZ-V4.md)用系统 Zstandard 1.5.7、level 12、单线程生成六个独立帧，逐段回读校验，并把 AP16 副本重新绑定到实际 v4 文件。没有复用 Niantic 编码器或改变 SH、点序、量化和坐标。32 个正式样本中，v4 文件减少 8.8% / 10.2%，初始化中位数反而增加 16.95 / 10.80ms；36 组解码属性与 52 次 RGBA 对照均一致。暂不采用为初始化优化，不据此否定弱网络端到端收益；下载、冷运行时、峰值内存和其它解码器仍未测。
 
 重新阅读 [KISS-GS v1 §3.5、§6.1](https://arxiv.org/html/2608.26948v1#S3.SS5)（2026-08-27，ECCV 2026，arXiv 永久非独占分发许可）：SOG-XT 包含位置重新量化、SH 码本及图像编码，不能视作本实验这种属性字节不变的容器转换。论文 CPU 解码计时含读取、不含 PLY 写出，并另有慢样本剔除协议；本实验保留全部八个正式样本，不能直接合并时间或套用论文速度。独立脚本与完整实现的公开代码、许可限制仍见上一节，未复制算法或改训练。后续优先取得解压/属性消费的分段证据，涉及加载接入时再验证网络、取消、回退及峰值缓冲。
+
+### 已修复：上下文丢失后的页面状态与释放
+
+2026-10-30 核对 Spark main 仍为 `ffe210d`（2026-10-20），最新 [v2.4.0](https://github.com/sparkjsdev/spark/releases/tag/v2.4.0) 同日发布；[MIT 许可](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/LICENSE)，保留 World Labs 版权。新读 [#476](https://github.com/sparkjsdev/spark/pull/476)（2026-10-15 合入）及[固定实现](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/SparkRenderer.ts)：dispose 停止排序/LoD Worker 与定时任务，只在已经释放时吞掉相关异步拒绝；未释放时仍传播错误，SplatMesh.initialized 不变。不能把停止绘制等同于执行释放。
+
+另读 [#480](https://github.com/sparkjsdev/spark/pull/480)（2026-10-12 合入）：解析池遇到 WASM trap 后才替换损坏 Worker；文档级池和渲染器的排序 Worker 生命周期不同。当前已安装这些改动，不再升级依赖。[本项目修复](CONTEXT-LOSS.md)在上下文丢失时释放查看器，并让页面终态优先于异步收尾；六项检查每文档两 Worker 中一个终止，未宣称全部解析任务或内存同步回收。此路径为 WebGL2/WASM，经 ANGLE Metal 运行；不是 WebGPU device.lost、原生 Metal 或 CUDA 恢复实现。
+
+重新阅读 [WebSplatter v1 §4.2、§4.5](https://arxiv.org/html/2602.03207v1#S4.SS2)（2026-02-03，arXiv 永久非独占许可）：论文将设备兼容性、失败和内存占用与帧时间分列，支持把可用性纳入验收；它没有证明本项目的自动上下文恢复能力。作者 [main 16bb06e](https://github.com/websplatter/WebSplatter/tree/16bb06e86b8fb12193d4bb4cd2b0b3d4f3ab62be)仍为 2026-08-29，最新 Release 1.0.0 为 2026-08-10，无说明正文，既有 MIT / WebGPU 范围不变；未移植其算法或引用跑分。
+
+采用 [Khronos WEBGL_lose_context](https://registry.khronos.org/webgl/extensions/WEBGL_lose_context/)（ratified revision 15，2020-02-06）产生真实浏览器丢失事件，分别检查加载、评测收尾与刷新。扩展模拟不能代表自然 GPU 故障。[WebGL 上下文说明](https://registry.khronos.org/webgl/specs/latest/1.0/#5.15.2)为 2026-06-30 编辑草案，恢复后旧资源失效，需要重建资源；本项目目前明确采用整页刷新，原地恢复与硬件故障路径保留待验证。
