@@ -1,6 +1,6 @@
 # 3DGS 研究索引
 
-查阅日期：2026-10-30。以下区分已验证的应用改进与尚未验证收益的研究候选。
+查阅日期：2026-10-31。以下区分已验证的应用改进与尚未验证收益的研究候选。
 
 ## 实现
 
@@ -492,3 +492,14 @@ Spark main 仍为 2026-10-20 的 [ffe210d / v2.4.0](https://github.com/sparkjsde
 重新阅读 [WebSplatter v1 §4.2、§4.5](https://arxiv.org/html/2602.03207v1#S4.SS2)（2026-02-03，arXiv 永久非独占许可）：论文将设备兼容性、失败和内存占用与帧时间分列，支持把可用性纳入验收；它没有证明本项目的自动上下文恢复能力。作者 [main 16bb06e](https://github.com/websplatter/WebSplatter/tree/16bb06e86b8fb12193d4bb4cd2b0b3d4f3ab62be)仍为 2026-08-29，最新 Release 1.0.0 为 2026-08-10，无说明正文，既有 MIT / WebGPU 范围不变；未移植其算法或引用跑分。
 
 采用 [Khronos WEBGL_lose_context](https://registry.khronos.org/webgl/extensions/WEBGL_lose_context/)（ratified revision 15，2020-02-06）产生真实浏览器丢失事件，分别检查加载、评测收尾与刷新。扩展模拟不能代表自然 GPU 故障。[WebGL 上下文说明](https://registry.khronos.org/webgl/specs/latest/1.0/#5.15.2)为 2026-06-30 编辑草案，恢复后旧资源失效，需要重建资源；本项目目前明确采用整页刷新，原地恢复与硬件故障路径保留待验证。
+
+
+### 暂不采用：原生展开再装入 stored gzip
+
+2026-10-31 复核 Spark main / 最新发行仍为 [ffe210d / 2.4.0](https://github.com/sparkjsdev/spark/tree/ffe210dc0a45d0515a06c9235878108112827d61)（2026-10-20，MIT）。新检索并阅读 [#181](https://github.com/sparkjsdev/spark/pull/181) 的作者实现：2025-09-25 合并，将旧 TypeScript fflate 换成 DecompressionStream，并把读头/属性接口改为异步；其数字属于旧架构。当前 Rust 解码已由 [#485](https://github.com/sparkjsdev/spark/pull/485)（2026-10-16）切为 flate2 / zlib-rs，不能将旧 PR 当作尚未合入的 2.4.0 补丁。
+
+重读 [Visionary v1 §3.4、§4.1](https://arxiv.org/html/2512.08478v1#S3.SS4)（2025-12-09，arXiv 永久非独占许可）和[原生 SPZ 展开实现](https://github.com/Visionary-Laboratory/visionary/blob/76a2b93cec0e0dfaeb598fd320b6ceabf4b39d48/src/io/spz_loader.ts)。作者 main 仍为 2026-10-15 的 76a2b93、Apache-2.0、无 Release。原生 gzip 可独立于 WebGPU 使用，但论文 WebGPU/ONNX 与 RTX 4090 测量不能推导 WebGL2/M5 的启动性能；未测试其 Metal 路径，也不涉及 CUDA 训练。
+
+据此验证一个边界明确的假设：保留原始下载文件，在浏览器原生展开后无损转装 stored gzip，继续调用 Spark 原有属性转换。32 个正式样本中，预处理 43.90 / 32.15ms 基本抵消初始化减少的 46.75 / 34.20ms，总等待只少 0.10 / 0.30ms；36 组属性及 52 次像素控制一致。详见[原生解压实验](SPZ-NATIVE.md)。暂不采用，未更改生产 PLY 或候选加载器。
+
+下一步需要直接观测 Worker/WASM 的分段和峰值缓冲，再判断是否值得提供裸属性输入或直接写入接口。当前结果只排除此适配层的明显总等待收益，不否定原生解压本身；也没有证明解码、转换或复制中的任何一项是唯一瓶颈。HTTP、冷运行时、取消与回退仍未测。

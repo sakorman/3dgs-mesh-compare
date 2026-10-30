@@ -1,5 +1,12 @@
 # 更新日志
 
+## 2026-10-31 · 原生解压的完整成本对照
+
+- 新增浏览器原生展开与临时 stored gzip 对照，将解压、校验和容器构造全部计入总等待；原始压缩文件和属性保持一致。
+- 32 个正式样本中，Spark 初始化少 46.75 / 34.20ms，但预处理耗费 43.90 / 32.15ms，总等待仅少 0.10 / 0.30ms；收益不足，暂不接入，见[完整耗时与截图](docs/SPZ-NATIVE.md)。
+- 36 组属性与 52 次画面摘要一致；新增 3 项边界回归，139 项测试、类型检查和构建通过。保留慢样本，冷加载、取消回退和内存峰值仍未验证。
+- 复核 [Spark 旧原生解压改动](https://github.com/sparkjsdev/spark/pull/181)与[当前 Rust gzip 实现](https://github.com/sparkjsdev/spark/pull/485)，结合 [Visionary 论文](https://arxiv.org/abs/2512.08478)及[作者加载器](https://github.com/Visionary-Laboratory/visionary/blob/76a2b93cec0e0dfaeb598fd320b6ceabf4b39d48/src/io/spz_loader.ts)明确版本和后端差异；下一步先直接测量 Worker/WASM 分段。
+
 ## 2026-10-30 · 上下文丢失后的刷新与释放
 
 - 修复显卡上下文丢失后仍可切换场景、迟到回调覆盖故障提示的问题；统一释放查看器、清空失效结果，并提供可点击的“刷新页面”。
