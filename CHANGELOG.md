@@ -1,5 +1,12 @@
 # 更新日志
 
+## 2026-10-30 · SPZ v4 同属性对照
+
+- 新增独立 v4 ZSTD 候选，保持六段属性字节和 AP16 值不变，校验目录边界与文件绑定，详见[耗时、体积与截图](docs/SPZ-V4.md)。
+- 32 个正式样本中，文件减少 8.8% / 10.2%，但初始化中位数增加 16.95 / 10.80ms；暂不作为初始化优化采用，未替换默认模型，弱网络收益未验证。
+- 36 组解码属性和 52 次画面摘要一致；4 项新回归及全部 136 项测试、类型检查、生产构建通过，保留全部慢样本。
+- 核对 [Niantic SPZ 4 说明](https://www.nianticspatial.com/blog/spz4)、[参考实现](https://github.com/nianticlabs/spz/blob/affd0ecea7fbb4c265ee119475af7ee5b2997482/src/cc/load-spz.cc)与 [Spark 实现](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/rust/spark-lib/src/spz.rs)的原生并行及浏览器串行差异；参考 [KISS-GS](https://arxiv.org/abs/2608.26948)分开验证容器、量化与转换成本，不套用上游跑分。
+
 ## 2026-10-30 · SPZ 压缩容器成本
 
 - 新增相同属性字节的 gzip 容器对照，重新校验 SPZ 摘要及 AP16 绑定，保持点数、SH3、相机和模型数值一致。
