@@ -446,3 +446,13 @@ Spark 最新发行仍为 [2.4.0](https://github.com/sparkjsdev/spark/releases/ta
 公开入口显式使用 CUDA 数据设备，重要性评分还依赖额外 CUDA 光栅化器；没有直接接入本项目的 WebGL2/WebGPU/Metal 训练与分层运行时适配。根目录同时有 [MIT LICENSE](https://github.com/nus-vv-streams/lapis-gs/blob/d302c3508593423c69b5debd617a8646a43f77de/LICENSE)和原始 3DGS 的[非商业研究 LICENSE.md](https://github.com/nus-vv-streams/lapis-gs/blob/d302c3508593423c69b5debd617a8646a43f77de/LICENSE.md)，不能仅凭 GitHub 的 MIT 标签概括全部派生代码或子模块。未复制实现、运行流水线、改变原模型或沿用作者跑分。
 
 可行动结论：完整文件加载优先分解解压/属性转换与真实 CDN 等待；若后续研究可用前缀，需要独立产物验证各层画质、点身份、不透明度切换和传输体积，不跳过候选配对完整校验。
+
+### 计时可靠性与失败后的重试
+
+2026-10-30 复核 [Spark v2.4.0](https://github.com/sparkjsdev/spark/releases/tag/v2.4.0)，main 仍为 2026-10-20 的 `ffe210d`，MIT；本次没有升级依赖。活动查询遗漏发生在本项目的 benchmark 包装层，修复和真实浏览器记录见 [GPU 查询异常清理](BENCHMARK-QUERY.md)。
+
+重新阅读 [WebSplatter arXiv v1](https://arxiv.org/html/2602.03207v1#S4.SS2)（2026-02-03，arXiv 非独占分发许可），§4.2 列出特定浏览器时间戳异常；它支持“先验证测量路径”的研究方向，不能用 GPU 查询与 JavaScript 墙钟差值直接推导本项目的速度。[作者主页](https://websplatter.github.io/)标记 ACM Multimedia 2026，标题及结果范围与该 arXiv 版本不同；本次 DOI 页面读取失败，不将二者视为同一版全文或合并其跑分。
+
+[作者代码](https://github.com/websplatter/WebSplatter/tree/16bb06e86b8fb12193d4bb4cd2b0b3d4f3ab62be) main 为 `16bb06e`（2026-08-29，合入调试交互变更），最新 Release 1.0.0 发布于 2026-08-10，无发行说明正文。[LICENSE](https://github.com/websplatter/WebSplatter/blob/16bb06e86b8fb12193d4bb4cd2b0b3d4f3ab62be/LICENSE) 为 MIT，保留其 shrekshao 版权。阅读 [gaussian-renderer.ts](https://github.com/websplatter/WebSplatter/blob/16bb06e86b8fb12193d4bb4cd2b0b3d4f3ab62be/src/gaussian-renderer.ts) 的 `readPerfMetrics`：仅在 timestamp-query 可用时读取，使用查询环形缓冲，等待提交完成与异步映射，剔除缺写或逆序的阶段时间戳后统计。这是 WebGPU / WGSL 实现；不能直接接入当前 Spark WebGL2 计时，亦非原生 Metal 或 CUDA 模块，未在本机验证其跨后端收益。
+
+采用：按 [WebGL 扩展规范](https://registry.khronos.org/webgl/extensions/EXT_disjoint_timer_query_webgl2/)把当前活动查询与待结果查询一起清理；分配失败留空，不伪造零耗时。待验证：未来增加 WebGPU 候选时，分别记录阶段 GPU 时间、异步排序、CPU 提交和呈现等待，并检查能力缺失、失效查询与失败重试。此处没有移植上游代码或沿用论文速度倍数。
