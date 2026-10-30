@@ -25,6 +25,18 @@
 
 Spark 官方按需渲染说明，建议通过 `onDirty` 合并异步排序、LoD 和流式加载的重绘请求，避免静态场景用定时器轮询。当前项目采用同样的失效通知机制，但仍固定使用完整 PLY 和关闭 LoD；版本升级与 LoD 模型另行验证。
 
+### 已验证：Worker 边界不能等同于纯解压或结果复制
+
+2026-10-31 复核 [Spark 2.4.0 / ffe210d](https://github.com/sparkjsdev/spark/tree/ffe210dc0a45d0515a06c9235878108112827d61)（2026-10-20，MIT）及[发行说明](https://github.com/sparkjsdev/spark/releases/tag/v2.4.0)。直接阅读 [ChunkDecoder](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/rust/spark-rs/src/decoder.rs)和 [ExtSplatsData](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/rust/spark-rs/src/ext_splats.rs)：push 内含至多 1MiB 暂存片段的 JS→WASM 复制、解压、属性消费和 JS 数组写回；finish 才完成最后刷新与对象导出，但不是全部结果数组成本。
+
+[32 个正式样本](WORKER-PROFILE.md)定位 push 中位数 146.50 / 111.20ms，占 handler 的 99.3% / 99.8%；结果收尾与往返余量较小。40 组属性、72 次像素摘要一致。插桩后总等待增加 3.90 / 8.40ms，未作生产优化；下一步拆分 push 内部，而非直接改结果导出。WASM 容量保持 25.5625MiB 不代表实际内存峰值或回收；六个 JS 结果数组在其外，分别有 27.5625 / 21.375MiB。当前为 CPU/WASM 解码与 WebGL2 绘制，ANGLE 使用 Metal；未运行 WebGPU 或 CUDA。
+
+### 测量参考：SpeedyGS 的解码成本拆分
+
+[SpeedyGS v1](https://arxiv.org/abs/2607.12656)发布于 2026-07-14，[作者实验室页面](https://vision.nju.edu.cn/29473/list.htm)列为 ACM MM 2026。阅读[原文](https://arxiv.org/html/2607.12656v1) §3.4.1、§4.1.1 与附录 E.4：结构优化与统计编码分阶段，定长编码作为低复杂度候选，解码成本分解到不同模块。它涉及训练、剪枝和量化，不能与当前同属性容器实验互换。
+
+截至查阅时，未找到作者提供且可核实提交/版本及许可的公开实现入口。原文的 arXiv perpetual non-exclusive license 不等于代码许可；论文使用 PyTorch/GPU，具体 CUDA 与 WebGL2/WebGPU/Metal 适配未核实。仅采用分段验证思路，不移植实现、不使用论文速度倍数，不因此启动新的训练或位宽扫描。
+
 ### 已采用：关闭 GLTF 解码位图
 
 Three.js 的 `Texture.dispose()` 释放 GPU 纹理，但不会替应用关闭 `ImageBitmap`。GLTFLoader 会优先使用 ImageBitmapLoader，且同一场景可能共享材质和图像源。当前独立加载的 GLB 按场景持有资源；切换或销毁时去重释放 GPU 对象，并关闭对应位图。两组默认场景已复现并验证修复，记录见[资源回收对照](benchmarks/mesh-resources-2026-10-24.json)。

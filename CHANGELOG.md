@@ -1,5 +1,12 @@
 # 更新日志
 
+## 2026-10-31 · Worker / WASM 输入消费定位
+
+- 新增固定 Spark 版本的独立分段夹具，区分主线程往返、WASM 输入消费、结果整理与线性内存容量，保留未插桩 ABBA 对照。
+- 32 个正式样本中，push 中位耗时为 146.50 / 111.20ms，占 handler 的 99.3% / 99.8%；优先继续拆分输入复制、解压和属性写入，详见[耗时与截图](docs/WORKER-PROFILE.md)。
+- 40 组属性、72 次画面摘要一致，139 项回归、类型检查与构建通过。插桩总等待增加 3.90 / 8.40ms，不作为提速方案；25.5625MiB 仅为 WASM 容量，非峰值内存。
+- 核对 [Spark WASM 输入边界](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/rust/spark-rs/src/decoder.rs)和[属性缓冲实现](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/rust/spark-rs/src/ext_splats.rs)，补充 [SpeedyGS 论文](https://arxiv.org/abs/2607.12656)；其公开代码与后端适配仍待核实，未套用论文跑分。
+
 ## 2026-10-31 · 原生解压的完整成本对照
 
 - 新增浏览器原生展开与临时 stored gzip 对照，将解压、校验和容器构造全部计入总等待；原始压缩文件和属性保持一致。
