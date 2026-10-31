@@ -8,8 +8,8 @@ const params = new URLSearchParams(location.search);
 const scene = params.get("scene") ?? "pipes";
 const variant = params.get("variant") ?? "rebuilt";
 const documentIndex = Number(params.get("doc") ?? 0);
-assert(["rebuilt", "candidate"].includes(variant), "Invalid worker variant");
-const folder = variant === "rebuilt" ? "rebuild" : "sh-grid";
+assert(["rebuilt", "candidate", "scoped"].includes(variant), "Invalid worker variant");
+const folder = variant === "rebuilt" ? "rebuild" : variant === "scoped" ? "sh-scoped" : "sh-grid";
 const workerSourceUrl = `/.qa/wasm-build/${folder}/${variant}.worker`;
 let workerUrl: string;
 type RequestTrace = {id: number; sentAt: number; postMs?: number; receivedAt?: number; inputBytes: number; moduleReplaced?: boolean};
@@ -148,7 +148,7 @@ button.onclick = async () => {
         const figure = document.createElement("figure"), img = new Image(), caption = document.createElement("figcaption");
         img.src = viewer.renderers.gaussian.domElement.toDataURL("image/png");
         img.alt = `${scene} ${input.name} 首个留出视角`;
-        caption.textContent = `${scene} · ${variant === "rebuilt" ? "原始编码" : "离散指数优化"} · SH3 / 768`;
+        caption.textContent = `${scene} · ${variant === "rebuilt" ? "原始编码" : variant === "scoped" ? "SPZ 专用编码" : "离散指数优化"} · SH3 / 768`;
         figure.append(img, caption); document.querySelector("#gallery")!.append(figure);
       }
       for (const [viewIndex, view] of (full ? views : views.slice(0, 1)).entries()) {

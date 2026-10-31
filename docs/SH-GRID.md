@@ -4,6 +4,8 @@
 
 这是候选加载构建的改进，尚未接入默认 PLY 页面。原始样本、逐文档结果、源码及二进制摘要见 [JSON](benchmarks/sh-grid-2026-10-31.json)。
 
+后续[通用 PLY 回归检查](SH-SCOPED.md)发现本页通用判断使初始化变慢，已改为 SPZ 专用入口。以下数据保留为历史实验；后续候选以专用构建为准。
+
 ## 修改与数值边界
 
 此前[内部分段](WASM-INTERNAL.md)定位 SH 状态机成本较高。此次仅替换 `spark-lib/src/splat_encode.rs` 中 `encode_ext_rgb` 的指数/除数计算，其余数值舍入、符号、位布局、属性写回与着色器保持原样。

@@ -25,11 +25,25 @@
 
 Spark 官方按需渲染说明，建议通过 `onDirty` 合并异步排序、LoD 和流式加载的重绘请求，避免静态场景用定时器轮询。当前项目采用同样的失效通知机制，但仍固定使用完整 PLY 和关闭 LoD；版本升级与 LoD 模型另行验证。
 
+### 已验证：SH 优化应限制在 SPZ 接收入口
+
+[三组同条件对照](SH-SCOPED.md)发现通用网格判断使 PLY 初始化增加 5.55% / 9.66%。保持原编码和通用批处理方法，新增 SPZ 专用接收入口后，PLY 回到基线范围，SPZ 初始化仍减少 20.28% / 20.24%；120 组属性与 216 次画面一致。WASM 增加 4,237B，生产尚未接入。
+
+2026-10-31 核对 Spark main `ffe210d` 与 v2.4.0 Release（均 2026-10-20，MIT），阅读 [SplatReceiver](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/rust/spark-lib/src/decoder.rs)、[SPZ 输出](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/rust/spark-lib/src/spz.rs)和 [ExtSplatsData](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/rust/spark-rs/src/ext_splats.rs)。[#418](https://github.com/sparkjsdev/spark/pull/418)（2026-09-08，合入 `f43b877`）提供编译期格式/表示/LoD 裁剪，与本地接收入口分流不同；包体收益需另测，须保留 PLY 回退。下一步优先验证专用构建的 HTTP、取消回退与内存边界。
+
+### 新候选：紧凑神经外观与打包 SH
+
+[Compact Neural Appearance Models for Efficient Gaussian Splatting v1](https://arxiv.org/abs/2609.05255)于 2026-09-04 提交；已读[原文 §5.2 与附录 B.3](https://arxiv.org/html/2609.05255v1)，许可为 arXiv perpetual non-exclusive。其 WebGL 查看器先算外观、再异步 CPU 排序与绘制；稳态计时不含排序和上传，不能用于当前初始化结论。
+
+[作者页面](https://fhahlbohm.github.io/efficient-gaussian-appearance/)及[公开代码](https://github.com/nerficg-project/efficient-gaussian-appearance/tree/5235b9b96ccd36f1b87c5b9be84faff45b233fe1)已核验：Apache-2.0，无 GitHub Release，最新 `5235b9b`（2026-10-30）。该提交修复 CUDA 反向传播中不足一组元素时的无符号减法边界，不是浏览器加载优化。[实际 SH 着色器](https://github.com/nerficg-project/efficient-gaussian-appearance/blob/5235b9b96ccd36f1b87c5b9be84faff45b233fe1/viewer/shaders/eval_sh.glsl)按阶使用 7/8/6 位、每场景尺度，与本项目 ExtSplats 共享指数布局不同。
+
+可行动方向是把视角无关计算移到导出阶段，再单独测外观布局和浏览器代价；涉及神经外观时需重新训练并校验画质。作者 CUDA 路径依赖 NVIDIA/Tensor Core，WebGL 路径另行实现；WebGPU/Metal compute 适配未验证。论文的 SH/神经外观压缩比不能直接套到当前 ExtSplats；暂不移植、不引用其速度倍数。
+
 ### 已验证：离散 SH 指数计算可减少候选初始化
 
 2026-10-31 重新核对 Spark main `ffe210d`（2026-10-20）与最新 v2.4.0 Release（同日），未升级依赖；阅读 [#465 实际补丁](https://github.com/sparkjsdev/spark/commit/8779cbd8ba07cfed50ff30d50063c358a8743881)及原 `encode_ext_rgb`，保持 ceil 语义。本地[独立候选](SH-GRID.md)对最大绝对值位于 `[0,1]`、步长 `1/128` 网格的输入使用整数指数与 f32 二次幂构造；其他输入保留原 log2/exp2。全部离散三通道组合和额外随机/特殊值校验一致，初始化减少 21.40% / 21.02%，40 组属性与 72 次画面保持一致。
 
-这是固定设备上的 CPU/WASM 加载收益，非 GPU 帧率或冷下载结论。复读 [Visionary v1 §3.4](https://arxiv.org/html/2512.08478v1)的一次预打包路径，不套用其每帧排序跑分。候选尚未接入默认页面；下一步先测通用 PLY 输入的分支成本，再完成 HTTP、取消回退与内存验证。
+这是固定设备上的 CPU/WASM 加载收益，非 GPU 帧率或冷下载结论。复读 [Visionary v1 §3.4](https://arxiv.org/html/2512.08478v1)的一次预打包路径，不套用其每帧排序跑分。候选尚未接入默认页面；后续 PLY 对照已发现通用分支退化，现以 [SPZ 专用入口](SH-SCOPED.md)继续验证，原通用分支仅保留实验记录。
 
 ### 新候选：Gaussian Point Splatting 的压缩属性与后端限制
 

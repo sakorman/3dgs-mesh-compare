@@ -1,5 +1,12 @@
 # 更新日志
 
+## 2026-10-31 · 隔离 SPZ 快路径并修复 PLY 回归
+
+- 通用网格判断使默认 PLY 初始化增加 5.55% / 9.66%；改为 SPZ 专用入口，保留原通用编码，PLY 恢复基线范围。
+- 独立 SPZ 候选初始化仍减少 30.35 / 23.20ms（20.28% / 20.24%），总等待减少 25.90 / 17.60ms，详见[三组耗时与截图](docs/SH-SCOPED.md)。
+- 96 个正式样本、120 组属性和 216 次画面校验通过；139 项测试与构建通过。WASM 增加 4,237B，冷加载、取消回退与峰值内存仍待验证，尚未接入生产。
+- 核对 [Spark 格式分流接口](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/rust/spark-lib/src/decoder.rs)；新增[紧凑神经外观论文](https://arxiv.org/abs/2609.05255)与[作者实现](https://github.com/nerficg-project/efficient-gaussian-appearance/tree/5235b9b96ccd36f1b87c5b9be84faff45b233fe1)的布局、许可和后端边界，不套用其跑分。
+
 ## 2026-10-31 · 缩短 SH 编码初始化
 
 - 为离散 SH 最大值增加整数指数路径，保留向上取整、符号和原舍入；不在网格内的值继续使用原编码计算。
