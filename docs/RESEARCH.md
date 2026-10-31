@@ -25,11 +25,19 @@
 
 Spark 官方按需渲染说明，建议通过 `onDirty` 合并异步排序、LoD 和流式加载的重绘请求，避免静态场景用定时器轮询。当前项目采用同样的失效通知机制，但仍固定使用完整 PLY 和关闭 LoD；版本升级与 LoD 模型另行验证。
 
+### 已定位：SH 状态机成为初始化优化重点
+
+2026-10-31 的[固定工具链实验](WASM-INTERNAL.md)将 gzip 写入/刷新与属性状态机分开：SH 为 73.75 / 57.10ms，约占属性处理 79%；80 组属性、144 次画面一致。该阶段包含展开、布局、编码、JS 写回和 drain，尚不能把全部时间归于单个函数。
+
+新读 Spark [#465](https://github.com/sparkjsdev/spark/pull/465)与 [8779cbd](https://github.com/sparkjsdev/spark/commit/8779cbd8ba07cfed50ff30d50063c358a8743881)（2026-10-02，MIT）：共享指数从 floor 改为 ceil，防止颜色通道截断。[当前编码](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/rust/spark-lib/src/splat_encode.rs)包含 log2/exp2；限定 SPZ 离散 SH 的整数/查表方案仅为下一步假设，须保留向上取整、符号与舍入，先做边界和全属性位级校验，再测无计时构建，不能回退旧量化语义。
+
+复读 [Visionary v1](https://arxiv.org/html/2512.08478v1)（2025-12-09，arXiv 非独占永久发布许可）§3.4、§4.1–4.4；其一次 FP16 预打包和每帧 GPU 工作分开，RTX 4090 / PIX 对 Spark 0.1.10 的帧时不适用于当前初始化。[作者 76a2b93 加载器](https://github.com/Visionary-Laboratory/visionary/blob/76a2b93cec0e0dfaeb598fd320b6ceabf4b39d48/src/io/spz_loader.ts)（2026-10-15，Apache-2.0，未找到 latest Release）直接生成 FP16 SH；格式与 Spark 共享指数不同。当前结论适用 CPU/WASM 解码与 WebGL2/ANGLE Metal 验证，不代表 WebGPU、CUDA 或其他设备收益。
+
 ### 已验证：批量数组边界不宜直接套用上游加速倍数
 
 2026-10-31 新读 Niantic [SPZ #74](https://github.com/nianticlabs/spz/pull/74)补丁（2026-04-09 合入，b2a63b9）：Emscripten 导出从逐元素调用改为 typed_memory_view + TypedArray.set。当前 [affd0ec 实现](https://github.com/nianticlabs/spz/blob/affd0ecea7fbb4c265ee119475af7ee5b2997482/src/emscripten/spz-bindings.cc)为 2026-08-05，最新库 v3.0.0 为 2026-05-05，MIT。Spark 2.4.0 / ffe210d（2026-10-20，MIT）的 [ExtSplatsData](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/rust/spark-rs/src/ext_splats.rs)已经批量传递，不重做同一补丁。
 
-[数组边界实验](WASM-IMPORTS.md)记录复制流量 137,345,116 / 105,201,327B，所计量函数体累计中位数仅 4.40 / 3.50ms；40 组属性、72 次画面控制一致。计时不含全部跨语言、内部计算和插桩开销，不能给出复制成本上界或纯 inflate 占比。当前是 CPU/WASM 解码，WebGL2 经 ANGLE Metal 绘制，非 WebGPU/CUDA 优化。下一步准备固定版本 Rust/WASM 构建后拆分内部工作；不重复导入矩阵或把流量当峰值内存。
+[数组边界实验](WASM-IMPORTS.md)记录复制流量 137,345,116 / 105,201,327B，所计量函数体累计中位数仅 4.40 / 3.50ms；40 组属性、72 次画面控制一致。计时不含全部跨语言、内部计算和插桩开销，不能给出复制成本上界或纯 inflate 占比。当前是 CPU/WASM 解码，WebGL2 经 ANGLE Metal 绘制，非 WebGPU/CUDA 优化。后续已完成[固定构建与内部分段](WASM-INTERNAL.md)，重点转向 SH 状态机；不重复导入矩阵或把流量当峰值内存。
 
 ### 后续候选：SH 图形纹理编码
 
