@@ -1,5 +1,12 @@
 # 更新日志
 
+## 2026-11-01 · 候选初始化取消及时返回
+
+- 修复 SPZ/PLY 候选初始化取消仍等待解码结束的问题；调用方先返回，迟到成功或失败后安全释放，不发布旧模型、不因取消回退。
+- 两场景八种旧版等待均复现，修复后八种均在结果交付前返回；真实 HTTP 缓存、双正文取消及 PLY 回退通过，详见[验证与截图](docs/SCOPED-CANCEL.md)。
+- 60 次画面与 28 组属性一致，48 个模型各释放一次；新增四项回归，143 项测试及构建通过。未测内存峰值，不将取消响应记作解码提速，默认网页不变。
+- 补充 [Spark Worker 故障恢复](https://github.com/sparkjsdev/spark/pull/480)、[Gaussian Splat Lite 最新释放补丁](https://github.com/WilliamLiu-1997/Gaussian-Splat-Lite/commit/808dbfb3fc2bd8faa9df1ad9208df2933cd9c564)和 [PRoGS 论文](https://arxiv.org/abs/2409.01761)，分别记录取消、内存释放与渐进首帧的边界。
+
 ## 2026-10-31 · 隔离 SPZ 快路径并修复 PLY 回归
 
 - 通用网格判断使默认 PLY 初始化增加 5.55% / 9.66%；改为 SPZ 专用入口，保留原通用编码，PLY 恢复基线范围。

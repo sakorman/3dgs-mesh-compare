@@ -105,6 +105,7 @@ document.querySelector<HTMLButtonElement>("#run")!.onclick = async () => {
       const current = await loader.load(spec);
       assert(records.find(r => r.model === delayed)!.disposed === 0, "Disposed before initialization settled");
       gate.resolve(); assert(await obsolete === "AbortError", "Cancelled load succeeded");
+      await new Promise(resolve => setTimeout(resolve, 0)); // Allow the late decoder cleanup to settle.
       driver.initialized = model => model.initialized;
       assert(viewer.gaussian === current.model, "Late result replaced current model");
       const late = records.find(r => r.model === delayed)!;

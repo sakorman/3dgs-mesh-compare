@@ -1,6 +1,6 @@
 # 3DGS 研究索引
 
-查阅日期：2026-10-31。以下区分已验证的应用改进与尚未验证收益的研究候选。
+查阅日期：2026-11-01。以下区分已验证的应用改进与尚未验证收益的研究候选。
 
 ## 实现
 
@@ -24,6 +24,14 @@
 ## 近期结论
 
 Spark 官方按需渲染说明，建议通过 `onDirty` 合并异步排序、LoD 和流式加载的重绘请求，避免静态场景用定时器轮询。当前项目采用同样的失效通知机制，但仍固定使用完整 PLY 和关闭 LoD；版本升级与 LoD 模型另行验证。
+
+### 加载生命周期与渐进首帧的边界
+
+2026-11-01 核对 Spark 最新提交仍为 `ffe210d`、最新 Release 为 [v2.4.0](https://github.com/sparkjsdev/spark/releases/tag/v2.4.0)（2026-10-20，MIT）。新读 [#480](https://github.com/sparkjsdev/spark/pull/480) 和 [ea822f9 实现](https://github.com/sparkjsdev/spark/commit/ea822f9841a9d286b2dfb86cb06f27ed104205f6)（2026-10-12）：标记 WASM RuntimeError，并在归还池时替换损坏 Worker；这不提供调用方的初始化取消。项目已[单独修复候选等待](SCOPED-CANCEL.md)，并验证迟到结果释放；没有强行终止共享解析池，也未声称覆盖 trap 或实际内存回收。
+
+新核对 [Gaussian Splat Lite 808dbfb](https://github.com/WilliamLiu-1997/Gaussian-Splat-Lite/commit/808dbfb3fc2bd8faa9df1ad9208df2933cd9c564)（2026-10-31 08:59 UTC，Apache-2.0）：释放 DataTexture 后清空 CPU 数据，清理 WebGPU 空闲槽的源纹理绑定。最新 [v1.5.4](https://github.com/WilliamLiu-1997/Gaussian-Splat-Lite/releases/tag/v1.5.4) 于 2026-10-29 发布，其说明为 SH 代码本聚类调整；上述释放补丁在其之后，不能混作已发布内容。[SplatLoader](https://github.com/WilliamLiu-1997/Gaussian-Splat-Lite/blob/808dbfb3fc2bd8faa9df1ad9208df2933cd9c564/src/loaders/SplatLoader.js)传递 AbortSignal 并在 finally 清理请求记录，但本地未运行其后端。该项目支持 WebGL2/WebGPU，依赖 Three.js >=0.187.0，与本项目 0.180.0 不可直接替换；Metal compute/CUDA 适配与收益未验证。可行动方向是检查取消后的纹理数组与绑定持有，先测峰值再决定改动，不直接套用清理代码。
+
+阅读 [PRoGS: Progressive Rendering of Gaussian Splats v1](https://arxiv.org/html/2409.01761v1) §3.1、§3.5、§4（2024-09-03；[WACV 2025](https://openaccess.thecvf.com/content/WACV2025/html/Zoomers_PRoGS_Progressive_Rendering_of_Gaussian_Splats_WACV_2025_paper.html)，论文 CC BY-NC-ND 4.0）。它按贡献排序并构造可独立解码的分块；量化边界也须随块提供。评价以完整训练模型为参考，与本项目照片留出评分不同。[作者主页](https://brent-zoomers.github.io/)与论文入口未找到可核验版本/许可的专属代码链接；具体 WebGL2/WebGPU/Metal/CUDA 移植仍待确认。可用前缀和完整配对校验属于不同协议，不能把取消更快、并行下载或降低点数直接称为渐进首帧收益。该文为补充基础参考，未当作新发表结果或启动分块转换。
 
 ### 已验证：SH 优化应限制在 SPZ 接收入口
 

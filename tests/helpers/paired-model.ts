@@ -98,9 +98,30 @@ export class PairedModelLoader<M> {
       check();
       const start = performance.now();
       const model = this.driver.create(bytes, format);
+      let abandoned = false;
       try {
-        // Spark initialization is not cancellable. Do not dispose until it settles.
-        await this.driver.initialized(model);
+        // Return cancellation promptly; the decoder retains ownership until it settles.
+        await new Promise<void>((resolve, reject) => {
+          const abort = () => {
+            signal.removeEventListener("abort", abort);
+            abandoned = true;
+            reject(signal.reason);
+          };
+          signal.addEventListener("abort", abort, { once: true });
+          Promise.resolve().then(() => this.driver.initialized(model)).then(
+            () => {
+              signal.removeEventListener("abort", abort);
+              if (abandoned) this.driver.dispose(model);
+              else resolve();
+            },
+            error => {
+              signal.removeEventListener("abort", abort);
+              if (abandoned) this.driver.dispose(model);
+              else reject(error);
+            },
+          );
+          if (signal.aborted) abort();
+        });
         record(`${format}-initialize`, start);
         check();
         const prepareStart = performance.now();
@@ -112,7 +133,7 @@ export class PairedModelLoader<M> {
         this.driver.publish(model);
         record(`${format}-prepare-publish`, prepareStart);
       } catch (error) {
-        this.driver.dispose(model);
+        if (!abandoned) this.driver.dispose(model);
         throw error;
       }
       const old = this.current;
