@@ -94,6 +94,7 @@ test("late initialization after replacement never publishes or disposes the newe
   const current = await f.loader.load(f.spec);
   assert.equal(f.models[0].freed, 0); // Still initializing; premature disposal is unsafe.
   gate.resolve(); await rejected;
+  await new Promise(resolve => setImmediate(resolve)); // Cancellation and decoder cleanup settle independently.
   assert.equal(f.models[0].freed, 1); assert.equal(current.model.freed, 0);
   assert.deepEqual(f.published, [current.model]); assert.equal(f.visible(), current.model);
   assert.equal(f.requests.includes("ply"), false);
@@ -279,3 +280,40 @@ test("parallel phase accounting uses interval union without mutating samples", (
   assert.equal(elapsedModelPhases([]),0);
   assert.deepEqual(phases,copy);
 });
+
+for (const format of ["spz", "ply"] as const) {
+  for (const lateFailure of [false, true]) {
+    test(`cancel returns before pending ${format} initialization settles (late failure=${lateFailure})`, async () => {
+      const f = await fixture(), entered = deferred(), gate = deferred();
+      const current = await f.loader.load(f.spec);
+      const originalInit = f.driver.initialized;
+      let delayed: typeof f.models[number] | undefined;
+      f.driver.initialized = async model => {
+        delayed = model; entered.resolve(); await gate.promise;
+      };
+      let outcome: string | undefined;
+      const pending = f.loader.load(f.spec, format).then(() => { outcome = "resolved"; }, error => { outcome = error.name; });
+      await entered.promise;
+      const requestsBeforeCancel = f.requests.length;
+      f.loader.cancel();
+      try {
+        await new Promise(resolve => setImmediate(resolve));
+        assert.equal(outcome, "AbortError", "caller must not wait for the decoder");
+        assert.equal(delayed!.freed, 0, "pending decoder still owns its resources");
+        assert.equal(f.visible(), current.model);
+        assert.equal(f.requests.length, requestsBeforeCancel, "cancel must not start fallback");
+        f.driver.initialized = originalInit;
+        const retry = await f.loader.load(f.spec);
+        if (lateFailure) gate.reject(new Error("late decoder failure")); else gate.resolve();
+        await new Promise(resolve => setImmediate(resolve));
+        assert.equal(delayed!.freed, 1);
+        assert.equal(f.visible(), retry.model);
+        assert.equal(retry.model.freed, 0);
+        assert.deepEqual(f.published, [current.model, retry.model]);
+      } finally {
+        gate.resolve(); await pending; f.loader.dispose();
+        await new Promise(resolve => setImmediate(resolve));
+      }
+    });
+  }
+}
