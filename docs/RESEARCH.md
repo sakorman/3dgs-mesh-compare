@@ -25,6 +25,18 @@
 
 Spark 官方按需渲染说明，建议通过 `onDirty` 合并异步排序、LoD 和流式加载的重绘请求，避免静态场景用定时器轮询。当前项目采用同样的失效通知机制，但仍固定使用完整 PLY 和关闭 LoD；版本升级与 LoD 模型另行验证。
 
+### 已验证：离散 SH 指数计算可减少候选初始化
+
+2026-10-31 重新核对 Spark main `ffe210d`（2026-10-20）与最新 v2.4.0 Release（同日），未升级依赖；阅读 [#465 实际补丁](https://github.com/sparkjsdev/spark/commit/8779cbd8ba07cfed50ff30d50063c358a8743881)及原 `encode_ext_rgb`，保持 ceil 语义。本地[独立候选](SH-GRID.md)对最大绝对值位于 `[0,1]`、步长 `1/128` 网格的输入使用整数指数与 f32 二次幂构造；其他输入保留原 log2/exp2。全部离散三通道组合和额外随机/特殊值校验一致，初始化减少 21.40% / 21.02%，40 组属性与 72 次画面保持一致。
+
+这是固定设备上的 CPU/WASM 加载收益，非 GPU 帧率或冷下载结论。复读 [Visionary v1 §3.4](https://arxiv.org/html/2512.08478v1)的一次预打包路径，不套用其每帧排序跑分。候选尚未接入默认页面；下一步先测通用 PLY 输入的分支成本，再完成 HTTP、取消回退与内存验证。
+
+### 新候选：Gaussian Point Splatting 的压缩属性与后端限制
+
+阅读[作者页面及摘要](https://www.momentsingraphics.de/Siggraph2026.html)（作者版 2026-05-20，SIGGRAPH 2026-07-20）和[公开实现 54d1308](https://github.com/JorisAR/gaussian-point-splatting/tree/54d1308ede68662c9129db5b4af61c26f69499a6)（最新提交 2026-08-19，无 GitHub Release，BSD-3-Clause）。[属性实现](https://github.com/JorisAR/gaussian-point-splatting/blob/54d1308ede68662c9129db5b4af61c26f69499a6/src/core/gaussians/gaussian_types.cuh)按场景 SH 边界构造 CompactSH，再分块复制到 CUDA 缓冲；不同于当前 SPZ 固定网格与 Spark 共享指数，不能直接替换其布局。
+
+作者方法用不透明点、64 位原子操作及随机透明度避开排序，存在噪声/混叠差异；实现明确依赖 NVIDIA、CUDA 12.6 与 CUDA/OpenGL 互操作。未核验 WebGL2/WebGPU/Metal 移植，也未复现其渲染或加载收益。论文 PDF 本次因检索服务文件大小限制未完整读取，论文再分发许可尚未核实；当前只作为后续属性布局与渲染研究线索，不据此改动默认流程。
+
 ### 已定位：SH 状态机成为初始化优化重点
 
 2026-10-31 的[固定工具链实验](WASM-INTERNAL.md)将 gzip 写入/刷新与属性状态机分开：SH 为 73.75 / 57.10ms，约占属性处理 79%；80 组属性、144 次画面一致。该阶段包含展开、布局、编码、JS 写回和 drain，尚不能把全部时间归于单个函数。
