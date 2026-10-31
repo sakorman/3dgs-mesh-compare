@@ -25,6 +25,18 @@
 
 Spark 官方按需渲染说明，建议通过 `onDirty` 合并异步排序、LoD 和流式加载的重绘请求，避免静态场景用定时器轮询。当前项目采用同样的失效通知机制，但仍固定使用完整 PLY 和关闭 LoD；版本升级与 LoD 模型另行验证。
 
+### 已验证：批量数组边界不宜直接套用上游加速倍数
+
+2026-10-31 新读 Niantic [SPZ #74](https://github.com/nianticlabs/spz/pull/74)补丁（2026-04-09 合入，b2a63b9）：Emscripten 导出从逐元素调用改为 typed_memory_view + TypedArray.set。当前 [affd0ec 实现](https://github.com/nianticlabs/spz/blob/affd0ecea7fbb4c265ee119475af7ee5b2997482/src/emscripten/spz-bindings.cc)为 2026-08-05，最新库 v3.0.0 为 2026-05-05，MIT。Spark 2.4.0 / ffe210d（2026-10-20，MIT）的 [ExtSplatsData](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/rust/spark-rs/src/ext_splats.rs)已经批量传递，不重做同一补丁。
+
+[数组边界实验](WASM-IMPORTS.md)记录复制流量 137,345,116 / 105,201,327B，所计量函数体累计中位数仅 4.40 / 3.50ms；40 组属性、72 次画面控制一致。计时不含全部跨语言、内部计算和插桩开销，不能给出复制成本上界或纯 inflate 占比。当前是 CPU/WASM 解码，WebGL2 经 ANGLE Metal 绘制，非 WebGPU/CUDA 优化。下一步准备固定版本 Rust/WASM 构建后拆分内部工作；不重复导入矩阵或把流量当峰值内存。
+
+### 后续候选：SH 图形纹理编码
+
+Amir Said、Randall Rauwendaal 的 [GPU-friendly Graphics Texture Coding v1](https://arxiv.org/html/2607.14513v1)（2026-07-16，CC BY 4.0）研究 SH 重排、BC1/BC7 和随机访问。已读 IV、V-A；质量实验用 Compressonator 压解后恢复 SH，不等于当前浏览器已能直接采样压缩 SH 或获得首帧收益。未找到可核验版本/许可的作者完整实现，论文许可不替代代码许可。
+
+WebGL BC7 需核验 [BPTC 扩展](https://registry.khronos.org/webgl/extensions/EXT_texture_compression_bptc/)和数据布局；WebGPU/Metal/CUDA 适配仍未验证。暂不改格式、位宽或训练，待现有初始化瓶颈与质量协议明确后再评估。
+
 ### 已验证：Worker 边界不能等同于纯解压或结果复制
 
 2026-10-31 复核 [Spark 2.4.0 / ffe210d](https://github.com/sparkjsdev/spark/tree/ffe210dc0a45d0515a06c9235878108112827d61)（2026-10-20，MIT）及[发行说明](https://github.com/sparkjsdev/spark/releases/tag/v2.4.0)。直接阅读 [ChunkDecoder](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/rust/spark-rs/src/decoder.rs)和 [ExtSplatsData](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/rust/spark-rs/src/ext_splats.rs)：push 内含至多 1MiB 暂存片段的 JS→WASM 复制、解压、属性消费和 JS 数组写回；finish 才完成最后刷新与对象导出，但不是全部结果数组成本。
