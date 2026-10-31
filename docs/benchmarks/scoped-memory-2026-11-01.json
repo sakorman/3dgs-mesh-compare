@@ -1,0 +1,2065 @@
+{
+  "createdAt": "2026-10-31T23:07:58.585Z",
+  "baseline": "da5ddf2",
+  "sourceHashes": {
+    "tests/browser/scoped-memory.ts": "a75255c5617ccfd20d11b4e954d4863d1202eaa151d1c5db2478202b6a3df6c8",
+    "tests/browser/scoped-memory.html": "a44b6c93f07353db0c4a1ad262efbf1c2c7c7f9800fe107304eb8d10443f6969",
+    "tests/helpers/buffer-ownership.ts": "80531f5f8c4eb84708fac9c452bfd23d9b8b16b7b880b776a98e5820ed10f52a",
+    "tests/helpers/paired-model.ts": "9b74be66eb941f6112dfb5469346c95ac7b4f5ea44e33c97832a69bfbd3497ac",
+    "scripts/prepare_scoped_memory.ts": "2adafed81f4de09c50d1f6c59082e2f75347b0e347b50145e55770d49dfdd566",
+    "scripts/report_scoped_memory.ts": "f142827b128eb37d9e5025310f4ae42b10cade2b8cc37eba25d6f80a05d9782a"
+  },
+  "summary": [
+    {
+      "scene": "pipes",
+      "mode": "serial",
+      "mainModelBackingBytes": 28901376,
+      "decodeWorkers": 1,
+      "idleDecodeCapacity": 26804224,
+      "clearedModels": 3,
+      "pixels": 6,
+      "attributeChecks": 3
+    },
+    {
+      "scene": "pipes",
+      "mode": "overlap",
+      "mainModelBackingBytes": 28901376,
+      "decodeWorkers": 2,
+      "idleDecodeCapacity": 53608448,
+      "clearedModels": 3,
+      "pixels": 6,
+      "attributeChecks": 3
+    },
+    {
+      "scene": "office",
+      "mode": "serial",
+      "mainModelBackingBytes": 22413312,
+      "decodeWorkers": 1,
+      "idleDecodeCapacity": 26804224,
+      "clearedModels": 3,
+      "pixels": 8,
+      "attributeChecks": 3
+    },
+    {
+      "scene": "office",
+      "mode": "overlap",
+      "mainModelBackingBytes": 22413312,
+      "decodeWorkers": 2,
+      "idleDecodeCapacity": 53608448,
+      "clearedModels": 3,
+      "pixels": 8,
+      "attributeChecks": 3
+    }
+  ],
+  "documents": [
+    {
+      "createdAt": "2026-10-31T23:06:16.440Z",
+      "baseline": "da5ddf2",
+      "scene": "pipes",
+      "mode": "serial",
+      "manifest": {
+        "createdAt": "2026-10-31T23:04:57.907Z",
+        "baseWorkerSha256": "6061570af0957e0cf2b78c4da074bafae05c3ae8a63947f456daf7d552be6753",
+        "wasmSha256": "b51fcb232a097324ab4683ec4328f0d99f63784698cd360f7be5a34a8b91fbec",
+        "workerSha256": "925bb8346981a70a2b469785340656683324134b2385d63d737b9a96d05290c5",
+        "license": "MIT",
+        "upstream": "ffe210dc0a45d0515a06c9235878108112827d61",
+        "method": "Boundary capacity counters only. Optional controlled delay after actual loadExtSplats decoding and before result transfer. No timing claim or allocator/heap/VRAM peak measurement."
+      },
+      "asset": {
+        "scene": "pipes",
+        "count": 300000,
+        "plyGzipBytes": 64843796,
+        "plyGzipSha256": "55b311c225e5ac53a2e2c3d6e2fa2cafd228dd16c7d5d6ac56daaf9efbf76734",
+        "plySha256": "b716afb08b23e18feed481eb8307238da7ba0788aea705601c7c66e022a51caf",
+        "spzBytes": 12545116,
+        "spzSha256": "4d86d47f541a66d4724525125e698b35706fdf4d42d844710664e96c9a14b87c",
+        "alphaRawBytes": 600048,
+        "alphaRawSha256": "92764f5dd6325fd9bc4ca6f96ed7d50fe31fc026e6ef11dd907ca8f455a129e8",
+        "alphaGzipBytes": 526239,
+        "alphaGzipSha256": "0728d33ba6872b94a5f8be9f4efbea4804a57ee072ff80bc518bc0a7341ded50",
+        "combinedBytes": 13071355
+      },
+      "environment": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+        "visibility": [],
+        "crossOriginIsolated": false,
+        "measureUserAgentSpecificMemory": "undefined"
+      },
+      "resolution": [
+        768,
+        505
+      ],
+      "initialOwned": {
+        "views": 6,
+        "viewBytes": 28901376,
+        "buffers": 6,
+        "backingBytes": 28901376
+      },
+      "finalOwned": {
+        "views": 6,
+        "viewBytes": 28901376,
+        "buffers": 6,
+        "backingBytes": 28901376
+      },
+      "snapshots": [
+        {
+          "label": "initial",
+          "workers": [
+            {
+              "worker": 0,
+              "role": "decode",
+              "capacity": 26804224
+            },
+            {
+              "worker": 1,
+              "role": "sort",
+              "capacity": 6881280
+            }
+          ],
+          "decodeCapacity": 26804224
+        },
+        {
+          "label": "before-dispose",
+          "workers": [
+            {
+              "worker": 1,
+              "role": "sort",
+              "capacity": 6881280
+            },
+            {
+              "worker": 0,
+              "role": "decode",
+              "capacity": 26804224
+            }
+          ],
+          "decodeCapacity": 26804224
+        },
+        {
+          "label": "after-dispose",
+          "workers": [
+            {
+              "worker": 0,
+              "role": "decode",
+              "capacity": 26804224
+            }
+          ],
+          "decodeCapacity": 26804224
+        },
+        {
+          "label": "after-one-second-idle",
+          "workers": [
+            {
+              "worker": 0,
+              "role": "decode",
+              "capacity": 26804224
+            }
+          ],
+          "decodeCapacity": 26804224
+        }
+      ],
+      "messages": [
+        {
+          "worker": 0,
+          "kind": "decode",
+          "id": 1,
+          "memory": {
+            "beforeCapacity": 1245184,
+            "capacity": 26804224,
+            "outputBuffers": 6,
+            "outputBytes": 28901376,
+            "inputBytes": 12545116
+          }
+        },
+        {
+          "worker": 0,
+          "kind": "snapshot",
+          "token": 1,
+          "capacity": 26804224
+        },
+        {
+          "worker": 1,
+          "kind": "snapshot",
+          "token": 1,
+          "capacity": 6881280
+        },
+        {
+          "worker": 0,
+          "kind": "decode",
+          "id": 3,
+          "memory": {
+            "beforeCapacity": 26804224,
+            "capacity": 26804224,
+            "outputBuffers": 6,
+            "outputBytes": 28901376,
+            "inputBytes": 12545116
+          }
+        },
+        {
+          "worker": 0,
+          "kind": "decode",
+          "id": 5,
+          "memory": {
+            "beforeCapacity": 26804224,
+            "capacity": 26804224,
+            "outputBuffers": 6,
+            "outputBytes": 28901376,
+            "inputBytes": 12545116
+          }
+        },
+        {
+          "worker": 1,
+          "kind": "snapshot",
+          "token": 2,
+          "capacity": 6881280
+        },
+        {
+          "worker": 0,
+          "kind": "snapshot",
+          "token": 2,
+          "capacity": 26804224
+        },
+        {
+          "worker": 0,
+          "kind": "snapshot",
+          "token": 3,
+          "capacity": 26804224
+        },
+        {
+          "worker": 0,
+          "kind": "snapshot",
+          "token": 4,
+          "capacity": 26804224
+        }
+      ],
+      "controls": [
+        {
+          "label": "initial",
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac"
+        },
+        {
+          "label": "second",
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac"
+        },
+        {
+          "label": "final",
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac"
+        },
+        {
+          "label": "final",
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": -0.08,
+          "hash": "27c033857c6e5c988d9dff5026de99c326a3dfee995bef663c7d2452462f4d9e"
+        },
+        {
+          "label": "final",
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0.08,
+          "hash": "0cc73a81c589f1fdb7e8df11828d3217eaaaa03d4450392112f3e209f474be32"
+        },
+        {
+          "label": "final",
+          "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+          "yaw": 0,
+          "hash": "b64e381af290a4e4a4b4492326c3eef3c858d0fa8771ea4a5712f8e17c6a8f86"
+        }
+      ],
+      "attributes": [
+        {
+          "label": "initial",
+          "buffers": [
+            {
+              "bytes": 4816896,
+              "sha256": "1755d1b2fbb0d5465f4a67a603dcfbf125941224db4afd1fcc27cb1fdf374d05"
+            },
+            {
+              "bytes": 4816896,
+              "sha256": "02eb4ea233999a1a65040eff15cb428effc9ee0999a9669ae39996ff5980b1dc"
+            },
+            {
+              "bytes": 4816896,
+              "sha256": "d34ad3a168f7ec9ca2ff2bbd527db8907f12898cf3449f71d8f5b50cfbe88f24"
+            },
+            {
+              "bytes": 4816896,
+              "sha256": "982c073908c0a87fa2c4736ba38459e566600bb2fd6eab628a69f595a4169fb0"
+            },
+            {
+              "bytes": 4816896,
+              "sha256": "a41a196fac5fc22c3c6b8c0d1a71e99e6c83dac729096c4ac8e8d2ff0a495251"
+            },
+            {
+              "bytes": 4816896,
+              "sha256": "a5b88c039365677a5918426c02d34bf21057b24afbb42df695526ee25c21f505"
+            }
+          ]
+        },
+        {
+          "label": "second",
+          "buffers": [
+            {
+              "bytes": 4816896,
+              "sha256": "1755d1b2fbb0d5465f4a67a603dcfbf125941224db4afd1fcc27cb1fdf374d05"
+            },
+            {
+              "bytes": 4816896,
+              "sha256": "02eb4ea233999a1a65040eff15cb428effc9ee0999a9669ae39996ff5980b1dc"
+            },
+            {
+              "bytes": 4816896,
+              "sha256": "d34ad3a168f7ec9ca2ff2bbd527db8907f12898cf3449f71d8f5b50cfbe88f24"
+            },
+            {
+              "bytes": 4816896,
+              "sha256": "982c073908c0a87fa2c4736ba38459e566600bb2fd6eab628a69f595a4169fb0"
+            },
+            {
+              "bytes": 4816896,
+              "sha256": "a41a196fac5fc22c3c6b8c0d1a71e99e6c83dac729096c4ac8e8d2ff0a495251"
+            },
+            {
+              "bytes": 4816896,
+              "sha256": "a5b88c039365677a5918426c02d34bf21057b24afbb42df695526ee25c21f505"
+            }
+          ]
+        },
+        {
+          "label": "final",
+          "buffers": [
+            {
+              "bytes": 4816896,
+              "sha256": "1755d1b2fbb0d5465f4a67a603dcfbf125941224db4afd1fcc27cb1fdf374d05"
+            },
+            {
+              "bytes": 4816896,
+              "sha256": "02eb4ea233999a1a65040eff15cb428effc9ee0999a9669ae39996ff5980b1dc"
+            },
+            {
+              "bytes": 4816896,
+              "sha256": "d34ad3a168f7ec9ca2ff2bbd527db8907f12898cf3449f71d8f5b50cfbe88f24"
+            },
+            {
+              "bytes": 4816896,
+              "sha256": "982c073908c0a87fa2c4736ba38459e566600bb2fd6eab628a69f595a4169fb0"
+            },
+            {
+              "bytes": 4816896,
+              "sha256": "a41a196fac5fc22c3c6b8c0d1a71e99e6c83dac729096c4ac8e8d2ff0a495251"
+            },
+            {
+              "bytes": 4816896,
+              "sha256": "a5b88c039365677a5918426c02d34bf21057b24afbb42df695526ee25c21f505"
+            }
+          ]
+        }
+      ],
+      "network": [
+        {
+          "run": "cc96cc5d-398c-4c51-bc96-b37a9b3277d6",
+          "policy": "versioned",
+          "scene": "pipes",
+          "kind": "spz",
+          "version": "4d86d47f541a66d4724525125e698b35706fdf4d42d844710664e96c9a14b87c",
+          "ifNoneMatch": null,
+          "etag": "\"4d86d47f541a66d4724525125e698b35706fdf4d42d844710664e96c9a14b87c\"",
+          "status": 200,
+          "bodyBytesOffered": 12545116,
+          "finished": true,
+          "closed": true
+        },
+        {
+          "run": "cc96cc5d-398c-4c51-bc96-b37a9b3277d6",
+          "policy": "versioned",
+          "scene": "pipes",
+          "kind": "alpha",
+          "version": "92764f5dd6325fd9bc4ca6f96ed7d50fe31fc026e6ef11dd907ca8f455a129e8",
+          "ifNoneMatch": null,
+          "etag": "\"0728d33ba6872b94a5f8be9f4efbea4804a57ee072ff80bc518bc0a7341ded50\"",
+          "status": 200,
+          "bodyBytesOffered": 526239,
+          "finished": true,
+          "closed": true
+        }
+      ],
+      "resources": [
+        {
+          "disposed": 1,
+          "published": 1,
+          "before": {
+            "views": 6,
+            "viewBytes": 28901376,
+            "buffers": 6,
+            "backingBytes": 28901376
+          },
+          "after": {
+            "model": {
+              "views": 0,
+              "viewBytes": 0,
+              "buffers": 0,
+              "backingBytes": 0
+            },
+            "ext": {
+              "views": 2,
+              "viewBytes": 0,
+              "buffers": 2,
+              "backingBytes": 0
+            },
+            "extraKeys": [],
+            "textureSourcesCleared": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ]
+          }
+        },
+        {
+          "disposed": 1,
+          "published": 1,
+          "before": {
+            "views": 6,
+            "viewBytes": 28901376,
+            "buffers": 6,
+            "backingBytes": 28901376
+          },
+          "after": {
+            "model": {
+              "views": 0,
+              "viewBytes": 0,
+              "buffers": 0,
+              "backingBytes": 0
+            },
+            "ext": {
+              "views": 2,
+              "viewBytes": 0,
+              "buffers": 2,
+              "backingBytes": 0
+            },
+            "extraKeys": [],
+            "textureSourcesCleared": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ]
+          }
+        },
+        {
+          "disposed": 1,
+          "published": 1,
+          "before": {
+            "views": 6,
+            "viewBytes": 28901376,
+            "buffers": 6,
+            "backingBytes": 28901376
+          },
+          "after": {
+            "model": {
+              "views": 0,
+              "viewBytes": 0,
+              "buffers": 0,
+              "backingBytes": 0
+            },
+            "ext": {
+              "views": 2,
+              "viewBytes": 0,
+              "buffers": 2,
+              "backingBytes": 0
+            },
+            "extraKeys": [],
+            "textureSourcesCleared": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ]
+          }
+        }
+      ],
+      "workers": [
+        {
+          "id": 0,
+          "terminated": false,
+          "calls": 3
+        },
+        {
+          "id": 1,
+          "terminated": true,
+          "calls": 0
+        }
+      ],
+      "errors": [],
+      "method": "One document per scene/mode; three real SPZ decodes, fixed SH-scoped WASM and AP16, no LoD. Overlap holds the second decoded result in its Worker before transfer, cancels the caller, loads a replacement, then releases the old result. This controlled overlap is not natural decode latency. Counts explicit backing stores and WASM capacities at boundaries, not allocator live bytes, whole-process peak, VRAM or garbage collection. Input/output/main arrays and WASM must not be summed as a measured peak. GPU drawing is serial; no timing comparison."
+    },
+    {
+      "createdAt": "2026-10-31T23:06:33.865Z",
+      "baseline": "da5ddf2",
+      "scene": "pipes",
+      "mode": "overlap",
+      "manifest": {
+        "createdAt": "2026-10-31T23:04:57.907Z",
+        "baseWorkerSha256": "6061570af0957e0cf2b78c4da074bafae05c3ae8a63947f456daf7d552be6753",
+        "wasmSha256": "b51fcb232a097324ab4683ec4328f0d99f63784698cd360f7be5a34a8b91fbec",
+        "workerSha256": "925bb8346981a70a2b469785340656683324134b2385d63d737b9a96d05290c5",
+        "license": "MIT",
+        "upstream": "ffe210dc0a45d0515a06c9235878108112827d61",
+        "method": "Boundary capacity counters only. Optional controlled delay after actual loadExtSplats decoding and before result transfer. No timing claim or allocator/heap/VRAM peak measurement."
+      },
+      "asset": {
+        "scene": "pipes",
+        "count": 300000,
+        "plyGzipBytes": 64843796,
+        "plyGzipSha256": "55b311c225e5ac53a2e2c3d6e2fa2cafd228dd16c7d5d6ac56daaf9efbf76734",
+        "plySha256": "b716afb08b23e18feed481eb8307238da7ba0788aea705601c7c66e022a51caf",
+        "spzBytes": 12545116,
+        "spzSha256": "4d86d47f541a66d4724525125e698b35706fdf4d42d844710664e96c9a14b87c",
+        "alphaRawBytes": 600048,
+        "alphaRawSha256": "92764f5dd6325fd9bc4ca6f96ed7d50fe31fc026e6ef11dd907ca8f455a129e8",
+        "alphaGzipBytes": 526239,
+        "alphaGzipSha256": "0728d33ba6872b94a5f8be9f4efbea4804a57ee072ff80bc518bc0a7341ded50",
+        "combinedBytes": 13071355
+      },
+      "environment": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+        "visibility": [],
+        "crossOriginIsolated": false,
+        "measureUserAgentSpecificMemory": "undefined"
+      },
+      "resolution": [
+        768,
+        505
+      ],
+      "initialOwned": {
+        "views": 6,
+        "viewBytes": 28901376,
+        "buffers": 6,
+        "backingBytes": 28901376
+      },
+      "finalOwned": {
+        "views": 6,
+        "viewBytes": 28901376,
+        "buffers": 6,
+        "backingBytes": 28901376
+      },
+      "snapshots": [
+        {
+          "label": "initial",
+          "workers": [
+            {
+              "worker": 0,
+              "role": "decode",
+              "capacity": 26804224
+            },
+            {
+              "worker": 1,
+              "role": "sort",
+              "capacity": 6881280
+            }
+          ],
+          "decodeCapacity": 26804224
+        },
+        {
+          "label": "retry-with-held-result",
+          "workers": [
+            {
+              "worker": 0,
+              "role": "decode",
+              "capacity": 26804224
+            },
+            {
+              "worker": 1,
+              "role": "sort",
+              "capacity": 6881280
+            },
+            {
+              "worker": 2,
+              "role": "decode",
+              "capacity": 26804224
+            }
+          ],
+          "decodeCapacity": 53608448
+        },
+        {
+          "label": "before-dispose",
+          "workers": [
+            {
+              "worker": 2,
+              "role": "decode",
+              "capacity": 26804224
+            },
+            {
+              "worker": 1,
+              "role": "sort",
+              "capacity": 6881280
+            },
+            {
+              "worker": 0,
+              "role": "decode",
+              "capacity": 26804224
+            }
+          ],
+          "decodeCapacity": 53608448
+        },
+        {
+          "label": "after-dispose",
+          "workers": [
+            {
+              "worker": 2,
+              "role": "decode",
+              "capacity": 26804224
+            },
+            {
+              "worker": 0,
+              "role": "decode",
+              "capacity": 26804224
+            }
+          ],
+          "decodeCapacity": 53608448
+        },
+        {
+          "label": "after-one-second-idle",
+          "workers": [
+            {
+              "worker": 0,
+              "role": "decode",
+              "capacity": 26804224
+            },
+            {
+              "worker": 2,
+              "role": "decode",
+              "capacity": 26804224
+            }
+          ],
+          "decodeCapacity": 53608448
+        }
+      ],
+      "messages": [
+        {
+          "worker": 0,
+          "kind": "decode",
+          "id": 1,
+          "memory": {
+            "beforeCapacity": 1245184,
+            "capacity": 26804224,
+            "outputBuffers": 6,
+            "outputBytes": 28901376,
+            "inputBytes": 12545116
+          }
+        },
+        {
+          "worker": 0,
+          "kind": "snapshot",
+          "token": 1,
+          "capacity": 26804224
+        },
+        {
+          "worker": 1,
+          "kind": "snapshot",
+          "token": 1,
+          "capacity": 6881280
+        },
+        {
+          "worker": 0,
+          "kind": "held",
+          "id": 3,
+          "memory": {
+            "beforeCapacity": 26804224,
+            "capacity": 26804224,
+            "outputBuffers": 6,
+            "outputBytes": 28901376,
+            "inputBytes": 12545116
+          }
+        },
+        {
+          "worker": 2,
+          "kind": "decode",
+          "id": 4,
+          "memory": {
+            "beforeCapacity": 1245184,
+            "capacity": 26804224,
+            "outputBuffers": 6,
+            "outputBytes": 28901376,
+            "inputBytes": 12545116
+          }
+        },
+        {
+          "worker": 0,
+          "kind": "snapshot",
+          "token": 2,
+          "capacity": 26804224
+        },
+        {
+          "worker": 1,
+          "kind": "snapshot",
+          "token": 2,
+          "capacity": 6881280
+        },
+        {
+          "worker": 2,
+          "kind": "snapshot",
+          "token": 2,
+          "capacity": 26804224
+        },
+        {
+          "worker": 0,
+          "kind": "decode",
+          "id": 3,
+          "memory": {
+            "beforeCapacity": 26804224,
+            "capacity": 26804224,
+            "outputBuffers": 6,
+            "outputBytes": 28901376,
+            "inputBytes": 12545116
+          }
+        },
+        {
+          "worker": 2,
+          "kind": "snapshot",
+          "token": 3,
+          "capacity": 26804224
+        },
+        {
+          "worker": 1,
+          "kind": "snapshot",
+          "token": 3,
+          "capacity": 6881280
+        },
+        {
+          "worker": 0,
+          "kind": "snapshot",
+          "token": 3,
+          "capacity": 26804224
+        },
+        {
+          "worker": 2,
+          "kind": "snapshot",
+          "token": 4,
+          "capacity": 26804224
+        },
+        {
+          "worker": 0,
+          "kind": "snapshot",
+          "token": 4,
+          "capacity": 26804224
+        },
+        {
+          "worker": 0,
+          "kind": "snapshot",
+          "token": 5,
+          "capacity": 26804224
+        },
+        {
+          "worker": 2,
+          "kind": "snapshot",
+          "token": 5,
+          "capacity": 26804224
+        }
+      ],
+      "controls": [
+        {
+          "label": "initial",
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac"
+        },
+        {
+          "label": "retry",
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac"
+        },
+        {
+          "label": "final",
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0,
+          "hash": "06b378a23b1bbfc0479252fd25c9ff825edd4c007e4089a9a64d2313bb60b6ac"
+        },
+        {
+          "label": "final",
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": -0.08,
+          "hash": "27c033857c6e5c988d9dff5026de99c326a3dfee995bef663c7d2452462f4d9e"
+        },
+        {
+          "label": "final",
+          "view": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+          "yaw": 0.08,
+          "hash": "0cc73a81c589f1fdb7e8df11828d3217eaaaa03d4450392112f3e209f474be32"
+        },
+        {
+          "label": "final",
+          "view": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+          "yaw": 0,
+          "hash": "b64e381af290a4e4a4b4492326c3eef3c858d0fa8771ea4a5712f8e17c6a8f86"
+        }
+      ],
+      "attributes": [
+        {
+          "label": "initial",
+          "buffers": [
+            {
+              "bytes": 4816896,
+              "sha256": "1755d1b2fbb0d5465f4a67a603dcfbf125941224db4afd1fcc27cb1fdf374d05"
+            },
+            {
+              "bytes": 4816896,
+              "sha256": "02eb4ea233999a1a65040eff15cb428effc9ee0999a9669ae39996ff5980b1dc"
+            },
+            {
+              "bytes": 4816896,
+              "sha256": "d34ad3a168f7ec9ca2ff2bbd527db8907f12898cf3449f71d8f5b50cfbe88f24"
+            },
+            {
+              "bytes": 4816896,
+              "sha256": "982c073908c0a87fa2c4736ba38459e566600bb2fd6eab628a69f595a4169fb0"
+            },
+            {
+              "bytes": 4816896,
+              "sha256": "a41a196fac5fc22c3c6b8c0d1a71e99e6c83dac729096c4ac8e8d2ff0a495251"
+            },
+            {
+              "bytes": 4816896,
+              "sha256": "a5b88c039365677a5918426c02d34bf21057b24afbb42df695526ee25c21f505"
+            }
+          ]
+        },
+        {
+          "label": "retry",
+          "buffers": [
+            {
+              "bytes": 4816896,
+              "sha256": "1755d1b2fbb0d5465f4a67a603dcfbf125941224db4afd1fcc27cb1fdf374d05"
+            },
+            {
+              "bytes": 4816896,
+              "sha256": "02eb4ea233999a1a65040eff15cb428effc9ee0999a9669ae39996ff5980b1dc"
+            },
+            {
+              "bytes": 4816896,
+              "sha256": "d34ad3a168f7ec9ca2ff2bbd527db8907f12898cf3449f71d8f5b50cfbe88f24"
+            },
+            {
+              "bytes": 4816896,
+              "sha256": "982c073908c0a87fa2c4736ba38459e566600bb2fd6eab628a69f595a4169fb0"
+            },
+            {
+              "bytes": 4816896,
+              "sha256": "a41a196fac5fc22c3c6b8c0d1a71e99e6c83dac729096c4ac8e8d2ff0a495251"
+            },
+            {
+              "bytes": 4816896,
+              "sha256": "a5b88c039365677a5918426c02d34bf21057b24afbb42df695526ee25c21f505"
+            }
+          ]
+        },
+        {
+          "label": "final",
+          "buffers": [
+            {
+              "bytes": 4816896,
+              "sha256": "1755d1b2fbb0d5465f4a67a603dcfbf125941224db4afd1fcc27cb1fdf374d05"
+            },
+            {
+              "bytes": 4816896,
+              "sha256": "02eb4ea233999a1a65040eff15cb428effc9ee0999a9669ae39996ff5980b1dc"
+            },
+            {
+              "bytes": 4816896,
+              "sha256": "d34ad3a168f7ec9ca2ff2bbd527db8907f12898cf3449f71d8f5b50cfbe88f24"
+            },
+            {
+              "bytes": 4816896,
+              "sha256": "982c073908c0a87fa2c4736ba38459e566600bb2fd6eab628a69f595a4169fb0"
+            },
+            {
+              "bytes": 4816896,
+              "sha256": "a41a196fac5fc22c3c6b8c0d1a71e99e6c83dac729096c4ac8e8d2ff0a495251"
+            },
+            {
+              "bytes": 4816896,
+              "sha256": "a5b88c039365677a5918426c02d34bf21057b24afbb42df695526ee25c21f505"
+            }
+          ]
+        }
+      ],
+      "network": [
+        {
+          "run": "f8cfbe4d-9282-425f-be12-14cfe95d6656",
+          "policy": "versioned",
+          "scene": "pipes",
+          "kind": "spz",
+          "version": "4d86d47f541a66d4724525125e698b35706fdf4d42d844710664e96c9a14b87c",
+          "ifNoneMatch": null,
+          "etag": "\"4d86d47f541a66d4724525125e698b35706fdf4d42d844710664e96c9a14b87c\"",
+          "status": 200,
+          "bodyBytesOffered": 12545116,
+          "finished": true,
+          "closed": true
+        },
+        {
+          "run": "f8cfbe4d-9282-425f-be12-14cfe95d6656",
+          "policy": "versioned",
+          "scene": "pipes",
+          "kind": "alpha",
+          "version": "92764f5dd6325fd9bc4ca6f96ed7d50fe31fc026e6ef11dd907ca8f455a129e8",
+          "ifNoneMatch": null,
+          "etag": "\"0728d33ba6872b94a5f8be9f4efbea4804a57ee072ff80bc518bc0a7341ded50\"",
+          "status": 200,
+          "bodyBytesOffered": 526239,
+          "finished": true,
+          "closed": true
+        }
+      ],
+      "resources": [
+        {
+          "disposed": 1,
+          "published": 1,
+          "before": {
+            "views": 6,
+            "viewBytes": 28901376,
+            "buffers": 6,
+            "backingBytes": 28901376
+          },
+          "after": {
+            "model": {
+              "views": 0,
+              "viewBytes": 0,
+              "buffers": 0,
+              "backingBytes": 0
+            },
+            "ext": {
+              "views": 2,
+              "viewBytes": 0,
+              "buffers": 2,
+              "backingBytes": 0
+            },
+            "extraKeys": [],
+            "textureSourcesCleared": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ]
+          }
+        },
+        {
+          "disposed": 1,
+          "published": 0,
+          "before": {
+            "views": 6,
+            "viewBytes": 28901376,
+            "buffers": 6,
+            "backingBytes": 28901376
+          },
+          "after": {
+            "model": {
+              "views": 0,
+              "viewBytes": 0,
+              "buffers": 0,
+              "backingBytes": 0
+            },
+            "ext": {
+              "views": 2,
+              "viewBytes": 0,
+              "buffers": 2,
+              "backingBytes": 0
+            },
+            "extraKeys": [],
+            "textureSourcesCleared": [
+              true,
+              true
+            ]
+          }
+        },
+        {
+          "disposed": 1,
+          "published": 1,
+          "before": {
+            "views": 6,
+            "viewBytes": 28901376,
+            "buffers": 6,
+            "backingBytes": 28901376
+          },
+          "after": {
+            "model": {
+              "views": 0,
+              "viewBytes": 0,
+              "buffers": 0,
+              "backingBytes": 0
+            },
+            "ext": {
+              "views": 2,
+              "viewBytes": 0,
+              "buffers": 2,
+              "backingBytes": 0
+            },
+            "extraKeys": [],
+            "textureSourcesCleared": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ]
+          }
+        }
+      ],
+      "workers": [
+        {
+          "id": 0,
+          "terminated": false,
+          "calls": 2
+        },
+        {
+          "id": 1,
+          "terminated": true,
+          "calls": 0
+        },
+        {
+          "id": 2,
+          "terminated": false,
+          "calls": 1
+        }
+      ],
+      "errors": [],
+      "method": "One document per scene/mode; three real SPZ decodes, fixed SH-scoped WASM and AP16, no LoD. Overlap holds the second decoded result in its Worker before transfer, cancels the caller, loads a replacement, then releases the old result. This controlled overlap is not natural decode latency. Counts explicit backing stores and WASM capacities at boundaries, not allocator live bytes, whole-process peak, VRAM or garbage collection. Input/output/main arrays and WASM must not be summed as a measured peak. GPU drawing is serial; no timing comparison."
+    },
+    {
+      "createdAt": "2026-10-31T23:07:27.746Z",
+      "baseline": "da5ddf2",
+      "scene": "office",
+      "mode": "serial",
+      "manifest": {
+        "createdAt": "2026-10-31T23:04:57.907Z",
+        "baseWorkerSha256": "6061570af0957e0cf2b78c4da074bafae05c3ae8a63947f456daf7d552be6753",
+        "wasmSha256": "b51fcb232a097324ab4683ec4328f0d99f63784698cd360f7be5a34a8b91fbec",
+        "workerSha256": "925bb8346981a70a2b469785340656683324134b2385d63d737b9a96d05290c5",
+        "license": "MIT",
+        "upstream": "ffe210dc0a45d0515a06c9235878108112827d61",
+        "method": "Boundary capacity counters only. Optional controlled delay after actual loadExtSplats decoding and before result transfer. No timing claim or allocator/heap/VRAM peak measurement."
+      },
+      "asset": {
+        "scene": "office",
+        "count": 231428,
+        "plyGzipBytes": 49050760,
+        "plyGzipSha256": "0786facf28ff0c2d6f47e3e9f7c392823a7eb3d892cf2e41b52d1964067e6b89",
+        "plySha256": "0af14259673b165001a9e84f27b6e19a55e924e0432e491e9701229f1c24e276",
+        "spzBytes": 8927279,
+        "spzSha256": "e77b9eccc5dce1a72b48c96bddabbc0aa0dc6bbbb2d8520cbd1ca5166e02768d",
+        "alphaRawBytes": 462904,
+        "alphaRawSha256": "9c96203b9727bdb1ccb7ed705a0f84ee7a8691cdeabdfe32c3d5b06e2918b8e4",
+        "alphaGzipBytes": 407820,
+        "alphaGzipSha256": "0f3e396769d5da701fe5194fe028905d71f397bec30aa7e6efa35340aea66d79",
+        "combinedBytes": 9335099
+      },
+      "environment": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+        "visibility": [],
+        "crossOriginIsolated": false,
+        "measureUserAgentSpecificMemory": "undefined"
+      },
+      "resolution": [
+        768,
+        500
+      ],
+      "initialOwned": {
+        "views": 6,
+        "viewBytes": 22413312,
+        "buffers": 6,
+        "backingBytes": 22413312
+      },
+      "finalOwned": {
+        "views": 6,
+        "viewBytes": 22413312,
+        "buffers": 6,
+        "backingBytes": 22413312
+      },
+      "snapshots": [
+        {
+          "label": "initial",
+          "workers": [
+            {
+              "worker": 1,
+              "role": "sort",
+              "capacity": 5832704
+            },
+            {
+              "worker": 0,
+              "role": "decode",
+              "capacity": 26804224
+            }
+          ],
+          "decodeCapacity": 26804224
+        },
+        {
+          "label": "before-dispose",
+          "workers": [
+            {
+              "worker": 1,
+              "role": "sort",
+              "capacity": 5832704
+            },
+            {
+              "worker": 0,
+              "role": "decode",
+              "capacity": 26804224
+            }
+          ],
+          "decodeCapacity": 26804224
+        },
+        {
+          "label": "after-dispose",
+          "workers": [
+            {
+              "worker": 0,
+              "role": "decode",
+              "capacity": 26804224
+            }
+          ],
+          "decodeCapacity": 26804224
+        },
+        {
+          "label": "after-one-second-idle",
+          "workers": [
+            {
+              "worker": 0,
+              "role": "decode",
+              "capacity": 26804224
+            }
+          ],
+          "decodeCapacity": 26804224
+        }
+      ],
+      "messages": [
+        {
+          "worker": 0,
+          "kind": "decode",
+          "id": 1,
+          "memory": {
+            "beforeCapacity": 1245184,
+            "capacity": 26804224,
+            "outputBuffers": 6,
+            "outputBytes": 22413312,
+            "inputBytes": 8927279
+          }
+        },
+        {
+          "worker": 1,
+          "kind": "snapshot",
+          "token": 1,
+          "capacity": 5832704
+        },
+        {
+          "worker": 0,
+          "kind": "snapshot",
+          "token": 1,
+          "capacity": 26804224
+        },
+        {
+          "worker": 0,
+          "kind": "decode",
+          "id": 3,
+          "memory": {
+            "beforeCapacity": 26804224,
+            "capacity": 26804224,
+            "outputBuffers": 6,
+            "outputBytes": 22413312,
+            "inputBytes": 8927279
+          }
+        },
+        {
+          "worker": 0,
+          "kind": "decode",
+          "id": 5,
+          "memory": {
+            "beforeCapacity": 26804224,
+            "capacity": 26804224,
+            "outputBuffers": 6,
+            "outputBytes": 22413312,
+            "inputBytes": 8927279
+          }
+        },
+        {
+          "worker": 1,
+          "kind": "snapshot",
+          "token": 2,
+          "capacity": 5832704
+        },
+        {
+          "worker": 0,
+          "kind": "snapshot",
+          "token": 2,
+          "capacity": 26804224
+        },
+        {
+          "worker": 0,
+          "kind": "snapshot",
+          "token": 3,
+          "capacity": 26804224
+        },
+        {
+          "worker": 0,
+          "kind": "snapshot",
+          "token": 4,
+          "capacity": 26804224
+        }
+      ],
+      "controls": [
+        {
+          "label": "initial",
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037"
+        },
+        {
+          "label": "second",
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037"
+        },
+        {
+          "label": "final",
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037"
+        },
+        {
+          "label": "final",
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": -0.08,
+          "hash": "0ed08cb6838ef35ad8af114b626b17bea3c121abdf3b96c6ba71681530a7bddb"
+        },
+        {
+          "label": "final",
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0.08,
+          "hash": "4b9de22ffea3b49f8e7048f5d8cfdaed9edb0ad6eba753cb4e66b8863b9011ff"
+        },
+        {
+          "label": "final",
+          "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+          "yaw": 0,
+          "hash": "72e55dde0896b725aaacf7bea3dd29a4ca91119bc5d5b18baec3b69ec1677363"
+        },
+        {
+          "label": "final",
+          "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+          "yaw": 0,
+          "hash": "c98e4b3f25af58e5672a1f45277c8eaceebab7cab615ba4d58b418cbd3a7ff6e"
+        },
+        {
+          "label": "final",
+          "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+          "yaw": 0,
+          "hash": "37b646ef7fde599a1c1ae5beec9ac1c23924b787b21f2e776d60410415ebd7d5"
+        }
+      ],
+      "attributes": [
+        {
+          "label": "initial",
+          "buffers": [
+            {
+              "bytes": 3735552,
+              "sha256": "fde54dd64abdccb50f7822fa2a7707b080ec5fbc0cccc01d5391756232079c5c"
+            },
+            {
+              "bytes": 3735552,
+              "sha256": "3fa08a08a81c30373e2734abb45b26e541d81bd071069422c16c7222b6b0618c"
+            },
+            {
+              "bytes": 3735552,
+              "sha256": "0b26e558f4a584a8bee20ba8af61e917fd2ad5331635df038afc99fd13165c2d"
+            },
+            {
+              "bytes": 3735552,
+              "sha256": "c673aba6877e9640f29bbda27ff020655d0e703c345011e5912e58fcb38e847c"
+            },
+            {
+              "bytes": 3735552,
+              "sha256": "349a4932a924596880f9b8bc2df9e92d035cbe11849fabbb927c7ef337bf0b3f"
+            },
+            {
+              "bytes": 3735552,
+              "sha256": "9aca0e2eaddcd1f131a73769317248a592a4eaf2dfeb601deefaef83d74e6b76"
+            }
+          ]
+        },
+        {
+          "label": "second",
+          "buffers": [
+            {
+              "bytes": 3735552,
+              "sha256": "fde54dd64abdccb50f7822fa2a7707b080ec5fbc0cccc01d5391756232079c5c"
+            },
+            {
+              "bytes": 3735552,
+              "sha256": "3fa08a08a81c30373e2734abb45b26e541d81bd071069422c16c7222b6b0618c"
+            },
+            {
+              "bytes": 3735552,
+              "sha256": "0b26e558f4a584a8bee20ba8af61e917fd2ad5331635df038afc99fd13165c2d"
+            },
+            {
+              "bytes": 3735552,
+              "sha256": "c673aba6877e9640f29bbda27ff020655d0e703c345011e5912e58fcb38e847c"
+            },
+            {
+              "bytes": 3735552,
+              "sha256": "349a4932a924596880f9b8bc2df9e92d035cbe11849fabbb927c7ef337bf0b3f"
+            },
+            {
+              "bytes": 3735552,
+              "sha256": "9aca0e2eaddcd1f131a73769317248a592a4eaf2dfeb601deefaef83d74e6b76"
+            }
+          ]
+        },
+        {
+          "label": "final",
+          "buffers": [
+            {
+              "bytes": 3735552,
+              "sha256": "fde54dd64abdccb50f7822fa2a7707b080ec5fbc0cccc01d5391756232079c5c"
+            },
+            {
+              "bytes": 3735552,
+              "sha256": "3fa08a08a81c30373e2734abb45b26e541d81bd071069422c16c7222b6b0618c"
+            },
+            {
+              "bytes": 3735552,
+              "sha256": "0b26e558f4a584a8bee20ba8af61e917fd2ad5331635df038afc99fd13165c2d"
+            },
+            {
+              "bytes": 3735552,
+              "sha256": "c673aba6877e9640f29bbda27ff020655d0e703c345011e5912e58fcb38e847c"
+            },
+            {
+              "bytes": 3735552,
+              "sha256": "349a4932a924596880f9b8bc2df9e92d035cbe11849fabbb927c7ef337bf0b3f"
+            },
+            {
+              "bytes": 3735552,
+              "sha256": "9aca0e2eaddcd1f131a73769317248a592a4eaf2dfeb601deefaef83d74e6b76"
+            }
+          ]
+        }
+      ],
+      "network": [
+        {
+          "run": "559e1a20-44cb-4a38-af34-a292cb59c962",
+          "policy": "versioned",
+          "scene": "office",
+          "kind": "spz",
+          "version": "e77b9eccc5dce1a72b48c96bddabbc0aa0dc6bbbb2d8520cbd1ca5166e02768d",
+          "ifNoneMatch": null,
+          "etag": "\"e77b9eccc5dce1a72b48c96bddabbc0aa0dc6bbbb2d8520cbd1ca5166e02768d\"",
+          "status": 200,
+          "bodyBytesOffered": 8927279,
+          "finished": true,
+          "closed": true
+        },
+        {
+          "run": "559e1a20-44cb-4a38-af34-a292cb59c962",
+          "policy": "versioned",
+          "scene": "office",
+          "kind": "alpha",
+          "version": "9c96203b9727bdb1ccb7ed705a0f84ee7a8691cdeabdfe32c3d5b06e2918b8e4",
+          "ifNoneMatch": null,
+          "etag": "\"0f3e396769d5da701fe5194fe028905d71f397bec30aa7e6efa35340aea66d79\"",
+          "status": 200,
+          "bodyBytesOffered": 407820,
+          "finished": true,
+          "closed": true
+        }
+      ],
+      "resources": [
+        {
+          "disposed": 1,
+          "published": 1,
+          "before": {
+            "views": 6,
+            "viewBytes": 22413312,
+            "buffers": 6,
+            "backingBytes": 22413312
+          },
+          "after": {
+            "model": {
+              "views": 0,
+              "viewBytes": 0,
+              "buffers": 0,
+              "backingBytes": 0
+            },
+            "ext": {
+              "views": 2,
+              "viewBytes": 0,
+              "buffers": 2,
+              "backingBytes": 0
+            },
+            "extraKeys": [],
+            "textureSourcesCleared": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ]
+          }
+        },
+        {
+          "disposed": 1,
+          "published": 1,
+          "before": {
+            "views": 6,
+            "viewBytes": 22413312,
+            "buffers": 6,
+            "backingBytes": 22413312
+          },
+          "after": {
+            "model": {
+              "views": 0,
+              "viewBytes": 0,
+              "buffers": 0,
+              "backingBytes": 0
+            },
+            "ext": {
+              "views": 2,
+              "viewBytes": 0,
+              "buffers": 2,
+              "backingBytes": 0
+            },
+            "extraKeys": [],
+            "textureSourcesCleared": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ]
+          }
+        },
+        {
+          "disposed": 1,
+          "published": 1,
+          "before": {
+            "views": 6,
+            "viewBytes": 22413312,
+            "buffers": 6,
+            "backingBytes": 22413312
+          },
+          "after": {
+            "model": {
+              "views": 0,
+              "viewBytes": 0,
+              "buffers": 0,
+              "backingBytes": 0
+            },
+            "ext": {
+              "views": 2,
+              "viewBytes": 0,
+              "buffers": 2,
+              "backingBytes": 0
+            },
+            "extraKeys": [],
+            "textureSourcesCleared": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ]
+          }
+        }
+      ],
+      "workers": [
+        {
+          "id": 0,
+          "terminated": false,
+          "calls": 3
+        },
+        {
+          "id": 1,
+          "terminated": true,
+          "calls": 0
+        }
+      ],
+      "errors": [],
+      "method": "One document per scene/mode; three real SPZ decodes, fixed SH-scoped WASM and AP16, no LoD. Overlap holds the second decoded result in its Worker before transfer, cancels the caller, loads a replacement, then releases the old result. This controlled overlap is not natural decode latency. Counts explicit backing stores and WASM capacities at boundaries, not allocator live bytes, whole-process peak, VRAM or garbage collection. Input/output/main arrays and WASM must not be summed as a measured peak. GPU drawing is serial; no timing comparison."
+    },
+    {
+      "createdAt": "2026-10-31T23:07:09.619Z",
+      "baseline": "da5ddf2",
+      "scene": "office",
+      "mode": "overlap",
+      "manifest": {
+        "createdAt": "2026-10-31T23:04:57.907Z",
+        "baseWorkerSha256": "6061570af0957e0cf2b78c4da074bafae05c3ae8a63947f456daf7d552be6753",
+        "wasmSha256": "b51fcb232a097324ab4683ec4328f0d99f63784698cd360f7be5a34a8b91fbec",
+        "workerSha256": "925bb8346981a70a2b469785340656683324134b2385d63d737b9a96d05290c5",
+        "license": "MIT",
+        "upstream": "ffe210dc0a45d0515a06c9235878108112827d61",
+        "method": "Boundary capacity counters only. Optional controlled delay after actual loadExtSplats decoding and before result transfer. No timing claim or allocator/heap/VRAM peak measurement."
+      },
+      "asset": {
+        "scene": "office",
+        "count": 231428,
+        "plyGzipBytes": 49050760,
+        "plyGzipSha256": "0786facf28ff0c2d6f47e3e9f7c392823a7eb3d892cf2e41b52d1964067e6b89",
+        "plySha256": "0af14259673b165001a9e84f27b6e19a55e924e0432e491e9701229f1c24e276",
+        "spzBytes": 8927279,
+        "spzSha256": "e77b9eccc5dce1a72b48c96bddabbc0aa0dc6bbbb2d8520cbd1ca5166e02768d",
+        "alphaRawBytes": 462904,
+        "alphaRawSha256": "9c96203b9727bdb1ccb7ed705a0f84ee7a8691cdeabdfe32c3d5b06e2918b8e4",
+        "alphaGzipBytes": 407820,
+        "alphaGzipSha256": "0f3e396769d5da701fe5194fe028905d71f397bec30aa7e6efa35340aea66d79",
+        "combinedBytes": 9335099
+      },
+      "environment": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+        "visibility": [],
+        "crossOriginIsolated": false,
+        "measureUserAgentSpecificMemory": "undefined"
+      },
+      "resolution": [
+        768,
+        500
+      ],
+      "initialOwned": {
+        "views": 6,
+        "viewBytes": 22413312,
+        "buffers": 6,
+        "backingBytes": 22413312
+      },
+      "finalOwned": {
+        "views": 6,
+        "viewBytes": 22413312,
+        "buffers": 6,
+        "backingBytes": 22413312
+      },
+      "snapshots": [
+        {
+          "label": "initial",
+          "workers": [
+            {
+              "worker": 0,
+              "role": "decode",
+              "capacity": 26804224
+            },
+            {
+              "worker": 1,
+              "role": "sort",
+              "capacity": 5832704
+            }
+          ],
+          "decodeCapacity": 26804224
+        },
+        {
+          "label": "retry-with-held-result",
+          "workers": [
+            {
+              "worker": 1,
+              "role": "sort",
+              "capacity": 5832704
+            },
+            {
+              "worker": 2,
+              "role": "decode",
+              "capacity": 26804224
+            },
+            {
+              "worker": 0,
+              "role": "decode",
+              "capacity": 26804224
+            }
+          ],
+          "decodeCapacity": 53608448
+        },
+        {
+          "label": "before-dispose",
+          "workers": [
+            {
+              "worker": 2,
+              "role": "decode",
+              "capacity": 26804224
+            },
+            {
+              "worker": 1,
+              "role": "sort",
+              "capacity": 5832704
+            },
+            {
+              "worker": 0,
+              "role": "decode",
+              "capacity": 26804224
+            }
+          ],
+          "decodeCapacity": 53608448
+        },
+        {
+          "label": "after-dispose",
+          "workers": [
+            {
+              "worker": 2,
+              "role": "decode",
+              "capacity": 26804224
+            },
+            {
+              "worker": 0,
+              "role": "decode",
+              "capacity": 26804224
+            }
+          ],
+          "decodeCapacity": 53608448
+        },
+        {
+          "label": "after-one-second-idle",
+          "workers": [
+            {
+              "worker": 0,
+              "role": "decode",
+              "capacity": 26804224
+            },
+            {
+              "worker": 2,
+              "role": "decode",
+              "capacity": 26804224
+            }
+          ],
+          "decodeCapacity": 53608448
+        }
+      ],
+      "messages": [
+        {
+          "worker": 0,
+          "kind": "decode",
+          "id": 1,
+          "memory": {
+            "beforeCapacity": 1245184,
+            "capacity": 26804224,
+            "outputBuffers": 6,
+            "outputBytes": 22413312,
+            "inputBytes": 8927279
+          }
+        },
+        {
+          "worker": 0,
+          "kind": "snapshot",
+          "token": 1,
+          "capacity": 26804224
+        },
+        {
+          "worker": 1,
+          "kind": "snapshot",
+          "token": 1,
+          "capacity": 5832704
+        },
+        {
+          "worker": 0,
+          "kind": "held",
+          "id": 3,
+          "memory": {
+            "beforeCapacity": 26804224,
+            "capacity": 26804224,
+            "outputBuffers": 6,
+            "outputBytes": 22413312,
+            "inputBytes": 8927279
+          }
+        },
+        {
+          "worker": 2,
+          "kind": "decode",
+          "id": 4,
+          "memory": {
+            "beforeCapacity": 1245184,
+            "capacity": 26804224,
+            "outputBuffers": 6,
+            "outputBytes": 22413312,
+            "inputBytes": 8927279
+          }
+        },
+        {
+          "worker": 1,
+          "kind": "snapshot",
+          "token": 2,
+          "capacity": 5832704
+        },
+        {
+          "worker": 2,
+          "kind": "snapshot",
+          "token": 2,
+          "capacity": 26804224
+        },
+        {
+          "worker": 0,
+          "kind": "snapshot",
+          "token": 2,
+          "capacity": 26804224
+        },
+        {
+          "worker": 0,
+          "kind": "decode",
+          "id": 3,
+          "memory": {
+            "beforeCapacity": 26804224,
+            "capacity": 26804224,
+            "outputBuffers": 6,
+            "outputBytes": 22413312,
+            "inputBytes": 8927279
+          }
+        },
+        {
+          "worker": 2,
+          "kind": "snapshot",
+          "token": 3,
+          "capacity": 26804224
+        },
+        {
+          "worker": 1,
+          "kind": "snapshot",
+          "token": 3,
+          "capacity": 5832704
+        },
+        {
+          "worker": 0,
+          "kind": "snapshot",
+          "token": 3,
+          "capacity": 26804224
+        },
+        {
+          "worker": 2,
+          "kind": "snapshot",
+          "token": 4,
+          "capacity": 26804224
+        },
+        {
+          "worker": 0,
+          "kind": "snapshot",
+          "token": 4,
+          "capacity": 26804224
+        },
+        {
+          "worker": 0,
+          "kind": "snapshot",
+          "token": 5,
+          "capacity": 26804224
+        },
+        {
+          "worker": 2,
+          "kind": "snapshot",
+          "token": 5,
+          "capacity": 26804224
+        }
+      ],
+      "controls": [
+        {
+          "label": "initial",
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037"
+        },
+        {
+          "label": "retry",
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037"
+        },
+        {
+          "label": "final",
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0,
+          "hash": "e652f6be2c5c1fa492808fb9fb1964b0f604b9755575ba830766bf84bb9be037"
+        },
+        {
+          "label": "final",
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": -0.08,
+          "hash": "0ed08cb6838ef35ad8af114b626b17bea3c121abdf3b96c6ba71681530a7bddb"
+        },
+        {
+          "label": "final",
+          "view": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+          "yaw": 0.08,
+          "hash": "4b9de22ffea3b49f8e7048f5d8cfdaed9edb0ad6eba753cb4e66b8863b9011ff"
+        },
+        {
+          "label": "final",
+          "view": "0008-1c6da61406eb4744893572435799058c.jpg",
+          "yaw": 0,
+          "hash": "72e55dde0896b725aaacf7bea3dd29a4ca91119bc5d5b18baec3b69ec1677363"
+        },
+        {
+          "label": "final",
+          "view": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+          "yaw": 0,
+          "hash": "c98e4b3f25af58e5672a1f45277c8eaceebab7cab615ba4d58b418cbd3a7ff6e"
+        },
+        {
+          "label": "final",
+          "view": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+          "yaw": 0,
+          "hash": "37b646ef7fde599a1c1ae5beec9ac1c23924b787b21f2e776d60410415ebd7d5"
+        }
+      ],
+      "attributes": [
+        {
+          "label": "initial",
+          "buffers": [
+            {
+              "bytes": 3735552,
+              "sha256": "fde54dd64abdccb50f7822fa2a7707b080ec5fbc0cccc01d5391756232079c5c"
+            },
+            {
+              "bytes": 3735552,
+              "sha256": "3fa08a08a81c30373e2734abb45b26e541d81bd071069422c16c7222b6b0618c"
+            },
+            {
+              "bytes": 3735552,
+              "sha256": "0b26e558f4a584a8bee20ba8af61e917fd2ad5331635df038afc99fd13165c2d"
+            },
+            {
+              "bytes": 3735552,
+              "sha256": "c673aba6877e9640f29bbda27ff020655d0e703c345011e5912e58fcb38e847c"
+            },
+            {
+              "bytes": 3735552,
+              "sha256": "349a4932a924596880f9b8bc2df9e92d035cbe11849fabbb927c7ef337bf0b3f"
+            },
+            {
+              "bytes": 3735552,
+              "sha256": "9aca0e2eaddcd1f131a73769317248a592a4eaf2dfeb601deefaef83d74e6b76"
+            }
+          ]
+        },
+        {
+          "label": "retry",
+          "buffers": [
+            {
+              "bytes": 3735552,
+              "sha256": "fde54dd64abdccb50f7822fa2a7707b080ec5fbc0cccc01d5391756232079c5c"
+            },
+            {
+              "bytes": 3735552,
+              "sha256": "3fa08a08a81c30373e2734abb45b26e541d81bd071069422c16c7222b6b0618c"
+            },
+            {
+              "bytes": 3735552,
+              "sha256": "0b26e558f4a584a8bee20ba8af61e917fd2ad5331635df038afc99fd13165c2d"
+            },
+            {
+              "bytes": 3735552,
+              "sha256": "c673aba6877e9640f29bbda27ff020655d0e703c345011e5912e58fcb38e847c"
+            },
+            {
+              "bytes": 3735552,
+              "sha256": "349a4932a924596880f9b8bc2df9e92d035cbe11849fabbb927c7ef337bf0b3f"
+            },
+            {
+              "bytes": 3735552,
+              "sha256": "9aca0e2eaddcd1f131a73769317248a592a4eaf2dfeb601deefaef83d74e6b76"
+            }
+          ]
+        },
+        {
+          "label": "final",
+          "buffers": [
+            {
+              "bytes": 3735552,
+              "sha256": "fde54dd64abdccb50f7822fa2a7707b080ec5fbc0cccc01d5391756232079c5c"
+            },
+            {
+              "bytes": 3735552,
+              "sha256": "3fa08a08a81c30373e2734abb45b26e541d81bd071069422c16c7222b6b0618c"
+            },
+            {
+              "bytes": 3735552,
+              "sha256": "0b26e558f4a584a8bee20ba8af61e917fd2ad5331635df038afc99fd13165c2d"
+            },
+            {
+              "bytes": 3735552,
+              "sha256": "c673aba6877e9640f29bbda27ff020655d0e703c345011e5912e58fcb38e847c"
+            },
+            {
+              "bytes": 3735552,
+              "sha256": "349a4932a924596880f9b8bc2df9e92d035cbe11849fabbb927c7ef337bf0b3f"
+            },
+            {
+              "bytes": 3735552,
+              "sha256": "9aca0e2eaddcd1f131a73769317248a592a4eaf2dfeb601deefaef83d74e6b76"
+            }
+          ]
+        }
+      ],
+      "network": [
+        {
+          "run": "4f69c1aa-c9ee-4cb6-9663-95b2eb93c233",
+          "policy": "versioned",
+          "scene": "office",
+          "kind": "spz",
+          "version": "e77b9eccc5dce1a72b48c96bddabbc0aa0dc6bbbb2d8520cbd1ca5166e02768d",
+          "ifNoneMatch": null,
+          "etag": "\"e77b9eccc5dce1a72b48c96bddabbc0aa0dc6bbbb2d8520cbd1ca5166e02768d\"",
+          "status": 200,
+          "bodyBytesOffered": 8927279,
+          "finished": true,
+          "closed": true
+        },
+        {
+          "run": "4f69c1aa-c9ee-4cb6-9663-95b2eb93c233",
+          "policy": "versioned",
+          "scene": "office",
+          "kind": "alpha",
+          "version": "9c96203b9727bdb1ccb7ed705a0f84ee7a8691cdeabdfe32c3d5b06e2918b8e4",
+          "ifNoneMatch": null,
+          "etag": "\"0f3e396769d5da701fe5194fe028905d71f397bec30aa7e6efa35340aea66d79\"",
+          "status": 200,
+          "bodyBytesOffered": 407820,
+          "finished": true,
+          "closed": true
+        }
+      ],
+      "resources": [
+        {
+          "disposed": 1,
+          "published": 1,
+          "before": {
+            "views": 6,
+            "viewBytes": 22413312,
+            "buffers": 6,
+            "backingBytes": 22413312
+          },
+          "after": {
+            "model": {
+              "views": 0,
+              "viewBytes": 0,
+              "buffers": 0,
+              "backingBytes": 0
+            },
+            "ext": {
+              "views": 2,
+              "viewBytes": 0,
+              "buffers": 2,
+              "backingBytes": 0
+            },
+            "extraKeys": [],
+            "textureSourcesCleared": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ]
+          }
+        },
+        {
+          "disposed": 1,
+          "published": 0,
+          "before": {
+            "views": 6,
+            "viewBytes": 22413312,
+            "buffers": 6,
+            "backingBytes": 22413312
+          },
+          "after": {
+            "model": {
+              "views": 0,
+              "viewBytes": 0,
+              "buffers": 0,
+              "backingBytes": 0
+            },
+            "ext": {
+              "views": 2,
+              "viewBytes": 0,
+              "buffers": 2,
+              "backingBytes": 0
+            },
+            "extraKeys": [],
+            "textureSourcesCleared": [
+              true,
+              true
+            ]
+          }
+        },
+        {
+          "disposed": 1,
+          "published": 1,
+          "before": {
+            "views": 6,
+            "viewBytes": 22413312,
+            "buffers": 6,
+            "backingBytes": 22413312
+          },
+          "after": {
+            "model": {
+              "views": 0,
+              "viewBytes": 0,
+              "buffers": 0,
+              "backingBytes": 0
+            },
+            "ext": {
+              "views": 2,
+              "viewBytes": 0,
+              "buffers": 2,
+              "backingBytes": 0
+            },
+            "extraKeys": [],
+            "textureSourcesCleared": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ]
+          }
+        }
+      ],
+      "workers": [
+        {
+          "id": 0,
+          "terminated": false,
+          "calls": 2
+        },
+        {
+          "id": 1,
+          "terminated": true,
+          "calls": 0
+        },
+        {
+          "id": 2,
+          "terminated": false,
+          "calls": 1
+        }
+      ],
+      "errors": [],
+      "method": "One document per scene/mode; three real SPZ decodes, fixed SH-scoped WASM and AP16, no LoD. Overlap holds the second decoded result in its Worker before transfer, cancels the caller, loads a replacement, then releases the old result. This controlled overlap is not natural decode latency. Counts explicit backing stores and WASM capacities at boundaries, not allocator live bytes, whole-process peak, VRAM or garbage collection. Input/output/main arrays and WASM must not be summed as a measured peak. GPU drawing is serial; no timing comparison."
+    }
+  ],
+  "limitations": [
+    "Controlled worker-result overlap, not observed natural latency or peak-memory distribution.",
+    "WASM linear-memory capacity and selected distinct backing buffers only; no GC/RSS/VRAM/whole-process peak measurement.",
+    "HTTP pair reused from browser cache after first load. Module and Worker probe loaded before checks; no cold-start timing.",
+    "All render submissions serial; unchanged point counts, SH3, resolution, camera controls and assets; no new PSNR/SSIM claim.",
+    "One preflight incorrectly assumed unpublished results already owned all SH textures; probe corrected to count only actual owned textures. Not a production disposal defect."
+  ]
+}

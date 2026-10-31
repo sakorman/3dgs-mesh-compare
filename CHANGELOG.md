@@ -1,5 +1,12 @@
 # 更新日志
 
+## 2026-11-01 · 定位取消重试后的解析池容量
+
+- 补充候选加载的独立内存探针，分别记录模型缓冲、纹理清理与解析 Worker 的 WASM 容量，按底层缓冲去重。
+- 两场景串行控制保留 25.5625 MiB，受控重叠重试保留 51.125 MiB；12 个模型均已清理，容量差来自仍存活的解析池，详见[原始记录与截图](docs/SCOPED-MEMORY.md)。此值不是进程或显存峰值。
+- 28 次画面、12 组属性对照及 145 项测试通过，类型检查和构建通过。下一步对照初始化排队的容量与等待代价，默认网页不变，不记作性能提升。
+- 核对 [Spark 池实现](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/SplatWorker.ts)与 [GSL 释放补丁](https://github.com/WilliamLiu-1997/Gaussian-Splat-Lite/commit/808dbfb3fc2bd8faa9df1ad9208df2933cd9c564)；补充 [NVGS 论文](https://arxiv.org/abs/2511.19202v2)及[作者代码](https://github.com/UHasselt-DigitalFutureLab/NVGSViewer/tree/0038a9ec8fc1b2ac4c16f90f4123c073336ff274)，区分加载池容量与渲染显存。
+
 ## 2026-11-01 · 候选初始化取消及时返回
 
 - 修复 SPZ/PLY 候选初始化取消仍等待解码结束的问题；调用方先返回，迟到成功或失败后安全释放，不发布旧模型、不因取消回退。

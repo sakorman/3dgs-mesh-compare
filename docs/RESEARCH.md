@@ -25,6 +25,16 @@
 
 Spark 官方按需渲染说明，建议通过 `onDirty` 合并异步排序、LoD 和流式加载的重绘请求，避免静态场景用定时器轮询。当前项目采用同样的失效通知机制，但仍固定使用完整 PLY 和关闭 LoD；版本升级与 LoD 模型另行验证。
 
+### 加载池容量与渲染显存分开处理
+
+2026-11-01 重新核对 Spark main `ffe210d` 与 [v2.4.0](https://github.com/sparkjsdev/spark/releases/tag/v2.4.0)（2026-10-20，MIT），阅读固定版本 [SplatWorker](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/SplatWorker.ts)和 [ExtSplats.dispose](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/ExtSplats.ts)。解析池默认上限四个，释放作业后放回 freelist；模型 dispose 则清空属性数组及纹理 `source.data`。本地[边界测量](SCOPED-MEMORY.md)验证后一行为，并观测串行/受控重叠保留的 WASM 容量为 25.5625 / 51.125 MiB；不能把两者误判为同一类资源，也不能把容量当作实际峰值。下一步测初始化排队的容量与等待代价。
+
+新读 [GSL 808dbfb 完整补丁](https://github.com/WilliamLiu-1997/Gaussian-Splat-Lite/commit/808dbfb3fc2bd8faa9df1ad9208df2933cd9c564)，确认其 DataTexture CPU 数据和 WebGPU 空闲槽绑定处理；最新提交仍为 2026-10-31，最新 Release 仍为 2026-10-29 的 v1.5.4。Spark 当前 WebGL2 路径已有相应数组清理，不据此增加重复释放代码；GSL Apache-2.0、Three.js >=0.187.0 及后端差异仍适用。
+
+新增 [NVGS: Neural Visibility for Occlusion Culling in 3D Gaussian Splatting](https://arxiv.org/abs/2511.19202v2)：v1 2025-11-24、v2 2026-04-20，CVPR 2026，论文 CC BY-NC-ND 4.0。已读[原文 §3.3、§4.1–4.2](https://arxiv.org/html/2511.19202v2)：先共享资产，再仅为通过剔除的高斯建立实例；这减少渲染阶段 VRAM，不解决加载 Worker 的保留容量。评价以渲染控制为参考、使用组合场景，与本项目原照片留出协议不同。
+
+[作者查看器](https://github.com/UHasselt-DigitalFutureLab/NVGSViewer/tree/0038a9ec8fc1b2ac4c16f90f4123c073336ff274)最新提交 `0038a9e`（2026-04-02，修正拼写）、没有 GitHub Release，主仓 MIT。已读 [rasterization.cu](https://github.com/UHasselt-DigitalFutureLab/NVGSViewer/blob/0038a9ec8fc1b2ac4c16f90f4123c073336ff274/NVGSCudaBackend/NVGSCudaBackend/rasterization/src/rasterization.cu)：视锥检查后依据距离调用 TCNN，再筛选可见实例。实现要求 NVIDIA GPU、CUDA（作者推荐 12.8）和 TCNN/Tensor Core；当前 WebGL2、WebGPU 或 Metal compute 均不能直接使用，未运行或移植。未来可借鉴共享资产与推迟实例分配的思路，但本项目首先解决加载并发；不套用其显存或帧率数字。
+
 ### 加载生命周期与渐进首帧的边界
 
 2026-11-01 核对 Spark 最新提交仍为 `ffe210d`、最新 Release 为 [v2.4.0](https://github.com/sparkjsdev/spark/releases/tag/v2.4.0)（2026-10-20，MIT）。新读 [#480](https://github.com/sparkjsdev/spark/pull/480) 和 [ea822f9 实现](https://github.com/sparkjsdev/spark/commit/ea822f9841a9d286b2dfb86cb06f27ed104205f6)（2026-10-12）：标记 WASM RuntimeError，并在归还池时替换损坏 Worker；这不提供调用方的初始化取消。项目已[单独修复候选等待](SCOPED-CANCEL.md)，并验证迟到结果释放；没有强行终止共享解析池，也未声称覆盖 trap 或实际内存回收。
