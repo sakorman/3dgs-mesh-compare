@@ -1,5 +1,12 @@
 # 更新日志
 
+## 2026-10-31 · 定位 SH 属性处理成本
+
+- 建立固定 Rust/WASM 工具链与独立源码构建，完整属性和画面先与 npm 发布版核对，再加入内部分段计时。
+- SH 阶段为 73.75 / 57.10ms，约占属性处理 79%；高于 gzip 消费的 53.85 / 39.90ms，下一步优先验证共享指数编码，见[完整耗时与复现](docs/WASM-INTERNAL.md)。
+- 两组对照合计 80 组属性、144 次画面校验一致，139 项测试、类型检查及构建通过；保留慢样本、预检问题与计时扰动，未改变默认模型或宣称提速。
+- 新核对 [Spark 指数取整修复](https://github.com/sparkjsdev/spark/pull/465)，优化须保留向上取整与位级一致；结合 [Visionary 论文](https://arxiv.org/abs/2512.08478)及[作者加载器](https://github.com/Visionary-Laboratory/visionary/blob/76a2b93cec0e0dfaeb598fd320b6ceabf4b39d48/src/io/spz_loader.ts)区分一次属性打包和每帧渲染。
+
 ## 2026-10-31 · WASM 数组复制边界
 
 - 增加固定二进制的数组接口计数，核验输入复制、结果分配与属性回读/写回；累计复制为 137,345,116 / 105,201,327B，不能当作峰值内存。

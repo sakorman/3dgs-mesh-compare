@@ -62,6 +62,8 @@ npm test        # 数值、相机和模型解压测试
 
 候选格式另有[受控 HTTP 加载报告](docs/PACED-MODEL.md)，含缓存未命中/命中耗时、分段样本、画质和截图；新增[同模型串行／并行读取对照](docs/PARALLEL-PAIR.md)，并补充[共享总带宽上限对照](docs/SHARED-PAIR.md)，分别记录限速条件与耗时边界。新增[SPZ 压缩容器耗时对照](docs/SPZ-CONTAINER.md)，并补充[相同属性的 v3 / v4 对照](docs/SPZ-V4.md)：v4 文件更小，但当前浏览器初始化更慢，耗时与同视角截图一并保留。新增[浏览器原生解压对照](docs/SPZ-NATIVE.md)：计入预处理后总等待基本持平，保留分段耗时与同视角截图。补充[Worker / WASM 分段记录](docs/WORKER-PROFILE.md)：定位输入消费阶段，列出插桩开销与内存容量边界。[WASM 数组边界记录](docs/WASM-IMPORTS.md)进一步列出复制流量、分配次数与接口耗时。默认网页继续使用原始 PLY。
 
+[固定构建与内部分段](docs/WASM-INTERNAL.md)进一步定位了 SH 属性处理成本，包含工具链、阶段耗时和同视角画面校验。
+
 ## 场景与网格
 
 ### 办公室

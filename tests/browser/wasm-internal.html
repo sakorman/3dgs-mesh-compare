@@ -1,0 +1,8 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8">
+<title>SPZ WASM 内部分段</title>
+<style>body{font:16px system-ui;margin:24px}canvas{max-width:100%}#left{width:768px}#right{display:none}pre{white-space:pre-wrap}#gallery{display:flex;gap:16px}figure{margin:0}img{width:384px}</style>
+<h1>SPZ WASM 内部分段</h1>
+<p>保留原始 SPZ 与 SH3。分别计量 gzip 消费与属性处理，保留相同构建设置的对照。</p>
+<button id="run">运行内部分段对照</button><p id="status">Ready</p>
+<div id="gallery"></div><div id="left"></div><div id="right"></div><pre id="result"></pre>
+<script type="module" src="./wasm-internal.ts"></script>
