@@ -8,7 +8,7 @@ function deferred() {
   const promise = new Promise<void>((yes, no) => { resolve = yes; reject = no; });
   return { promise, resolve, reject };
 }
-async function fixture() {
+async function fixture(initialization: "overlap" | "serial" = "overlap") {
   const spz = new Uint8Array([1, 2, 3]);
   const ply = new TextEncoder().encode("ply\nmock");
   const alpha = encodeAlpha16(new Uint32Array([0, 0, 0, 0x3800]), 1, await sha256(spz));
@@ -32,9 +32,66 @@ async function fixture() {
     publish(model: Model) { visible = model; published.push(model); },
     dispose(model: Model) { model.freed++; if (visible === model) visible = undefined; },
   };
-  const loader = new PairedModelLoader(driver);
+  const loader = new PairedModelLoader(driver, initialization);
   return { loader, driver, files, spec, spz, ply, alpha, models, published, requests, visible: () => visible };
 }
+
+for (const format of ["spz", "ply"] as const) {
+  for (const lateFailure of [false, true]) {
+    test(`serial admission skips cancelled waiters after ${format} late failure=${lateFailure}`, {timeout: 2000}, async () => {
+      const f = await fixture("serial"), entered = deferred(), gate = deferred();
+      const current = await f.loader.load(f.spec), normal = f.driver.initialized;
+      f.driver.initialized = async model => { entered.resolve(); await gate.promise; };
+      const old = f.loader.load(f.spec, format), oldRejected = assert.rejects(old, {name: "AbortError"});
+      await entered.promise;
+      f.driver.initialized = normal;
+      const skipped = f.loader.load(f.spec), skippedRejected = assert.rejects(skipped, {name: "AbortError"});
+      await oldRejected;
+      try {
+        await new Promise(resolve => setTimeout(resolve, 20));
+        assert.equal(f.models.length, 2, "retry must wait before create, not after allocating a model");
+        f.loader.cancel(); await skippedRejected;
+        assert.equal(f.models[1].freed, 0);
+        assert.equal(f.visible(), current.model);
+        const latest = f.loader.load(f.spec);
+        if (lateFailure) gate.reject(new Error("late failure")); else gate.resolve();
+        const result = await latest;
+        assert.equal(f.models.length, 3); assert.equal(f.models[1].freed, 1);
+        assert.equal(f.visible(), result.model); assert.deepEqual(f.published, [current.model, result.model]);
+        assert(result.phases.some(p => p.name === "spz-queue"));
+        assert.equal(f.requests.filter(x => x === "ply").length, format === "ply" ? 1 : 0);
+      } finally { gate.resolve(); f.loader.dispose(); await oldRejected; await skippedRejected; }
+    });
+  }
+}
+
+test("serial admission releases creation and initialization failures for PLY fallback", {timeout: 2000}, async () => {
+  for (const failure of ["create", "initialize"]) {
+    const f = await fixture("serial"), create = f.driver.create;
+    f.driver.create = (bytes, format) => {
+      if (failure === "create" && format === "spz") throw new Error("create failure");
+      return create(bytes, format);
+    };
+    f.driver.initialized = async model => { if (failure === "initialize" && model.format === "spz") throw new Error("init failure"); };
+    const result = await f.loader.load(f.spec);
+    assert.equal(result.format, "ply"); assert.equal(result.model.freed, 0);
+    f.loader.dispose(); assert(f.models.every(m => m.freed === 1));
+  }
+});
+
+test("disposing a queued loader returns before the decoder and does not create another model", {timeout: 2000}, async () => {
+  const f = await fixture("serial"), entered = deferred(), gate = deferred();
+  f.driver.initialized = async () => { entered.resolve(); await gate.promise; };
+  const old = f.loader.load(f.spec), oldRejected = assert.rejects(old, {name: "AbortError"});
+  await entered.promise;
+  const waiting = f.loader.load(f.spec), rejected = assert.rejects(waiting, {name: "AbortError"});
+  await oldRejected;
+  await new Promise(resolve => setTimeout(resolve, 20));
+  f.loader.dispose(); await rejected;
+  assert.equal(f.models.length, 1); assert.equal(f.models[0].freed, 0);
+  gate.resolve(); await new Promise(resolve => setImmediate(resolve));
+  assert.equal(f.models[0].freed, 1); assert.equal(f.published.length, 0);
+});
 
 test("paired load publishes restored opacity and releases the previous model exactly once", async () => {
   const f = await fixture();

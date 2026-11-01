@@ -1,6 +1,7 @@
 import { readPlyResponse } from "../../src/model-bytes";
 import { applyAlpha16 } from "./alpha16";
 import { MAX_ALPHA16_BYTES, readAlpha16Response } from "./alpha16-stream";
+import { InitializationQueue } from "./initialization-queue";
 
 export interface PairedSpec {
   count: number;
@@ -43,7 +44,8 @@ export class PairedModelLoader<M> {
   private active?: AbortController;
   private current?: M;
   private closed = false;
-  constructor(private readonly driver: ModelDriver<M>) {}
+  private readonly initializationQueue = new InitializationQueue();
+  constructor(private readonly driver: ModelDriver<M>, private readonly initialization: "overlap" | "serial" = "overlap") {}
 
   cancel() { this.active?.abort(); }
   clear() {
@@ -96,8 +98,12 @@ export class PairedModelLoader<M> {
     };
     const initialize = async (bytes: Uint8Array, format: ModelFormat, alpha?: Uint8Array, modelHash?: Uint8Array) => {
       check();
+      const release = this.initialization === "serial"
+        ? await phase(`${format}-queue`, () => this.initializationQueue.acquire(signal)) : () => {};
       const start = performance.now();
-      const model = this.driver.create(bytes, format);
+      let model: M;
+      try { check(); model = this.driver.create(bytes, format); }
+      catch (error) { release(); throw error; }
       let abandoned = false;
       try {
         // Return cancellation promptly; the decoder retains ownership until it settles.
@@ -113,11 +119,13 @@ export class PairedModelLoader<M> {
               signal.removeEventListener("abort", abort);
               if (abandoned) this.driver.dispose(model);
               else resolve();
+              release();
             },
             error => {
               signal.removeEventListener("abort", abort);
               if (abandoned) this.driver.dispose(model);
               else reject(error);
+              release();
             },
           );
           if (signal.aborted) abort();
