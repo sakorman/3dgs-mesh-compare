@@ -25,9 +25,21 @@
 
 Spark 官方按需渲染说明，建议通过 `onDirty` 合并异步排序、LoD 和流式加载的重绘请求，避免静态场景用定时器轮询。当前项目采用同样的失效通知机制，但仍固定使用完整 PLY 和关闭 LoD；版本升级与 LoD 模型另行验证。
 
+### 有界初始化与等待代价
+
+2026-11-01 复核 Spark main 仍为 `ffe210d`、最新 [v2.4.0](https://github.com/sparkjsdev/spark/releases/tag/v2.4.0) 发布于 2026-10-20（MIT）。新读固定版本 [SplatPager](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/SplatPager.ts)：通过 `numFetchers` 限制在途分页任务，取消后丢弃迟到结果并在 finally 归还位置。该文件最近提交 [2d1f297](https://github.com/sparkjsdev/spark/commit/2d1f297f20c44b5a064a945dfd31c604a144c1b8) 为 2026-10-16 的 extra 类型整理，不能当作新增取消机制。分页路径与整文件解析不同；这里仅借鉴在创建前限制在途任务的思路，没有启用分页、LoD 或复制分页代码。
+
+新增 [BoundedGS: Memory-Efficient High-Resolution Training for 3D Gaussian Splatting](https://arxiv.org/abs/2610.34233)（v1：2026-10-25 12:00 UTC，截至查阅无新修订，论文 arXiv perpetual non-exclusive license）。阅读[原文 §3.1–3.4](https://arxiv.org/html/2610.34233v1)：顺序处理局部区域以限制同时存活的光栅化前后向缓存，再完成一次整视图更新。这是训练缓存生命周期设计，不能直接解决浏览器加载池；局部 SSIM 的窗口边界也不能据此认为与全图计算完全相同。
+
+[作者实现](https://github.com/XiaoBin2001/BoundedGS/tree/23bca8369a793ab9e29cc2b5d7c5966d4660d850)最新提交 `23bca83`（2026-10-27 09:52 UTC，更新链接），没有 GitHub Release。额外阅读 [image_prefetch.py](https://github.com/XiaoBin2001/BoundedGS/blob/23bca8369a793ab9e29cc2b5d7c5966d4660d850/utils/image_prefetch.py)：线程池与待消费队列均受预取数限制，分别统计后台解码和主线程等待，关闭时取消未运行任务并等待线程结束。其边界支持本项目分别记录排队与初始化耗时的测量方式，不代表能中断已开始的解码。
+
+作者验证环境为 Ubuntu 22.04、PyTorch 2.5.1 / CUDA 12.1、RTX 4090；依赖 CUDA 扩展，没有可直接接入的 WebGL2/WebGPU/Metal 后端。许可[按来源分层](https://github.com/XiaoBin2001/BoundedGS/blob/23bca8369a793ab9e29cc2b5d7c5966d4660d850/LICENSE.md)：原创贡献 MIT，继承的 3DGS / ImprovedGS 和附带依赖保留各自条件，不能将全仓概括为 MIT。未运行训练或移植其代码，不套用论文峰值和质量数字。
+
+本地[初始化排队对照](SCOPED-QUEUE.md)只采用可选的每加载器入口限制。等待请求可取消，已开始任务仍拥有槽位直至实际结束；完整属性和像素保持一致，但重试有额外等待，因此保留实验开关，暂不改默认策略。容量控制与交互延迟必须一并验收。
+
 ### 加载池容量与渲染显存分开处理
 
-2026-11-01 重新核对 Spark main `ffe210d` 与 [v2.4.0](https://github.com/sparkjsdev/spark/releases/tag/v2.4.0)（2026-10-20，MIT），阅读固定版本 [SplatWorker](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/SplatWorker.ts)和 [ExtSplats.dispose](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/ExtSplats.ts)。解析池默认上限四个，释放作业后放回 freelist；模型 dispose 则清空属性数组及纹理 `source.data`。本地[边界测量](SCOPED-MEMORY.md)验证后一行为，并观测串行/受控重叠保留的 WASM 容量为 25.5625 / 51.125 MiB；不能把两者误判为同一类资源，也不能把容量当作实际峰值。下一步测初始化排队的容量与等待代价。
+2026-11-01 重新核对 Spark main `ffe210d` 与 [v2.4.0](https://github.com/sparkjsdev/spark/releases/tag/v2.4.0)（2026-10-20，MIT），阅读固定版本 [SplatWorker](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/SplatWorker.ts)和 [ExtSplats.dispose](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/ExtSplats.ts)。解析池默认上限四个，释放作业后放回 freelist；模型 dispose 则清空属性数组及纹理 `source.data`。本地[边界测量](SCOPED-MEMORY.md)验证后一行为，并观测串行/受控重叠保留的 WASM 容量为 25.5625 / 51.125 MiB；不能把两者误判为同一类资源，也不能把容量当作实际峰值。后续[排队对照](SCOPED-QUEUE.md)已确认容量降低但增加重试等待，暂不默认采用。
 
 新读 [GSL 808dbfb 完整补丁](https://github.com/WilliamLiu-1997/Gaussian-Splat-Lite/commit/808dbfb3fc2bd8faa9df1ad9208df2933cd9c564)，确认其 DataTexture CPU 数据和 WebGPU 空闲槽绑定处理；最新提交仍为 2026-10-31，最新 Release 仍为 2026-10-29 的 v1.5.4。Spark 当前 WebGL2 路径已有相应数组清理，不据此增加重复释放代码；GSL Apache-2.0、Three.js >=0.187.0 及后端差异仍适用。
 
