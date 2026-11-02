@@ -1,6 +1,6 @@
 # 3DGS 研究索引
 
-查阅日期：2026-11-02。以下区分已验证的应用改进与尚未验证收益的研究候选。
+查阅日期：2026-11-03。以下区分已验证的应用改进与尚未验证收益的研究候选。
 
 ## 实现
 
@@ -10,6 +10,7 @@
 | [Brush](https://github.com/ArthurBrussee/brush)        | 跨平台重建、训练与模型导出                        | 默认模型来自 0.3.0；新版本和参数另建实验                                                                                 |
 | [gsplat](https://github.com/nerfstudio-project/gsplat) | 光栅化、训练与内存管理实现                        | 参考；先核对后端和设备条件                                                                                               |
 | [COSA-GS](https://github.com/pengpeng-yu/COSA-GS)      | 压缩模型与跨平台解码一致性                        | 待评估；检查实现、许可和浏览器解码成本                                                                                   |
+| [Gaussian Splat Lite](https://github.com/WilliamLiu-1997/Gaussian-Splat-Lite) | LCC2 流式加载、相机驱动 LoD、共享预算 | 1.6.1 已发布；仅作协议与调度参考，当前 SPZ/PLY 资产未接入 |
 
 ## 论文
 
@@ -22,6 +23,12 @@
 | [RDCompGS](https://arxiv.org/abs/2610.19538)                                                         | 2026-10 | 面向图像编码的率失真优化；关注码率、解码成本与画质权衡   |
 
 ## 近期结论
+
+### 新候选：LCC2 流式调度与共享 LoD 预算
+
+2026-11-03 核对 [Gaussian Splat Lite v1.6.1](https://github.com/WilliamLiu-1997/Gaussian-Splat-Lite/releases/tag/v1.6.1)（2026-11-02，Apache-2.0）及其 [LCC2 调度文档](https://github.com/WilliamLiu-1997/Gaussian-Splat-Lite/blob/73b052d4a2b6bee1ca8fe0f77d91129c9e2764c0/docs/Lcc2StreamScheduler.md)。`Lcc2StreamScheduler` 可从 LCC2 索引读取 SOG、SPZ 或 PLY 分块，依据注册相机选择细节，共享 splat budget，并在块失败时对网络错误和 408/425/429/5xx 退避重试；`firstRenderable` 只等待首个可显示覆盖，后续细节继续更新。文档明确指出预算不是严格内存上限，保留细节、环境和淡入期间可能超出，且 `update()` 必须持续调用，即使本帧跳过绘制。
+
+对本项目的可行动结论是：若未来将 pipes/office 转为可分块资产，应同时记录“首个可显示覆盖”“完整 SH3 完成”“CPU/GPU 常驻字节”和失败重试墙钟，避免把渐进首帧或预算目标写成内存峰值。当前两组固定 SPZ/AP16 与 PLY 没有 LCC2 索引和分层模型，WebGL2/Metal 实测只覆盖现有入口；不复制实现、不改依赖、不套用其速度数字。先完成发布包启动和峰值内存验证，再决定是否制作独立 LCC2 转换产物。
 
 Spark 官方按需渲染说明，建议通过 `onDirty` 合并异步排序、LoD 和流式加载的重绘请求，避免静态场景用定时器轮询。当前项目采用同样的失效通知机制，但仍固定使用完整 PLY 和关闭 LoD；版本升级与 LoD 模型另行验证。
 
