@@ -1,6 +1,6 @@
 # 3DGS 研究索引
 
-查阅日期：2026-11-01。以下区分已验证的应用改进与尚未验证收益的研究候选。
+查阅日期：2026-11-02。以下区分已验证的应用改进与尚未验证收益的研究候选。
 
 ## 实现
 
@@ -24,6 +24,16 @@
 ## 近期结论
 
 Spark 官方按需渲染说明，建议通过 `onDirty` 合并异步排序、LoD 和流式加载的重绘请求，避免静态场景用定时器轮询。当前项目采用同样的失效通知机制，但仍固定使用完整 PLY 和关闭 LoD；版本升级与 LoD 模型另行验证。
+
+### 首次运行时与渐进质量完成
+
+2026-11-02 核对 Spark main 仍为 `ffe210d`（2026-10-20），最新 [v2.4.0 Release](https://github.com/sparkjsdev/spark/releases/tag/v2.4.0) 于 2026-10-20 04:13 UTC 发布，说明标题使用 Oct 19；MIT。阅读 [wasm.ts](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/wasm.ts) 与 [SplatWorker.ts](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/SplatWorker.ts)：模块导入即启动主线程编译，Worker 共享模块；该机制来自 [#335 / 71b7558](https://github.com/sparkjsdev/spark/commit/71b75587ee432eb179b08c1a67cd745f3ac7d6a0)（2026-05-21），不能当作最新版本新增功能。仅替换 Worker 或预编译候选不能代表其完整首次启动。
+
+本地[首次运行时对照](SCOPED-STARTUP.md)已改用匹配的主线程/Worker 构建：16 个新文档、32 次实际 HTTP 加载中，首次初始化减少 38.90 / 34.20ms，96 次画面与 32 组属性一致。但开发服务转换、未重置的编译/着色器缓存和模型供给节奏均影响总等待；下一步验证无开发转换的发布包，再处理真实网络与峰值，暂不修改生产依赖。
+
+新读 [MoQSplat v1](https://arxiv.org/abs/2609.18624)（2026-09-16，IEEE MMSP 2026）[§II–IV](https://arxiv.org/html/2609.18624v1)。设计支持空间/语义分层与 SH 增强；实测原型采用单 Track、五个各 20% 的几何子层，以未剪枝渲染为 VMAF 参考，不是原照片 PSNR/SSIM。可行动假设：将“基础层可见”和“完整质量完成”分别计时，不能用较少高斯的首画面代替当前完整配对加载。本项目未实现渐进层、MoQ 或剪枝，未套用其跑分。
+
+[作者代码](https://github.com/emanuele-artioli/MoQSplat/tree/15e02a669456d767abf5d68f9fb1f909f260dde0)最新提交 `15e02a6` 为 2026-09-16 12:42 UTC，无 GitHub Release。已读[缓存实现](https://github.com/emanuele-artioli/MoQSplat/blob/15e02a669456d767abf5d68f9fb1f909f260dde0/src/moq3dgs/render/cache.py)：CPU 属性命中后仍可能拼接并移到目标设备，只有特定未变条件复用已组装结果，支持把网络缓存与运行时复用分开测。作者路径为 Python/PyTorch/gsplat、CUDA，Rust 提供 MoQ 传输；未找到可直接接入的 WebGL2/WebGPU/Metal 渲染路径。[pyproject](https://github.com/emanuele-artioli/MoQSplat/blob/15e02a669456d767abf5d68f9fb1f909f260dde0/pyproject.toml) 声明 MIT，但固定树没有独立 LICENSE/COPYING；论文页标记 CC BY-SA 4.0，正文另有 IEEE 使用声明。当前仅引用，不复制或再分发其实现；移植前需进一步确认许可与后端。
 
 ### 有界初始化与等待代价
 
