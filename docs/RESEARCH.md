@@ -1,6 +1,6 @@
 # 3DGS 研究索引
 
-查阅日期：2026-11-03。以下区分已验证的应用改进与尚未验证收益的研究候选。
+查阅日期：2026-11-04。以下区分已验证的应用改进与尚未验证收益的研究候选。
 
 ## 实现
 
@@ -10,7 +10,7 @@
 | [Brush](https://github.com/ArthurBrussee/brush)        | 跨平台重建、训练与模型导出                        | 默认模型来自 0.3.0；新版本和参数另建实验                                                                                 |
 | [gsplat](https://github.com/nerfstudio-project/gsplat) | 光栅化、训练与内存管理实现                        | 参考；先核对后端和设备条件                                                                                               |
 | [COSA-GS](https://github.com/pengpeng-yu/COSA-GS)      | 压缩模型与跨平台解码一致性                        | 待评估；检查实现、许可和浏览器解码成本                                                                                   |
-| [Gaussian Splat Lite](https://github.com/WilliamLiu-1997/Gaussian-Splat-Lite) | LCC2 流式加载、相机驱动 LoD、共享预算 | 1.6.1 已发布；仅作协议与调度参考，当前 SPZ/PLY 资产未接入 |
+| [Gaussian Splat Lite](https://github.com/WilliamLiu-1997/Gaussian-Splat-Lite) | LCC2 流式加载、相机驱动 LoD、共享预算、径向排序 | 1.6.2 已发布；仅作协议与调度参考，当前 SPZ/PLY 资产未接入 |
 
 ## 论文
 
@@ -23,6 +23,12 @@
 | [RDCompGS](https://arxiv.org/abs/2610.19538)                                                         | 2026-10 | 面向图像编码的率失真优化；关注码率、解码成本与画质权衡   |
 
 ## 近期结论
+
+### 新候选：径向排序键的距离精度
+
+2026-11-04 核对 [Gaussian Splat Lite v1.6.2](https://github.com/WilliamLiu-1997/Gaussian-Splat-Lite/releases/tag/v1.6.2)（2026-11-03，Apache-2.0）及其[发布前后提交差异](https://github.com/WilliamLiu-1997/Gaussian-Splat-Lite/compare/v1.6.1...v1.6.2)。WebGL 与 WebGPU 的径向排序键从相机距离平方改为距离本身，Rust 快速排序路径同样在量化前开平方；几何上的远近顺序不变，但量化键的相邻值和 `fastSort` 的键碰撞会改变。该版本同时包含一个独立的 WebGL 帧栅栏轮询修复，不能把两项改动混成排序收益。
+
+本项目当前 `SparkRenderer` 明确设置 `sortRadial: false`，并关闭 LoD，默认管道房/办公室使用完整 PLY；因此不升级依赖，也不把 v1.6.2 的行为移植到 Spark。可行动验证是后续若启用径向排序，固定同一 SH3 模型、相机路径和画幅，分别记录排序等待、P95 帧时间、同视角 PSNR/SSIM 与像素摘要，并在 WebGL2 与 WebGPU 分开测试；不能用静态相机或单次截图证明收益。当前只记录候选，不改代码、默认资源或页面。
 
 ### 新候选：LCC2 流式调度与共享 LoD 预算
 

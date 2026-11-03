@@ -1,5 +1,11 @@
 # 更新日志
 
+## 2026-11-04 · 记录径向排序精度候选
+
+- 核对 Gaussian Splat Lite 1.6.2：WebGL/WebGPU 径向排序键由距离平方改为距离本身，快速排序的量化键碰撞边界随之变化。
+- 确认当前查看器固定 `sortRadial: false` 并关闭 LoD；未升级 Spark、依赖或默认资源，避免把第三方排序改动误称为当前收益。
+- 明确后续验证口径：若启用径向排序，需在 WebGL2/WebGPU 分开记录排序等待、P95 帧时间、同视角 PSNR/SSIM 和像素摘要；实现与许可链接已记入[研究索引](docs/RESEARCH.md)。
+
 ## 2026-11-03 · 记录 LCC2 流式 LoD 候选
 
 - 核对 Gaussian Splat Lite 1.6.1 的 LCC2 调度器：相机驱动 LoD、共享 splat 预算、首个可显示覆盖和网络失败退避重试均有公开实现说明。
