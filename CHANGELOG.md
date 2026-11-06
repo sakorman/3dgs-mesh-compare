@@ -1,5 +1,12 @@
 # 更新日志
 
+## 2026-11-06 · 验证静态发布包与首次加载
+
+- 增加独立静态压缩构建和逐响应字节核验；专用入口运行时 gzip 增加 5,191B，修复构建脚本的严格类型声明遗漏。
+- pipes / office 首次初始化减少 28.45 / 27.10ms，缓存复用总等待减少 32.95 / 32.50ms；首次总等待没有一致改善，继续保留独立候选，见[耗时、截图与全部样本](docs/RELEASE-STARTUP.md)。进程冷启动、真实 CDN 和峰值内存仍未验证。
+- 16 文档、32 次加载中，96 次画面与 32 组完整属性一致，32 个模型各释放一次；153 项回归、严格类型检查和生产构建通过，类型声明修正前后静态产物逐字节一致。
+- 核对 [Spark 初始化](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/wasm.ts)、[MoQSplat 原文](https://arxiv.org/abs/2609.18624)与[作者缓存实现](https://github.com/emanuele-artioli/MoQSplat/blob/15e02a669456d767abf5d68f9fb1f909f260dde0/src/moq3dgs/render/cache.py)；新增 [GSL 旋转编码候选](https://github.com/WilliamLiu-1997/Gaussian-Splat-Lite/commit/4615af69f7e46fd0f5f713101053645008f04efb)，并纠正帧栅栏修复晚于 v1.6.2 发布的时间线，未移植其布局。
+
 ## 2026-11-04 · 记录径向排序精度候选
 
 - 核对 Gaussian Splat Lite 1.6.2：WebGL/WebGPU 径向排序键由距离平方改为距离本身，快速排序的量化键碰撞边界随之变化。

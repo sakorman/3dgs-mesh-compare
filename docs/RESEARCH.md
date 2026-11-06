@@ -1,6 +1,6 @@
 # 3DGS 研究索引
 
-查阅日期：2026-11-04。以下区分已验证的应用改进与尚未验证收益的研究候选。
+查阅日期：2026-11-06。以下区分已验证的应用改进与尚未验证收益的研究候选。
 
 ## 实现
 
@@ -24,9 +24,19 @@
 
 ## 近期结论
 
+### 静态发布构建：初始化收益不等于首次总等待收益
+
+2026-11-06 完成[无开发转换的静态对照](RELEASE-STARTUP.md)：匹配主线程与 Worker WASM，运行时 gzip 合计 1,139,810 / 1,145,001B。16 份文档、32 次加载中，pipes / office 首次初始化减少 28.45 / 27.10ms，但首次总等待增加 2.60 / 减少 33.45ms；范围有重叠，不作为稳定首开提速。缓存复用总等待减少 32.95 / 32.50ms，96 次画面与 32 组完整属性一致。未改生产依赖或默认资产，下一步测进程冷启动、真实 CDN 和峰值内存，不重复同一热运行时矩阵；论文的基础层可见与本次完整 SH3 提交仍分别记录。
+
+### 上游候选：旋转编码须与初始化测量分开
+
+2026-11-06 核对 Spark main 仍为 `ffe210d` / [v2.4.0](https://github.com/sparkjsdev/spark/releases/tag/v2.4.0)（2026-10-20，MIT），Brush 和 gsplat 最新主分支也未变。Gaussian Splat Lite 最新主分支新增 [4615af6](https://github.com/WilliamLiu-1997/Gaussian-Splat-Lite/commit/4615af69f7e46fd0f5f713101053645008f04efb)（2026-11-05 06:08 UTC，Apache-2.0），尚未进入最新发行 v1.6.2。[作者编码实现](https://github.com/WilliamLiu-1997/Gaussian-Splat-Lite/blob/4615af69f7e46fd0f5f713101053645008f04efb/src/data/splatCodec.js)省略绝对值最大的四元数分量，以两个索引位及三个 10 位有符号值打包，改变内部旋转布局和公开工具接口；WebGL/TSL 着色器同步解码。现有文件可重新载入，但不能把新编码字直接交给旧着色器。
+
+该布局属于 WebGL2/WebGPU 源属性和工作缓冲变更，与本地 SPZ 专用 SH 入口无关；当前 Three.js 0.180.0 / Spark 路径没有采用，原生 Metal/CUDA 移植及性能未验证。后续如尝试旋转打包，应独立核对点身份、协方差、全属性与留出画质，不能把不同布局的字节摘要当成同属性控制。本次继续使用既有完整属性，优先验证静态发布构建；复读 [MoQSplat §III–IV](https://arxiv.org/html/2609.18624v1#S3)区分基础层可见、完整质量完成和缓存复用，不采用其剪枝或传输协议。
+
 ### 新候选：径向排序键的距离精度
 
-2026-11-04 核对 [Gaussian Splat Lite v1.6.2](https://github.com/WilliamLiu-1997/Gaussian-Splat-Lite/releases/tag/v1.6.2)（2026-11-03，Apache-2.0）及其[发布前后提交差异](https://github.com/WilliamLiu-1997/Gaussian-Splat-Lite/compare/v1.6.1...v1.6.2)。WebGL 与 WebGPU 的径向排序键从相机距离平方改为距离本身，Rust 快速排序路径同样在量化前开平方；几何上的远近顺序不变，但量化键的相邻值和 `fastSort` 的键碰撞会改变。该版本同时包含一个独立的 WebGL 帧栅栏轮询修复，不能把两项改动混成排序收益。
+2026-11-04 核对 [Gaussian Splat Lite v1.6.2](https://github.com/WilliamLiu-1997/Gaussian-Splat-Lite/releases/tag/v1.6.2)（2026-11-03，Apache-2.0）及其[发布前后提交差异](https://github.com/WilliamLiu-1997/Gaussian-Splat-Lite/compare/v1.6.1...v1.6.2)。WebGL 与 WebGPU 的径向排序键从相机距离平方改为距离本身，Rust 快速排序路径同样在量化前开平方；几何上的远近顺序不变，但量化键的相邻值和 `fastSort` 的键碰撞会改变。[WebGL 帧栅栏轮询修复](https://github.com/WilliamLiu-1997/Gaussian-Splat-Lite/commit/9f8d1562009c816cd3bcdd8115dd7b88ba296292)为 11-03 11:07 UTC 的后续 main 提交，晚于该版本 04:23 UTC 发布时间；2026-11-06 已纠正原先将其混入发布版的描述，两项改动均不能直接作为当前项目排序收益。
 
 本项目当前 `SparkRenderer` 明确设置 `sortRadial: false`，并关闭 LoD，默认管道房/办公室使用完整 PLY；因此不升级依赖，也不把 v1.6.2 的行为移植到 Spark。可行动验证是后续若启用径向排序，固定同一 SH3 模型、相机路径和画幅，分别记录排序等待、P95 帧时间、同视角 PSNR/SSIM 与像素摘要，并在 WebGL2 与 WebGPU 分开测试；不能用静态相机或单次截图证明收益。当前只记录候选，不改代码、默认资源或页面。
 
@@ -42,7 +52,7 @@ Spark 官方按需渲染说明，建议通过 `onDirty` 合并异步排序、LoD
 
 2026-11-02 核对 Spark main 仍为 `ffe210d`（2026-10-20），最新 [v2.4.0 Release](https://github.com/sparkjsdev/spark/releases/tag/v2.4.0) 于 2026-10-20 04:13 UTC 发布，说明标题使用 Oct 19；MIT。阅读 [wasm.ts](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/wasm.ts) 与 [SplatWorker.ts](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/SplatWorker.ts)：模块导入即启动主线程编译，Worker 共享模块；该机制来自 [#335 / 71b7558](https://github.com/sparkjsdev/spark/commit/71b75587ee432eb179b08c1a67cd745f3ac7d6a0)（2026-05-21），不能当作最新版本新增功能。仅替换 Worker 或预编译候选不能代表其完整首次启动。
 
-本地[首次运行时对照](SCOPED-STARTUP.md)已改用匹配的主线程/Worker 构建：16 个新文档、32 次实际 HTTP 加载中，首次初始化减少 38.90 / 34.20ms，96 次画面与 32 组属性一致。但开发服务转换、未重置的编译/着色器缓存和模型供给节奏均影响总等待；下一步验证无开发转换的发布包，再处理真实网络与峰值，暂不修改生产依赖。
+本地[首次运行时对照](SCOPED-STARTUP.md)已改用匹配的主线程/Worker 构建：16 个新文档、32 次实际 HTTP 加载中，首次初始化减少 38.90 / 34.20ms，96 次画面与 32 组属性一致。但开发服务转换、未重置的编译/着色器缓存和模型供给节奏均影响总等待；后续[静态发布包验证](RELEASE-STARTUP.md)已完成，真实网络与峰值仍待测量，暂不修改生产依赖。
 
 新读 [MoQSplat v1](https://arxiv.org/abs/2609.18624)（2026-09-16，IEEE MMSP 2026）[§II–IV](https://arxiv.org/html/2609.18624v1)。设计支持空间/语义分层与 SH 增强；实测原型采用单 Track、五个各 20% 的几何子层，以未剪枝渲染为 VMAF 参考，不是原照片 PSNR/SSIM。可行动假设：将“基础层可见”和“完整质量完成”分别计时，不能用较少高斯的首画面代替当前完整配对加载。本项目未实现渐进层、MoQ 或剪枝，未套用其跑分。
 
