@@ -24,6 +24,16 @@
 
 ## 近期结论
 
+### WebSplatter：WebGPU 管线候选，不能替代当前 WebGL2 基线
+
+2026-11-07 核对 [WebSplatter 项目页](https://websplatter.github.io/)、[作者代码](https://github.com/websplatter/WebSplatter/tree/16bb06e86b8fb12193d4bb4cd2b0b3d4f3ab62be)与 [arXiv:2602.03207](https://arxiv.org/abs/2602.03207)。固定代码主分支 `16bb06e`（2026-08-29，MIT）采用 WebGPU 原生等待无关基数排序、硬件光栅化和按不透明度调整四边形；项目页给出 11 台设备、5 类 GPU、1.1–2.5× 相对存活网页基线和平均 0.07dB ΔPSNR。arXiv 摘要写成 1.2–4.5×，口径存在差异，不能把任一数字当作本项目结果。项目只要求 WebGPU，代码还提供 GLB/SPZ 与 `KHR_gaussian_splatting` 入口；没有当前 Spark WebGL2、ETH3D pipes/office 或本机 Metal 路径的同条件对照。
+
+可行动结论是先把 WebGPU 作为独立后端候选：固定同一 SH3 属性、相机、768 画幅、留出像素和漫游路径，分别记录排序等待、P95 CPU/GPU 提交、画面摘要与 PSNR/SSIM；若浏览器不提供 WebGPU，保留 WebGL2 基线，不做回退混合。当前不复制其排序或着色器代码、不改依赖、不替换默认入口；本轮的生命周期探针仍只覆盖 Spark WebGL2 的资源清理。
+
+### 场景切换后的资源边界
+
+2026-11-07 在 Chrome 156 / Apple M5 WebGL2 完成[生命周期探针](LIFECYCLE-MEMORY.md)：`pipes → office → pipes` 三次串行加载，模型属性缓冲和 Mesh ImageBitmap 在 `dispose()` 后清零，像素摘要一致。`renderer.info.memory` 从构造后的 0/0 变为 dispose 后 1 个几何、3 个纹理；Spark 固定版本的 `SparkRenderer.dispose()` 已释放自身对象与 Worker，因此剩余计数暂不能归因于泄漏，也不添加强制销毁共享资源。`performance.memory` 未触发 GC，WASM 池与 GPU 驱动不可见；下一步若需要峰值证据，应改用新文档/浏览器专用内存工具或平台 GPU 计数，避免重复同一热切换矩阵。
+
 ### 静态发布构建：初始化收益不等于首次总等待收益
 
 2026-11-06 完成[无开发转换的静态对照](RELEASE-STARTUP.md)：匹配主线程与 Worker WASM，运行时 gzip 合计 1,139,810 / 1,145,001B。16 份文档、32 次加载中，pipes / office 首次初始化减少 28.45 / 27.10ms，但首次总等待增加 2.60 / 减少 33.45ms；范围有重叠，不作为稳定首开提速。缓存复用总等待减少 32.95 / 32.50ms，96 次画面与 32 组完整属性一致。未改生产依赖或默认资产，下一步测进程冷启动、真实 CDN 和峰值内存，不重复同一热运行时矩阵；论文的基础层可见与本次完整 SH3 提交仍分别记录。
