@@ -1,0 +1,25 @@
+{
+  "createdAt": "2026-11-07",
+  "baseline": "7620b45",
+  "sceneOrder": ["pipes", "office", "pipes"],
+  "browser": {
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+    "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+    "backend": "WebGL2"
+  },
+  "rows": [
+    {"stage":"renderer-baseline","gaussianAttributeBytes":0,"meshImages":{"count":0,"open":0},"gaussianMemory":{"geometries":0,"textures":0},"meshMemory":{"geometries":0,"textures":0},"usedJSHeapSize":129468302},
+    {"stage":"pipes-loaded","gaussianAttributeBytes":28901376,"meshImages":{"count":12,"open":12},"gaussianMemory":{"geometries":2,"textures":12},"meshMemory":{"geometries":12,"textures":12},"usedJSHeapSize":129925771},
+    {"stage":"office-loaded-after-pipes","gaussianAttributeBytes":22413312,"meshImages":{"count":22,"open":22},"gaussianMemory":{"geometries":2,"textures":14},"meshMemory":{"geometries":21,"textures":21},"usedJSHeapSize":186145564},
+    {"stage":"pipes-reloaded-after-office","gaussianAttributeBytes":28901376,"meshImages":{"count":12,"open":12},"gaussianMemory":{"geometries":2,"textures":14},"meshMemory":{"geometries":12,"textures":12},"usedJSHeapSize":195617980},
+    {"stage":"viewer-disposed","gaussianAttributeBytes":0,"meshImages":{"count":0,"open":0},"gaussianMemory":{"geometries":1,"textures":3},"meshMemory":{"geometries":0,"textures":0},"usedJSHeapSize":195617980}
+  ],
+  "pixelEqual": true,
+  "errors": [],
+  "rendererMemoryReturnedToBaseline": false,
+  "limitations": [
+    "renderer.info.memory only counts Three.js-managed resources",
+    "performance.memory is optional and no forced garbage collection was used",
+    "WASM worker pools, GPU driver allocations and browser caches are not reported"
+  ]
+}

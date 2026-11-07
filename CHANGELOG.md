@@ -1,5 +1,12 @@
 # 更新日志
 
+## 2026-11-07 · 核对场景切换后的资源边界
+
+- 增加双场景生命周期探针，按 `pipes → office → pipes` 串行加载；高斯属性缓冲和 Mesh ImageBitmap 在 dispose 后清零，像素摘要保持一致。
+- Chrome 156 / Apple M5 WebGL2 中，Three.js `renderer.info.memory` 在 dispose 后仍显示 1 个几何 / 3 个纹理；Spark 固定版本已释放自身对象与 Worker，无法据此认定泄漏，未添加强制销毁共享状态。
+- `performance.memory` 未触发垃圾回收，WASM 解析池和 GPU 驱动分配不可见；原始计数、截图与复现步骤见[生命周期报告](docs/LIFECYCLE-MEMORY.md)，不作显存峰值或整体内存收益结论。
+- 复核 [SparkRenderer.dispose](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/SparkRenderer.ts#L693)、[Three.js renderer.dispose](https://github.com/mrdoob/three.js/blob/r180/src/renderers/WebGLRenderer.js#L980)及 Spark 2.0 的 [RAD/共享页表说明](https://github.com/sparkjsdev/spark/blob/main/docs/docs/new-features-2.0.md#additional-features)；新增 [WebSplatter WebGPU 实现](https://github.com/websplatter/WebSplatter/tree/16bb06e86b8fb12193d4bb4cd2b0b3d4f3ab62be)研究，分页 LoD 与 WebGPU 仍保持独立候选。
+
 ## 2026-11-06 · 验证静态发布包与首次加载
 
 - 增加独立静态压缩构建和逐响应字节核验；专用入口运行时 gzip 增加 5,191B，修复构建脚本的严格类型声明遗漏。
