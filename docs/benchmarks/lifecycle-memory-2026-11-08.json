@@ -1,0 +1,443 @@
+{
+  "protocol": 2,
+  "startedAt": "2026-11-08T00:09:04.943Z",
+  "sceneOrder": [
+    "pipes",
+    "office",
+    "pipes"
+  ],
+  "passed": true,
+  "pixelEqual": true,
+  "browser": {
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+    "gpu": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5, Unspecified Version)",
+    "backend": "WebGL2"
+  },
+  "viewport": [
+    768,
+    505
+  ],
+  "visibility": [
+    "visible"
+  ],
+  "probeWallMs": 904.2999997138977,
+  "rendererMemoryReturnedToBaseline": false,
+  "rows": [
+    {
+      "stage": "renderer-baseline",
+      "resources": {
+        "activeAttributes": {
+          "viewBytes": 0,
+          "backingBufferBytes": 0,
+          "backingBuffers": 0
+        },
+        "activeMeshImages": {
+          "count": 0,
+          "open": 0
+        },
+        "gaussianMemory": {
+          "geometries": 0,
+          "textures": 0
+        },
+        "meshMemory": {
+          "geometries": 0,
+          "textures": 0
+        },
+        "jsHeap": {
+          "usedJSHeapSize": 98777950,
+          "totalJSHeapSize": 102228330,
+          "jsHeapSizeLimit": 4395630592
+        }
+      }
+    },
+    {
+      "stage": "pipes-loaded",
+      "resources": {
+        "activeAttributes": {
+          "viewBytes": 28901376,
+          "backingBufferBytes": 28901376,
+          "backingBuffers": 6
+        },
+        "activeMeshImages": {
+          "count": 12,
+          "open": 12
+        },
+        "gaussianMemory": {
+          "geometries": 2,
+          "textures": 12
+        },
+        "meshMemory": {
+          "geometries": 12,
+          "textures": 12
+        },
+        "jsHeap": {
+          "usedJSHeapSize": 128169123,
+          "totalJSHeapSize": 134813775,
+          "jsHeapSizeLimit": 4395630592
+        }
+      }
+    },
+    {
+      "stage": "office-loaded-after-pipes",
+      "resources": {
+        "activeAttributes": {
+          "viewBytes": 22413312,
+          "backingBufferBytes": 22413312,
+          "backingBuffers": 6
+        },
+        "activeMeshImages": {
+          "count": 22,
+          "open": 22
+        },
+        "gaussianMemory": {
+          "geometries": 2,
+          "textures": 14
+        },
+        "meshMemory": {
+          "geometries": 21,
+          "textures": 21
+        },
+        "jsHeap": {
+          "usedJSHeapSize": 189480553,
+          "totalJSHeapSize": 193097093,
+          "jsHeapSizeLimit": 4395630592
+        }
+      }
+    },
+    {
+      "stage": "pipes-reloaded-after-office",
+      "resources": {
+        "activeAttributes": {
+          "viewBytes": 28901376,
+          "backingBufferBytes": 28901376,
+          "backingBuffers": 6
+        },
+        "activeMeshImages": {
+          "count": 12,
+          "open": 12
+        },
+        "gaussianMemory": {
+          "geometries": 2,
+          "textures": 14
+        },
+        "meshMemory": {
+          "geometries": 12,
+          "textures": 12
+        },
+        "jsHeap": {
+          "usedJSHeapSize": 271297092,
+          "totalJSHeapSize": 275747956,
+          "jsHeapSizeLimit": 4395630592
+        }
+      }
+    },
+    {
+      "stage": "viewer-disposed",
+      "resources": {
+        "activeAttributes": {
+          "viewBytes": 0,
+          "backingBufferBytes": 0,
+          "backingBuffers": 0
+        },
+        "activeMeshImages": {
+          "count": 0,
+          "open": 0
+        },
+        "gaussianMemory": {
+          "geometries": 1,
+          "textures": 3
+        },
+        "meshMemory": {
+          "geometries": 0,
+          "textures": 0
+        },
+        "jsHeap": {
+          "usedJSHeapSize": 271297092,
+          "totalJSHeapSize": 275747956,
+          "jsHeapSizeLimit": 4395630592
+        }
+      }
+    }
+  ],
+  "releases": [
+    {
+      "stage": "pipes-replaced",
+      "passed": true,
+      "initial": {
+        "attributes": {
+          "viewBytes": 28901376,
+          "backingBufferBytes": 28901376,
+          "backingBuffers": 6
+        },
+        "gaussianTextures": 6,
+        "meshGeometries": 12,
+        "meshMaterials": 12,
+        "meshTextures": 12,
+        "meshBitmaps": 12
+      },
+      "attributes": {
+        "viewBytes": 0,
+        "backingBufferBytes": 0,
+        "backingBuffers": 2
+      },
+      "gaussianDetachedAttributes": true,
+      "gaussianTextureSourcesWithData": 0,
+      "gaussianTextureDisposals": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "meshGeometryDisposals": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "meshMaterialDisposals": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "meshTextureDisposals": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "openBitmaps": 0,
+      "gaussianRemovedFromScene": true,
+      "meshRemovedFromScene": true
+    },
+    {
+      "stage": "office-replaced",
+      "passed": true,
+      "initial": {
+        "attributes": {
+          "viewBytes": 22413312,
+          "backingBufferBytes": 22413312,
+          "backingBuffers": 6
+        },
+        "gaussianTextures": 6,
+        "meshGeometries": 22,
+        "meshMaterials": 22,
+        "meshTextures": 22,
+        "meshBitmaps": 22
+      },
+      "attributes": {
+        "viewBytes": 0,
+        "backingBufferBytes": 0,
+        "backingBuffers": 2
+      },
+      "gaussianDetachedAttributes": true,
+      "gaussianTextureSourcesWithData": 0,
+      "gaussianTextureDisposals": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "meshGeometryDisposals": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "meshMaterialDisposals": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "meshTextureDisposals": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "openBitmaps": 0,
+      "gaussianRemovedFromScene": true,
+      "meshRemovedFromScene": true
+    },
+    {
+      "stage": "pipes-disposed",
+      "passed": true,
+      "initial": {
+        "attributes": {
+          "viewBytes": 28901376,
+          "backingBufferBytes": 28901376,
+          "backingBuffers": 6
+        },
+        "gaussianTextures": 6,
+        "meshGeometries": 12,
+        "meshMaterials": 12,
+        "meshTextures": 12,
+        "meshBitmaps": 12
+      },
+      "attributes": {
+        "viewBytes": 0,
+        "backingBufferBytes": 0,
+        "backingBuffers": 2
+      },
+      "gaussianDetachedAttributes": true,
+      "gaussianTextureSourcesWithData": 0,
+      "gaussianTextureDisposals": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "meshGeometryDisposals": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "meshMaterialDisposals": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "meshTextureDisposals": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "openBitmaps": 0,
+      "gaussianRemovedFromScene": true,
+      "meshRemovedFromScene": true
+    }
+  ],
+  "firstPixels": {
+    "gaussian": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36",
+    "mesh": "c3c2144e2ef68b0306e923997f7336302afc5ff7097be8b9a2926b6c5b78cdb9"
+  },
+  "officePixels": {
+    "gaussian": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3",
+    "mesh": "ac95a13722ceebb9e56bfeb53a925f674a5145242504fb1929e44f4b8b66a4e7"
+  },
+  "secondPixels": {
+    "gaussian": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36",
+    "mesh": "c3c2144e2ef68b0306e923997f7336302afc5ff7097be8b9a2926b6c5b78cdb9"
+  },
+  "errors": [],
+  "limitations": [
+    "Retained old objects prove field clearing, bitmap closure and dispose events, not GC or driver reclamation",
+    "Array view bytes and unique backing capacity describe attributes only; renderer.info counts are not total memory",
+    "performance.memory is optional; no forced GC; retained probe objects affect heap values",
+    "Worker pools, WASM capacity and GPU driver allocations are not measured",
+    "Pixel equality covers initial/reloaded pipes first held-out view only; office hashes are observational",
+    "Wall time includes diagnostic hashing and UI idle; it is not loading, rendering or training time"
+  ]
+}

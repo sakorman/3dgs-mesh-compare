@@ -1,6 +1,6 @@
 # 3DGS 研究索引
 
-查阅日期：2026-11-06。以下区分已验证的应用改进与尚未验证收益的研究候选。
+查阅日期：2026-11-08。以下区分已验证的应用改进与尚未验证收益的研究候选。
 
 ## 实现
 
@@ -30,9 +30,19 @@
 
 可行动结论是先把 WebGPU 作为独立后端候选：固定同一 SH3 属性、相机、768 画幅、留出像素和漫游路径，分别记录排序等待、P95 CPU/GPU 提交、画面摘要与 PSNR/SSIM；若浏览器不提供 WebGPU，保留 WebGL2 基线，不做回退混合。当前不复制其排序或着色器代码、不改依赖、不替换默认入口；本轮的生命周期探针仍只覆盖 Spark WebGL2 的资源清理。
 
-### 场景切换后的资源边界
+### 场景切换后的资源边界（2026-11-08 更正）
 
-2026-11-07 在 Chrome 156 / Apple M5 WebGL2 完成[生命周期探针](LIFECYCLE-MEMORY.md)：`pipes → office → pipes` 三次串行加载，模型属性缓冲和 Mesh ImageBitmap 在 `dispose()` 后清零，像素摘要一致。`renderer.info.memory` 从构造后的 0/0 变为 dispose 后 1 个几何、3 个纹理；Spark 固定版本的 `SparkRenderer.dispose()` 已释放自身对象与 Worker，因此剩余计数暂不能归因于泄漏，也不添加强制销毁共享资源。`performance.memory` 未触发 GC，WASM 池与 GPU 驱动不可见；下一步若需要峰值证据，应改用新文档/浏览器专用内存工具或平台 GPU 计数，避免重复同一热切换矩阵。
+11-07 版本只检查清理后的活动模型指针，不能单独证明旧资源清理；有关“Worker 已实测释放”和剩余计数归因的描述已撤回。新版[生命周期探针](LIFECYCLE-MEMORY.md)保留旧模型、ExtSplats、纹理与 ImageBitmap：三组旧属性字段清空，18 个高斯纹理各 dispose 一次且 source.data 为空，46 个旧 ImageBitmap 关闭，pipes 初次/回载的首个留出视角摘要一致。新增只丢指针、遗漏关闭/数据清空、重复释放、backing buffer 去重及零长度视图容量回归；完整原始 JSON 与输入摘要保留，不再手录摘要代替原始记录。
+
+`renderer.info.memory` 的 1 个几何 / 3 个纹理仍未归因；本探针没有观测解析/排序 Worker 或驱动回收，也不计量峰值。重新阅读 [WebSplatter arXiv v1 §4.5](https://arxiv.org/html/2602.03207v1#S4.SS5)（2026-02-03，arXiv 永久非独占许可）：其 Windows / RTX 显存观测与当前 Chrome / Apple M5 的对象计数不是同一指标，不能套用收益。作者 [main 16bb06e](https://github.com/websplatter/WebSplatter/tree/16bb06e86b8fb12193d4bb4cd2b0b3d4f3ab62be)仍为 08-29，Release 1.0.0 为 08-10，MIT / WebGPU；未在本项目验证独立 WebGPU、原生 Metal 或 CUDA 路径。
+
+### GSL 1.7.0：共享 SH 码本的所有权
+
+2026-11-08 核对 [GSL v1.7.0](https://github.com/WilliamLiu-1997/Gaussian-Splat-Lite/releases/tag/v1.7.0)于 11-06 09:18 UTC 发布，标签 `7774bdd`；最新 main `8534f6f` 为同日 09:23 UTC 的文档修正。新 [3683dfd](https://github.com/WilliamLiu-1997/Gaussian-Splat-Lite/commit/3683dfd6b870cbe758c540f402e41b542d90aaa4)（11-06 07:51 UTC）使带码本的 RAD/SOG 在普通与流式路径共享 SH 调色板；[ShPalette](https://github.com/WilliamLiu-1997/Gaussian-Splat-Lite/blob/7774bdd759cff1f77a1ccdf9cbdaaa7782c831a1/src/data/shPalette.js)持有 CPU data，dispose 只退出上传队列并释放纹理，允许缓存块之后重新绑定。IndexedSplats 的共享 storage 与每点 label 必须配套，不能把纹理 dispose 当 CPU 码本同步回收。
+
+该版本同时包含先前记录的 smallest-three 旋转布局；发行说明的属性内存百分比排除了其他渲染/加载开销，并依赖码本大小，不当作当前 PLY 的收益。Apache-2.0、Three.js >=0.187.0，提供 WebGL2/TSL-WebGPU 路径；当前 Three.js 0.180.0 / Spark 2.4.0 不直接兼容，原生 Metal/CUDA 未验证。可行动假设是以后若制作码本资产，按唯一 backing buffer、模型/块所有权、共享码本、GPU 纹理分别记账，并验证留出画质与漫游；当前不移植、不改默认资源。
+
+Spark main / Release 仍为 `ffe210d` / v2.4.0（10-20，MIT），Brush main `1388f74`（10-03）和 gsplat main `512d366`（09-19）未变；没有为版本检查制造升级。
 
 ### 静态发布构建：初始化收益不等于首次总等待收益
 

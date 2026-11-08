@@ -1,9 +1,16 @@
 # 更新日志
 
+## 2026-11-08 · 修正资源探针的误通过
+
+- 修复清理后只读取活动模型指针的误通过；保留旧模型、属性与纹理对象，逐项检查数据源、dispose 事件和图像关闭，新增五项边界回归。
+- Chrome 156 / Apple M5 WebGL2 实测三组旧属性字段清空、18 个高斯纹理各释放一次、46 个旧 ImageBitmap 关闭；pipes 首个留出视角回载画面一致，158 项回归、严格类型检查与生产构建通过，见[完整原始记录、截图与诊断耗时](docs/LIFECYCLE-MEMORY.md)。
+- 更正历史 JS 堆 MiB 单位及 Worker/剩余计数的证据范围；不将对象清理当作显存、进程峰值或性能收益。默认页面、训练划分和模型资产不变。
+- 新读 [GSL 1.7.0 共享 SH 码本](https://github.com/WilliamLiu-1997/Gaussian-Splat-Lite/blob/7774bdd759cff1f77a1ccdf9cbdaaa7782c831a1/src/data/shPalette.js)并复核 [WebSplatter 内存评价原文](https://arxiv.org/html/2602.03207v1#S4.SS5)；记录共享所有权与后端限制，保留独立候选。
+
 ## 2026-11-07 · 核对场景切换后的资源边界
 
-- 增加双场景生命周期探针，按 `pipes → office → pipes` 串行加载；高斯属性缓冲和 Mesh ImageBitmap 在 dispose 后清零，像素摘要保持一致。
-- Chrome 156 / Apple M5 WebGL2 中，Three.js `renderer.info.memory` 在 dispose 后仍显示 1 个几何 / 3 个纹理；Spark 固定版本已释放自身对象与 Worker，无法据此认定泄漏，未添加强制销毁共享状态。
+- 增加双场景生命周期探针，按 `pipes → office → pipes` 串行加载；旧版仅记录活动指针清零和 pipes 回载摘要，旧对象清理证据已于 11-08 补齐。
+- Chrome 156 / Apple M5 WebGL2 中，Three.js `renderer.info.memory` 在 dispose 后仍显示 1 个几何 / 3 个纹理；源码包含 Worker 释放调用，但此探针未观测终止，剩余计数未归因，未添加强制销毁共享状态。
 - `performance.memory` 未触发垃圾回收，WASM 解析池和 GPU 驱动分配不可见；原始计数、截图与复现步骤见[生命周期报告](docs/LIFECYCLE-MEMORY.md)，不作显存峰值或整体内存收益结论。
 - 复核 [SparkRenderer.dispose](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/SparkRenderer.ts#L693)、[Three.js renderer.dispose](https://github.com/mrdoob/three.js/blob/r180/src/renderers/WebGLRenderer.js#L980)及 Spark 2.0 的 [RAD/共享页表说明](https://github.com/sparkjsdev/spark/blob/main/docs/docs/new-features-2.0.md#additional-features)；新增 [WebSplatter WebGPU 实现](https://github.com/websplatter/WebSplatter/tree/16bb06e86b8fb12193d4bb4cd2b0b3d4f3ab62be)研究，分页 LoD 与 WebGPU 仍保持独立候选。
 
