@@ -11,9 +11,11 @@
     button { padding: 8px; margin: 10px 0; }
   </style>
   <h1>Scene lifecycle memory check</h1>
+  <p>保留旧模型核验资源清理。数组引用、释放事件与图像关闭分别检查；不代表进程或显存回收。</p>
   <div id="views"><div id="left"></div><div id="right"></div></div>
   <button id="run" disabled>Run lifecycle probe</button>
   <pre id="status">Loading…</pre>
-  <pre id="result"></pre>
+  <p id="summary"></p>
+  <details><summary>完整原始记录</summary><pre id="result"></pre></details>
   <script type="module" src="./memory-lifecycle.ts"></script>
 </html>

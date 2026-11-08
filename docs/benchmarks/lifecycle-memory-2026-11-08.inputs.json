@@ -1,0 +1,113 @@
+{
+  "baseline": "b5ec4def86c9afd8f577c00d43578704371e65f5",
+  "files": {
+    "package-lock.json": {
+      "sha256": "7f061d313d6657401b59c0bc5a426a6e583e709f2387b9490d2895ee7e39a392",
+      "bytes": 54971
+    },
+    "public/scenes/office/gaussians.ply.gz": {
+      "sha256": "0786facf28ff0c2d6f47e3e9f7c392823a7eb3d892cf2e41b52d1964067e6b89",
+      "bytes": 49050760
+    },
+    "public/scenes/office/mesh.glb": {
+      "sha256": "a9cef8d575f6bffc16f528a4e508d81802899dfe70779faeafc23c1cfef1abba",
+      "bytes": 12294160
+    },
+    "public/scenes/office/scene.json": {
+      "sha256": "95956bf7b20c8214164f0a12bcf868cc2e822cd3d40b7f2646a4a0b8e4129367",
+      "bytes": 33099
+    },
+    "public/scenes/pipes/gaussians.ply.gz": {
+      "sha256": "55b311c225e5ac53a2e2c3d6e2fa2cafd228dd16c7d5d6ac56daaf9efbf76734",
+      "bytes": 64843796
+    },
+    "public/scenes/pipes/mesh.glb": {
+      "sha256": "c9f765c29b6c96d7dd5503c9e7d40c68c733c0aeaa12a9b47e30f143be2090ff",
+      "bytes": 6230620
+    },
+    "public/scenes/pipes/scene.json": {
+      "sha256": "00035e1c79a4738fb42ec06b6ee4b57df7d80af07edfba3e9680a2d80edc8b7d",
+      "bytes": 19694
+    },
+    "src/benchmark.ts": {
+      "sha256": "2e48f415c521653270afc7e6ff70c7d482c158eb8d7079392a186fff82b4ac1b",
+      "bytes": 5271
+    },
+    "src/camera.ts": {
+      "sha256": "28bafce557fb2e9b6968f5fda3c0fe853bffeff291f0d1f00bf2447eb62481d5",
+      "bytes": 1153
+    },
+    "src/decode-image.ts": {
+      "sha256": "a153646450800c80a337b58406d014c86d1b30e41f3cf0b4a8045d6e332ded83",
+      "bytes": 1095
+    },
+    "src/load-scope.ts": {
+      "sha256": "6d22964ac8d07cbe747b650bc343ee803a0ff59fa0a9f105e0befedb2473a2d5",
+      "bytes": 1002
+    },
+    "src/load-timing.ts": {
+      "sha256": "dbfa866114386d55a5250d6ae6f1967229b07b596cfdceff5f2716f75710c078",
+      "bytes": 1261
+    },
+    "src/main.ts": {
+      "sha256": "7daeee5a30540280e7b9a1cb6f2bf33ad7c7ef28fee0fce1a25a1b8b5648f7d0",
+      "bytes": 26302
+    },
+    "src/mesh-resources.ts": {
+      "sha256": "36701f6f2d45295bcd08881addb3ba6770a54175ded4ca39d94ca1d8a52f25e6",
+      "bytes": 1782
+    },
+    "src/metrics.ts": {
+      "sha256": "51de54a31cdf3c1a324ed9d5e8bf884ad762db74fc2140311c870c2ae41cf5cd",
+      "bytes": 3196
+    },
+    "src/model-bytes.ts": {
+      "sha256": "75b474649f8f7b32e55457534a736749bcc7fc9dc88c785455f929f33985345b",
+      "bytes": 4414
+    },
+    "src/next-frame.ts": {
+      "sha256": "e3cfd4ddc1a5bb0081f23860e80d5d5ed384bc40b5598267550f0fa6447c7575",
+      "bytes": 1040
+    },
+    "src/page-lifecycle.ts": {
+      "sha256": "cd862c727ca6ecb7cd1c6ea6e62aa89d0f069ac9fac38a5cd614cf0bc960e261",
+      "bytes": 1047
+    },
+    "src/render-scheduler.ts": {
+      "sha256": "c3e7ba62859f85a4c66ca475c9a4ed3120e3be3b68710b7321094da578c421ee",
+      "bytes": 1457
+    },
+    "src/settle-frames.ts": {
+      "sha256": "17162d442d00fc98a1575d83cc9cc5586d5d3c56eb920a66811dd53a28325128",
+      "bytes": 3160
+    },
+    "src/types.ts": {
+      "sha256": "af42b3151aa50567c979aa7bdccde84bf6c5352be51dff2f4dd4ef9036f563d4",
+      "bytes": 1276
+    },
+    "src/viewer.ts": {
+      "sha256": "04f90619e6c0eb5024e1c3612c1eb4bbfef59501d466d0b8f22b70d15ed2a4ed",
+      "bytes": 11980
+    },
+    "tests/browser/memory-lifecycle.html": {
+      "sha256": "8d4c71d532ee7458bae71240b505b8f27b95391d9087f424879a66b48e82c910",
+      "bytes": 927
+    },
+    "tests/browser/memory-lifecycle.ts": {
+      "sha256": "6d5792a2d64886d94388e08367fc206df7ff52727c0cb79c3cab1b8a6fa4d091",
+      "bytes": 6186
+    },
+    "tests/helpers/lifecycle-resources.ts": {
+      "sha256": "1c2a6fd67669d1edb1ad4aae299934cfd5963cb49a8f3e2ba7911ced122ddcf8",
+      "bytes": 4400
+    },
+    "vite.config.ts": {
+      "sha256": "df9ee6342a04ea73c258eac3234e79bf34efe977024f6658e4ba51bb71798588",
+      "bytes": 294
+    }
+  },
+  "rawReport": {
+    "path": "docs/benchmarks/lifecycle-memory-2026-11-08.json",
+    "sha256": "5dc5cc9fff37bcf9fdb7e93b82651b85be4612adf846f75d7977f216b72b540e"
+  }
+}
