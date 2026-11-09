@@ -1,0 +1,45 @@
+{
+  "protocol": 2,
+  "report": {
+    "path": "docs/benchmarks/lifecycle-memory-2026-11-09.json",
+    "sha256": "81949c6514279c8aedd5bde5fcb46c9eb834692565d4ae3c4562cb192b02e709",
+    "bytes": 9489
+  },
+  "commitBeforeRun": "ba07e9addeb35da6e6b2b052481baae6244af788",
+  "assets": {
+    "public/scenes/pipes/scene.json": {
+      "sha256": "00035e1c79a4738fb42ec06b6ee4b57df7d80af07edfba3e9680a2d80edc8b7d",
+      "bytes": 19694
+    },
+    "public/scenes/pipes/gaussians.ply.gz": {
+      "sha256": "55b311c225e5ac53a2e2c3d6e2fa2cafd228dd16c7d5d6ac56daaf9efbf76734",
+      "bytes": 64843796
+    },
+    "public/scenes/pipes/mesh.glb": {
+      "sha256": "c9f765c29b6c96d7dd5503c9e7d40c68c733c0aeaa12a9b47e30f143be2090ff",
+      "bytes": 6230620
+    },
+    "public/scenes/office/scene.json": {
+      "sha256": "95956bf7b20c8214164f0a12bcf868cc2e822cd3d40b7f2646a4a0b8e4129367",
+      "bytes": 33099
+    },
+    "public/scenes/office/gaussians.ply.gz": {
+      "sha256": "0786facf28ff0c2d6f47e3e9f7c392823a7eb3d892cf2e41b52d1964067e6b89",
+      "bytes": 49050760
+    },
+    "public/scenes/office/mesh.glb": {
+      "sha256": "a9cef8d575f6bffc16f528a4e508d81802899dfe70779faeafc23c1cfef1abba",
+      "bytes": 12294160
+    }
+  },
+  "sourceChanges": [
+    "src/mesh-resources.ts",
+    "tests/helpers/lifecycle-resources.ts",
+    "tests/browser/memory-lifecycle.ts"
+  ],
+  "sourceHashes": {
+    "src/mesh-resources.ts": "e0c705621df5bdad69a2bb9643278cd8f51436bc1eac4b502b2847d5d8af595c",
+    "tests/helpers/lifecycle-resources.ts": "ca2e810b71894db647ce8d038d0bec83b7cfde23a75e0bd9ff058e265416b60a",
+    "tests/browser/memory-lifecycle.ts": "e55e8c7d40fa2628457d650d0441b8eb919bdca4111bd5796b6d7fac3c8fc1f3"
+  }
+}

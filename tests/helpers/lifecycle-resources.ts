@@ -68,6 +68,7 @@ export function retainModelResources(gaussian: GaussianResource, mesh: THREE.Obj
         attributes: attributeStorage(ext),
         gaussianDetachedAttributes: gaussian.extSplats === undefined,
         gaussianTextureSourcesWithData: [...gaussianTextures].filter(texture => texture.source.data != null).length,
+        meshTextureSourcesWithData: [...textures].filter(texture => texture.source.data != null).length,
         gaussianTextureDisposals: gaussianDisposals(),
         meshGeometryDisposals: geometryDisposals(), meshMaterialDisposals: materialDisposals(),
         meshTextureDisposals: textureDisposals(),
@@ -78,6 +79,7 @@ export function retainModelResources(gaussian: GaussianResource, mesh: THREE.Obj
         passed: initial.attributes.viewBytes > 0 && initial.gaussianTextures > 0 && initial.meshBitmaps > 0 &&
           state.attributes.viewBytes === 0 && state.attributes.backingBufferBytes === 0 && state.gaussianDetachedAttributes &&
           state.gaussianTextureSourcesWithData === 0 && state.openBitmaps === 0 &&
+          state.meshTextureSourcesWithData === 0 &&
           state.gaussianRemovedFromScene && state.meshRemovedFromScene &&
           [state.gaussianTextureDisposals, state.meshGeometryDisposals, state.meshMaterialDisposals, state.meshTextureDisposals]
             .every(counts => counts.length > 0 && counts.every(count => count === 1)),

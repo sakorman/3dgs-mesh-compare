@@ -39,7 +39,13 @@ export function disposeMeshResources(root: THREE.Object3D) {
 
   for (const geometry of geometries) geometry.dispose();
   for (const material of materials) material.dispose();
-  for (const texture of textures) texture.dispose();
+  for (const texture of textures) {
+    texture.dispose();
+    // Texture.dispose() releases the GPU allocation, but Three.js keeps the
+    // CPU-side Source.data reference. This root owns the texture, so sever it
+    // after closing any decoded ImageBitmap to avoid retaining decoded data.
+    texture.source.data = null;
+  }
   // Texture.dispose() releases GPU state, not its CPU-side ImageBitmap source.
   for (const bitmap of bitmaps) bitmap.close();
 

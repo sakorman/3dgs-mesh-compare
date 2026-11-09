@@ -8,6 +8,14 @@
 
 新版在每次切换和最终 dispose **之前保留旧模型、ExtSplats、实际纹理和 ImageBitmap**，之后检查旧对象上的字段、纹理数据源、场景 parent、逐资源 dispose 事件和图像尺寸。回归覆盖只丢指针、只发 dispose 事件但不关图像、不清纹理数据源、重复释放、共享 backing buffer 与零长度视图持有非零容量，避免再次产生误通过。158 项回归、严格 TypeScript 检查与生产构建通过。
 
+## Mesh 纹理源引用修复
+
+11-09 将拥有的 Mesh 纹理在 `Texture.dispose()` 后的 `texture.source.data` 显式置为 `null`。Three.js 的 `dispose()` 释放 GPU 资源，但不会替调用方清空 CPU 侧 Source；该查看器的 GLTF 根独占这些纹理，因此由项目负责断开引用。ImageBitmap 仍先调用 `close()`，纹理源断开与图像关闭分别核验。
+
+新增的浏览器记录中，三组旧模型的 Mesh `source.data` 均为 0 个、46 个旧 ImageBitmap 均关闭、46 个 Mesh 纹理各收到一次 dispose 事件，pipes 回载像素摘要保持一致。原始 JSON 与输入/源码摘要见[`lifecycle-memory-2026-11-09.json`](benchmarks/lifecycle-memory-2026-11-09.json)和[`lifecycle-memory-2026-11-09.inputs.json`](benchmarks/lifecycle-memory-2026-11-09.inputs.json)。这只证明项目持有的 CPU 引用已断开，不证明浏览器 GC、GPU 驱动或解码器立即回收。
+
+![断开 Mesh 纹理源后的生命周期核验](images/memory-lifecycle-source-null-2026-11-09.jpg)
+
 ## 保留旧对象的实测
 
 Chrome 156 / WebGL2 / ANGLE Metal（Apple M5），默认完整 PLY / SH3、关闭 LoD，顺序为 `pipes → office → pipes → dispose`。同一文档串行运行，页面始终可见，未启动训练或其他渲染实验。

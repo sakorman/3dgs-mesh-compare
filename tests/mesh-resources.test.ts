@@ -58,6 +58,8 @@ test("shared geometry, material and image sources are released once per root", (
       [1, 1, 1, 1, 1],
     );
     assert.equal(image.closed, 1);
+    assert.equal(map.source.data, null);
+    assert.equal(clone.source.data, null);
   }));
 
 test("all GLTF texture slots release their decoded images, not only base color", () =>
@@ -86,6 +88,7 @@ test("all GLTF texture slots release their decoded images, not only base color",
       counts.map((count) => count()),
       [1, 1, 1, 1],
     );
+    assert.deepEqual(maps.map(map => map.source.data), [null, null, null, null]);
   }));
 
 test("DataTexture and non-bitmap image sources require no bitmap API", () => {
@@ -97,6 +100,7 @@ test("DataTexture and non-bitmap image sources require no bitmap API", () => {
   const count = disposed(map);
   assert.equal(disposeMeshResources(root).bitmaps, 0);
   assert.equal(count(), 1);
+  assert.equal(map.source.data, null);
 });
 
 test("disposing one loaded root leaves independently loaded roots usable", () =>
