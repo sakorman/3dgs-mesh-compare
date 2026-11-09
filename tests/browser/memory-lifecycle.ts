@@ -95,6 +95,7 @@ run.onclick = async () => {
       rows, releases, firstPixels, officePixels, secondPixels, errors,
       limitations:[
         "Retained old objects prove field clearing, bitmap closure and dispose events, not GC or driver reclamation",
+        "Owned Mesh texture Source.data is cleared after dispose; this does not prove browser image or GPU reclamation",
         "Array view bytes and unique backing capacity describe attributes only; renderer.info counts are not total memory",
         "performance.memory is optional; no forced GC; retained probe objects affect heap values",
         "Worker pools, WASM capacity and GPU driver allocations are not measured",

@@ -30,6 +30,12 @@
 
 可行动结论是先把 WebGPU 作为独立后端候选：固定同一 SH3 属性、相机、768 画幅、留出像素和漫游路径，分别记录排序等待、P95 CPU/GPU 提交、画面摘要与 PSNR/SSIM；若浏览器不提供 WebGPU，保留 WebGL2 基线，不做回退混合。当前不复制其排序或着色器代码、不改依赖、不替换默认入口；本轮的生命周期探针仍只覆盖 Spark WebGL2 的资源清理。
 
+### Mesh 纹理源引用与共享所有权
+
+2026-11-09 对照 [Three.js r180 `Source`](https://github.com/mrdoob/three.js/blob/r180/src/textures/Source.js) 与当前 [Spark `ExtSplats.dispose`](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/ExtSplats.ts)：GPU `dispose()` 不等于调用方 CPU 源引用断开，Spark 对自有 DataTexture 还会把 `source.data` 置空。本项目的 GLTF 根拥有其 Mesh geometry、material、texture 和 ImageBitmap，因此 `disposeMeshResources` 在关闭图像后新增 `texture.source.data = null`。三组场景切换实测 46 个纹理源均断开，未改变像素摘要。
+
+这不是通用共享纹理的安全证明；若未来引入跨场景材质/纹理缓存，必须改为引用计数或显式所有权，不能无条件置空共享源。当前默认页面没有共享 GLTF 纹理，Three.js 0.180.0 / Spark 2.4.0 依赖未升级。
+
 ### 场景切换后的资源边界（2026-11-08 更正）
 
 11-07 版本只检查清理后的活动模型指针，不能单独证明旧资源清理；有关“Worker 已实测释放”和剩余计数归因的描述已撤回。新版[生命周期探针](LIFECYCLE-MEMORY.md)保留旧模型、ExtSplats、纹理与 ImageBitmap：三组旧属性字段清空，18 个高斯纹理各 dispose 一次且 source.data 为空，46 个旧 ImageBitmap 关闭，pipes 初次/回载的首个留出视角摘要一致。新增只丢指针、遗漏关闭/数据清空、重复释放、backing buffer 去重及零长度视图容量回归；完整原始 JSON 与输入摘要保留，不再手录摘要代替原始记录。

@@ -1,5 +1,12 @@
 # 更新日志
 
+## 2026-11-09 · 断开 Mesh 纹理的 CPU 源引用
+
+- 修复 Mesh 独占纹理在 `Texture.dispose()` 后仍保留 `texture.source.data` 的问题；关闭 ImageBitmap 后显式置空源引用，避免旧场景继续持有已关闭图像或解码数据。
+- Chrome 156 / Apple M5 WebGL2 按 `pipes → office → pipes → dispose` 验证：3 组旧模型的 Mesh 源引用均为 0，46 个 ImageBitmap 全部关闭，46 个纹理各释放一次，pipes 回载摘要一致。
+- 新增底层 backing buffer、零长度视图和纹理源断开的回归；158 项回归、严格类型检查与生产构建通过。该项只证明项目对象边界，不代表浏览器 GC、GPU 回收或性能提升。
+- 依据 [Three.js r180 Source](https://github.com/mrdoob/three.js/blob/r180/src/textures/Source.js) 与 [Spark ExtSplats.dispose](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/ExtSplats.ts)核对源数据所有权；继续记录 GSL 1.7.0 共享码本的缓存/纹理分离，未移植其格式。
+
 ## 2026-11-08 · 修正资源探针的误通过
 
 - 修复清理后只读取活动模型指针的误通过；保留旧模型、属性与纹理对象，逐项检查数据源、dispose 事件和图像关闭，新增五项边界回归。
