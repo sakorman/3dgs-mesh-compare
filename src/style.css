@@ -271,6 +271,9 @@ select {
   display: block;
   touch-action: none;
 }
+.awaiting-scene .surface canvas {
+  visibility: hidden;
+}
 .reference {
   position: absolute;
   inset: 0;

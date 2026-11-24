@@ -1,0 +1,995 @@
+{
+  "baselineCommit": "ab3009312d413874b85ac5babde5e8143188aac9",
+  "baselineServer": "Vite dev",
+  "fixedServer": "Vite preview",
+  "fault": "Hold office/scene.json, respond HTTP 503; hold retry, cancel, retry normally.",
+  "runs": [
+    {
+      "variant": "baseline",
+      "entry": "benchmark.html",
+      "width": 1440,
+      "browser": "156.0.8078.4",
+      "start": {
+        "active": "pipes",
+        "status": "加载完成，可切换照片或自由查看。",
+        "photos": 14,
+        "options": 14,
+        "info": "ETH3D pipes · 12 张训练 / 2 张留出",
+        "counts": [
+          "300,000 个高斯",
+          "67,436 个三角形"
+        ],
+        "sizes": [
+          "61.84 MiB",
+          "5.94 MiB"
+        ],
+        "benchBytes": [
+          "61.84",
+          "5.94"
+        ],
+        "buildTimes": "重建记录：3DGS 训练与导出 503.2 秒（web-scan 历史任务）；Mesh 构建 2.72 秒（CPU）。两者均不含首次 SfM。",
+        "badge": true,
+        "references": [
+          {
+            "visible": false,
+            "src": "/scenes/pipes/photos/00.jpg"
+          },
+          {
+            "visible": false,
+            "src": "/scenes/pipes/photos/00.jpg"
+          }
+        ],
+        "canvases": [
+          {
+            "visible": true,
+            "nonBlack": true,
+            "size": [
+              768,
+              505
+            ],
+            "sha256": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36"
+          },
+          {
+            "visible": true,
+            "nonBlack": true,
+            "size": [
+              768,
+              505
+            ],
+            "sha256": "c3c2144e2ef68b0306e923997f7336302afc5ff7097be8b9a2926b6c5b78cdb9"
+          }
+        ],
+        "viewDisabled": false,
+        "retry": false,
+        "scrollWidth": 1440
+      },
+      "pending": {
+        "active": "office",
+        "status": "正在加载照片与真实三维模型…",
+        "photos": 14,
+        "options": 14,
+        "info": "ETH3D pipes · 12 张训练 / 2 张留出",
+        "counts": [
+          "300,000 个高斯",
+          "67,436 个三角形"
+        ],
+        "sizes": [
+          "61.84 MiB",
+          "5.94 MiB"
+        ],
+        "benchBytes": [
+          "61.84",
+          "5.94"
+        ],
+        "buildTimes": "重建记录：3DGS 训练与导出 503.2 秒（web-scan 历史任务）；Mesh 构建 2.72 秒（CPU）。两者均不含首次 SfM。",
+        "badge": true,
+        "references": [
+          {
+            "visible": true,
+            "src": "/scenes/pipes/photos/00.jpg"
+          },
+          {
+            "visible": true,
+            "src": "/scenes/pipes/photos/00.jpg"
+          }
+        ],
+        "canvases": [
+          {
+            "visible": true,
+            "nonBlack": true,
+            "size": [
+              768,
+              505
+            ],
+            "sha256": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36"
+          },
+          {
+            "visible": true,
+            "nonBlack": true,
+            "size": [
+              768,
+              505
+            ],
+            "sha256": "c3c2144e2ef68b0306e923997f7336302afc5ff7097be8b9a2926b6c5b78cdb9"
+          }
+        ],
+        "viewDisabled": true,
+        "retry": false,
+        "scrollWidth": 1440
+      },
+      "failed": {
+        "active": "office",
+        "status": "加载失败：无法读取场景信息。请重试。",
+        "photos": 14,
+        "options": 14,
+        "info": "ETH3D pipes · 12 张训练 / 2 张留出",
+        "counts": [
+          "300,000 个高斯",
+          "67,436 个三角形"
+        ],
+        "sizes": [
+          "61.84 MiB",
+          "5.94 MiB"
+        ],
+        "benchBytes": [
+          "61.84",
+          "5.94"
+        ],
+        "buildTimes": "重建记录：3DGS 训练与导出 503.2 秒（web-scan 历史任务）；Mesh 构建 2.72 秒（CPU）。两者均不含首次 SfM。",
+        "badge": true,
+        "references": [
+          {
+            "visible": true,
+            "src": "/scenes/pipes/photos/00.jpg"
+          },
+          {
+            "visible": true,
+            "src": "/scenes/pipes/photos/00.jpg"
+          }
+        ],
+        "canvases": [
+          {
+            "visible": true,
+            "nonBlack": true,
+            "size": [
+              768,
+              505
+            ],
+            "sha256": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36"
+          },
+          {
+            "visible": true,
+            "nonBlack": true,
+            "size": [
+              768,
+              505
+            ],
+            "sha256": "c3c2144e2ef68b0306e923997f7336302afc5ff7097be8b9a2926b6c5b78cdb9"
+          }
+        ],
+        "viewDisabled": true,
+        "retry": true,
+        "scrollWidth": 1440
+      },
+      "cancelled": {
+        "active": "office",
+        "status": "加载已取消，可重新加载或选择其他场景。",
+        "photos": 14,
+        "options": 14,
+        "info": "场景加载已取消",
+        "counts": [
+          "未加载",
+          "未加载"
+        ],
+        "sizes": [
+          "—",
+          "—"
+        ],
+        "benchBytes": [
+          "61.84",
+          "5.94"
+        ],
+        "buildTimes": "重建记录：3DGS 训练与导出 503.2 秒（web-scan 历史任务）；Mesh 构建 2.72 秒（CPU）。两者均不含首次 SfM。",
+        "badge": true,
+        "references": [
+          {
+            "visible": false,
+            "src": "/scenes/pipes/photos/00.jpg"
+          },
+          {
+            "visible": false,
+            "src": "/scenes/pipes/photos/00.jpg"
+          }
+        ],
+        "canvases": [
+          {
+            "visible": true,
+            "nonBlack": false,
+            "size": [
+              768,
+              505
+            ],
+            "sha256": "bf2d8508109afd3dd67987a88bfc9a0cade689a7c61c9c3d7479a289b7cd9ffc"
+          },
+          {
+            "visible": true,
+            "nonBlack": false,
+            "size": [
+              768,
+              505
+            ],
+            "sha256": "bf2d8508109afd3dd67987a88bfc9a0cade689a7c61c9c3d7479a289b7cd9ffc"
+          }
+        ],
+        "viewDisabled": true,
+        "retry": true,
+        "scrollWidth": 1440
+      },
+      "recovered": {
+        "active": "office",
+        "status": "加载完成，可切换照片或自由查看。",
+        "photos": 26,
+        "options": 26,
+        "info": "ETH3D office · 22 张训练 / 4 张留出",
+        "counts": [
+          "231,428 个高斯",
+          "143,715 个三角形"
+        ],
+        "sizes": [
+          "46.78 MiB",
+          "11.72 MiB"
+        ],
+        "benchBytes": [
+          "46.78",
+          "11.72"
+        ],
+        "buildTimes": "重建记录：3DGS 训练与导出 577.8 秒（web-scan 历史任务）；Mesh 构建 4.87 秒（CPU）。两者均不含首次 SfM。",
+        "badge": true,
+        "references": [
+          {
+            "visible": false,
+            "src": "/scenes/office/photos/00.jpg"
+          },
+          {
+            "visible": false,
+            "src": "/scenes/office/photos/00.jpg"
+          }
+        ],
+        "canvases": [
+          {
+            "visible": true,
+            "nonBlack": true,
+            "size": [
+              768,
+              500
+            ],
+            "sha256": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3"
+          },
+          {
+            "visible": true,
+            "nonBlack": true,
+            "size": [
+              768,
+              500
+            ],
+            "sha256": "ac95a13722ceebb9e56bfeb53a925f674a5145242504fb1929e44f4b8b66a4e7"
+          }
+        ],
+        "viewDisabled": false,
+        "retry": false,
+        "scrollWidth": 1440
+      },
+      "returned": {
+        "active": "pipes",
+        "status": "加载完成，可切换照片或自由查看。",
+        "photos": 14,
+        "options": 14,
+        "info": "ETH3D pipes · 12 张训练 / 2 张留出",
+        "counts": [
+          "300,000 个高斯",
+          "67,436 个三角形"
+        ],
+        "sizes": [
+          "61.84 MiB",
+          "5.94 MiB"
+        ],
+        "benchBytes": [
+          "61.84",
+          "5.94"
+        ],
+        "buildTimes": "重建记录：3DGS 训练与导出 503.2 秒（web-scan 历史任务）；Mesh 构建 2.72 秒（CPU）。两者均不含首次 SfM。",
+        "badge": true,
+        "references": [
+          {
+            "visible": false,
+            "src": "/scenes/pipes/photos/00.jpg"
+          },
+          {
+            "visible": false,
+            "src": "/scenes/pipes/photos/00.jpg"
+          }
+        ],
+        "canvases": [
+          {
+            "visible": true,
+            "nonBlack": true,
+            "size": [
+              768,
+              505
+            ],
+            "sha256": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36"
+          },
+          {
+            "visible": true,
+            "nonBlack": true,
+            "size": [
+              768,
+              505
+            ],
+            "sha256": "c3c2144e2ef68b0306e923997f7336302afc5ff7097be8b9a2926b6c5b78cdb9"
+          }
+        ],
+        "viewDisabled": false,
+        "retry": false,
+        "scrollWidth": 1440
+      },
+      "errors": []
+    },
+    {
+      "variant": "fixed",
+      "entry": "benchmark.html",
+      "width": 1440,
+      "browser": "156.0.8078.4",
+      "start": {
+        "active": "pipes",
+        "status": "加载完成，可切换照片或自由查看。",
+        "photos": 14,
+        "options": 14,
+        "info": "ETH3D pipes · 12 张训练 / 2 张留出",
+        "counts": [
+          "300,000 个高斯",
+          "67,436 个三角形"
+        ],
+        "sizes": [
+          "61.84 MiB",
+          "5.94 MiB"
+        ],
+        "benchBytes": [
+          "61.84",
+          "5.94"
+        ],
+        "buildTimes": "重建记录：3DGS 训练与导出 503.2 秒（web-scan 历史任务）；Mesh 构建 2.72 秒（CPU）。两者均不含首次 SfM。",
+        "badge": true,
+        "references": [
+          {
+            "visible": false,
+            "src": null
+          },
+          {
+            "visible": false,
+            "src": null
+          }
+        ],
+        "canvases": [
+          {
+            "visible": true,
+            "nonBlack": true,
+            "size": [
+              768,
+              505
+            ],
+            "sha256": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36"
+          },
+          {
+            "visible": true,
+            "nonBlack": true,
+            "size": [
+              768,
+              505
+            ],
+            "sha256": "c3c2144e2ef68b0306e923997f7336302afc5ff7097be8b9a2926b6c5b78cdb9"
+          }
+        ],
+        "viewDisabled": false,
+        "retry": false,
+        "scrollWidth": 1440
+      },
+      "pending": {
+        "active": "office",
+        "status": "正在加载照片与真实三维模型…",
+        "photos": 0,
+        "options": 0,
+        "info": "正在加载场景…",
+        "counts": [
+          "加载中…",
+          "加载中…"
+        ],
+        "sizes": [
+          "—",
+          "—"
+        ],
+        "benchBytes": [
+          "—",
+          "—"
+        ],
+        "buildTimes": "",
+        "badge": false,
+        "references": [
+          {
+            "visible": false,
+            "src": null
+          },
+          {
+            "visible": false,
+            "src": null
+          }
+        ],
+        "canvases": [
+          {
+            "visible": false,
+            "nonBlack": true,
+            "size": [
+              768,
+              505
+            ],
+            "sha256": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36"
+          },
+          {
+            "visible": false,
+            "nonBlack": true,
+            "size": [
+              768,
+              505
+            ],
+            "sha256": "c3c2144e2ef68b0306e923997f7336302afc5ff7097be8b9a2926b6c5b78cdb9"
+          }
+        ],
+        "viewDisabled": true,
+        "retry": false,
+        "scrollWidth": 1440
+      },
+      "failed": {
+        "active": "office",
+        "status": "加载失败：无法读取场景信息。请重试。",
+        "photos": 0,
+        "options": 0,
+        "info": "场景未加载",
+        "counts": [
+          "未加载",
+          "未加载"
+        ],
+        "sizes": [
+          "—",
+          "—"
+        ],
+        "benchBytes": [
+          "—",
+          "—"
+        ],
+        "buildTimes": "",
+        "badge": false,
+        "references": [
+          {
+            "visible": false,
+            "src": null
+          },
+          {
+            "visible": false,
+            "src": null
+          }
+        ],
+        "canvases": [
+          {
+            "visible": false,
+            "nonBlack": true,
+            "size": [
+              768,
+              505
+            ],
+            "sha256": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36"
+          },
+          {
+            "visible": false,
+            "nonBlack": true,
+            "size": [
+              768,
+              505
+            ],
+            "sha256": "c3c2144e2ef68b0306e923997f7336302afc5ff7097be8b9a2926b6c5b78cdb9"
+          }
+        ],
+        "viewDisabled": true,
+        "retry": true,
+        "scrollWidth": 1440
+      },
+      "cancelled": {
+        "active": "office",
+        "status": "加载已取消，可重新加载或选择其他场景。",
+        "photos": 0,
+        "options": 0,
+        "info": "场景加载已取消",
+        "counts": [
+          "未加载",
+          "未加载"
+        ],
+        "sizes": [
+          "—",
+          "—"
+        ],
+        "benchBytes": [
+          "—",
+          "—"
+        ],
+        "buildTimes": "",
+        "badge": false,
+        "references": [
+          {
+            "visible": false,
+            "src": null
+          },
+          {
+            "visible": false,
+            "src": null
+          }
+        ],
+        "canvases": [
+          {
+            "visible": false,
+            "nonBlack": false,
+            "size": [
+              768,
+              505
+            ],
+            "sha256": "bf2d8508109afd3dd67987a88bfc9a0cade689a7c61c9c3d7479a289b7cd9ffc"
+          },
+          {
+            "visible": false,
+            "nonBlack": false,
+            "size": [
+              768,
+              505
+            ],
+            "sha256": "bf2d8508109afd3dd67987a88bfc9a0cade689a7c61c9c3d7479a289b7cd9ffc"
+          }
+        ],
+        "viewDisabled": true,
+        "retry": true,
+        "scrollWidth": 1440
+      },
+      "recovered": {
+        "active": "office",
+        "status": "加载完成，可切换照片或自由查看。",
+        "photos": 26,
+        "options": 26,
+        "info": "ETH3D office · 22 张训练 / 4 张留出",
+        "counts": [
+          "231,428 个高斯",
+          "143,715 个三角形"
+        ],
+        "sizes": [
+          "46.78 MiB",
+          "11.72 MiB"
+        ],
+        "benchBytes": [
+          "46.78",
+          "11.72"
+        ],
+        "buildTimes": "重建记录：3DGS 训练与导出 577.8 秒（web-scan 历史任务）；Mesh 构建 4.87 秒（CPU）。两者均不含首次 SfM。",
+        "badge": true,
+        "references": [
+          {
+            "visible": false,
+            "src": null
+          },
+          {
+            "visible": false,
+            "src": null
+          }
+        ],
+        "canvases": [
+          {
+            "visible": true,
+            "nonBlack": true,
+            "size": [
+              768,
+              500
+            ],
+            "sha256": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3"
+          },
+          {
+            "visible": true,
+            "nonBlack": true,
+            "size": [
+              768,
+              500
+            ],
+            "sha256": "ac95a13722ceebb9e56bfeb53a925f674a5145242504fb1929e44f4b8b66a4e7"
+          }
+        ],
+        "viewDisabled": false,
+        "retry": false,
+        "scrollWidth": 1440
+      },
+      "returned": {
+        "active": "pipes",
+        "status": "加载完成，可切换照片或自由查看。",
+        "photos": 14,
+        "options": 14,
+        "info": "ETH3D pipes · 12 张训练 / 2 张留出",
+        "counts": [
+          "300,000 个高斯",
+          "67,436 个三角形"
+        ],
+        "sizes": [
+          "61.84 MiB",
+          "5.94 MiB"
+        ],
+        "benchBytes": [
+          "61.84",
+          "5.94"
+        ],
+        "buildTimes": "重建记录：3DGS 训练与导出 503.2 秒（web-scan 历史任务）；Mesh 构建 2.72 秒（CPU）。两者均不含首次 SfM。",
+        "badge": true,
+        "references": [
+          {
+            "visible": false,
+            "src": null
+          },
+          {
+            "visible": false,
+            "src": null
+          }
+        ],
+        "canvases": [
+          {
+            "visible": true,
+            "nonBlack": true,
+            "size": [
+              768,
+              505
+            ],
+            "sha256": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36"
+          },
+          {
+            "visible": true,
+            "nonBlack": true,
+            "size": [
+              768,
+              505
+            ],
+            "sha256": "c3c2144e2ef68b0306e923997f7336302afc5ff7097be8b9a2926b6c5b78cdb9"
+          }
+        ],
+        "viewDisabled": false,
+        "retry": false,
+        "scrollWidth": 1440
+      },
+      "errors": []
+    },
+    {
+      "variant": "fixed",
+      "entry": "",
+      "width": 390,
+      "browser": "156.0.8078.4",
+      "start": {
+        "active": "pipes",
+        "status": "加载完成，可切换照片或自由查看。",
+        "photos": 14,
+        "options": 14,
+        "info": "ETH3D pipes · 12 张训练 / 2 张留出",
+        "counts": [
+          "300,000 个高斯",
+          "67,436 个三角形"
+        ],
+        "sizes": [
+          "61.84 MiB",
+          "5.94 MiB"
+        ],
+        "benchBytes": [
+          null,
+          null
+        ],
+        "badge": true,
+        "references": [
+          {
+            "visible": false,
+            "src": null
+          },
+          {
+            "visible": false,
+            "src": null
+          }
+        ],
+        "canvases": [
+          {
+            "visible": true,
+            "nonBlack": true,
+            "size": [
+              768,
+              505
+            ],
+            "sha256": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36"
+          },
+          {
+            "visible": true,
+            "nonBlack": true,
+            "size": [
+              768,
+              505
+            ],
+            "sha256": "c3c2144e2ef68b0306e923997f7336302afc5ff7097be8b9a2926b6c5b78cdb9"
+          }
+        ],
+        "viewDisabled": false,
+        "retry": false,
+        "scrollWidth": 390
+      },
+      "pending": {
+        "active": "office",
+        "status": "正在加载照片与真实三维模型…",
+        "photos": 0,
+        "options": 0,
+        "info": "正在加载场景…",
+        "counts": [
+          "加载中…",
+          "加载中…"
+        ],
+        "sizes": [
+          "—",
+          "—"
+        ],
+        "benchBytes": [
+          null,
+          null
+        ],
+        "badge": false,
+        "references": [
+          {
+            "visible": false,
+            "src": null
+          },
+          {
+            "visible": false,
+            "src": null
+          }
+        ],
+        "canvases": [
+          {
+            "visible": false,
+            "nonBlack": true,
+            "size": [
+              768,
+              505
+            ],
+            "sha256": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36"
+          },
+          {
+            "visible": false,
+            "nonBlack": true,
+            "size": [
+              768,
+              505
+            ],
+            "sha256": "c3c2144e2ef68b0306e923997f7336302afc5ff7097be8b9a2926b6c5b78cdb9"
+          }
+        ],
+        "viewDisabled": true,
+        "retry": false,
+        "scrollWidth": 390
+      },
+      "failed": {
+        "active": "office",
+        "status": "加载失败：无法读取场景信息。请重试。",
+        "photos": 0,
+        "options": 0,
+        "info": "场景未加载",
+        "counts": [
+          "未加载",
+          "未加载"
+        ],
+        "sizes": [
+          "—",
+          "—"
+        ],
+        "benchBytes": [
+          null,
+          null
+        ],
+        "badge": false,
+        "references": [
+          {
+            "visible": false,
+            "src": null
+          },
+          {
+            "visible": false,
+            "src": null
+          }
+        ],
+        "canvases": [
+          {
+            "visible": false,
+            "nonBlack": true,
+            "size": [
+              768,
+              505
+            ],
+            "sha256": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36"
+          },
+          {
+            "visible": false,
+            "nonBlack": true,
+            "size": [
+              768,
+              505
+            ],
+            "sha256": "c3c2144e2ef68b0306e923997f7336302afc5ff7097be8b9a2926b6c5b78cdb9"
+          }
+        ],
+        "viewDisabled": true,
+        "retry": true,
+        "scrollWidth": 390
+      },
+      "cancelled": {
+        "active": "office",
+        "status": "加载已取消，可重新加载或选择其他场景。",
+        "photos": 0,
+        "options": 0,
+        "info": "场景加载已取消",
+        "counts": [
+          "未加载",
+          "未加载"
+        ],
+        "sizes": [
+          "—",
+          "—"
+        ],
+        "benchBytes": [
+          null,
+          null
+        ],
+        "badge": false,
+        "references": [
+          {
+            "visible": false,
+            "src": null
+          },
+          {
+            "visible": false,
+            "src": null
+          }
+        ],
+        "canvases": [
+          {
+            "visible": false,
+            "nonBlack": false,
+            "size": [
+              768,
+              505
+            ],
+            "sha256": "bf2d8508109afd3dd67987a88bfc9a0cade689a7c61c9c3d7479a289b7cd9ffc"
+          },
+          {
+            "visible": false,
+            "nonBlack": false,
+            "size": [
+              768,
+              505
+            ],
+            "sha256": "bf2d8508109afd3dd67987a88bfc9a0cade689a7c61c9c3d7479a289b7cd9ffc"
+          }
+        ],
+        "viewDisabled": true,
+        "retry": true,
+        "scrollWidth": 390
+      },
+      "recovered": {
+        "active": "office",
+        "status": "加载完成，可切换照片或自由查看。",
+        "photos": 26,
+        "options": 26,
+        "info": "ETH3D office · 22 张训练 / 4 张留出",
+        "counts": [
+          "231,428 个高斯",
+          "143,715 个三角形"
+        ],
+        "sizes": [
+          "46.78 MiB",
+          "11.72 MiB"
+        ],
+        "benchBytes": [
+          null,
+          null
+        ],
+        "badge": true,
+        "references": [
+          {
+            "visible": false,
+            "src": null
+          },
+          {
+            "visible": false,
+            "src": null
+          }
+        ],
+        "canvases": [
+          {
+            "visible": true,
+            "nonBlack": true,
+            "size": [
+              768,
+              500
+            ],
+            "sha256": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3"
+          },
+          {
+            "visible": true,
+            "nonBlack": true,
+            "size": [
+              768,
+              500
+            ],
+            "sha256": "ac95a13722ceebb9e56bfeb53a925f674a5145242504fb1929e44f4b8b66a4e7"
+          }
+        ],
+        "viewDisabled": false,
+        "retry": false,
+        "scrollWidth": 390
+      },
+      "returned": {
+        "active": "pipes",
+        "status": "加载完成，可切换照片或自由查看。",
+        "photos": 14,
+        "options": 14,
+        "info": "ETH3D pipes · 12 张训练 / 2 张留出",
+        "counts": [
+          "300,000 个高斯",
+          "67,436 个三角形"
+        ],
+        "sizes": [
+          "61.84 MiB",
+          "5.94 MiB"
+        ],
+        "benchBytes": [
+          null,
+          null
+        ],
+        "badge": true,
+        "references": [
+          {
+            "visible": false,
+            "src": null
+          },
+          {
+            "visible": false,
+            "src": null
+          }
+        ],
+        "canvases": [
+          {
+            "visible": true,
+            "nonBlack": true,
+            "size": [
+              768,
+              505
+            ],
+            "sha256": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36"
+          },
+          {
+            "visible": true,
+            "nonBlack": true,
+            "size": [
+              768,
+              505
+            ],
+            "sha256": "c3c2144e2ef68b0306e923997f7336302afc5ff7097be8b9a2926b6c5b78cdb9"
+          }
+        ],
+        "viewDisabled": false,
+        "retry": false,
+        "scrollWidth": 390
+      },
+      "errors": []
+    }
+  ]
+}

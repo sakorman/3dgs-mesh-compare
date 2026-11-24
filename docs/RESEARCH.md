@@ -1,6 +1,6 @@
 # 3DGS 研究索引
 
-查阅日期：2026-11-08。以下区分已验证的应用改进与尚未验证收益的研究候选。
+查阅日期：2026-11-24。以下区分已验证的应用改进与尚未验证收益的研究候选。
 
 ## 实现
 
@@ -24,6 +24,12 @@
 
 ## 近期结论
 
+### 场景切换与首帧就绪
+
+SuperSplat Viewer v1.43.3（2026-11-17，MIT）在 `firstFrame` 到来时设置 `state.loaded`。引擎可请求 WebGPU 并回退 WebGL2。11-21 的主分支提交更新了主题配色，首帧行为以发布标签为准。本项目以当前请求的两侧模型完成首帧准备作为显示条件。MoQSplat v1（2026-09-16）另有基础几何与后续增强层。如果引入渐进加载，应分别记录目标场景首次覆盖与完整质量。当前页面状态仅在 Chromium WebGL2 验证。[SuperSplat 发布说明](https://github.com/playcanvas/supersplat-viewer/releases/tag/v1.43.3) · [首帧实现](https://github.com/playcanvas/supersplat-viewer/blob/d8c74450e3d4a1be7d669cc5ac0578114a4d8bc4/src/viewer.ts#L422) · [后端选择](https://github.com/playcanvas/supersplat-viewer/blob/d8c74450e3d4a1be7d669cc5ac0578114a4d8bc4/src/index.ts#L153) · [MoQSplat 原文 §II](https://arxiv.org/html/2609.18624v1#S2) · [作者实现](https://github.com/emanuele-artioli/MoQSplat/tree/15e02a669456d767abf5d68f9fb1f909f260dde0)
+
+Spark 11-19 的 SOG 解码提交在 ZIP 预读后丢弃原缓冲，按最多 65,536 个高斯复用属性数组。输入仍累积至 `finish()`，解码后的图像仍同时保留。该提交晚于项目使用的 MIT 版 2.4.0，适合作为以后 SOG/WASM 峰值内存实验的候选。两组默认资产走 PLY 路径，此处没有对浏览器内存或 Metal/CUDA 作实测。[作者解码实现](https://github.com/sparkjsdev/spark/blob/0bca3ab50a4bf7db1c8f7b24aa7a0ecd874583cf/rust/spark-lib/src/sogs.rs#L126) · [2.4.0 发布说明](https://github.com/sparkjsdev/spark/releases/tag/v2.4.0)
+
 ### WebSplatter：WebGPU 管线候选，不能替代当前 WebGL2 基线
 
 2026-11-07 核对 [WebSplatter 项目页](https://websplatter.github.io/)、[作者代码](https://github.com/websplatter/WebSplatter/tree/16bb06e86b8fb12193d4bb4cd2b0b3d4f3ab62be)与 [arXiv:2602.03207](https://arxiv.org/abs/2602.03207)。固定代码主分支 `16bb06e`（2026-08-29，MIT）采用 WebGPU 原生等待无关基数排序、硬件光栅化和按不透明度调整四边形；项目页给出 11 台设备、5 类 GPU、1.1–2.5× 相对存活网页基线和平均 0.07dB ΔPSNR。arXiv 摘要写成 1.2–4.5×，口径存在差异，不能把任一数字当作本项目结果。项目只要求 WebGPU，代码还提供 GLB/SPZ 与 `KHR_gaussian_splatting` 入口；没有当前 Spark WebGL2、ETH3D pipes/office 或本机 Metal 路径的同条件对照。
@@ -32,7 +38,7 @@
 
 ### Mesh 纹理源引用与共享所有权
 
-2026-11-09 对照 [Three.js r180 `Source`](https://github.com/mrdoob/three.js/blob/r180/src/textures/Source.js) 与当前 [Spark `ExtSplats.dispose`](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/ExtSplats.ts)：GPU `dispose()` 不等于调用方 CPU 源引用断开，Spark 对自有 DataTexture 还会把 `source.data` 置空。本项目的 GLTF 根拥有其 Mesh geometry、material、texture 和 ImageBitmap，因此 `disposeMeshResources` 在关闭图像后新增 `texture.source.data = null`。三组场景切换实测 46 个纹理源均断开，未改变像素摘要。
+2026-11-09 对照 [Three.js r180 `Source`](https://github.com/mrdoob/three.js/blob/r180/src/textures/Source.js) 与当前 [Spark `ExtSplats.dispose`](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/ExtSplats.ts)：GPU `dispose()` 不等于调用方 CPU 源引用断开，Spark 对自有 DataTexture 还会把 `source.data` 置空。本项目的 GLTF 根拥有其 Mesh geometry、material、texture 和 ImageBitmap，因此 `disposeMeshResources` 将纹理的 `source.data` 置空，再关闭已收集的位图。三组场景切换实测 46 个纹理源均断开，未改变像素摘要。
 
 这不是通用共享纹理的安全证明；若未来引入跨场景材质/纹理缓存，必须改为引用计数或显式所有权，不能无条件置空共享源。当前默认页面没有共享 GLTF 纹理，Three.js 0.180.0 / Spark 2.4.0 依赖未升级。
 

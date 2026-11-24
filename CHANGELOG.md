@@ -1,10 +1,17 @@
 # 更新日志
 
+## 2026-11-24 · 切换场景时撤下旧画面
+
+- 修复办公室加载期间仍显示管道房照片、模型数量和评测数据的问题。两侧模型就绪后再显示对应画面。
+- 桌面评测页与窄屏首页均通过延迟、HTTP 503、取消和重试检查。办公室恢复 26 张照片，两场景首个留出视角的四份画面摘要与基线一致。[截图与原始记录](docs/LOAD-CANCEL.md)
+- 10 个加载取消场景、6 个留出画面和 158 项单元回归通过，严格类型检查与生产构建通过。此次未测加载提速。
+- 核对首帧事件与渐进基础层的就绪条件，保留完整双模型的比较口径。[SuperSplat 首帧实现](https://github.com/playcanvas/supersplat-viewer/blob/d8c74450e3d4a1be7d669cc5ac0578114a4d8bc4/src/viewer.ts#L422) · [MoQSplat 论文](https://arxiv.org/html/2609.18624v1#S2)
+
 ## 2026-11-09 · 断开 Mesh 纹理的 CPU 源引用
 
-- 修复 Mesh 独占纹理在 `Texture.dispose()` 后仍保留 `texture.source.data` 的问题；关闭 ImageBitmap 后显式置空源引用，避免旧场景继续持有已关闭图像或解码数据。
+- 修复 Mesh 独占纹理在 `Texture.dispose()` 后仍保留 `texture.source.data` 的问题；显式置空源引用并关闭 ImageBitmap，避免旧场景继续持有已关闭图像或解码数据。
 - Chrome 156 / Apple M5 WebGL2 按 `pipes → office → pipes → dispose` 验证：3 组旧模型的 Mesh 源引用均为 0，46 个 ImageBitmap 全部关闭，46 个纹理各释放一次，pipes 回载摘要一致。
-- 新增底层 backing buffer、零长度视图和纹理源断开的回归；158 项回归、严格类型检查与生产构建通过。该项只证明项目对象边界，不代表浏览器 GC、GPU 回收或性能提升。
+- 在既有回归中补充纹理源断开检查；158 项回归、严格类型检查与生产构建通过。该项只证明项目对象边界，不代表浏览器 GC、GPU 回收或性能提升。
 - 依据 [Three.js r180 Source](https://github.com/mrdoob/three.js/blob/r180/src/textures/Source.js) 与 [Spark ExtSplats.dispose](https://github.com/sparkjsdev/spark/blob/ffe210dc0a45d0515a06c9235878108112827d61/src/ExtSplats.ts)核对源数据所有权；继续记录 GSL 1.7.0 共享码本的缓存/纹理分离，未移植其格式。
 
 ## 2026-11-08 · 修正资源探针的误通过

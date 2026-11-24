@@ -10,7 +10,7 @@
 
 ## Mesh 纹理源引用修复
 
-11-09 将拥有的 Mesh 纹理在 `Texture.dispose()` 后的 `texture.source.data` 显式置为 `null`。Three.js 的 `dispose()` 释放 GPU 资源，但不会替调用方清空 CPU 侧 Source；该查看器的 GLTF 根独占这些纹理，因此由项目负责断开引用。ImageBitmap 仍先调用 `close()`，纹理源断开与图像关闭分别核验。
+11-09 将拥有的 Mesh 纹理在 `Texture.dispose()` 后的 `texture.source.data` 显式置为 `null`。Three.js 的 `dispose()` 释放 GPU 资源，但不会替调用方清空 CPU 侧 Source；该查看器的 GLTF 根独占这些纹理，因此由项目负责断开引用。随后对已收集的 ImageBitmap 调用 `close()`，纹理源断开与图像关闭分别核验。
 
 新增的浏览器记录中，三组旧模型的 Mesh `source.data` 均为 0 个、46 个旧 ImageBitmap 均关闭、46 个 Mesh 纹理各收到一次 dispose 事件，pipes 回载像素摘要保持一致。原始 JSON 与输入/源码摘要见[`lifecycle-memory-2026-11-09.json`](benchmarks/lifecycle-memory-2026-11-09.json)和[`lifecycle-memory-2026-11-09.inputs.json`](benchmarks/lifecycle-memory-2026-11-09.inputs.json)。这只证明项目持有的 CPU 引用已断开，不证明浏览器 GC、GPU 驱动或解码器立即回收。
 

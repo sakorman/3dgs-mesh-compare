@@ -43,7 +43,7 @@ export function disposeMeshResources(root: THREE.Object3D) {
     texture.dispose();
     // Texture.dispose() releases the GPU allocation, but Three.js keeps the
     // CPU-side Source.data reference. This root owns the texture, so sever it
-    // after closing any decoded ImageBitmap to avoid retaining decoded data.
+    // here; the collected ImageBitmaps are closed below.
     texture.source.data = null;
   }
   // Texture.dispose() releases GPU state, not its CPU-side ImageBitmap source.

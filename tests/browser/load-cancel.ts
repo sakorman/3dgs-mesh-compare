@@ -86,8 +86,16 @@ run.onclick = async () => {
           if (stage === "settle" && !entered) { signal = s; entered = true; await held.promise; }
           return settleOriginal(s);
         };
+        if (!baseline && stage === "metadata") button("reference").click();
         choose(scene);
         await waitUntil(() => entered, "held load");
+        if (!baseline && stage === "metadata") {
+          const stalePhoto = document.querySelector(".reference[src], [data-photo], #view option");
+          const visibleModel = Object.values(viewer.renderers).some(
+            renderer => getComputedStyle(renderer.domElement).visibility === "visible",
+          );
+          if (stalePhoto || visibleModel) throw new Error(`Previous scene visible while loading ${scene}`);
+        }
         const stale = pending!;
         const offered = !button("cancel").hidden;
         const label = button("cancel").textContent;

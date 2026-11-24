@@ -136,8 +136,9 @@ function showLoadTimings() {
 function showReference(value: boolean) {
   reference = value;
   document.querySelectorAll<HTMLImageElement>(".reference").forEach((img) => {
-    img.src = `${import.meta.env.BASE_URL}scenes/${sceneId}/${data.views[viewIndex].url}`;
     img.hidden = !value;
+    if (value) img.src = `${import.meta.env.BASE_URL}scenes/${sceneId}/${data.views[viewIndex].url}`;
+    else img.removeAttribute("src");
   });
   document
     .querySelectorAll<HTMLElement>(".photo-label")
@@ -179,6 +180,27 @@ function selectView(index: number) {
     button("export").disabled = !qualityReport && !viewer.loadTimings;
   }
 }
+function clearSceneDisplay(info: string, count = "未加载") {
+  $("scene-info").textContent = info;
+  // The WebGL buffers retain their last frame, even after the scene is detached.
+  $("viewports").classList.add("awaiting-scene");
+  showReference(false);
+  if (orbit) setOrbit(false);
+  if (wire) setWire(false);
+  $("view").replaceChildren();
+  $("photos").replaceChildren();
+  $("split-badge").hidden = true;
+  for (const side of ["gs", "mesh"]) {
+    $(`${side}-count`).textContent = count;
+    $(`${side}-size`).textContent = "—";
+    if (isBenchmark) $(`${side}-bytes`).textContent = "—";
+  }
+  if (isBenchmark) {
+    $("build-times").textContent = "";
+    $("load-details").hidden = true;
+    clearResults();
+  }
+}
 async function loadScene(id: string) {
   if (viewer.lost || viewer.disposed) return;
   const request = ++loadRequest;
@@ -186,8 +208,7 @@ async function loadScene(id: string) {
   sceneId = id;
   ready = false;
   lock(true);
-  clearResults();
-  if (isBenchmark) $("load-details").hidden = true;
+  clearSceneDisplay("正在加载场景…", "加载中…");
   button("retry").hidden = true;
   button("cancel").textContent = "取消加载";
   button("cancel").hidden = false;
@@ -200,11 +221,7 @@ async function loadScene(id: string) {
     const loaded = await viewer.load(id);
     if (!loaded || request !== loadRequest) return;
     data = loaded;
-    ready = true;
     showLoadTimings();
-    orbit = false;
-    wire = false;
-    reference = false;
     $("gs-count").textContent = number(data.gaussian.count) + " 个高斯";
     $("mesh-count").textContent = number(data.mesh.triangles) + " 个三角形";
     $("gs-size").textContent = mib(data.gaussian.bytes) + " MiB";
@@ -219,8 +236,6 @@ async function loadScene(id: string) {
       $("build-times").textContent =
         `重建记录：3DGS 训练与导出 ${data.gaussian.seconds.toFixed(1)} 秒（web-scan 历史任务）；Mesh 构建 ${data.mesh.seconds.toFixed(2)} 秒（CPU）。两者均不含首次 SfM。`;
     const select = $<HTMLSelectElement>("view");
-    select.replaceChildren();
-    $("photos").replaceChildren();
     data.views.forEach((v, i) => {
       select.add(
         new Option(`照片 ${String(i + 1).padStart(2, "0")}`, String(i)),
@@ -241,12 +256,15 @@ async function loadScene(id: string) {
       $("photos").append(b);
     });
     selectView(data.views.findIndex((v) => v.heldOut));
-    setWire(false);
+    $("split-badge").hidden = false;
+    $("viewports").classList.remove("awaiting-scene");
+    ready = true;
     status("加载完成，可切换照片或自由查看。");
   } catch (e) {
     if (request !== loadRequest) return;
     ready = false;
     viewer.playing = false;
+    clearSceneDisplay("场景未加载");
     status(`加载失败：${message(e)}。请重试。`, true);
     button("retry").hidden = false;
   } finally {
@@ -412,13 +430,7 @@ button("cancel").onclick = () => {
   viewer.clear();
   if (!viewer.lost && !viewer.disposed)
     Object.values(viewer.renderers).forEach((renderer) => renderer.clear());
-  document.querySelectorAll<HTMLElement>(".reference, .photo-label")
-    .forEach((element) => (element.hidden = true));
-  for (const side of ["gs", "mesh"]) {
-    $(`${side}-count`).textContent = "未加载";
-    $(`${side}-size`).textContent = "—";
-  }
-  $("scene-info").textContent = "场景加载已取消";
+  clearSceneDisplay("场景加载已取消");
   ready = false;
   button("cancel").hidden = true;
   button("retry").hidden = false;
