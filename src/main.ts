@@ -245,9 +245,9 @@ async function loadScene(id: string) {
       b.title = `照片 ${i + 1} · ${v.heldOut ? "留出" : "训练"}`;
       b.setAttribute("aria-label", b.title);
       const img = new Image();
-      img.src = `${import.meta.env.BASE_URL}scenes/${id}/${v.url}`;
       img.alt = "";
       img.loading = "lazy";
+      img.src = `${import.meta.env.BASE_URL}scenes/${id}/${v.thumbnailUrl ?? v.url}`;
       const label = document.createElement("span");
       label.textContent = String(i + 1).padStart(2, "0");
       b.append(img, label);

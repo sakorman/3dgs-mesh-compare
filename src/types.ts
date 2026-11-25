@@ -5,6 +5,7 @@ export type View = {
   height: number;
   image_name: string;
   url: string;
+  thumbnailUrl?: string;
   heldOut: boolean;
   sha256: string;
 };

@@ -67,3 +67,21 @@ for (const scene of ["pipes", "office"])
     }
     assert.equal(triangles, data.mesh.triangles);
   });
+
+for (const scene of ["pipes", "office"])
+  test(`${scene}: navigation thumbnails and reference photos are separate JPEGs`, () => {
+    const base = new URL(`../public/scenes/${scene}/`, import.meta.url);
+    const { views } = JSON.parse(readFileSync(new URL("scene.json", base), "utf8"));
+    const thumbnails = new Set<string>();
+    for (const { url, thumbnailUrl } of views) {
+      assert.equal(typeof thumbnailUrl, "string");
+      assert.notEqual(thumbnailUrl, url);
+      const preview = readFileSync(new URL(thumbnailUrl, base));
+      const reference = readFileSync(new URL(url, base));
+      assert.equal(preview.readUInt16BE(0), 0xffd8);
+      assert.equal(preview.readUInt16BE(preview.length - 2), 0xffd9);
+      assert.ok(preview.length < reference.length);
+      thumbnails.add(thumbnailUrl);
+    }
+    assert.equal(thumbnails.size, views.length);
+  });

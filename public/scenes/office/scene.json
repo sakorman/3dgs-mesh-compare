@@ -60,6 +60,7 @@
       "height": 667,
       "image_name": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
       "url": "photos/00.jpg",
+      "thumbnailUrl": "thumbs/00.jpg",
       "heldOut": true,
       "sha256": "d2570aac393c2428bf238a95d1b42f77893f0fac4c5aff68593fbcd46b9e0157"
     },
@@ -111,6 +112,7 @@
       "height": 667,
       "image_name": "0001-d030b2157bef4e729dc7606a13845c83.jpg",
       "url": "photos/01.jpg",
+      "thumbnailUrl": "thumbs/01.jpg",
       "heldOut": false,
       "sha256": "90a36c879e9ede9c154742a94d7a96e1d3a27f9de149bce7193daea0a18de7b0"
     },
@@ -162,6 +164,7 @@
       "height": 667,
       "image_name": "0002-0f65e210b731497ebec0e32eb9a29947.jpg",
       "url": "photos/02.jpg",
+      "thumbnailUrl": "thumbs/02.jpg",
       "heldOut": false,
       "sha256": "93a188ee8a1786f4c0398ac5797bd0a2f0053caf0e5913a6e59807ec372fd168"
     },
@@ -213,6 +216,7 @@
       "height": 667,
       "image_name": "0003-e26cc582aaf4417487bb58a9e638db16.jpg",
       "url": "photos/03.jpg",
+      "thumbnailUrl": "thumbs/03.jpg",
       "heldOut": false,
       "sha256": "7b41aa1cdaad6f7e3ebe84960d6eda825a14d2879d9fdeadb662a359d750a52d"
     },
@@ -264,6 +268,7 @@
       "height": 667,
       "image_name": "0004-b3eb4da6be68433e8e36cc89b01f60d2.jpg",
       "url": "photos/04.jpg",
+      "thumbnailUrl": "thumbs/04.jpg",
       "heldOut": false,
       "sha256": "26abd4fc18dca2ec84ab3548af35b83605dc3101867483d3d8675ba91f00bb16"
     },
@@ -315,6 +320,7 @@
       "height": 667,
       "image_name": "0005-ca30341f980148e9b9ead51f67f8db72.jpg",
       "url": "photos/05.jpg",
+      "thumbnailUrl": "thumbs/05.jpg",
       "heldOut": false,
       "sha256": "5c6e6492622ec7b1083df4ed1338c57d87d8b21fa0719242e60dea5aadf91e15"
     },
@@ -366,6 +372,7 @@
       "height": 667,
       "image_name": "0006-6a431c8da31a41cbbf48d68e130a8795.jpg",
       "url": "photos/06.jpg",
+      "thumbnailUrl": "thumbs/06.jpg",
       "heldOut": false,
       "sha256": "204737ec7d71544eb3a7421e43d7b5d25e63afc5b6bb2f64013c10820978a96c"
     },
@@ -417,6 +424,7 @@
       "height": 667,
       "image_name": "0007-09ecd1d2cb204fc4a55f59f15e65b4ad.jpg",
       "url": "photos/07.jpg",
+      "thumbnailUrl": "thumbs/07.jpg",
       "heldOut": false,
       "sha256": "5291355de29ed2309b28985a2e36b3607ba1e48880f6f8b82c688b32985a364a"
     },
@@ -468,6 +476,7 @@
       "height": 667,
       "image_name": "0008-1c6da61406eb4744893572435799058c.jpg",
       "url": "photos/08.jpg",
+      "thumbnailUrl": "thumbs/08.jpg",
       "heldOut": true,
       "sha256": "690d085a3a13741c6c2fab85f2835bdf12860bd50c6e9aec1be8b1835639c026"
     },
@@ -519,6 +528,7 @@
       "height": 667,
       "image_name": "0009-8ecfea7d4ee343cb94114b8608d09fc1.jpg",
       "url": "photos/09.jpg",
+      "thumbnailUrl": "thumbs/09.jpg",
       "heldOut": false,
       "sha256": "f957c61477fecbaf09b5174cd387b034c0f8a9eac18ad3ce50203eee8d6a5772"
     },
@@ -570,6 +580,7 @@
       "height": 667,
       "image_name": "0010-e3057f32cb4542e3b56c24cfdac98d01.jpg",
       "url": "photos/10.jpg",
+      "thumbnailUrl": "thumbs/10.jpg",
       "heldOut": false,
       "sha256": "c2bf2044cbfe9b43dc8b521600d8b4f77c9a806635a81e34324102fedb46c019"
     },
@@ -621,6 +632,7 @@
       "height": 667,
       "image_name": "0011-aaf30dcd8f1441b4a74af5e3ff4e6888.jpg",
       "url": "photos/11.jpg",
+      "thumbnailUrl": "thumbs/11.jpg",
       "heldOut": false,
       "sha256": "2472323f6b733d333b7583ff7156c25378d4021af17a8ac6a1a156959365979e"
     },
@@ -672,6 +684,7 @@
       "height": 667,
       "image_name": "0012-22b0bdf6f8ca428c922cd4c57d64c842.jpg",
       "url": "photos/12.jpg",
+      "thumbnailUrl": "thumbs/12.jpg",
       "heldOut": false,
       "sha256": "0bda5a42ebf5e21ce7b9e6b4d2d2611914794d77fbc0fb03665c470a73da3539"
     },
@@ -723,6 +736,7 @@
       "height": 667,
       "image_name": "0013-4255902de37d49e1867d81798d8399f7.jpg",
       "url": "photos/13.jpg",
+      "thumbnailUrl": "thumbs/13.jpg",
       "heldOut": false,
       "sha256": "aad48fa13b42a9c4e56a43f334504f2abf7a590f4220678c25becb5115923927"
     },
@@ -774,6 +788,7 @@
       "height": 667,
       "image_name": "0014-44dffaee9557413ca251bd6b50221fe7.jpg",
       "url": "photos/14.jpg",
+      "thumbnailUrl": "thumbs/14.jpg",
       "heldOut": false,
       "sha256": "cd39bedf5e41964463478a9621305222938f2134a1fe17b7e913abedbebd6814"
     },
@@ -825,6 +840,7 @@
       "height": 667,
       "image_name": "0015-506681db8e634fe3bfe4ca862fa113b5.jpg",
       "url": "photos/15.jpg",
+      "thumbnailUrl": "thumbs/15.jpg",
       "heldOut": false,
       "sha256": "a99589ff26f006a1cecc139444db151436e7d5e1f21e6cb621702a4c335d81d8"
     },
@@ -876,6 +892,7 @@
       "height": 667,
       "image_name": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
       "url": "photos/16.jpg",
+      "thumbnailUrl": "thumbs/16.jpg",
       "heldOut": true,
       "sha256": "368c59ad872c370c55acb4a15f5a6df891077114f0a5932f61686556231dd766"
     },
@@ -927,6 +944,7 @@
       "height": 667,
       "image_name": "0017-29d2820d78da431a9ae417b4484bce96.jpg",
       "url": "photos/17.jpg",
+      "thumbnailUrl": "thumbs/17.jpg",
       "heldOut": false,
       "sha256": "48c1da093b132f43c5dc1cab19a12bad5ecd7f2c17506490fc0d01648dd48378"
     },
@@ -978,6 +996,7 @@
       "height": 667,
       "image_name": "0018-498fb3822bed4fc5a9bccc1339c38aab.jpg",
       "url": "photos/18.jpg",
+      "thumbnailUrl": "thumbs/18.jpg",
       "heldOut": false,
       "sha256": "c4cc1aaf8d1890b8dfe57c54caee613f5020324295965afcbd3d8d5687f158b2"
     },
@@ -1029,6 +1048,7 @@
       "height": 667,
       "image_name": "0019-9efb55df88a04ab688eef92f6ed918f1.jpg",
       "url": "photos/19.jpg",
+      "thumbnailUrl": "thumbs/19.jpg",
       "heldOut": false,
       "sha256": "faea10854b84a1b8e158310b39d8b6cb2dd3b8393ef20df6ac27c4e05d3b18d4"
     },
@@ -1080,6 +1100,7 @@
       "height": 667,
       "image_name": "0020-007058f805204acca7390971f5b8c963.jpg",
       "url": "photos/20.jpg",
+      "thumbnailUrl": "thumbs/20.jpg",
       "heldOut": false,
       "sha256": "b979b95fb094c3ebfbe6c85a35c22165a3f1455a926aac8cbceecdfb76ed25cc"
     },
@@ -1131,6 +1152,7 @@
       "height": 667,
       "image_name": "0021-ace7c463ee144c90a3ffbf3234ba84a5.jpg",
       "url": "photos/21.jpg",
+      "thumbnailUrl": "thumbs/21.jpg",
       "heldOut": false,
       "sha256": "3d36ad686f9501987f984c5941ff4d189a410dc6543ae7cac321784388d58cc1"
     },
@@ -1182,6 +1204,7 @@
       "height": 667,
       "image_name": "0022-ac6f4c159df04d368a358dd4997ff411.jpg",
       "url": "photos/22.jpg",
+      "thumbnailUrl": "thumbs/22.jpg",
       "heldOut": false,
       "sha256": "6c6e11f45f997445d2f1472f18e5f9487e515372e43856e86afaf7a8cf327f40"
     },
@@ -1233,6 +1256,7 @@
       "height": 667,
       "image_name": "0023-d9130d0a5c0d43788e3f51a474a4db2e.jpg",
       "url": "photos/23.jpg",
+      "thumbnailUrl": "thumbs/23.jpg",
       "heldOut": false,
       "sha256": "1c1e90e6fe5c003be13a78263d4de711f5772c11d8782f7dcc542b31c058c1ce"
     },
@@ -1284,6 +1308,7 @@
       "height": 667,
       "image_name": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
       "url": "photos/24.jpg",
+      "thumbnailUrl": "thumbs/24.jpg",
       "heldOut": true,
       "sha256": "dcf7f83660a4ea75b9ce3a1b1a3b2892f8b6d0885229fe309f3b02f434aaf669"
     },
@@ -1335,6 +1360,7 @@
       "height": 667,
       "image_name": "0025-4e947891805f4e808d4485b71e019539.jpg",
       "url": "photos/25.jpg",
+      "thumbnailUrl": "thumbs/25.jpg",
       "heldOut": false,
       "sha256": "3eb949e212f40d5dcf9581bb0c420d29e6c3a7122ed7c3dbd186228c0fbdc6fa"
     }

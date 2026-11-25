@@ -23,6 +23,13 @@ def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def write_thumbnail(photo: Path, target: Path):
+    target.parent.mkdir(parents=True, exist_ok=True)
+    with Image.open(photo) as image:
+        image.thumbnail((200, 200), Image.Resampling.LANCZOS)
+        image.save(target, format="JPEG", quality=90)
+
+
 def grid_triangles(points, valid, max_relative_edge=0.07):
     h, w = valid.shape
     ids = np.arange(h * w).reshape(h, w)
@@ -381,6 +388,8 @@ def prepare(webscan, scene, resolution=1024, stride=3):
         im.thumbnail((resolution, resolution), Image.Resampling.LANCZOS)
         photo = output / "photos" / f"{i:02}.jpg"
         im.save(photo, quality=95)
+        thumbnail = Path("thumbs") / photo.name
+        write_thumbnail(photo, output / thumbnail)
         k = np.array(v["K"])
         k[0] *= im.width / v["width"]
         k[1] *= im.height / v["height"]
@@ -392,6 +401,7 @@ def prepare(webscan, scene, resolution=1024, stride=3):
                 "height": im.height,
                 "image_name": v["image_name"],
                 "url": f"photos/{i:02}.jpg",
+                "thumbnailUrl": thumbnail.as_posix(),
                 "heldOut": v["image_name"] in eval_names,
                 "sha256": digest(Path(v["image"])),
             }

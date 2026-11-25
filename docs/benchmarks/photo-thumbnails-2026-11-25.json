@@ -1,0 +1,803 @@
+{
+  "baseline": "87515e31ea944648065f08de2b6e1f1a20bab491",
+  "previewDimensions": {
+    "1x": [
+      60,
+      42
+    ],
+    "3x": [
+      180,
+      126
+    ]
+  },
+  "order": [
+    "PSNR_dB",
+    "SSIM_RGB"
+  ],
+  "scenes": {
+    "pipes": [
+      {
+        "file": "00.jpg",
+        "referenceBytes": 159332,
+        "thumbnailBytes": 8090,
+        "1x": [
+          42.149,
+          0.994577
+        ],
+        "3x": [
+          34.7664,
+          0.962031
+        ]
+      },
+      {
+        "file": "01.jpg",
+        "referenceBytes": 153762,
+        "thumbnailBytes": 7813,
+        "1x": [
+          43.1235,
+          0.995893
+        ],
+        "3x": [
+          35.2922,
+          0.965206
+        ]
+      },
+      {
+        "file": "02.jpg",
+        "referenceBytes": 151583,
+        "thumbnailBytes": 7751,
+        "1x": [
+          42.7857,
+          0.995693
+        ],
+        "3x": [
+          35.6937,
+          0.969958
+        ]
+      },
+      {
+        "file": "03.jpg",
+        "referenceBytes": 147989,
+        "thumbnailBytes": 7098,
+        "1x": [
+          41.9047,
+          0.994103
+        ],
+        "3x": [
+          35.5963,
+          0.9651
+        ]
+      },
+      {
+        "file": "04.jpg",
+        "referenceBytes": 158101,
+        "thumbnailBytes": 7530,
+        "1x": [
+          42.3821,
+          0.994802
+        ],
+        "3x": [
+          35.1871,
+          0.965062
+        ]
+      },
+      {
+        "file": "05.jpg",
+        "referenceBytes": 137115,
+        "thumbnailBytes": 5860,
+        "1x": [
+          44.9103,
+          0.995545
+        ],
+        "3x": [
+          37.5351,
+          0.976184
+        ]
+      },
+      {
+        "file": "06.jpg",
+        "referenceBytes": 141723,
+        "thumbnailBytes": 6409,
+        "1x": [
+          44.8667,
+          0.99545
+        ],
+        "3x": [
+          37.5586,
+          0.975395
+        ]
+      },
+      {
+        "file": "07.jpg",
+        "referenceBytes": 145955,
+        "thumbnailBytes": 6625,
+        "1x": [
+          44.4757,
+          0.996137
+        ],
+        "3x": [
+          37.324,
+          0.973786
+        ]
+      },
+      {
+        "file": "08.jpg",
+        "referenceBytes": 169953,
+        "thumbnailBytes": 8817,
+        "1x": [
+          41.0478,
+          0.994084
+        ],
+        "3x": [
+          34.2248,
+          0.965345
+        ]
+      },
+      {
+        "file": "09.jpg",
+        "referenceBytes": 190526,
+        "thumbnailBytes": 9590,
+        "1x": [
+          41.4018,
+          0.993927
+        ],
+        "3x": [
+          34.3684,
+          0.963799
+        ]
+      },
+      {
+        "file": "10.jpg",
+        "referenceBytes": 179655,
+        "thumbnailBytes": 9028,
+        "1x": [
+          42.2233,
+          0.995136
+        ],
+        "3x": [
+          34.7534,
+          0.967138
+        ]
+      },
+      {
+        "file": "11.jpg",
+        "referenceBytes": 186450,
+        "thumbnailBytes": 9373,
+        "1x": [
+          40.9517,
+          0.994535
+        ],
+        "3x": [
+          34.0438,
+          0.963257
+        ]
+      },
+      {
+        "file": "12.jpg",
+        "referenceBytes": 151411,
+        "thumbnailBytes": 6665,
+        "1x": [
+          43.609,
+          0.996297
+        ],
+        "3x": [
+          36.1022,
+          0.976068
+        ]
+      },
+      {
+        "file": "13.jpg",
+        "referenceBytes": 146380,
+        "thumbnailBytes": 6446,
+        "1x": [
+          44.5917,
+          0.995953
+        ],
+        "3x": [
+          37.3979,
+          0.97511
+        ]
+      }
+    ],
+    "office": [
+      {
+        "file": "00.jpg",
+        "referenceBytes": 131949,
+        "thumbnailBytes": 7348,
+        "1x": [
+          43.9092,
+          0.995612
+        ],
+        "3x": [
+          37.313,
+          0.974633
+        ]
+      },
+      {
+        "file": "01.jpg",
+        "referenceBytes": 129546,
+        "thumbnailBytes": 7088,
+        "1x": [
+          43.7879,
+          0.995576
+        ],
+        "3x": [
+          37.5222,
+          0.976415
+        ]
+      },
+      {
+        "file": "02.jpg",
+        "referenceBytes": 105932,
+        "thumbnailBytes": 5455,
+        "1x": [
+          46.2256,
+          0.995497
+        ],
+        "3x": [
+          40.3644,
+          0.979929
+        ]
+      },
+      {
+        "file": "03.jpg",
+        "referenceBytes": 82135,
+        "thumbnailBytes": 3663,
+        "1x": [
+          48.5572,
+          0.99436
+        ],
+        "3x": [
+          43.6274,
+          0.984393
+        ]
+      },
+      {
+        "file": "04.jpg",
+        "referenceBytes": 80257,
+        "thumbnailBytes": 3457,
+        "1x": [
+          47.6428,
+          0.993402
+        ],
+        "3x": [
+          43.2076,
+          0.9837
+        ]
+      },
+      {
+        "file": "05.jpg",
+        "referenceBytes": 85811,
+        "thumbnailBytes": 3948,
+        "1x": [
+          47.7589,
+          0.994078
+        ],
+        "3x": [
+          43.4992,
+          0.983279
+        ]
+      },
+      {
+        "file": "06.jpg",
+        "referenceBytes": 128664,
+        "thumbnailBytes": 7085,
+        "1x": [
+          44.0937,
+          0.995162
+        ],
+        "3x": [
+          37.56,
+          0.974272
+        ]
+      },
+      {
+        "file": "07.jpg",
+        "referenceBytes": 112274,
+        "thumbnailBytes": 5568,
+        "1x": [
+          46.577,
+          0.994315
+        ],
+        "3x": [
+          40.8817,
+          0.977376
+        ]
+      },
+      {
+        "file": "08.jpg",
+        "referenceBytes": 88351,
+        "thumbnailBytes": 4001,
+        "1x": [
+          48.0029,
+          0.99536
+        ],
+        "3x": [
+          42.8384,
+          0.984212
+        ]
+      },
+      {
+        "file": "09.jpg",
+        "referenceBytes": 89000,
+        "thumbnailBytes": 4132,
+        "1x": [
+          47.8489,
+          0.994353
+        ],
+        "3x": [
+          43.0047,
+          0.983917
+        ]
+      },
+      {
+        "file": "10.jpg",
+        "referenceBytes": 127622,
+        "thumbnailBytes": 4572,
+        "1x": [
+          48.3754,
+          0.995751
+        ],
+        "3x": [
+          41.923,
+          0.977408
+        ]
+      },
+      {
+        "file": "11.jpg",
+        "referenceBytes": 160137,
+        "thumbnailBytes": 5715,
+        "1x": [
+          46.4914,
+          0.99492
+        ],
+        "3x": [
+          40.0736,
+          0.970086
+        ]
+      },
+      {
+        "file": "12.jpg",
+        "referenceBytes": 149328,
+        "thumbnailBytes": 5886,
+        "1x": [
+          45.4075,
+          0.994387
+        ],
+        "3x": [
+          39.8812,
+          0.971801
+        ]
+      },
+      {
+        "file": "13.jpg",
+        "referenceBytes": 135013,
+        "thumbnailBytes": 5720,
+        "1x": [
+          46.3964,
+          0.995226
+        ],
+        "3x": [
+          40.4268,
+          0.976406
+        ]
+      },
+      {
+        "file": "14.jpg",
+        "referenceBytes": 131853,
+        "thumbnailBytes": 5064,
+        "1x": [
+          47.1251,
+          0.995365
+        ],
+        "3x": [
+          41.1761,
+          0.975868
+        ]
+      },
+      {
+        "file": "15.jpg",
+        "referenceBytes": 157946,
+        "thumbnailBytes": 6126,
+        "1x": [
+          45.8162,
+          0.995431
+        ],
+        "3x": [
+          39.6083,
+          0.969908
+        ]
+      },
+      {
+        "file": "16.jpg",
+        "referenceBytes": 151130,
+        "thumbnailBytes": 8303,
+        "1x": [
+          42.4211,
+          0.996903
+        ],
+        "3x": [
+          35.7566,
+          0.973094
+        ]
+      },
+      {
+        "file": "17.jpg",
+        "referenceBytes": 137287,
+        "thumbnailBytes": 7472,
+        "1x": [
+          43.5918,
+          0.99635
+        ],
+        "3x": [
+          37.2621,
+          0.972332
+        ]
+      },
+      {
+        "file": "18.jpg",
+        "referenceBytes": 159244,
+        "thumbnailBytes": 8296,
+        "1x": [
+          42.1109,
+          0.996187
+        ],
+        "3x": [
+          35.3731,
+          0.972622
+        ]
+      },
+      {
+        "file": "19.jpg",
+        "referenceBytes": 127642,
+        "thumbnailBytes": 7347,
+        "1x": [
+          43.7788,
+          0.996137
+        ],
+        "3x": [
+          37.282,
+          0.973168
+        ]
+      },
+      {
+        "file": "20.jpg",
+        "referenceBytes": 137679,
+        "thumbnailBytes": 8030,
+        "1x": [
+          42.9502,
+          0.997137
+        ],
+        "3x": [
+          36.386,
+          0.972519
+        ]
+      },
+      {
+        "file": "21.jpg",
+        "referenceBytes": 139725,
+        "thumbnailBytes": 8318,
+        "1x": [
+          42.6786,
+          0.997151
+        ],
+        "3x": [
+          36.1951,
+          0.970769
+        ]
+      },
+      {
+        "file": "22.jpg",
+        "referenceBytes": 138899,
+        "thumbnailBytes": 8078,
+        "1x": [
+          43.2658,
+          0.996481
+        ],
+        "3x": [
+          36.6067,
+          0.974082
+        ]
+      },
+      {
+        "file": "23.jpg",
+        "referenceBytes": 139534,
+        "thumbnailBytes": 8423,
+        "1x": [
+          42.8891,
+          0.996528
+        ],
+        "3x": [
+          36.0699,
+          0.968423
+        ]
+      },
+      {
+        "file": "24.jpg",
+        "referenceBytes": 130693,
+        "thumbnailBytes": 7899,
+        "1x": [
+          43.3707,
+          0.996182
+        ],
+        "3x": [
+          36.6298,
+          0.969454
+        ]
+      },
+      {
+        "file": "25.jpg",
+        "referenceBytes": 138813,
+        "thumbnailBytes": 8335,
+        "1x": [
+          42.9267,
+          0.996963
+        ],
+        "3x": [
+          36.3235,
+          0.97372
+        ]
+      }
+    ]
+  },
+  "browser": "Chromium 156.0.8078.4",
+  "hardware": "Apple M5",
+  "os": "macOS 26.5.1",
+  "devicePixelRatio": 1,
+  "desktopNavigation": {
+    "baseline": {
+      "pipes": {
+        "photos": 14,
+        "encodedBodySize": 2219935,
+        "transferSize": 2224135,
+        "firstReferenceRequests": [],
+        "reference": [
+          "/scenes/pipes/photos/00.jpg",
+          1024,
+          673
+        ],
+        "firstHeldOutCanvases": [
+          {
+            "w": 768,
+            "h": 505,
+            "nonBlack": true,
+            "sha": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36"
+          },
+          {
+            "w": 768,
+            "h": 505,
+            "nonBlack": true,
+            "sha": "c3c2144e2ef68b0306e923997f7336302afc5ff7097be8b9a2926b6c5b78cdb9"
+          }
+        ]
+      },
+      "office": {
+        "photos": 26,
+        "encodedBodySize": 3296464,
+        "transferSize": 3304264,
+        "firstReferenceRequests": [],
+        "reference": [
+          "/scenes/office/photos/00.jpg",
+          1024,
+          667
+        ],
+        "firstHeldOutCanvases": [
+          {
+            "w": 768,
+            "h": 500,
+            "nonBlack": true,
+            "sha": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3"
+          },
+          {
+            "w": 768,
+            "h": 500,
+            "nonBlack": true,
+            "sha": "ac95a13722ceebb9e56bfeb53a925f674a5145242504fb1929e44f4b8b66a4e7"
+          }
+        ]
+      }
+    },
+    "candidate": {
+      "pipes": {
+        "photos": 14,
+        "encodedBodySize": 107095,
+        "transferSize": 111295,
+        "firstReferenceRequests": [
+          {
+            "file": "photos/00.jpg",
+            "encoded": 159332,
+            "transfer": 159632
+          }
+        ],
+        "reference": [
+          "/scenes/pipes/photos/00.jpg",
+          1024,
+          673
+        ],
+        "firstHeldOutCanvases": [
+          {
+            "w": 768,
+            "h": 505,
+            "nonBlack": true,
+            "sha": "9114d1af11588b327d62ba056d269d7a41661c28dc6d0c5d1182c93020ca2a36"
+          },
+          {
+            "w": 768,
+            "h": 505,
+            "nonBlack": true,
+            "sha": "c3c2144e2ef68b0306e923997f7336302afc5ff7097be8b9a2926b6c5b78cdb9"
+          }
+        ]
+      },
+      "office": {
+        "photos": 26,
+        "encodedBodySize": 165329,
+        "transferSize": 173129,
+        "firstReferenceRequests": [
+          {
+            "file": "photos/00.jpg",
+            "encoded": 131949,
+            "transfer": 132249
+          }
+        ],
+        "reference": [
+          "/scenes/office/photos/00.jpg",
+          1024,
+          667
+        ],
+        "firstHeldOutCanvases": [
+          {
+            "w": 768,
+            "h": 500,
+            "nonBlack": true,
+            "sha": "ecf514d8b21f87434b737739c78235ddef1652f95cab076ba31af8a84a92bef3"
+          },
+          {
+            "w": 768,
+            "h": 500,
+            "nonBlack": true,
+            "sha": "ac95a13722ceebb9e56bfeb53a925f674a5145242504fb1929e44f4b8b66a4e7"
+          }
+        ]
+      }
+    }
+  },
+  "matchingBaselineAndCandidateRenders": {
+    "pipes": {
+      "quality": {
+        "resolution": [
+          768,
+          505
+        ],
+        "views": [
+          {
+            "index": 0,
+            "name": "0000-2bd85cc2e3134090b614199e2671400c.jpg",
+            "gaussian": {
+              "psnr": 18.7454079234687,
+              "ssim": 0.7833699625373709,
+              "mae": 23.128159378437843
+            },
+            "mesh": {
+              "psnr": 16.203956014134363,
+              "ssim": 0.6405673672234332,
+              "mae": 24.89255277090209
+            }
+          },
+          {
+            "index": 8,
+            "name": "0008-c7b3f806b12a4caf9962b87c64e03392.jpg",
+            "gaussian": {
+              "psnr": 13.792416915886214,
+              "ssim": 0.6784728649187745,
+              "mae": 43.79629228547855
+            },
+            "mesh": {
+              "psnr": 10.703182508757498,
+              "ssim": 0.44565281751496727,
+              "mae": 55.57786286441144
+            }
+          }
+        ],
+        "averages": {
+          "gaussian": {
+            "psnr": 16.268912419677456,
+            "ssim": 0.7309214137280726,
+            "mae": 33.46222583195819
+          },
+          "mesh": {
+            "psnr": 13.453569261445931,
+            "ssim": 0.5431100923692003,
+            "mae": 40.235207817656764
+          }
+        }
+      },
+      "orbit": [
+        "d749bf5bd80d603d2f692393a1098ff0ba5ee7560ede5a1e3cd4cd301805542e",
+        "bea29c40023ebb1dc8cdfdfe04aa71b91b495d6ac58f81380207860d9e125142"
+      ]
+    },
+    "office": {
+      "quality": {
+        "resolution": [
+          768,
+          500
+        ],
+        "views": [
+          {
+            "index": 0,
+            "name": "0000-d6b9e20971974066a4e7b9aa5a6d7dbf.jpg",
+            "gaussian": {
+              "psnr": 20.14224972070788,
+              "ssim": 0.854074841185931,
+              "mae": 19.42663628472222
+            },
+            "mesh": {
+              "psnr": 12.908715161761181,
+              "ssim": 0.5523269728757447,
+              "mae": 43.283671875
+            }
+          },
+          {
+            "index": 8,
+            "name": "0008-1c6da61406eb4744893572435799058c.jpg",
+            "gaussian": {
+              "psnr": 18.609404955593412,
+              "ssim": 0.9030411354183728,
+              "mae": 24.478438368055556
+            },
+            "mesh": {
+              "psnr": 13.659212822977622,
+              "ssim": 0.7938037629857664,
+              "mae": 35.42440972222222
+            }
+          },
+          {
+            "index": 16,
+            "name": "0016-69c038bffab749d38aa143d9c0f0d1fe.jpg",
+            "gaussian": {
+              "psnr": 15.281057627991563,
+              "ssim": 0.7627602027580822,
+              "mae": 36.04847569444444
+            },
+            "mesh": {
+              "psnr": 13.199993005936507,
+              "ssim": 0.514409906920705,
+              "mae": 41.8853125
+            }
+          },
+          {
+            "index": 24,
+            "name": "0024-3c37121ca00f4afb9fe71c76daf95848.jpg",
+            "gaussian": {
+              "psnr": 21.781069172415165,
+              "ssim": 0.8361942484912689,
+              "mae": 15.425102430555556
+            },
+            "mesh": {
+              "psnr": 13.618649893923978,
+              "ssim": 0.5806073766403183,
+              "mae": 34.43380555555556
+            }
+          }
+        ],
+        "averages": {
+          "gaussian": {
+            "psnr": 18.953445369177004,
+            "ssim": 0.8390176069634138,
+            "mae": 23.844663194444443
+          },
+          "mesh": {
+            "psnr": 13.346642721149822,
+            "ssim": 0.6102870048556336,
+            "mae": 38.75679991319444
+          }
+        }
+      },
+      "orbit": [
+        "cc962634dc74e0dfbbfda75501679e5d304b9c445e6881bd63cdfd90fadf8e20",
+        "da2c6021fab7fc7219b03b2010faf2b389052f7e8cbdff6eee30ac3abf1ddcd7"
+      ]
+    }
+  }
+}

@@ -1,6 +1,14 @@
 # 3DGS 研究索引
 
-查阅日期：2026-11-24。以下区分已验证的应用改进与尚未验证收益的研究候选。
+查阅日期：2026-11-25。以下区分已验证的应用改进与尚未验证收益的研究候选。
+
+## 2026-11-25 · 视角导航与原图读取
+
+Snavely、Seitz、Szeliski 在 SIGGRAPH 2006 的 Photo Tourism 中用缩略图栏选择照片，再显示选中照片的完整分辨率。作者公开的 Bundler 是 SfM 部分。本项目借鉴浏览方式，未引入其重建代码。[论文 §5](https://phototour.cs.washington.edu/Photo_Tourism.pdf) · [作者项目页](https://phototour.cs.washington.edu/)
+
+SuperSplat Viewer 的浏览器入口分别接收海报和模型 URL，海报可先作为 HTML 图像加载。11 月 10 日的提交调整了不同模型格式的预取分支，11 月 17 日发布的 v1.43.3（MIT）保留独立海报路径。该实现用于场景海报，本项目将类似的资源选择用于照片条；普通 JPEG 解码与 WebGL2、WebGPU、Metal 或 CUDA 渲染后端无关。[相关提交](https://github.com/playcanvas/supersplat-viewer/commit/fa9812e5808cad5ee600c047bc1ddc87e28108ab) · [版本说明](https://github.com/playcanvas/supersplat-viewer/releases/tag/v1.43.3) · [入口实现](https://github.com/playcanvas/supersplat-viewer/blob/v1.43.3/src/index.html#L85-L96) · [许可证](https://github.com/playcanvas/supersplat-viewer/blob/v1.43.3/LICENSE)
+
+在 pipes 和 office 中，长边 200 像素的导航图降低了实际请求字节；三倍显示尺寸的缩略图存在细节损失。原图按需下载，六个留出视角仍从相同参考 JPEG 评分。实测覆盖 Chromium / WebGL2，其他浏览器及真实 CDN 耗时待验证。[照片条实验](PHOTO-THUMBNAILS.md)
 
 ## 实现
 

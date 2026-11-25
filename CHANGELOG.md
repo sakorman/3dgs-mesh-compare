@@ -1,5 +1,11 @@
 # 更新日志
 
+## 2026-11-25 · 照片条按显示尺寸加载
+
+- 全部浏览管道房 14 张、办公室 26 张照片时，导航 JPEG 分别从 2,219,935 B 降到 107,095 B、从 3,296,464 B 降到 165,329 B。首次对照原照片时两侧共用一次下载。[测量方法与截图](docs/PHOTO-THUMBNAILS.md)
+- 60 × 42 尺寸下两场景缩略图的平均 SSIM 为 0.9952、0.9956；三倍尺寸下降至 0.9688、0.9755。六个留出视角的模型评分和固定拖动后的画面均与基线一致。[逐图数据](docs/benchmarks/photo-thumbnails-2026-11-25.json)
+- 旧清单继续使用原照片作导航图。导航预览与原图分开取材参考了 [Photo Tourism 论文](https://phototour.cs.washington.edu/Photo_Tourism.pdf)与 [SuperSplat Viewer 独立海报实现](https://github.com/playcanvas/supersplat-viewer/blob/v1.43.3/src/index.html#L85-L96)。
+
 ## 2026-11-24 · 切换场景时撤下旧画面
 
 - 修复办公室加载期间仍显示管道房照片、模型数量和评测数据的问题。两侧模型就绪后再显示对应画面。
