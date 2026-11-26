@@ -1,5 +1,11 @@
 # 更新日志
 
+## 2026-11-26 · 原照片对照等两侧解码完成后显示
+
+- 修复原照片下载失败时将两侧重建画面标为“原照片”的问题。等待期间继续显示模型，失败后可直接重试；切换视角或取消会撤下旧照片。[故障截图与复现](docs/PHOTO-THUMBNAILS.md#原照片对照的加载与失败)
+- 在桌面评测页和窄屏首页验证延迟、HTTP 503、损坏 JPEG、重试与迟到响应。两场景成功重试后的照片截图与基线一致，六个留出视角评分、四幅固定拖动后的画面摘要一致。
+- 补充单侧解码延迟的[浏览器回归](tests/browser/reference-overlay.ts)，160 项单元回归、类型检查与生产构建通过。显示条件参考 [HTML 图像解码标准](https://html.spec.whatwg.org/multipage/embedded-content.html#dom-img-decode)、[Photo Tourism](https://phototour.cs.washington.edu/Photo_Tourism.pdf) 和 [SuperSplat 解码完成与失败处理](https://github.com/playcanvas/supersplat-viewer/blob/v1.43.3/src/gsaf/gsaf-player.ts#L132-L186)。
+
 ## 2026-11-25 · 照片条按显示尺寸加载
 
 - 全部浏览管道房 14 张、办公室 26 张照片时，导航 JPEG 分别从 2,219,935 B 降到 107,095 B、从 3,296,464 B 降到 165,329 B。首次对照原照片时两侧共用一次下载。[测量方法与截图](docs/PHOTO-THUMBNAILS.md)

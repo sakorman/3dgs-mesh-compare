@@ -2,6 +2,7 @@ import "./style.css";
 import { CompareViewer, nextFrame } from "./viewer";
 import { benchmark } from "./benchmark";
 import { quality } from "./metrics";
+import { decodeImage } from "./decode-image";
 import { bindPageLifecycle } from "./page-lifecycle";
 import type { Backend, Quality, SceneData } from "./types";
 const isBenchmark = document.documentElement.dataset.mode === "benchmark";
@@ -67,9 +68,11 @@ let loading = false;
 let viewIndex = 0;
 let ready = false;
 let controller: AbortController | undefined;
-let orbit = false,
-  wire = false,
-  reference = false;
+let orbit = false;
+let wire = false;
+let referenceRequest: AbortController | undefined;
+const referenceImages = Array.from(document.querySelectorAll<HTMLImageElement>(".reference"));
+const referenceLayers = document.querySelectorAll<HTMLElement>(".reference, .photo-label");
 let perf: Awaited<ReturnType<typeof benchmark>> | undefined;
 let qualityReport:
   | {
@@ -133,25 +136,42 @@ function showLoadTimings() {
   $("load-shared").textContent =
     `共用阶段：场景信息 ${phase("metadata")}；首帧准备与排序等待 ${phase("settle")}。`;
 }
-function showReference(value: boolean) {
-  reference = value;
-  document.querySelectorAll<HTMLImageElement>(".reference").forEach((img) => {
-    img.hidden = !value;
-    if (value) img.src = `${import.meta.env.BASE_URL}scenes/${sceneId}/${data.views[viewIndex].url}`;
-    else img.removeAttribute("src");
-  });
-  document
-    .querySelectorAll<HTMLElement>(".photo-label")
-    .forEach((l) => (l.hidden = !value));
-  button("reference").setAttribute("aria-pressed", String(value));
-  button("reference").textContent = value ? "返回重建模型" : "对照原照片";
+function hideReference() {
+  if (referenceRequest) status("已返回当前视角的重建模型。");
+  referenceRequest?.abort();
+  referenceRequest = undefined;
+  for (const layer of referenceLayers) layer.hidden = true;
+  for (const image of referenceImages) image.removeAttribute("src");
+  button("reference").setAttribute("aria-pressed", "false");
+  button("reference").textContent = "对照原照片";
+}
+async function showReference() {
+  hideReference();
+  const request = new AbortController();
+  referenceRequest = request;
+  button("reference").setAttribute("aria-pressed", "true");
+  button("reference").textContent = "取消原照片加载";
+  status("正在加载当前视角的原照片…");
+  const url = `${import.meta.env.BASE_URL}scenes/${sceneId}/${data.views[viewIndex].url}`;
+  try {
+    await Promise.all(referenceImages.map(image => decodeImage(image, url, request.signal)));
+  } catch {
+    if (request.signal.aborted) return;
+    hideReference();
+    status("原照片加载失败，可点击「对照原照片」重试。", true);
+    return;
+  }
+  if (request.signal.aborted) return;
+  for (const layer of referenceLayers) layer.hidden = false;
+  button("reference").textContent = "返回重建模型";
+  status("当前视角的原照片已就绪。");
 }
 function setOrbit(value: boolean) {
   orbit = value;
   viewer.orbit(value);
   button("orbit").setAttribute("aria-pressed", String(value));
   button("orbit").textContent = value ? "返回拍摄视角" : "自由查看";
-  if (value) showReference(false);
+  if (value) hideReference();
 }
 function setWire(value: boolean) {
   wire = value;
@@ -162,7 +182,7 @@ function selectView(index: number) {
   viewIndex = index;
   viewer.setView(data.views[index]);
   setOrbit(false);
-  showReference(reference);
+  if (referenceRequest) void showReference();
   $<HTMLSelectElement>("view").value = String(index);
   $("split-badge").textContent = data.views[index].heldOut
     ? "留出视角"
@@ -184,7 +204,7 @@ function clearSceneDisplay(info: string, count = "未加载") {
   $("scene-info").textContent = info;
   // The WebGL buffers retain their last frame, even after the scene is detached.
   $("viewports").classList.add("awaiting-scene");
-  showReference(false);
+  hideReference();
   if (orbit) setOrbit(false);
   if (wire) setWire(false);
   $("view").replaceChildren();
@@ -281,7 +301,7 @@ function message(e: unknown) {
 function standard() {
   setOrbit(false);
   setWire(false);
-  showReference(false);
+  hideReference();
   viewer.setView(data.views[viewIndex]);
 }
 function begin() {
@@ -455,11 +475,12 @@ button("reset").onclick = () => {
 };
 button("wire").onclick = () => {
   setWire(!wire);
-  if (wire) showReference(false);
+  if (wire) hideReference();
 };
 button("reference").onclick = () => {
   if (orbit) setOrbit(false);
-  showReference(!reference);
+  if (referenceRequest) hideReference();
+  else void showReference();
 };
 $<HTMLSelectElement>("view").onchange = (e) =>
   selectView(Number((e.target as HTMLSelectElement).value));
@@ -527,6 +548,7 @@ try {
   viewer.onError = (s) => {
     // Invalidate completions before aborting; their catch/finally must not revive the page.
     viewerError = s;
+    hideReference();
     ++loadRequest;
     loading = false;
     controller?.abort();
@@ -549,7 +571,10 @@ try {
         (renderer) => !renderer.getContext().isContextLost(),
       ),
     restore: () => viewer.refreshPreview(),
-    dispose: () => viewer.dispose(),
+    dispose: () => {
+      hideReference();
+      viewer.dispose();
+    },
     reload: () => window.location.reload(),
   });
   await loadScene("pipes");

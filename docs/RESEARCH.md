@@ -1,6 +1,12 @@
 # 3DGS 研究索引
 
-查阅日期：2026-11-25。以下区分已验证的应用改进与尚未验证收益的研究候选。
+查阅日期：2026-11-26。以下区分已验证的应用改进与尚未验证收益的研究候选。
+
+## 2026-11-26 · 解码完成后再显示原照片
+
+Photo Tourism §5.2 将选中照片的完整图像与对应相机对齐。这里的显示条件还取决于浏览器解码。HTML 标准规定，图像请求失败或在解码期间换源时，`decode()` 可拒绝；新视角应接管两侧的显示，旧请求的失败也应随之失效。两场景已用损坏 JPEG、延迟响应和快速切换验证。[论文](https://phototour.cs.washington.edu/Photo_Tourism.pdf) · [HTML 标准](https://html.spec.whatwg.org/multipage/embedded-content.html#dom-img-decode) · [实测](PHOTO-THUMBNAILS.md#原照片对照的加载与失败)
+
+SuperSplat Viewer 于 2026-10-22 引入 GSAF 播放器，11-17 发布的 v1.43.3 仍区分播放位置、已显示帧和解码失败。该播放器在 WebGPU 上播放动画，WebGL 显示首帧；本项目的 JPEG 对照由 DOM 管理，已在 Chromium / WebGL2 验证。此项没有 Metal 或 CUDA 性能数据。[作者提交](https://github.com/playcanvas/supersplat-viewer/commit/3aec4aa6cf4b1ac3c9bcf8917db321735ecaf751) · [解码及状态更新](https://github.com/playcanvas/supersplat-viewer/blob/v1.43.3/src/gsaf/gsaf-player.ts#L132-L186) · [发布说明](https://github.com/playcanvas/supersplat-viewer/releases/tag/v1.43.3) · [MIT 许可](https://github.com/playcanvas/supersplat-viewer/blob/v1.43.3/LICENSE)
 
 ## 2026-11-25 · 视角导航与原图读取
 
