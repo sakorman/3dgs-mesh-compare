@@ -109,3 +109,17 @@ export async function readPlyResponse(
 export function decodePly(raw: ArrayBuffer): Promise<ArrayBuffer> {
   return readPlyResponse(new Response(raw));
 }
+
+/** Check the decoded GLB response against the selected scene before parsing it. */
+export function validateGlbHeader(bytes: ArrayBuffer, expectedBytes: number): void {
+  if (bytes.byteLength < 12) throw new Error("Mesh 模型 GLB 文件头不完整");
+  const header = new DataView(bytes, 0, 12);
+  if (header.getUint32(0, true) !== 0x46546c67)
+    throw new Error("Mesh 模型 GLB 文件头无效");
+  if (header.getUint32(4, true) !== 2)
+    throw new Error("Mesh 模型需要 GLB 2 版本");
+  if (header.getUint32(8, true) !== bytes.byteLength)
+    throw new Error("Mesh 模型 GLB 声明长度与实际长度不符");
+  if (bytes.byteLength !== expectedBytes)
+    throw new Error("Mesh 模型长度与场景记录不符");
+}

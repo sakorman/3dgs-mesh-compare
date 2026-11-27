@@ -1,6 +1,12 @@
 # 3DGS 研究索引
 
-查阅日期：2026-11-26。以下区分已验证的应用改进与尚未验证收益的研究候选。
+查阅日期：2026-11-27。以下区分已验证的应用改进与尚未验证收益的研究候选。
+
+## 2026-11-27 · GLB 文件头与场景清单
+
+glTF 2.0 规定 GLB 前 12 字节按小端记录标识、版本和整个容器的字节数。项目锁定的 Three.js r180（2025-09-03，MIT）按声明长度遍历块，在此处拒绝低于 2 的版本。Khronos Validator 在读取时核对版本、尾随字节和最终长度。核对版本为 2026-11-24 的主分支 `40a561d`（Apache-2.0），该提交仅整理文件末尾换行；已发布的预览版 dev.3.10 日期为 2024-10-22。[GLB 规范 §4.4](https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html#binary-gltf-layout) · [Three.js r180](https://github.com/mrdoob/three.js/releases/tag/r180) · [GLTFLoader](https://github.com/mrdoob/three.js/blob/r180/examples/jsm/loaders/GLTFLoader.js#L1914-L1975) · [Validator 读取器](https://github.com/KhronosGroup/glTF-Validator/blob/40a561dad1bfaee4f1adbcb3d0fb0718fdf6b200/lib/src/glb_reader.dart) · [预览版发行记录](https://github.com/KhronosGroup/glTF-Validator/releases/tag/2.0.0-dev.3.10)
+
+Han 等的 WebSplatter 论文研究 WebGPU 上的排序与绘制。作者的 GLB Worker 先检查标识、版本和 JSON/BIN 块，再读取高斯扩展。代码核对至 2026-08-29 的 `16bb06e`（MIT）。本项目双场景互换还需要对照所选场景清单，文件头本身无法区分两个合法模型。字节检查运行在 JavaScript，可独立于图形后端；此次在 Chromium WebGL2 实测，WebGPU、原生 Metal 和 CUDA 均未测。[论文原文](https://arxiv.org/html/2602.03207v1) · [作者的 GLB 读取实现](https://github.com/websplatter/WebSplatter/blob/16bb06e86b8fb12193d4bb4cd2b0b3d4f3ab62be/src/workers/gltf-worker.ts#L275-L307) · [本地错配与重试](LOAD-CANCEL.md#mesh-响应错配与重试2026-11-27)
 
 ## 2026-11-26 · 解码完成后再显示原照片
 

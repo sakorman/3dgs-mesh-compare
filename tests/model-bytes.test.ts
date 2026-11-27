@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { gzipSync } from "node:zlib";
-import { decodePly } from "../src/model-bytes";
+import { decodePly, validateGlbHeader } from "../src/model-bytes";
 test("accepts both HTTP-inflated PLY and raw gzip assets", async () => {
   const raw = new TextEncoder().encode(
     "ply\nformat binary_little_endian 1.0\nend_header\n",
@@ -302,5 +302,47 @@ test("invalid decoded length cancels the body before its first pull", async () =
     }, { highWaterMark: 0 }));
     await assert.rejects(readPlyResponse(response, undefined, expected), /长度配置无效/);
     assert.equal(pulls, 0); assert.ok(cancelled); assert.equal(response.body!.locked, false);
+  }
+});
+
+function minimalGlb() {
+  const json = new TextEncoder().encode('{"asset":{"version":"2.0"}} ');
+  const glb = new ArrayBuffer(20 + json.length);
+  const header = new DataView(glb);
+  header.setUint32(0, 0x46546c67, true);
+  header.setUint32(4, 2, true);
+  header.setUint32(8, glb.byteLength, true);
+  header.setUint32(12, json.length, true);
+  header.setUint32(16, 0x4e4f534a, true);
+  new Uint8Array(glb, 20).set(json);
+  return glb;
+}
+
+test("accepts a GLB 2 body matching the scene manifest", () => {
+  const glb = minimalGlb();
+  assert.doesNotThrow(() => validateGlbHeader(glb, glb.byteLength));
+});
+
+test("rejects another scene's valid GLB and an invalid manifest size", () => {
+  const glb = minimalGlb();
+  for (const size of [glb.byteLength + 4, glb.byteLength - 4, NaN])
+    assert.throws(() => validateGlbHeader(glb, size), /场景记录/);
+});
+
+test("rejects incomplete headers, JSON glTF and other GLB versions", () => {
+  for (const size of [0, 11])
+    assert.throws(() => validateGlbHeader(new ArrayBuffer(size), size), /文件头/);
+  const json = new TextEncoder().encode('{"asset":{"version":"2.0"}}').buffer;
+  assert.throws(() => validateGlbHeader(json, json.byteLength), /文件头/);
+  const glb = minimalGlb();
+  new DataView(glb).setUint32(4, 3, true);
+  assert.throws(() => validateGlbHeader(glb, glb.byteLength), /版本/);
+});
+
+test("rejects GLB lengths that disagree with the body even when the manifest matches", () => {
+  const glb = minimalGlb();
+  for (const declared of [glb.byteLength + 4, glb.byteLength - 4]) {
+    new DataView(glb).setUint32(8, declared, true);
+    assert.throws(() => validateGlbHeader(glb, glb.byteLength), /声明长度/);
   }
 });

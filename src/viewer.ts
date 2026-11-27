@@ -3,7 +3,7 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { SparkRenderer, SplatMesh, SplatFileType } from "@sparkjsdev/spark";
 import { applyView } from "./camera";
-import { readPlyResponse } from "./model-bytes";
+import { readPlyResponse, validateGlbHeader } from "./model-bytes";
 import { RenderScheduler } from "./render-scheduler";
 import { settleFrames } from "./settle-frames";
 import { disposeMeshResources } from "./mesh-resources";
@@ -162,6 +162,7 @@ export class CompareViewer {
           if (!res.ok) throw new Error("Mesh 模型下载失败");
           const bytes = await res.arrayBuffer();
           load.check();
+          validateGlbHeader(bytes, data.mesh.bytes);
           readDone();
           const parseDone = clock.start("meshParse");
           const gltf = await new GLTFLoader().parseAsync(bytes, base);

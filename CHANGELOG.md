@@ -1,5 +1,12 @@
 # 更新日志
 
+## 2026-11-27 · 拒绝与场景不符的 Mesh 响应
+
+- 修复管道房和办公室互换 GLB 后仍显示“加载完成”的问题。解析前核对 GLB 2 文件头、实际字节数和所选场景的清单长度。
+- 桌面评测页和窄屏首页各通过 5 个 HTTP 200 故障检查。恢复正确文件后，可重试并取回两个场景的全部视角。[复现与截图](docs/LOAD-CANCEL.md#mesh-响应错配与重试2026-11-27)
+- 164 项回归、类型检查和生产构建通过。六个留出视角的评分、四幅拖动画面的像素摘要与基线一致。等长且文件头合法的内容替换仍可能通过。
+- 核对 [Khronos GLB 规范](https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html#binary-gltf-layout)、[Validator 读取器](https://github.com/KhronosGroup/glTF-Validator/blob/40a561dad1bfaee4f1adbcb3d0fb0718fdf6b200/lib/src/glb_reader.dart)及 [WebSplatter 论文](https://arxiv.org/html/2602.03207v1)与[作者实现](https://github.com/websplatter/WebSplatter/blob/16bb06e86b8fb12193d4bb4cd2b0b3d4f3ab62be/src/workers/gltf-worker.ts#L275-L307)。
+
 ## 2026-11-26 · 原照片对照等两侧解码完成后显示
 
 - 修复原照片下载失败时将两侧重建画面标为“原照片”的问题。等待期间继续显示模型，失败后可直接重试；切换视角或取消会撤下旧照片。[故障截图与复现](docs/PHOTO-THUMBNAILS.md#原照片对照的加载与失败)
